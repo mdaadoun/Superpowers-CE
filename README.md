@@ -58,6 +58,7 @@ superpowers-ce/
 │   └── site/                        # Reference articles & landing page from superpowers-html5.com
 │
 ├── package.json                     # Monorepo orchestrator scripts
+├── ROADMAP.md                       # Project vision, modernizations, and future milestones
 └── README.md
 ```
 
