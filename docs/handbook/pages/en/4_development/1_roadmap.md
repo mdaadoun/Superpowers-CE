@@ -21,12 +21,8 @@ This release will focus on making it easy to release and upgrade the major parts
  * Superpowers Game:
    * [Support drag'n'dropping assets from the asset tree into a scene](https://github.com/superpowers/superpowers-game/issues/30)
 
-## Previous releases
+## Releases
 
-Release notes for all releases can be found on GitHub:
+Release notes and downloads can be found on GitHub:
 
-  * [Client/Server releases](https://github.com/superpowers/superpowers-core/releases)
-  * [Launcher releases](https://github.com/superpowers/superpowers-app/releases)
-  * [Superpowers Game releases](https://github.com/superpowers/superpowers-game/releases)
-
-Release notes for other systems can be found on their own repository.
+  * [Superpowers-CE Releases](https://github.com/mdaadoun/Superpowers-CE/releases)

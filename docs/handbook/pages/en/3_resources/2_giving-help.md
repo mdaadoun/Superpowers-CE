@@ -21,4 +21,4 @@ If you find someone is not contributing positively, consider pointing it out to 
 
 If someone is being outright aggressive or insulting and you don't see them adopting a more positive attitude, it might be best to remove yourself from the discussion and wait for a moderator to intervene.
 
-As the Superpowers development team, we try to read and answer in the community's various communication channels whenever possible. You can [get in touch with us privately](mailto:team@sparklinlabs.com) if needed.
+As the Superpowers development team, we try to read and answer in the community's various communication channels whenever possible. You can [open an issue or discussion on GitHub](https://github.com/mdaadoun/Superpowers-CE) if needed.

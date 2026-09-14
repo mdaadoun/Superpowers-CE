@@ -21,4 +21,4 @@ Si vous pensez que quelqu'un ne contribue pas positivement, essayez de le lui fa
 
 Si quelqu'un est purement et simplement agressif ou insultant, et que vous ne les voyez pas adopter une attitude plus positive, le mieux est sans doute de vous retirer de la conversation et d'attendre l'intervention d'un modérateur.
 
-En tant qu'équipe de développement de Superpowers, nous essayons de lire et répondre via les divers canaux de communication de la communauté aussi souvent que possible. Vous pouvez [nous contacter en privé](mailto:team@sparklinlabs.com) si besoin.
+En tant qu'équipe de développement de Superpowers, nous essayons de lire et répondre via les divers canaux de communication de la communauté aussi souvent que possible. Vous pouvez [ouvrir un ticket ou une discussion sur GitHub](https://github.com/mdaadoun/Superpowers-CE) si besoin.

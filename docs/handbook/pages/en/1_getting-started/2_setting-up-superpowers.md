@@ -52,9 +52,9 @@ Once your server is open, <a href="https://www.google.com/search?q=my%20ip" targ
 It might be useful to run Superpowers on a headless server so that you don't have to keep your desktop computer on at all times.  
 This should work on any Linux server including a Raspberry Pi.
 
-  * Install the latest version of <a href="https://nodejs.org/" target="_blank">Node.js</a>.
-  * Download [the latest release of Superpowers Core](https://github.com/superpowers/superpowers-core/releases)  and `unzip` it.
-  * Run `node server start` at the root.
+  * Install Node.js.
+  * Download [the latest release of Superpowers CE](https://github.com/mdaadoun/Superpowers-CE/releases) or clone the repository.
+  * Run `node server start` at the root of `core/`.
 
 By default, Superpowers will store configuration and projects files in `$XDG_DATA_HOME/Superpowers` (or `~/.local/share/Superpowers` if `$XGD_DATA_HOME` is undefined). You can use the `--data-path=` option to override that behavior.
 

@@ -16,14 +16,12 @@ We also recommend using a text editor with good TypeScript support like [Visual 
 In a terminal, run the following commands:
 
 ```bash
-# Clone the core repository in superpowers/core
-git clone https://github.com/superpowers/superpowers-core superpowers/core
-cd superpowers/core
+# Clone the Superpowers-CE repository
+git clone https://github.com/mdaadoun/Superpowers-CE.git superpowers-ce
+cd superpowers-ce/core
 
-# Clone the Superpowers Game system in superpowers/core/systems/game
-git clone --recursive https://github.com/superpowers/superpowers-game systems/game
-
-# Build it all. This will take a few minutes.
+# Install dependencies and build core and all plugins
+npm install
 npm run build
 ```
 
@@ -43,7 +41,7 @@ Later, you can hit `Ctrl+C` in the terminal to stop the server.
 After updating the Git repositories or making changes, you'll need to rebuild.
 
 ```bash
-cd superpowers/core
+cd core
 
 # You can rebuild core and all systems with one command
 npm run build
@@ -64,8 +62,8 @@ The desktop app is powered by [Electron](http://electron.atom.io/).
 In a terminal, run the following commands:
 
 ```bash
-git clone https://github.com/superpowers/superpowers-app superpowers/app
-cd superpowers/app
+cd ../app
+npm install
 npm run build
 ```
 

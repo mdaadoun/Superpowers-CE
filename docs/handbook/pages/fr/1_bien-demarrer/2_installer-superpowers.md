@@ -52,9 +52,9 @@ Une fois que votre serveur est ouvert, <a href="https://www.google.fr/search?q=m
 Il peut être utile de lancer Superpowers sur un serveur sans interface graphique pour ne pas avoir besoin de garder allumé votre ordinateur de bureau tout le temps.  
 Les instructions suivantes devraient fonctionner avec la plupart des serveurs Linux, y compris sur un Raspberry Pi.
 
-  * Installez la dernière version de <a href="https://nodejs.org/" target="_blank">Node.js</a>.
-  * Téléchargez [la dernière version de Superpowers Core](https://github.com/superpowers/superpowers-core/releases) et décompressez-la avec `unzip`.
-  * Lancez `node server start` à la racine du dossier.
+  * Installez Node.js.
+  * Téléchargez [la dernière version de Superpowers CE](https://github.com/mdaadoun/Superpowers-CE/releases) ou clonez le dépôt.
+  * Lancez `node server start` à la racine de `core/`.
 
 Par défaut, Superpowers stocke les fichiers de configuration et de projets dans `$XDG_DATA_HOME/Superpowers` (ou `~/.local/share/Superpowers` si `$XGD_DATA_HOME` n'est pas défini). Vous pouvez utiliser l'option `--data-path=` pour changer cet emplacement.
 

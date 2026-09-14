@@ -8,16 +8,15 @@ It can be extended with plugins and lets you collaborate in real-time.
 Superpowers has been in development for over a year.
 It is a great IDE already but it is still evolving fast.
 
-We've decided to make it free and <a href="http://github.com/superpowers" target="_blank">open source</a>.
-If you like it, you can choose to support our work
-over at <a href="https://patreon.com/SparklinLabs" target="_blank">patreon.com/SparklinLabs</a>.
+We've decided to make it free and <a href="https://github.com/mdaadoun/Superpowers-CE" target="_blank">open source</a>.
+If you like it, you can star and contribute to the project on GitHub.
 
-<a href="http://superpowers-html5.com/" target="_blank">
+<a href="../../index.en.html">
   <img src="http://i.imgur.com/jdtBCpV.png" alt="Superpowers IDE" height="300" /> 
   <img src="http://i.imgur.com/rDSabRb.gif" alt="Superpowers demo" height="300" />
 </a>
 
-You can [contribute to this documentation on GitHub](https://github.com/superpowers/docs.superpowers-html5.com).
+You can [contribute to this project on GitHub](https://github.com/mdaadoun/Superpowers-CE).
 
 ## Conventions
 

@@ -38,14 +38,12 @@ like <a href="http://gitextensions.github.io/">GitExtensions</a>, <a href="https
 <p>We also recommend using a text editor with good TypeScript support like <a href="https://code.visualstudio.com/">Visual Studio Code</a> for development.</p>
 <h2 id="building-superpowers-core-and-systems">Building Superpowers core and systems</h2>
 <p>In a terminal, run the following commands:</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># Clone the core repository in superpowers/core</span>
-git <span class="hljs-built_in">clone</span> https://github.com/superpowers/superpowers-core superpowers/core
-<span class="hljs-built_in">cd</span> superpowers/core
+<pre><code class="lang-bash"><span class="hljs-comment"># Clone the Superpowers-CE repository</span>
+git <span class="hljs-built_in">clone</span> https://github.com/mdaadoun/Superpowers-CE.git superpowers-ce
+<span class="hljs-built_in">cd</span> superpowers-ce/core
 
-<span class="hljs-comment"># Clone the Superpowers Game system in superpowers/core/systems/game</span>
-git <span class="hljs-built_in">clone</span> --recursive https://github.com/superpowers/superpowers-game systems/game
-
-<span class="hljs-comment"># Build it all. This will take a few minutes.</span>
+<span class="hljs-comment"># Install dependencies and build core and all plugins</span>
+npm install
 npm run build
 </code></pre>
 <h3 id="running-the-server">Running the server</h3>
@@ -56,7 +54,7 @@ npm run build
 Later, you can hit <code>Ctrl+C</code> in the terminal to stop the server.</p>
 <h3 id="rebuilding-selectively">Rebuilding selectively</h3>
 <p>After updating the Git repositories or making changes, you&#39;ll need to rebuild.</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> superpowers/core
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> core
 
 <span class="hljs-comment"># You can rebuild core and all systems with one command</span>
 npm run build
@@ -72,8 +70,8 @@ npm run build -- --verbose
 <h2 id="building-the-desktop-app">Building the desktop app</h2>
 <p>The desktop app is powered by <a href="http://electron.atom.io/">Electron</a>.</p>
 <p>In a terminal, run the following commands:</p>
-<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/superpowers/superpowers-app superpowers/app
-<span class="hljs-built_in">cd</span> superpowers/app
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ../app
+npm install
 npm run build
 </code></pre>
 <p>Once it&#39;s done, you can start the app by running:</p>

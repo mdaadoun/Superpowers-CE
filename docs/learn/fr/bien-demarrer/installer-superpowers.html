@@ -71,9 +71,9 @@
 <h2 id="lancer-un-serveur-superpowers-en-ligne-de-commande">Lancer un serveur Superpowers en ligne de commande</h2>
 <p>Il peut être utile de lancer Superpowers sur un serveur sans interface graphique pour ne pas avoir besoin de garder allumé votre ordinateur de bureau tout le temps.<br>Les instructions suivantes devraient fonctionner avec la plupart des serveurs Linux, y compris sur un Raspberry Pi.</p>
 <ul>
-<li>Installez la dernière version de <a href="https://nodejs.org/" target="_blank">Node.js</a>.</li>
-<li>Téléchargez <a href="https://github.com/superpowers/superpowers-core/releases">la dernière version de Superpowers Core</a> et décompressez-la avec <code>unzip</code>.</li>
-<li>Lancez <code>node server start</code> à la racine du dossier.</li>
+<li>Installez Node.js.</li>
+<li>Téléchargez <a href="https://github.com/mdaadoun/Superpowers-CE/releases">la dernière version de Superpowers CE</a> ou clonez le dépôt.</li>
+<li>Lancez <code>node server start</code> à la racine de <code>core/</code>.</li>
 </ul>
 <p>Par défaut, Superpowers stocke les fichiers de configuration et de projets dans <code>$XDG_DATA_HOME/Superpowers</code> (ou <code>~/.local/share/Superpowers</code> si <code>$XGD_DATA_HOME</code> n&#39;est pas défini). Vous pouvez utiliser l&#39;option <code>--data-path=</code> pour changer cet emplacement.</p>
 <div class="note">

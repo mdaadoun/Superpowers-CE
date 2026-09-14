@@ -8,17 +8,15 @@ Il peut être étendu avec des plugins et vous pouvez l'utiliser en collaboratio
 Superpowers est en développement depuis plus d'un an.
 C'est déjà un très bon environnement de développement mais il est encore en constante évolution.
 
-Nous avons décidé de le rendre gratuit et <a href="http://github.com/superpowers" target="_blank">open source.
-Si vous appréciez notre travail, vous pouvez nous soutenir sur <a href="https://patreon.com/SparklinLabs" target="_blank">patreon.com/SparklinLabs</a>.  
+Nous avons décidé de le rendre gratuit et <a href="https://github.com/mdaadoun/Superpowers-CE" target="_blank">open source</a>.
+Vous pouvez suivre et contribuer au projet sur GitHub.
 
-<a href="http://superpowers-html5.com/" target="_blank">
+<a href="../../index.fr.html">
   <img src="http://i.imgur.com/jdtBCpV.png" alt="L'IDE Superpowers" height="300" /> 
   <img src="http://i.imgur.com/rDSabRb.gif" alt="Démo Superpowers" height="300" />
 </a>
 
-La documentation complète et toujours à jour est [disponible en anglais](/en/).
-La version française est [maintenue par la communauté](http://bitbucket.org/superpowers/docs.sparklinlabs.com).
-On le passera sur GitHub d'ici peu.
+Vous pouvez [contribuer à ce projet sur GitHub](https://github.com/mdaadoun/Superpowers-CE).
 
 ## Conventions
 

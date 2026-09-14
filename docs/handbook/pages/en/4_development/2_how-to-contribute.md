@@ -14,20 +14,15 @@ We appreciate it when people follow the conventions detailed below,
 but if you're unsure about where to post, pick a place that makes sense to you
 and someone will point you to the right one if needed.
 
-### Superpowers's source code [is hosted on GitHub](https://github.com/superpowers)
+### Superpowers's source code [is hosted on GitHub](https://github.com/mdaadoun/Superpowers-CE)
 
-GitHub is a website for collaborating on projects. Superpowers is split over several repositories:
+Superpowers Community Edition is maintained in a unified monorepo:
 
- * [superpowers/superpowers](https://github.com/superpowers/superpowers-core) — The core (client/server)
- * [superpowers/superpowers-app](https://github.com/superpowers/superpowers-app) — The desktop app
- * [superpowers/superpowers-game](https://github.com/superpowers/superpowers-game) — The Superpowers Game system
- * [superpowers/superpowers-html5.com](https://github.com/superpowers/superpowers-html5.com) — Superpowers's website
-
-Other systems and plugins might be hosted elsewhere by developers unaffiliated with the Superpowers project.
+ * [Superpowers-CE on GitHub](https://github.com/mdaadoun/Superpowers-CE) — The unified monorepo containing `core`, `app`, `systems/game`, plugins, and documentation.
 
 ## Reporting and triaging bugs
 
-Bugs should be reported on GitHub. When in doubt, feel free to [open an issue in the core repository](https://github.com/superpowers/superpowers-core/issues/new).
+Bugs should be reported on GitHub. When in doubt, feel free to [open an issue on the Superpowers-CE repository](https://github.com/mdaadoun/Superpowers-CE/issues).
 
 You can help triage bugs and make them more useful by:
 
