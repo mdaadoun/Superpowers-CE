@@ -6,7 +6,7 @@ Ce document définit les étapes successives pour moderniser, sécuriser et fair
 
 ## 📊 Suivi de progression global
 
-- [ ] **Phase 1 : Assainissement & Nettoyage immédiat**
+- [x] **Phase 1 : Assainissement & Nettoyage immédiat**
 - [ ] **Phase 2 : Modernisation d'Electron (Shell Desktop)**
 - [ ] **Phase 3 : Modernisation de l'outillage & TypeScript**
 - [ ] **Phase 4 : Rénovation de l'Éditeur de Code (IDE)**
@@ -20,17 +20,17 @@ Ce document définit les étapes successives pour moderniser, sécuriser et fair
 ### 🧹 Phase 1 : Assainissement & Nettoyage immédiat
 *Objectif : Éliminer la dette technique morte, réduire la surface de vulnérabilités et harmoniser le monorepo sans toucher au cœur logique.*
 
-- [ ] **1.1 Purge définitive du code IRC dans `app/`**
-  - [ ] Supprimer la dépendance `slate-irc` et `@types/slate-irc` de `app/package.json`.
-  - [ ] Supprimer l'onglet / composant d'interface IRC dans `app/src/renderer/` (laisser uniquement l'interface locale/hors-ligne).
-  - [ ] Nettoyer les paramètres utilisateurs liés aux serveurs IRC dans les réglages du launcher.
-- [ ] **1.2 Harmonisation des versions du monorepo**
-  - [ ] Aligner `app/package.json` sur `version: 1.0.0` (actuellement `6.1.0`).
-  - [ ] Aligner `core/package.json` sur `version: 1.0.0`.
-  - [ ] Aligner les manifestes des plugins du système de jeu principal sur `1.0.0`.
-- [ ] **1.3 Nettoyage des scripts et résidus dépréciés**
-  - [ ] Vérifier et supprimer toute référence résiduelle à `love2d` ou `systems/web` dans `core/scripts/`.
-  - [ ] Valider que `npm run build` et `npm run start:server` s'exécutent proprement sans avertissements fantômes.
+- [x] **1.1 Purge définitive du code IRC dans `app/`**
+  - [x] Supprimer la dépendance `slate-irc` et `@types/slate-irc` de `app/package.json`.
+  - [x] Supprimer l'onglet / composant d'interface IRC dans `app/src/renderer/` (laisser uniquement l'interface locale/hors-ligne).
+  - [x] Nettoyer les paramètres utilisateurs liés aux serveurs IRC dans les réglages du launcher.
+- [x] **1.2 Harmonisation des versions du monorepo**
+  - [x] Aligner `app/package.json` sur `version: 1.0.0` (actuellement `6.1.0`).
+  - [x] Aligner `core/package.json` sur `version: 1.0.0`.
+  - [x] Aligner les manifestes des plugins du système de jeu principal sur `1.0.0`.
+- [x] **1.3 Nettoyage des scripts et résidus dépréciés**
+  - [x] Vérifier et supprimer toute référence résiduelle à `love2d` ou `systems/web` dans `core/scripts/` et `registry.json`.
+  - [x] Valider que `npm run build` et `npm run start:server` s'exécutent proprement sans avertissements fantômes.
 
 ---
 

@@ -14,7 +14,6 @@ import * as serverSettingsSystems from "./serverSettings/systems";
 import * as tabs from "./tabs";
 import openServerSettings from "./tabs/openServerSettings";
 import * as localServer from "./localServer";
-import * as chat from "./chat";
 import WelcomeDialog from "./WelcomeDialog";
 
 electron.ipcRenderer.on("init", onInitialize);
@@ -84,12 +83,7 @@ function showWelcomeDialog(callback: Function) {
   new WelcomeDialog((result) => {
     if (result != null) {
       settings.setNickname(result.nickname);
-      settings.setPresence(result.connectToChat ? "online" : "offline");
-
-      settings.setSavedChatrooms(["#superpowers-html5"]);
-      if (i18n.languageCode !== "en" && chat.languageChatRooms.indexOf(i18n.languageCode) !== -1) {
-        settings.savedChatrooms.push(`#superpowers-html5-${i18n.languageCode}`);
-      }
+      settings.setPresence("offline");
     } else {
       settings.setNickname("Nickname");
       settings.setPresence("offline");
@@ -98,8 +92,6 @@ function showWelcomeDialog(callback: Function) {
     settings.scheduleSave();
 
     me.start();
-    // IRC auto-connection disabled in Superpowers CE
-
     setTimeout(callback, 500);
   });
 }

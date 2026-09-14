@@ -46,9 +46,6 @@ export function onActivateTab(tabElt: HTMLLIElement) {
 
   const firstChild = paneElt.firstElementChild as HTMLElement;
   if (firstChild.tagName === "WEBVIEW") firstChild.focus();
-  else if (paneElt.classList.contains("chat-tab")) {
-    (paneElt.querySelector(".input textarea") as HTMLTextAreaElement).focus();
-  }
 }
 
 function onCloseTab(tabElement: HTMLLIElement) {

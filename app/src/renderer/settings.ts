@@ -11,7 +11,6 @@ export let autoStartServer: boolean;
 
 export let nickname: string;
 export let presence: "online" | "away" | "offline";
-export let savedChatrooms: string[];
 
 export function setPaths(newCorePath: string, newUserDataPath: string) {
   corePath = newCorePath;
@@ -24,10 +23,6 @@ export function setNickname(newNickname: string) {
 
 export function setPresence(newPresence: "online" | "away" | "offline") {
   presence = newPresence;
-}
-
-export function setSavedChatrooms(newSavedChatrooms: string[]) {
-  savedChatrooms = newSavedChatrooms;
 }
 
 export function setAutoStartServer(enabled: boolean) {
@@ -54,14 +49,13 @@ export function load(callback: (err: Error) => void) {
 
       nickname = null;
       presence = "offline";
-      savedChatrooms = [];
 
       callback(null);
       return;
     }
 
     const data = JSON.parse(dataJSON);
-    favoriteServers = data.favoriteServers;
+    favoriteServers = data.favoriteServers || [];
 
     let nextServerId = 0;
     for (const entry of favoriteServers) {
@@ -69,12 +63,11 @@ export function load(callback: (err: Error) => void) {
       favoriteServersById[entry.id] = entry;
       if (entry.password == null) entry.password = "";
     }
-    recentProjects = data.recentProjects;
-    autoStartServer = data.autoStartServer;
+    recentProjects = data.recentProjects || [];
+    autoStartServer = data.autoStartServer !== false;
 
     nickname = data.nickname;
-    presence = data.presence;
-    savedChatrooms = data.savedChatrooms;
+    presence = data.presence || "offline";
 
     callback(null);
   });
@@ -100,8 +93,7 @@ export function applyScheduledSave() {
     recentProjects,
     autoStartServer,
     nickname,
-    presence,
-    savedChatrooms
+    presence
   };
 
   fs.writeFileSync(`${userDataPath}/settings.json`, JSON.stringify(data, null, 2) + "\n", { encoding: "utf8" });

@@ -1,15 +1,15 @@
 import * as dialogs from "simple-dialogs";
 import * as i18n from "../shared/i18n";
-import { nicknamePatternString } from "./chat";
+
+const nicknamePattern = /^([A-Za-z][A-Za-z0-9_-]{1,15})$/;
+const nicknamePatternString = nicknamePattern.toString().slice(1, -1);
 
 type WelcomeResult = {
   nickname: string;
-  connectToChat: boolean;
 };
 
 export default class WelcomeDialog extends dialogs.BaseDialog<WelcomeResult> {
   nicknameField: HTMLInputElement;
-  connectToChatCheckbox: HTMLInputElement;
 
   constructor(callback: (result: WelcomeResult) => void) {
     super(callback);
@@ -39,41 +39,22 @@ export default class WelcomeDialog extends dialogs.BaseDialog<WelcomeResult> {
     nicknameGroup.appendChild(this.nicknameField);
     this.nicknameField.style.flex = "1 1 0";
 
-    // Connect to chat
-    const downElt = document.createElement("div");
-    this.formElt.appendChild(downElt);
-    downElt.style.display = "flex";
-    downElt.style.alignItems = "center";
-
-    this.connectToChatCheckbox = document.createElement("input");
-    this.connectToChatCheckbox.type = "checkbox";
-    this.connectToChatCheckbox.checked = false;
-    downElt.appendChild(this.connectToChatCheckbox);
-    this.connectToChatCheckbox.id = "go-online-checkbox";
-
-    const goOnlineLabel = document.createElement("label");
-    goOnlineLabel.textContent = i18n.t("welcome:connectToChat");
-    goOnlineLabel.style.flex = "1 1 0";
-    downElt.appendChild(goOnlineLabel);
-    goOnlineLabel.htmlFor = "go-online-checkbox";
-
     // Buttons
     const buttonsElt = document.createElement("div");
     buttonsElt.className = "buttons";
-    downElt.appendChild(buttonsElt);
+    this.formElt.appendChild(buttonsElt);
 
-    this.validateButtonElt = document.createElement("button");
-    this.validateButtonElt.textContent = i18n.t("welcome:getStarted");
-    this.validateButtonElt.className = "validate-button";
-    buttonsElt.appendChild(this.validateButtonElt);
+    const validateButton = document.createElement("button");
+    validateButton.type = "submit";
+    validateButton.textContent = i18n.t("common:actions.next");
+    buttonsElt.appendChild(validateButton);
 
     this.nicknameField.focus();
   }
 
   submit() {
     super.submit({
-      nickname: this.nicknameField.value,
-      connectToChat: this.connectToChatCheckbox.checked
+      nickname: this.nicknameField.value
     });
   }
 }

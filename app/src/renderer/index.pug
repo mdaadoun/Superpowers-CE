@@ -5,19 +5,6 @@ html
     title Superpowers
     link(rel="stylesheet",href="index.css")
 
-    template.chat-tab
-      .channel
-        .header
-          .info
-            .name
-            .details
-          .topic.disabled
-        .log
-        .input
-          textarea
-      .resize-handle.right
-      .sidebar
-        .users-tree-view
   body
     .sidebar
       .me
@@ -30,7 +17,6 @@ html
               option(value="online")= t("sidebar:presence.online")
               option(value="away")= t("sidebar:presence.away")
               option(value="offline",selected)= t("sidebar:presence.offline")
-            button.show-chat-status= t("sidebar:chat.showIrcStatus")
       .servers-buttons.flat-button-strip
         button.add-server(title=t("sidebar:servers.add"), disabled,data-hotkey="control+N")
         button.edit-server(title=t("sidebar:servers.edit"),disabled)
