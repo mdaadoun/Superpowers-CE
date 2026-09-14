@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Scripted behaviors — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" class="active">Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="scripted-behaviors">Scripted behaviors</h1>
+<p>Reusable behaviors can be defined so that you can put them on multiple actors.<br>This is how a behavior definition might look like:</p>
+<pre><code><span class="hljs-keyword">class</span> MyBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Declare properties here</span>
+
+  awake() {
+    <span class="hljs-comment">// Put initialization logic here</span>
+    <span class="hljs-comment">// thisactor represents the actor the behavior is attached to</span>
+  }
+
+  update() {
+    <span class="hljs-comment">// Put logic that should be executed 60x per second here</span>
+  }
+
+}
+<span class="hljs-comment">// Don't forget to register your behavior class</span>
+Sup.registerBehavior(MyBehavior);
+</code></pre><p>Inside the behavior&#39;s methods (<code>awake</code>, <code>update</code> and others you might define yourself), you can reference the current behavior component with <code>this</code> and the actor it is attached to with <code>this.actor</code>.</p>
+<p>Let&#39;s add a behavior to our main character from the previous chapter.</p>
+<div class="action">
+  <p>Go back to your <code>Game</code> script and add the following code at the bottom:
+</div>
+
+<pre><code><span class="hljs-keyword">class</span> CharacterBehavior extends Sup.Behavior {
+
+  update() {
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) {
+      <span class="hljs-comment">// Move the current behavior's actor by a small negative offset on the X axis</span>
+      <span class="hljs-keyword">this</span>.actor.move(<span class="hljs-number">-0.1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) {
+      <span class="hljs-comment">// Same but positive to go to the right</span>
+      <span class="hljs-keyword">this</span>.actor.move(<span class="hljs-number">0.1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    }
+  }
+
+}
+Sup.registerBehavior(CharacterBehavior);
+
+<span class="hljs-comment">// Once the behavior class is defined,</span>
+<span class="hljs-comment">// we need to attach it to our character</span>
+mainCharacterActor.addBehavior(CharacterBehavior);
+</code></pre><p><code>Sup.Input.isKeyDown(...)</code> returns <code>true</code> only when the specified key is pressed.</p>
+<div class="note">
+  <strong>There are many other functions</strong> available to read input from the player and react to it.<br>  They are all listed in <strong>the TypeScript <abbr title="Application Programming Interface">API</abbr> browser</strong> available from within Superpowers.
+</div>
+
+    </div>
+  </main>
+</body>
+</html>

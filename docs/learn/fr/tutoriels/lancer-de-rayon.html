@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Rayons et sélection à la souris — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" class="active">Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="rayons-et-s-lection-la-souris">Rayons et sélection à la souris</h1>
+<p>Le lancer de rayon permet de détecter les intersections entre un rayon et des objets géométriques.
+On peut l&#39;utiliser pour vérifier si une balle à toucher un joueur ou si la souris survole un bouton, par exemple.</p>
+<h2 id="pr-parer-un-rayon">Préparer un rayon</h2>
+<pre><code><span class="hljs-keyword">let</span> ray = <span class="hljs-keyword">new</span> Sup.Math.Ray();
+
+<span class="hljs-comment">// Vous pouvez définir l'origine et la destination</span>
+ray.setOrigin(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+ray.setDirection(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+
+<span class="hljs-comment">// Ou vous pouvez le définir en fonction de la position de la souris par rapport à une caméra</span>
+ray.setFromCamera(someCameraComponent, Sup.Input.getMousePosition());
+</code></pre><h2 id="intersection-avec-des-acteurs">Intersection avec des acteurs</h2>
+<pre><code><span class="hljs-keyword">let</span> hits = ray.intersectActors([ <span class="hljs-comment">/* une liste d'acteurs */</span> ]);
+
+<span class="hljs-comment">// Les intersections sont triées par distance, de la plus courte à la plus longue</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> hit of hits) {
+  Sup.log(<span class="hljs-string">`L'acteur <span class="hljs-subst">${hit.actor.getName()}</span> a été frappé par le rayon à <span class="hljs-subst">${hit.distance}</span>`</span>);
+  <span class="hljs-comment">// L'objet `hit` contient également les coordonnées du point ainsi que la normale</span>
+}
+</code></pre><h2 id="intersection-avec-un-plan">Intersection avec un plan</h2>
+<pre><code><span class="hljs-comment">// Un plan peut être défini avec une normale et la distance à partir de celle-ci</span>
+<span class="hljs-comment">// (Sinon, vous pouvez utiliser `plane.setFromPoint(normal, point);`)</span>
+<span class="hljs-keyword">let</span> plane = <span class="hljs-keyword">new</span> Sup.Math.Plane(Sup.Math.Vector3.forward(), <span class="hljs-number">10</span>);
+
+<span class="hljs-keyword">let</span> hit = ray.intersectPlane(plane);
+<span class="hljs-keyword">if</span> (hit != <span class="hljs-literal">null</span>) Sup.log(<span class="hljs-string">`Le rayon a frappé le plan en <span class="hljs-subst">${hit.point}</span>`</span>);
+</code></pre>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Installer Superpowers — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" class="active">Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="installer-superpowers">Installer Superpowers</h1>
+<div class="action">
+  <p>Télécharger le ZIP pour votre plateforme depuis <a href="https://sparklinlabs.itch.io/superpowers" target="_blank">la page de téléchargement</a>.<br>  Décompressez-le et double-cliquez sur <code>Superpowers</code>.<br>  L&#39;application démarre.
+</div>
+
+<p>Vous devriez voir une liste de serveurs et votre serveur local se lancera automatiquement.</p>
+<div class="note">
+  <p><strong>Superpowers utilise les ports TCP 4237 (pour servir le client) et 4238 (pour servir chaque version de vos jeux)</strong> par défaut, car le port 80 a besoin de privilèges speciaux sur Linux &amp; OS X. En plus, certains programmes comme Skype écoutent déjà sur ce port. Vous pouvez changer les ports utilisés par Superpowers dans l&#39;onglet Paramètres du serveur.
+
+  <p>Si vous le faites, pensez à changer l&#39;adresse de votre serveur (&quot;My Server&quot;) dans la liste des serveurs pour utiliser le bon port.
+</div>
+
+<p>Double-cliquez sur &quot;My Server&quot; et un onglet s&#39;ouvrira. Vous serez invité à saisir un nom d&#39;utilisateur.</p>
+<h2 id="o-se-trouve-mes-donn-es-">Où se trouve mes données ?</h2>
+<p>Par défaut, la configuration de votre serveur et vos projets sont stockés aux endroits suivants, en fonction du système d&#39;exploitation que vous utilisez :</p>
+<ul>
+<li>Sous Windows : <code>%APPDATA%\Superpowers</code></li>
+<li>Sous OS X : <code>~/Library/Application Support/Superpowers</code> (Utiliser l&#39;option &quot;Aller au dossier&quot; du Finder)</li>
+<li>Sous Linux : <code>~/.local/share/Superpowers</code></li>
+</ul>
+<p>Pour rendre Superpowers transportable (par exemple sur une clé USB), vous pouvez déplacer le fichier <code>config.json</code> et le dossier <code>projects</code> dans le dossier <code>app</code> de Superpowers et ils seront automatiquement utilisés à la place. Faites attention quand vous mettez à jour, il faudra alors déplacer ces fichiers de l&#39;ancienne version à la nouvelle manuellement.</p>
+<h2 id="inviter-d-autres-utilisateurs-sur-mon-serveur">Inviter d&#39;autres utilisateurs sur mon serveur</h2>
+<p>Par défaut, votre serveur n&#39;accepte que les connexions venant de votre ordinateur.</p>
+<div class="action">
+  <p>Pour ouvrir votre serveur aux autres, définissez un mot de passe dans les paramètres puis relancez le serveur.
+</div>
+
+<div class="note">
+  <p><strong>Vous aurez probablement besoin de <a href="https://www.google.com/search?q=configurer%20la%20redirection%20de%20port" target="_blank">configurer votre box</a></strong> et/ou pare-feu
+  pour autoriser (ou faire suivre) les connexions TCP sur les numéros de port utilisés par votre serveur (4237 et 4238 par défaut).
+</div>
+
+<p>Une fois que votre serveur est ouvert, <a href="https://www.google.fr/search?q=mon%20ip" target="_blank">récuperez votre adresse IP publique</a> et vous pourrez envoyer un lien sous la forme : <code>ip:port</code> aux personnes qui veulent travailler avec vous (par exemple <code>1.2.3.4:4237</code>). Ils peuvent coller le lien dans la barre d&#39;adresse de leur navigateur pour vous rejoindre sans rien installer ou ils peuvent l&#39;ajouter à leur liste de serveurs dans le lanceur.</p>
+<div class="note">
+  <p><strong>Assurez-vous d&#39;envoyer votre adresse IP publique</strong> à vos collaborateurs. <code>127.0.0.1</code> est une adresse spéciale qui pointe toujours vers l&#39;ordinateur sur lequel elle est utilisée, donc les autres ne pourront pas se connecter à votre serveur avec cette adresse.
+
+  <p>Le moyen le plus simple de récupérer votre adresse IP publique est de <a href="https://www.google.fr/search?q=mon%20ip" target="_blank">demander à Google</a>.
+</div>
+
+<h2 id="lancer-un-serveur-superpowers-en-ligne-de-commande">Lancer un serveur Superpowers en ligne de commande</h2>
+<p>Il peut être utile de lancer Superpowers sur un serveur sans interface graphique pour ne pas avoir besoin de garder allumé votre ordinateur de bureau tout le temps.<br>Les instructions suivantes devraient fonctionner avec la plupart des serveurs Linux, y compris sur un Raspberry Pi.</p>
+<ul>
+<li>Installez la dernière version de <a href="https://nodejs.org/" target="_blank">Node.js</a>.</li>
+<li>Téléchargez <a href="https://github.com/superpowers/superpowers-core/releases">la dernière version de Superpowers Core</a> et décompressez-la avec <code>unzip</code>.</li>
+<li>Lancez <code>node server start</code> à la racine du dossier.</li>
+</ul>
+<p>Par défaut, Superpowers stocke les fichiers de configuration et de projets dans <code>$XDG_DATA_HOME/Superpowers</code> (ou <code>~/.local/share/Superpowers</code> si <code>$XGD_DATA_HOME</code> n&#39;est pas défini). Vous pouvez utiliser l&#39;option <code>--data-path=</code> pour changer cet emplacement.</p>
+<div class="note">
+  Après avoir lancé le serveur pour la première fois, vous devrez l&#39;arrêter (avec <code>Ctrl+C</code>)
+  et éditer le fichier généré nommé <code>config.json</code> pour y mettre un mot de passe, puis relancer le serveur.
+  Vous pouvez aussi configurer les ports sur lesquels le serveur écoute.
+</div>
+
+    </div>
+  </main>
+</body>
+</html>

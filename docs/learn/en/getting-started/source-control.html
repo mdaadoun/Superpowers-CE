@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Using source control — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" class="active">Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="using-source-control">Using source control</h1>
+<p>Source control lets you create checkpoints in your project, compare old revisions with newer ones and back things up to a remote host like <a href="https://github.com/">GitHub</a> or <a href="https://bitbucket.org/">Bitbucket</a>.</p>
+<p>Superpowers projects can easily be kept under <a href="https://en.wikipedia.org/wiki/Revision_control">source control</a>. While there is no built-in support at the moment, existing tools like Git and Mercurial work great.</p>
+<h2 id="delay-when-making-changes">Delay when making changes</h2>
+<p>In order to minimize its performance footprint, the Superpowers server doesn&#39;t write every change you make to a project to the disk immediately. Saving to disk might be delayed for up to 60 seconds.</p>
+<p>When creating a new revision for your project, either wait 60s or stop your server altogether to make sure everything has been flushed out to the disk. (We&#39;ll probably have a button to flush changes in the app at some point).</p>
+<h2 id="what-not-to-put-under-source-control">What not to put under source control</h2>
+<p>There are a couple folders you probably don&#39;t want to commit to your repository:</p>
+<ul>
+<li>The <code>rooms/</code> folder contains your recent chat log history</li>
+<li>The <code>trashedAssets/</code> folder contains deleted assets</li>
+</ul>
+<p>You can use a <code>.gitignore</code> or <code>.hgignore</code> file to blacklist those.</p>
+
+    </div>
+  </main>
+</body>
+</html>

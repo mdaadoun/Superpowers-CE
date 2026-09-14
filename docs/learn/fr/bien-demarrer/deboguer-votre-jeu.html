@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Déboguer votre jeu — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" class="active">Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="d-boguer-votre-jeu">Déboguer votre jeu</h1>
+<p>Quand vous utilisez Superpowers depuis l&#39;application, vous pouvez ouvrir les outils de débogage en cliquant sur le bouton <code>Debug game</code> (ou en appuyant sur <code>F6</code>). La plupart des navigateurs vous permettent d&#39;ouvrir des outils similaires en appuyant sur <code>F12</code> pendant que le jeu tourne.</p>
+<p>Comme l&#39;application Superpowers utilise NW.js, qui est basé sur le moteur de Chrome, les outils de débogage sont les même que sur Chrome.</p>
+<p>Les deux onglets principaux que vous utiliserez sont :</p>
+<ul>
+<li><p>L&#39;onglet <code>Console</code>, qui vous fournit les erreurs d&#39;éxecution et le résultat de tous les appels a <code>Sup.log</code>.</p>
+</li>
+<li><p>L&#39;onglet <code>Sources</code>, est l&#39;endroit où vous pouvez trouver tous vos scripts et l&#39;ensemble du moteur.</p>
+</li>
+</ul>
+<h2 id="d-boguer-et-inspecter-l-tat-de-votre-jeu">Déboguer et inspecter l&#39;état de votre jeu</h2>
+<div class="note">
+  <p>Regardez <a href="https://developer.chrome.com/devtools">cette présentation des outils de développement de Chrome</a> et aussi <a href="https://developer.chrome.com/devtools/docs/javascript-debugging">cette introduction au débogage JavaScript</a>. Bien que Superpowers utilise en réalité TypeScript, c&#39;est un surensemble de JavaScript donc la plupart des informations peuvent être appliqué.
+</div>
+
+<p>Avec le débogueur ouvert, vous pouvez utiliser <code>Ctrl+P</code> et taper le nom d&#39;un de vos scripts pour y aller directement. <a href="https://developer.chrome.com/devtools/docs/javascript-debugging#add-remove-breakpoints">Placez un point d&#39;arrêt</a> dans la méthode <code>update</code> de votre comportement par exemple, et votre jeu s&#39;arrêtera dés qu&#39;il atteindra a nouveau cette ligne.</p>
+<p>Quand votre point d&#39;arrêt est atteint, le panneau de droite vous montre la pile d&#39;appel (<code>Call Stack</code>) (qui vous montre comment votre jeu a atteint la méthode actuelle) et aussi le contenue des variables actuellement accessibles (<code>Scope Variables</code>).</p>
+<p><code>F10</code> vous permet de voir une instruction à la fois (utile si vous voulez inspecter les détails d&#39;une fonction étape par étape), et <code>F8</code> reprendre l&#39;éxecution de votre jeu.</p>
+<p>Vous pouvez aussi <a href="https://developer.chrome.com/devtools/docs/javascript-debugging#pause-on-uncaught-exceptions">activer &quot;Pause on uncaught exceptions&quot;</a> pour que votre jeu s&#39;arrêter automatiquement a la ligne où une erreur d&#39;éxecution est rencontrée et cela vous permettra d&#39;inspecter la pile d&#39;appel et l&#39;état du programme. Cela n&#39;a effet que si le débogueur est ouvert.</p>
+
+    </div>
+  </main>
+</body>
+</html>

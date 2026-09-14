@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Prefabs and instantiation — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" class="active">Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="prefabs-and-instantiation">Prefabs and instantiation</h1>
+<p>Games often have projectiles, mobs or bonuses that get created
+(&quot;instantiated&quot; in programming speak) and destroyed many times over.</p>
+<p>They can be made up of a complex hierarchy of actors, or at the very least have multiple components.
+Rather than build them in code, you can use <code>Scene</code> assets as reusable prefabs.</p>
+<h2 id="instantiating-the-contents-of-a-scene">Instantiating the contents of a scene</h2>
+<p>You can use <code>Sup.appendScene(&quot;Scene Asset&quot;)</code> to add all the actors described in a scene to your stage.
+Existing actors won&#39;t be removed.</p>
+<div class="note">
+  <strong>Under the hood</strong>, <code>Sup.loadScene(...)</code> is equivalent to a call to <code>Sup.destroyAllActors()</code> followed by <code>Sup.appendScene(...)</code>.
+</div>
+
+<p>You can append a scene as many times as you want, and optionally specify a parent actor as a second argument.</p>
+<h2 id="using-prefabs-in-the-scene-editor">Using prefabs in the scene editor</h2>
+<p>There&#39;s a <code>New Prefab</code> button next to the <code>New Actor</code> button in the scene editor.
+It lets you attach other scenes as part of your main scene.</p>
+<div class="note">
+  <strong>Prefabs even work recursively</strong>, meaning you can have a scene referencing a second scene,
+  itself referencing a third scene and so on... Superpowers will automatically prevent circular references.
+</div>
+
+<p>In order for a scene to be usable as a prefab, it must have a single actor at its root.
+When used from another scene, this root actor&#39;s name will be overwritten by the prefab&#39;s name.
+For instance, you could have a scene named <code>Health Bonus</code> with a root actor named <code>Bonus Root</code>, and
+use it as a prefab under various names like <code>Secret Health Bonus</code>, <code>Health Bonus 3</code> and so on.</p>
+<div class="note">
+  <strong>Actor components in prefabs will be customizable</strong> in a future version.
+  For now, you might get the prefab&#39;s name (using <code>Sup.Actor.getName()</code>) in a behavior to apply custom settings.
+  It&#39;s not ideal but hey, better than nothing!
+</div>
+    </div>
+  </main>
+</body>
+</html>

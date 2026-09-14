@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Utiliser des modèles 3D — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" class="active">Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="utiliser-des-mod-les-3d">Utiliser des modèles 3D</h1>
+<h2 id="importer-des-mod-les">Importer des modèles</h2>
+<p>Superpowers supporte actuellement un sous-ensemble des formats de fichier OBJ (statique) et glTF (animé).</p>
+<div class="note">
+  <b>Pour l&#39;instant, une texture unique (diffuse map) est supportée pour chaque modèle.</b>
+  Le support des matériaux et des shaders arrive bientôt.
+</div>
+
+<h3 id="mod-les-gltf-anim-s">Modèles glTF animés</h3>
+<p><a href="https://github.com/KhronosGroup/glTF">glTF</a> est un nouveau format supporté par le Khronos Group (les gens qui font OpenGL et Vulkan).<br>La plupart des outils n&#39;ont pas un support natif pour le moment, donc il faudra exporter en COLLADA et ensuite utiliser <a href="https://github.com/KhronosGroup/glTF/wiki/Converter-builds">le convertisseur COLLADA2glTF</a>.</p>
+<p>Les instructions suivantes partent du principe que vous utilisez Blender, mais les autres outils devraient avoir un fonctionnement similaire.</p>
+<div class="note">
+  <p><b>Assurez-vous d&#39;avoir un seul mesh et un seul matériau.</b> Votre mesh devrait être apparenté à une armature et être à l&#39;origine en (0,0,0).
+</div>
+
+<div class="action">
+  <p>Assurez-vous que votre modèle soit dans sa <em>bind pose</em> sans action active.<br>
+  Depuis le menu <code>File</code>, sélectionnez <code>Export &gt; Collada (Default) (.dae)</code>.<br>
+  Cochez la case <code>Triangulate</code>.
+
+  <p>Glissez-déposez le fichier <code>.dae</code> résultant sur l&#39;exécutable du <a href="https://github.com/KhronosGroup/glTF/releases">convertisseur COLLADA2glTF</a>.<br>
+  Vous obtiendrez plusieurs fichiers, nous aurons seulement besoin du <code>.gltf</code> et du <code>.bin</code>.
+
+  <p>Répétez le processus pour chaque action que vous souhaitez exporter, en activant l&#39;action auparavant.
+</div>
+
+<p>Maintenant, importons votre modèle dans Superpowers. Vous trouverez un modèle exemple dans les <a href="https://github.com/sparklinlabs/superpowers-asset-packs/tree/master/3d-character/character/animation/bind-pose">asset packs Superpowers</a>.</p>
+<div class="action">
+  <p>Créez un nouveau modèle 3D et cliquez sur le bouton <code>Upload</code>.<br>
+  Sélectionnez à la fois les fichiers <code>.gltf</code> et <code>.bin</code> dans la fenêtre de sélection des fichiers (maintenir <code>Ctrl</code> permet de sélectionner plusieurs fichiers sous Windows).
+
+  <p>Utilisez le bouton <code>New</code> pour créer une animation et chargez-la avec le bouton <code>Upload</code> juste à côté.
+</div>
+
+<p><img src="http://i.imgur.com/niveyoP.gif" alt=""></p>
+<h2 id="attacher-un-objet-la-main-d-un-personnage">Attacher un objet à la main d&#39;un personnage</h2>
+<p>Il est assez simple d&#39;attacher un objet à un os animé, que ce soit une arme, un chapeau ou un sac à dos.</p>
+<p>Utilisez simplement <code>Sup.ModelRenderer.getBoneTransform</code> pour obtenir la position et l&#39;orientation globale actuelle d&#39;un os et appliquez-la à l&#39;acteur que vous voulez attacher.</p>
+<pre><code><span class="hljs-keyword">class</span> CharacterHandBehavior extends Sup.Behavior {
+
+  itemActor: Sup.Actor;
+
+  awake() {
+    <span class="hljs-comment">// Paramétrez `this.itemActor` ici</span>
+    <span class="hljs-comment">// ou lorsque vous créez le CharacterHandBehavior</span>
+  }
+
+  update() {
+    <span class="hljs-keyword">let</span> handTransform = <span class="hljs-keyword">this</span>.actor.modelRenderer.getBoneTransform(<span class="hljs-string">"Left Hand"</span>);
+
+    <span class="hljs-keyword">this</span>.itemActor.setPosition(handTransform.position);
+    <span class="hljs-keyword">this</span>.itemActor.setOrientation(handTransform.orientation);
+  }
+}
+Sup.registerBehavior(CharacterHandBehavior);
+</code></pre><p>Voici une petite démo. Vous pouvez télécharger <a href="https://bitbucket.org/sparklinlabs/superpowers-model-demo/">le projet source</a> et l&#39;essayer vous-même.</p>
+<p><img src="http://i.imgur.com/gep1b6u.gif" alt=""></p>
+<p>Si l&#39;objet n&#39;est pas exactement au bon endroit, vous pouvez le décaler avec <code>this.itemActor.moveOriented(...)</code> ou <code>this.itemActor.rotateLocalEulerAngles(...)</code>.</p>
+
+    </div>
+  </main>
+</body>
+</html>

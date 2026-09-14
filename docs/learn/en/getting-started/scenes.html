@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Working with scenes — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" class="active">Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="working-with-scenes">Working with scenes</h1>
+<p>Scenes lets you visually build a configuration of actors and their components (renderers, behaviors, etc.).</p>
+<p>We&#39;re going to rebuild our movie set from before but using a scene instead of writing them up.</p>
+<div class="action">
+  <p>Create a new Scene asset named <code>Main Scene</code> and open it up.
+</div>
+
+<div class="note">
+  <p><strong>In the scene editor, use <code>WASD</code></strong> to move forward, backward, left and right, <code>Space</code> to go up and <code>Shift</code> to go down.
+</div>
+
+<div class="action">
+  <p>Create an actor named <code>Main Character</code> and place it in (0, 0, 0).<br>  Add a <code>Sprite Renderer</code> component on it and enter <code>Leonard</code> as the sprite to use.<br>  Add another component, this time of type <code>Behavior</code> and select <code>CharacterBehavior</code> as the class to use.
+</div>
+
+<div class="action">
+  <p>Click anywhere in the scene tree to unselect the actor you just created.<br>  Create another actor named <code>Camera Man</code> and place it in (0, 0, 5).<br>  Add a Camera component on it.
+</div>
+
+<div class="note">
+  <p><strong>Make sure the <code>Camera Man</code> actor isn&#39;t parented to the <code>Main Character</code> actor</strong> in the scene tree.<br>  If it is, simply use drag&#39;n&#39;drop to clear the parenting.
+</div>
+
+<p>Now that our scene is all set, let&#39;s go back to our script. We can get rid of all the code that created our actors and instead replace it with a single instruction to load our scene. We still need to declare the <code>CharacterBehavior</code> though.</p>
+<div class="action">
+  <p>Replace the content of the <code>Game</code> script with the following:
+</div>
+
+<pre><code><span class="hljs-keyword">class</span> CharacterBehavior extends Sup.Behavior {
+  update() {
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) <span class="hljs-keyword">this</span>.actor.move(<span class="hljs-number">-0.1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) <span class="hljs-keyword">this</span>.actor.move(<span class="hljs-number">0.1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+  }
+}
+Sup.registerBehavior(CharacterBehavior);
+
+Sup.loadScene(<span class="hljs-string">"Main Scene"</span>);
+</code></pre><div class="note">
+  <p><strong>It is important that you declare the <code>CharacterBehavior</code> class before  loading the scene with <code>Sup.loadScene</code></strong> (i.e. higher up, in the script), or Superpowers will complain that it doesn&#39;t know (yet) what the behavior is.
+</div>
+
+<p>When working with several behavior classes, it is common to put each of them in their own script for organizational purposes. Since scripts will be read in order, make sure you&#39;re loading your scene in a script placed below all the behavior scripts it uses.</p>
+<h2 id="loading-a-scene-when-the-game-starts-without-any-code">Loading a scene when the game starts without any code</h2>
+<p>You can define a scene that will automatically be loaded by Superpowers after reading all your scripts in the <code>Game</code> section of the <code>Settings</code> tool.</p>
+<p><img src="http://i.imgur.com/DaWYJqS.png" alt=""></p>
+<p>It&#39;s entirely equivalent to inserting a call to <code>Sup.loadScene</code> at the end of your last script, but it&#39;s more convenient since you&#39;ll always know where to change it if you need to.</p>
+
+    </div>
+  </main>
+</body>
+</html>

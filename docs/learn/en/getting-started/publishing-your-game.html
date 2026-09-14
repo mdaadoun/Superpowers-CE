@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Publishing your game — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" class="active">Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="publishing-your-game">Publishing your game</h1>
+<p>Superpowers comes with a one-click <code>Publish project</code> button, located in the top-left corner.</p>
+<p><img src="/images/publishing-your-game/publish-project-button.png" alt="&quot;Publish project&quot; button"></p>
+<div class="note">
+  <p><strong>Exporting is only available from the app</strong>, not when accessing Superpowers through the browser,
+  because browsers do not let Web apps access the filesystem directly for security reasons.
+</div>
+
+<h2 id="publishing-your-game-for-the-web">Publishing your game for the Web</h2>
+<p>You can upload the exported folder to any Web host, or zip it up and upload it as HTML5 to an online game portal
+like <a href="http://itch.io/" target="_blank">itch.io</a> or <a href="http://gamejolt.com" target="_blank">Game Jolt</a>.</p>
+<h2 id="packaging-for-desktop">Packaging for desktop</h2>
+<div class="note">
+  <p><strong>Double check your project&#39;s name</strong>, it will appear in the title bar of stand-alone builds of your game.
+</div>
+
+<div class="note">
+  <p>We hope to automate all of these packaging steps in a future version.
+</div>
+
+<p>If you want to make stand-alone, downloadable versions of your game, you can use Electron.
+Electron is basically Chrome&#39;s browser engine customized to run stand-alone HTML5 apps and games rather than a full-blown Web browser.</p>
+<div class="action">
+  <p>Download the appropriate builds of <a href="https://github.com/atom/electron/releases" target="_blank">Electron</a>.
+  We recommend you support Windows in both 64-bit or 32-bit but you&#39;ll probably be fine with only 64-bit versions
+  for Linux and OS X (Apple hasn&#39;t been shipping 32-bit hardware for several years).
+</div>
+
+<p>Electron requires that you create two files in order to run your game:</p>
+<h3 id="package-json">package.json</h3>
+<pre><code>{
+  <span class="hljs-string">"name"</span>: <span class="hljs-string">"my-game"</span>,
+  <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
+  <span class="hljs-string">"main"</span>: <span class="hljs-string">"main.js"</span>
+}
+</code></pre><p>Make sure to replace <code>my-game</code> with your game&#39;s name, using lowercase dash-separated words.</p>
+<h3 id="main-js">main.js</h3>
+<pre><code><span class="hljs-meta">"use strict"</span>;
+
+<span class="hljs-keyword">const</span> electron = <span class="hljs-built_in">require</span>(<span class="hljs-string">"electron"</span>);
+<span class="hljs-keyword">var</span> mainWindow = <span class="hljs-literal">null</span>;
+
+electron.app.on(<span class="hljs-string">"window-all-closed"</span>, () =&gt; {
+  <span class="hljs-keyword">if</span> (process.platform != <span class="hljs-string">"darwin"</span>) electron.app.quit();
+});
+
+electron.app.on(<span class="hljs-string">"ready"</span>, () =&gt; {
+  mainWindow = <span class="hljs-keyword">new</span> electron.BrowserWindow({
+    width: <span class="hljs-number">1280</span>, height: <span class="hljs-number">720</span>,
+    useContentSize: <span class="hljs-literal">true</span>,
+    <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> You can enable those if you want</span>
+    <span class="hljs-comment">// resizable: false,</span>
+    <span class="hljs-comment">// icon: `${__dirname}/icon.png`</span>
+  });
+  mainWindow.setMenuBarVisibility(<span class="hljs-literal">false</span>);
+  mainWindow.loadURL(<span class="hljs-string">`file://<span class="hljs-subst">${__dirname}</span>/index.html`</span>);
+  mainWindow.on(<span class="hljs-string">"closed"</span>, () =&gt; { mainWindow = <span class="hljs-literal">null</span>; });
+});
+</code></pre><p>You can, of course, tweak the window settings.
+Read on to see where to put those two files.</p>
+<h3 id="packaging-for-windows-32-bit-and-64-bit-">Packaging for Windows (32-bit and 64-bit)</h3>
+<div class="action">
+  <p>Unpack the Electron ZIP archive for each architecture and rename the folders to something like <code>my-game-win-ia32</code> (32-bit) and <code>my-game-win-x64</code> (64-bit).
+
+  <p>For both of these folders:
+
+  <ul>
+    <li>Remove <code>locales</code>, <code>pdf.dll</code> and <code>version</code>, we don&#39;t need those
+    <li>Put a copy of your exported game folder in <code>resources</code>, renaming it <code>app</code>
+    <li>Rename <code>electron.exe</code> to something like <code>My Game.exe</code>. This is the executable players will click on
+    <li>Create <code>package.json</code> and <code>main.js</code>, as detailed above, in <code>resources/app</code>
+  </ul>
+
+  <p>That&#39;s it, pack it all up  into a ZIP archive and upload.
+</div>
+
+<h3 id="packaging-for-linux">Packaging for Linux</h3>
+<div class="action">
+  <p>Unpack the Electron ZIP archive and rename the folder to something like <code>my-game-linux-x64</code>.
+
+  <ul>
+    <li>Remove <code>locales</code> and <code>version</code>, we don&#39;t need those
+    <li>Put a copy of your exported game folder in <code>resources</code>, renaming it <code>app</code>
+    <li>Rename <code>electron</code> to something like <code>My Game</code>. This is the executable players will click on
+    <li>Create <code>package.json</code> and <code>main.js</code>, as detailed above, in <code>resources/app</code>
+  </ul>
+
+  <p>That&#39;s it, pack it all up into a ZIP archive and upload.
+</div>
+
+<h3 id="packaging-for-os-x">Packaging for OS X</h3>
+<div class="action">
+  <p>Unpack the Electron ZIP archive and rename the folder to something like <code>my-game-osx-x64</code>.
+
+  <ul>
+    <li>Remove <code>version</code>, we don&#39;t need it
+    <li>Put a copy of your exported game folder in <code>Electron.app/Contents/Resources/</code>, renaming it <code>app/</code>
+    <li>Rename <code>Electron.app</code> to something like <code>My Game.app</code>. This is the executable players will click on
+    <li>Create <code>package.json</code> and <code>main.js</code>, as detailed above, inside <code>My Game.app/Contents/Resources/app</code>
+  </ul>
+
+  <p>That&#39;s it, pack it all up into a ZIP archive and upload.
+</div>
+
+<h2 id="packaging-for-mobile">Packaging for mobile</h2>
+<p>Do a regular export and use the <a href="https://software.intel.com/en-us/intel-xdk">Intel XDK</a>
+to generate a platform-specific app that you can submit to a store.</p>
+<p>On Android, it seems like the minimum version required for WebGL support is 4.4.
+Accordingly, you should set up <code>Projects/Build Settings/Minimum Android Version</code> to <code>19</code> in Intel XDK.</p>
+
+    </div>
+  </main>
+</body>
+</html>

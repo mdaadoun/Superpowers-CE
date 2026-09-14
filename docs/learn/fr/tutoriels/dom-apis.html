@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Utiliser les APIs du DOM — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" class="active">Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="utiliser-les-apis-du-dom">Utiliser les APIs du DOM</h1>
+<h2 id="pourquoi-superpowers-n-expose-pas-les-apis-du-dom-par-d-faut-">Pourquoi Superpowers n&#39;expose pas les APIs du DOM par défaut ?</h2>
+<p>Les APIs du DOM sont les fonctions standard disponibles pour les scripts dans un navigateur Web.
+Elles incluent les objets <code>window</code>, <code>document</code>, <code>XMLHttpRequest</code> et beaucoup d&#39;autres.</p>
+<p>On a décidé de ne pas exposer tout ça aux jeux Superpowers par défaut pour deux raisons :</p>
+<ul>
+<li><p>Premièrement, car Superpowers fournit des alternatives haut niveaux qui sont plus simples à utiliser et qui fonctionnent bien ensemble.
+Par exemple, Superpowers fournit l&#39;API <code>Sup.Storage</code> pour remplacer l&#39;API <code>window.localStorage</code> du DOM.</p>
+</li>
+<li><p>Deuxièmement, car cela laisse la porte ouverte à, un jour, fournir un runtime alternatif qui ne soit pas un navigateur Web sous le capot.
+Il pourrait y avoir un player natif optimisé, par exemple. Ce n&#39;est pas quelque chose qu&#39;on cherche à faire activement cela dit.</p>
+</li>
+</ul>
+<h2 id="comment-les-utiliser-quand-m-me">Comment les utiliser quand même</h2>
+<p>La bonne nouvelle est que vous pouvez toujours choisir d&#39;accéder au DOM si vous le désirez.<br>Vous avez juste à ajouter la ligne <code>declare var window;</code> au tout début de votre premier script et ensuite vous pouvez utiliser les APIs non typées avec <code>new window.XMLHttpRequest(...);</code> par exemple.</p>
+<p>Si vous les utilisez beaucoup, avoir une vérification du typage correct peut être utile.<br>Heureusement, Florent Poujol a écrit un <a href="https://github.com/florentpoujol/superpowers-dom-plugin">Plugin DOM pour Superpowers</a>
+qui expose toute l&#39;API typée pour vous.</p>
+
+    </div>
+  </main>
+</body>
+</html>

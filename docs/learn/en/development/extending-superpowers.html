@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Extending Superpowers — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" class="active">Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="extending-superpowers">Extending Superpowers</h1>
+<p>Superpowers is a highly extensible platform.
+While it is primarily used to make video games, it can be repurposed for any kind of creative work.
+Make sure you have <a href="/en/development/building-superpowers">the development version of Superpowers</a>.</p>
+<h2 id="systems-and-plugins">Systems and plugins</h2>
+<p>Superpowers currently ships with a single system, <code>Superpowers Game</code> which lets you make 2D and 3D games with TypeScript.
+You can build your own systems to provide entirely different project types.</p>
+<p>The system itself provides the shared components (like a game engine for instance)
+upon which various plugins will build to provide editors and tools.</p>
+<h2 id="setting-up-your-own-system">Setting up your own system</h2>
+<p>Systems are stored in the <code>systems</code> folder, inside your Superpowers app.</p>
+<div class="note">
+  <strong>In Superpowers v1.0, systems and plugins will be moved</strong> to <a href="/en/getting-started/setting-up-superpowers">the user data folder</a>.
+</div>
+
+<p>You can create a new system by running:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> superpowers
+node server init <span class="hljs-variable">$SYSTEM_ID</span>
+</code></pre>
+<p>Then open <code>systems/$SYSTEM_ID/package.json</code> and customize things as you like.
+You&#39;ll want to edit <code>systems/$SYSTEM_ID/public/locales/en/system.json</code> to describe your system, too:</p>
+<pre><code>{
+  <span class="hljs-string">"title"</span>: <span class="hljs-string">"Dummy"</span>,
+  <span class="hljs-string">"description"</span>: <span class="hljs-string">"A demo system that doesn't do much, but does it well."</span>
+}
+</code></pre><p>These strings will appear in the project creation popup.</p>
+<h2 id="setting-up-a-plugin">Setting up a plugin</h2>
+<p>Plugins are stored in <code>systems/$SYSTEM_ID/plugins/$PLUGIN_AUTHOR/$PLUGIN_NAME</code>.</p>
+<p>You can create a plugin by running:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> superpowers
+node server init <span class="hljs-variable">$System_ID</span>:<span class="hljs-variable">$PLUGIN_AUTHOR</span>/<span class="hljs-variable">$PLUGIN_NAME</span>
+</code></pre>
+<p>Plugin included by default with your system should be placed in the <code>plugins/default</code> author folder.</p>
+<p>We maintain <a href="https://github.com/superpowers/superpowers-common-plugins">a set of common plugins</a> including the home chat,
+the settings tool and the real-time collaborative text editor widget.
+You can include them in your repository as a Git submodule in <code>plugins/common</code>.</p>
+<h2 id="anatomy-of-a-plugin">Anatomy of a plugin</h2>
+<p>At the root of your plugin, you&#39;ll find a <code>package.json</code> file
+(following <a href="https://docs.npmjs.com/files/package.json">npm&#39;s package.json file format</a>).</p>
+<p>Here&#39;s what it might look like:</p>
+<pre><code>{
+  <span class="hljs-string">"name"</span>: <span class="hljs-string">"superpowers-$SYSTEM_ID-$PLUGIN_AUTHOR-$PLUGIN_NAME-plugin"</span>,
+  <span class="hljs-string">"description"</span>: <span class="hljs-string">"My plugin for Superpowers Dummy"</span>,
+  <span class="hljs-string">"scripts"</span>: {
+    <span class="hljs-string">"build"</span>: <span class="hljs-string">"gulp --gulpfile=../../../../../scripts/pluginGulpfile.js --cwd=."</span>
+  }
+}
+</code></pre><p>Besides <code>package.json</code>, you&#39;ll find the following files at the root of your plugin:</p>
+<ul>
+<li><code>tsconfig.json</code> is used by <code>pluginGulpfile.js</code> to set TypeScript compiler options</li>
+<li><code>index.d.ts</code> is used by TypeScript to find the type definition files for Superpowers (<code>SupCore</code>, <code>SupClient</code>, etc.)</li>
+</ul>
+<p>The plugin&#39;s <code>public</code> folder contains all the files that will be exposed to the client (the user&#39;s browser or the Superpowers app).
+Many of them will be generated by compiling source files (written in Jade, Stylus and TypeScript for instance)
+into files that can be consumed by the browser directly (HTML, CSS and JavaScript).</p>
+<p>A plugin can do 3 types of things:</p>
+<ul>
+<li>Define asset and/or resource classes in <code>data/</code></li>
+<li>Provide asset editors and/or tools in <code>editors/</code></li>
+<li>System-specific stuff like exposing scripting APIs, scene components for Superpowers Game, etc.</li>
+</ul>
+<h2 id="building-your-plugin">Building your plugin</h2>
+<p><a href="http://gulpjs.com/">Gulp</a> is the build tool used throughout Superpowers,
+and <a href="https://github.com/superpowers/superpowers-core/blob/master/scripts/pluginGulpfile.js"><code>pluginGulpfile.js</code></a>
+is a shared build file for your plugins that ships as part of Superpowers&#39;s main repository.</p>
+<p>It assumes you&#39;re using Jade, Stylus and TypeScript to build your plugin. If you&#39;d rather use something else,
+you can write your own Gulpfile instead (or run whatever build command you want in your <code>package.json</code>&#39;s <code>build</code> script).</p>
+<p>You can build just your plugin by typing <code>npm run build $PLUGIN_AUTHOR/$PLUGIN_NAME</code> at the root of the Superpowers repository.
+Or, if you have <code>gulp</code> installed globally, you can directly run <code>npm run build</code> inside your plugin&#39;s folder.</p>
+<p>If you&#39;re using <code>pluginGulpfile.js</code>, several things will happen when you run <code>npm run build</code> in your plugin&#39;s folder.</p>
+<p>If it exists, <code>data/index.ts</code> will automatically be compiled to <code>data/index.js</code> so it can be loaded by the server.
+A <a href="http://browserify.org/">browserified</a> version of <code>data/index.js</code> will then be generated at <code>public/bundles/data.js</code> for
+the client to load.</p>
+<p>Any other folders at the root of your plugin containing an <code>index.ts</code> file will have a browserified bundle generated
+and placed in <code>public/bundles/$FOLDER_NAME.js</code> so that it can be loaded from the client.</p>
+<h2 id="editors-and-tools">Editors and tools</h2>
+<p>Your plugin can expose zero or more editors in <code>editors/*/</code>. Again, assuming you&#39;re using <code>pluginGulpfile.js</code>:</p>
+<ul>
+<li><code>editors/*/index.jade</code> will be transpiled to <code>public/editors/*/index.html</code></li>
+<li><code>editors/*/index.styl</code> will be transpiled to <code>public/editors/*/index.css</code></li>
+<li><code>editors/*/index.ts</code> will be browserified to <code>public/editors/*/index.js</code></li>
+</ul>
+<p>When an editor is associated with an asset type, it becomes an asset editor.
+Otherwise, it&#39;ll appear in the tool shelf in the bottom-left corner of the project window.</p>
+<p>The query string passed to your editor is parsed and stored in <code>SupClient.query</code>.
+When you&#39;re in an asset editor (as opposed to a tool), <code>SupClient.query.asset</code> will contain the ID of the asset that should be edited.</p>
+<p>An SVG icon for each editor should be placed in <code>public/editors/*/icon.svg</code>.</p>
+<h2 id="asset-classes">Asset classes</h2>
+<p>Superpowers projects are basically made of a tree of assets.
+Your plugin can define one or more asset types.</p>
+<p>Each asset type is a class that inherits from <a href="https://github.com/superpowers/superpowers-core/blob/master/SupCore/Data/Base/Asset.ts"><code>SupCore.Data.Base.Asset</code></a> (<a href="https://github.com/superpowers/superpowers-game/blob/master/plugins/default/sprite/data/SpriteAsset.ts">example</a>).</p>
+<p>The <code>Asset</code> base class itself inherits from <a href="https://github.com/superpowers/superpowers-core/blob/master/SupCore/Data/Base/Hash.ts"><code>SupCore.Data.Base.Hash</code></a>,
+which stores a dictionary of data in its <code>.pub</code> property, with a schema for validating data.
+Properties can be marked as <code>mutable</code> in the schema, allowing clients to edit them directly through <code>setProperty</code> (more on editing below).</p>
+<p>Asset classes must be registered with <code>SupCore.system.data.registerAssetClass</code> in <code>data/index.ts</code>.
+The first parameter should be the name of the editor associated with the asset type (<a href="https://github.com/superpowers/superpowers-game/blob/master/plugins/default/sprite/data/index.ts">example</a>).</p>
+<h2 id="resources">Resources</h2>
+<p>Resources are similar to assets, but for a particular resource class, there is always a single instance of it in every project and it doesn&#39;t appear in the asset tree.
+They are used to store project-wide settings or information. Tools will often subscribe to one or more resources that they allow editing.
+A tool might edit a settings resource that is then used in the associated asset editor for project-wide configuration.</p>
+<p>A resource class must inherit from <code>SupCore.Data.Base.Resource</code> and be registered under a unique name.
+For instance, the startup scene of a Superpowers Game project is stored in <a href="https://github.com/superpowers/superpowers-game/tree/master/plugins/default/gameSettings/data">the <code>gameSettings</code> resource</a>.</p>
+<h2 id="subscriptions-and-editing">Subscriptions and editing</h2>
+<p>In order to allow editing the project&#39;s assets and resources, editors must subscribe to them.</p>
+<p>First of all, your editor should open a connection to the server through <code>SupClient.connect</code> (<a href="https://github.com/superpowers/superpowers-game/blob/7ac686ab4e08681e90abb6d6b8de83bf8a1fec1f/plugins/default/sound/editors/sound/index.ts#L16">example</a>).</p>
+<p>Once connected, you&#39;ll probably want to create an instance of <a href="https://github.com/superpowers/superpowers-core/blob/master/SupClient/src/ProjectClient.ts"><code>SupClient.ProjectClient</code></a>
+(<a href="https://github.com/superpowers/superpowers-game/blob/7ac686ab4e08681e90abb6d6b8de83bf8a1fec1f/plugins/default/sound/editors/sound/index.ts#L43">example</a>).
+It can be used to manage subscriptions to the project&#39;s assets tree (name of each asset, type, parent, order, etc.), or to particular assets and resources
+and it&#39;s easier than sending raw socket.io messages and keeping track of things yourself.</p>
+<p>To subscribe to an asset, use <code>projectClient.subAsset(assetId, assetType, subscriber);</code> (<a href="https://github.com/superpowers/superpowers-game/blob/7ac686ab4e08681e90abb6d6b8de83bf8a1fec1f/plugins/default/sound/editors/sound/index.ts#L45">example</a>).
+The callbacks on your subscriber object will be called when various events are received from the server.
+<code>subscriber.onAssetReceived</code> will be called as soon as the asset has been received (<a href="https://github.com/superpowers/superpowers-game/blob/7ac686ab4e08681e90abb6d6b8de83bf8a1fec1f/plugins/default/sound/editors/sound/index.ts#L54">example</a>).</p>
+<p>To edit an asset, you can use <code>projectClient.editAsset(assetId, command, args..., callback);</code>.</p>
+<p>The server, <a href="https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/RemoteProjectClient.ts#L325">through <code>RemoteProjectClient</code></a>
+will call a method starting with <code>server_</code> followed by the command you specified.</p>
+<p>If the command&#39;s callback doesn&#39;t return an error, the server <a href="https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/RemoteProjectClient.ts#L346">will emit back the command to every client subscribed to the asset</a>.
+In turn, on the client-side, <code>ProjectClient</code> <a href="https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/SupClient/src/ProjectClient.ts#L157">will call the corresponding <code>client_</code> method on your asset</a>, applying the changes provided by the server.
+Then it will notify all subscribers of the change.</p>
+<p>In <code>server_</code> methods, whenever the asset is edited, you should call <code>this.emit(&quot;change&quot;);</code>
+to let the project server know that the asset has changed and should be <a href="https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/ProjectServer.ts#L249">scheduled for a write to disk soon</a>.
+The server saves a particular asset to disk <a href="https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/ProjectServer.ts#L11">no more often than once every 60s</a>.</p>
+<p><code>TODO: We still need to design a way to stream large assets.</code></p>
+<h2 id="internationalization">Internationalization</h2>
+<p>You can place JSON localization files in <code>public/locales/$LANGUAGE_CODE/$NAMESPACE.json</code> (<a href="https://github.com/superpowers/superpowers-game/tree/master/plugins/default/sound/public/locales/en">example</a>).</p>
+<p>They will be made available through the <code>t(&quot;namespace:path.to.key&quot;)</code> function to your Jade templates.
+You can also load them up at runtime with <a href="https://github.com/superpowers/superpowers-core/blob/master/SupClient/src/i18n.ts"><code>SupClient.i18n.load</code></a>
+and use them with <code>SupClient.i18n.t(&quot;namespace:path.to.key&quot;)</code>.
+(<a href="https://github.com/superpowers/superpowers-game/blob/master/plugins/default/sound/editors/sound/index.ts#L130">example</a>)</p>
+<p><code>public/locales/$LANGUAGE_CODE/plugin.json</code> should contain an <code>editors.*.title</code> key for each of your editors.</p>
+<h2 id="generic-plugin-api">Generic plugin API</h2>
+<p>You can use <code>SupCore.system.registerPlugin</code> to expose bits of code or data that can be reused by other plugins.
+For instance, the Superpowers Game system uses this facility to let each plugin expose TypeScript APIs, as well as component configuration classes.</p>
+<p>Each such plugin must be attached to a context (for instance <code>&quot;typescriptAPI&quot;</code>) and given a name (<a href="https://github.com/superpowers/superpowers-game/blob/273611624b3168a629514c2a644b71d9ac325387/plugins/default/sound/typescriptAPI/index.ts">example</a>).<br>You should also define an interface to get type checking (<a href="https://github.com/superpowers/superpowers-game/blob/273611624b3168a629514c2a644b71d9ac325387/plugins/default/typescript/typescriptAPI/TypeScriptAPIPlugin.d.ts">example</a>).</p>
+<p>On the server-side, <code>SupCore.system.requireForAllPlugins</code> lets you require a module for all plugins.<br>This can be used to conveniently load all registered plugins for a particular context (<a href="https://github.com/superpowers/superpowers-game/search?utf8=%E2%9C%93&amp;q=SupCore.system.requireForAllPlugins&amp;type=Code">examples</a>) .</p>
+<p>On the client-side, you&#39;ll need to load them by appending a <code>&lt;script&gt;</code> tag for each plugin.
+To get a list of all plugins, you can fetch <code>/systems/${SupCore.system.id}/plugins.json</code> (TODO: Update once plugins can be disabled per project)
+(<a href="https://github.com/superpowers/superpowers-game/blob/ca8cfec4d95870759382719ebec624a600b4cbc0/plugins/default/typescript/editors/script/network.ts#L315">example</a>).</p>
+<p>Once the scripts are all loaded, you can use <code>SupCore.system.getPlugins</code> to access the plugins in a typed fashion (<a href="https://github.com/superpowers/superpowers-game/search?utf8=%E2%9C%93&amp;q=SupCore.system.getPlugins&amp;type=Code">examples</a>).</p>
+<h3 id="client-only-plugins">Client-only plugins</h3>
+<p>For client-only stuff, a similar registration and retrieval API is available as <code>SupClient.registerPlugin</code> and <code>SupClient.getPlugins</code>.<br>It is used by Superpowers Game to register component editor classes and documentation pages (<a href="https://github.com/superpowers/superpowers-game/search?utf8=%E2%9C%93&amp;q=SupClient.registerPlugin">examples</a>).</p>
+<h2 id="running-a-project">Running a project</h2>
+<p>When a project using your system is launched (or published), the <code>public/index.html</code> file from your system will be its entry point.
+It&#39;s up to you to decide what steps your system&#39;s <code>public/index.html</code> should take in order to run a project. Here are a few examples:</p>
+<p>In Superpowers Game, <code>public/index.html</code> loads <code>public/SupRuntime.js</code>, which is generated
+from <a href="https://github.com/superpowers/superpowers-game/blob/master/SupRuntime/src/index.ts"><code>SupRuntime/src/index.ts</code></a>.</p>
+<ol>
+<li>It first loads all APIs, components and runtime code exposed by the plugins</li>
+<li>Then it load all the project assets</li>
+<li>Finally, it starts the game engine&#39;s main loop</li>
+</ol>
+<p>In contrast, Superpowers LÖVE&#39;s <a href="https://github.com/superpowers/superpowers-love2d/blob/master/public/index.html"><code>public/index.html</code></a>
+loads <code>public/index.js</code>, which is generated from <a href="https://github.com/superpowers/superpowers-love2d/blob/master/player/src/index.ts"><code>player/src/index.ts</code></a>.</p>
+<ol>
+<li>It checks if the user has provided the path to the <code>love</code> executable, and if not, asks for it</li>
+<li>It then downloads all the game&#39;s assets from the server into a temporary folder</li>
+<li>Finally, it launches the <code>love</code> executable, pointing it at the temporary folder</li>
+</ol>
+<p>As a final example, Superpowers Web has basically no runtime to speak of.
+It <a href="https://github.com/superpowers/superpowers-web/blob/master/player/src/index.ts">simply redirects</a> to the exported project&#39;s own <code>index.html</code>.</p>
+<h2 id="version-control">Version control</h2>
+<p>By convention, system repositories should be called <code>superpowers-$SYSTEM_ID</code>
+while a repository for a single plugin should be called <code>superpowers-$SYSTEM_ID-$PLUGIN_NAME-plugin</code>. </p>
+<p>We recommend that you only version your source files, not the many generated HTML, CSS and JS files.
+You can use the following <code>.gitignore</code> file:</p>
+<pre><code>**/node_modules
+**/*.html
+**/*.css
+**/*.js
+</code></pre><hr>
+<div class="note">
+  <b>More soon!</b> In the meantime, check out <a href="https://github.com/florentpoujol/superpowers-tutorials/blob/dev/md/plugins/">Florent Poujol&#39;s documentation</a> (which might be a bit outdated since we&#39;ve made a lot of changes recently)
+
+  You should also <a href="https://gitter.im/superpowers/dev?at=579afb8d95550f1a4ef56006">check out this explanation of the structure of a plugin on Gitter</a>.
+</div>
+
+    </div>
+  </main>
+</body>
+</html>

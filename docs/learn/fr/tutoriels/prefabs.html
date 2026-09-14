@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Préfabs et instanciation — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" class="active">Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="pr-fabs-et-instanciation">Préfabs et instanciation</h1>
+<p>Les jeux ont souvent des projectiles, des entités ou des bonus en tout genre qui sont créés 
+(&quot;instanciés&quot;, comme on dit en programmation) et détruits à de nombreuses reprises.</p>
+<p>Ils peuvent être constitués d&#39;une hiérarchie d&#39;acteurs complexe, ou simplement avoir plusieurs composants.
+Plutôt que de les construire en code, vous pouvez utiliser des scènes comme éléments préfabriqués réutilisables (&quot;préfabs&quot;).</p>
+<h2 id="instancier-le-contenu-d-une-sc-ne">Instancier le contenu d&#39;une scène</h2>
+<p>Vous pouvez utiliser <code>Sup.appendScene(&quot;Scene Asset&quot;)</code> pour ajouter tous les acteurs décrits dans une scène au plateau de jeu.
+Les acteurs existants ne seront pas supprimés.</p>
+<div class="note">
+  <strong>Dans les coulisses</strong>, un appel à <code>Sup.loadScene(...)</code> équivaut à utiliser <code>Sup.destroyAllActors()</code> suivi de <code>Sup.appendScene(...)</code>.
+</div>
+
+<p>Vous pouvez ajouter une scène autant de fois que vous voulez, et optionnellement spécifier un acteur parent en second argument.</p>
+<h2 id="utiliser-les-pr-fabs-dans-l-diteur-de-sc-ne">Utiliser les préfabs dans l&#39;éditeur de scène</h2>
+<p>Il y a un bouton <code>New Prefab</code> à coté du bouton <code>New Actor</code> dans l&#39;éditeur de scène.
+Il vous permet d&#39;attacher d&#39;autres scènes à votre scène courante.</p>
+<div class="note">
+  <strong>Les préfabs fonctionnent même de manière récursive</strong>, vous pouvez donc avoir une scène référençant une seconde,
+  qui elle même en référençe une troisième et ainsi de suite... Superpowers interdit automatiquement les références circulaires.
+</div>
+
+<p>Pour qu&#39;une scène soit utilisable comme préfab, elle doit n&#39;avoir qu&#39;un seul acteur à sa racine.
+Lorsqu&#39;elle est utilisée dans une autre scène, le nom de l&#39;acteur sera remplacé par celui du préfab.
+Par exemple, vous pouvez avoir une scène nommée <code>Bonus de santé</code> avec un acteur nommé <code>Bonus Actor</code>, et
+l&#39;utiliser en tant que préfab avec un nom tel que <code>Bonus de santé secret</code>, <code>Bonus de santé 3</code>, etc.</p>
+<div class="note">
+  <strong>Les composants des acteurs d&#39;un préfab seront personnalisables</strong> dans une version future.
+  Pour l&#39;instant, vous pouvez obtenir le nom du préfab (en utilisant <code>Sup.Actor.getName()</code>) dans un comportement pour y appliquer des paramètres personnalisés.
+  C&#39;est pas l&#39;idéal, mais c&#39;est mieux que rien !
+</div>
+    </div>
+  </main>
+</body>
+</html>

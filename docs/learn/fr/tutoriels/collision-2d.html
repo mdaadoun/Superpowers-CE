@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Collision de base en 2D — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" class="active">Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="collision-de-base-en-2d">Collision de base en 2D</h1>
+<p>La gestion de collision est souvent difficile à mettre en place.
+Le plugin ArcadePhysics2D, fourni avec Superpowers, gère les cas les plus courants.
+Ce n&#39;est pas une solution parfaite à tous vos problèmes, mais il fait bien son travail et est très rapide à mettre en place, idéal quand vous prototypez un jeu.</p>
+<p>Le plugin ajoute un nouveau type de composant dans l&#39;éditeur de scène qui vous propose deux types de corps :</p>
+<h2 id="boite-de-collision">Boite de collision</h2>
+<p>Le corps de type <code>Box</code> définit une boite avec une taille spécifique et un éventuel décalage par rapport à l&#39;origine de l&#39;acteur.</p>
+<p><img src="/images/2d-collision/collision-box.png" alt=""></p>
+<p>Assurez-vous de décocher <code>Movable</code> pour les éléments de décor qui devraient être statiques.</p>
+<h2 id="collision-avec-les-tile-maps">Collision avec les tile maps</h2>
+<p>Le corps de type <code>Tile Map</code> définit des collisions avec un tile map.</p>
+<p>Par défaut, toute case (<em>tile</em>) non vide engendrera une collision avec d&#39;autres corps. Vous pouvez spécifier un nom de propriété dans le champ <code>Tile Set Property</code> afin de limiter les collisions aux tiles qui auront cette propriété. Vous pouvez configurer ces propriétés pour chaque type de tile dans l&#39;éditeur de tile set.</p>
+<p>Vous pouvez également spécifier une liste de calques, séparés par des virgules, devant entrer en collision. Par exemple, vous pouvez définir le calque <code>0</code> comme calque de collision, et les autres calques seront ignorés.</p>
+<p><img src="/images/2d-collision/collision-map.png" alt=""></p>
+<div class="note">
+  L&#39;échelle de l&#39;acteur n&#39;est pas pris en compte. Vous devriez laisser l&#39;échelle à 1 et utiliser le réglage <code>Pixels / unit</code> sur le tile map.
+</div>
+
+<h2 id="r-pondre-aux-collisions">Répondre aux collisions</h2>
+<p>Pour que votre personnage puisse entrer en collision avec l&#39;environnement, placez le code suivant dans la fonction <code>update</code> d&#39;un comportement attaché à votre acteur :</p>
+<pre><code>Sup.ArcadePhysics2D.collides(<span class="hljs-keyword">this</span>.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
+</code></pre><p>Le deuxième argument de la fonction est une liste de corps. Dans cet exemple, nous utilisons tous les corps existant dans l&#39;environnement, mais vous pouvez également construire votre propre liste de corps.</p>
+<div class="note">
+  Comme la fonction <code>.collides</code> d&#39;ArcadePhysics2D met à jour la position de votre acteur, <strong>vous ne pouvez plus utiliser <code>.move</code> ou <code>.setPosition</code> directement</strong>.
+
+  Pour téléporter votre acteur, utilisez <code>this.actor.arcadeBody2D.warpPosition(...)</code>.
+</div>
+
+<p>Au lieu de cela, récupérez la vélocité de votre corps avec <code>this.actor.arcadeBody2D.getVelocity()</code>, mettez à jour les composantes <code>.x</code> ou <code>.y</code> et appliquez le changement avec <code>this.actor.arcadeBody2D.setVelocity(...)</code>.</p>
+<h2 id="cr-ation-d-un-jeu-de-plateforme">Création d&#39;un jeu de plateforme</h2>
+<div class="action">
+  Commençons par définir la gravité.
+</div>
+
+<pre><code>Sup.ArcadePhysics2D.setGravity(<span class="hljs-number">0</span>, <span class="hljs-number">-0.02</span>);
+</code></pre><p>Assez simple, non ?</p>
+<div class="action">
+  Afin de contrôler votre personnage, créer un script de comportement appelé <code>Player Behavior</code>.
+</div>
+
+<pre><code><span class="hljs-keyword">class</span> PlayerBehavior extends Sup.Behavior {
+  speed = <span class="hljs-number">0.3</span>;
+  jumpSpeed = <span class="hljs-number">0.45</span>;
+
+  update() {
+    Sup.ArcadePhysics2D.collides(<span class="hljs-keyword">this</span>.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
+
+    <span class="hljs-comment">// Comme expliqué ci-dessus, on récupère la vélocité du corps de notre acteur</span>
+    <span class="hljs-keyword">let</span> velocity = <span class="hljs-keyword">this</span>.actor.arcadeBody2D.getVelocity();
+
+    <span class="hljs-comment">// On écrase la composante `.x` en fonction des entrées du joueur</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) velocity.x = -<span class="hljs-keyword">this</span>.speed;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) velocity.x = <span class="hljs-keyword">this</span>.speed;
+    <span class="hljs-keyword">else</span> velocity.x = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// Si le joueur est sur le sol, et veut sauter,</span>
+    <span class="hljs-comment">// nous mettons à jour la composante `.y` en conséquence</span>
+    <span class="hljs-keyword">let</span> touchBottom = <span class="hljs-keyword">this</span>.actor.arcadeBody2D.getTouches().bottom;
+    <span class="hljs-keyword">if</span> (touchBottom &amp;&amp; Sup.Input.wasKeyJustPressed(<span class="hljs-string">"UP"</span>)) velocity.y = <span class="hljs-keyword">this</span>.jumpSpeed;
+
+    <span class="hljs-comment">// Et pour finir, nous appliquons la velocité ainsi modifiée à notre corps</span>
+    <span class="hljs-keyword">this</span>.actor.arcadeBody2D.setVelocity(velocity);
+  }
+}
+Sup.registerBehavior(PlayerBehavior);
+</code></pre><p><code>.getTouches()</code> renvoie les informations de contact pour chaque côté de la boite de collision du corps. Nous l&#39;utilisons pour confirmer que joueur est bien en contact avec le sol avant de le laisser sauter.</p>
+<h2 id="making-it-look-nice">Making it look nice</h2>
+<div class="note">
+  Le reste de cette page n&#39;a pas encore été traduit. <a href="https://bitbucket.org/superpowers/docs.sparklinlabs.com/src/tip/pages/fr/?at=default">Vous pouvez contribuer à sa traduction sur Bitbucket</a>.
+</div>
+
+<p>To make it look better, let&#39;s add some animations and flip the player&#39;s sprite based on the movement direction.</p>
+<p>We&#39;ll use the <code>.setAnimation</code> and <code>.setHorizontalFlip</code> methods on the sprite renderer to do so.</p>
+<pre><code><span class="hljs-keyword">class</span> PlayerBehavior extends Sup.Behavior {
+  speed = <span class="hljs-number">0.3</span>;
+  jumpSpeed = <span class="hljs-number">0.45</span>;
+
+  update() {
+    Sup.ArcadePhysics2D.collides(<span class="hljs-keyword">this</span>.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
+
+    <span class="hljs-comment">// As explained above, we get the current velocity</span>
+    <span class="hljs-keyword">let</span> velocity = <span class="hljs-keyword">this</span>.actor.arcadeBody2D.getVelocity();
+
+    <span class="hljs-comment">// We override the `.x` component based on the player's input</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) {
+      velocity.x = -<span class="hljs-keyword">this</span>.speed;
+      <span class="hljs-comment">// When going left, we flip the sprite</span>
+      <span class="hljs-keyword">this</span>.actor.spriteRenderer.setHorizontalFlip(<span class="hljs-literal">true</span>);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) {
+      velocity.x = <span class="hljs-keyword">this</span>.speed;
+      <span class="hljs-comment">// When going right, we clear the flip</span>
+      <span class="hljs-keyword">this</span>.actor.spriteRenderer.setHorizontalFlip(<span class="hljs-literal">false</span>);
+    } <span class="hljs-keyword">else</span> velocity.x = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// If the player is on the ground and wants to jump,</span>
+    <span class="hljs-comment">// we update the `.y` component accordingly</span>
+    <span class="hljs-keyword">let</span> touchBottom = <span class="hljs-keyword">this</span>.actor.arcadeBody2D.getTouches().bottom;
+    <span class="hljs-keyword">if</span> (touchBottom) {
+      <span class="hljs-keyword">if</span> (Sup.Input.wasKeyJustPressed(<span class="hljs-string">"UP"</span>)) {
+        velocity.y = <span class="hljs-keyword">this</span>.jumpSpeed;
+        <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Jump"</span>);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// Here, we should play either "Idle" or "Run" depending on the horizontal speed</span>
+        <span class="hljs-keyword">if</span> (velocity.x === <span class="hljs-number">0</span>) <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Idle"</span>);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Run"</span>);
+      }
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Here, we should play either "Jump" or "Fall" depending on the vertical speed</span>
+      <span class="hljs-keyword">if</span> (velocity.y &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Jump"</span>);
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Fall"</span>);
+    }
+
+    <span class="hljs-comment">// Finally, we apply the velocity back to the ArcadePhysics body</span>
+    <span class="hljs-keyword">this</span>.actor.arcadeBody2D.setVelocity(velocity);
+  }
+}
+Sup.registerBehavior(PlayerBehavior);
+</code></pre><p>We choose the animation to play based on the velocity of the player and whether we are touching the ground or not.</p>
+<h2 id="going-further">Going further</h2>
+<p>One thing you probably want to add now is one-way platforms: platforms that you can jump through from below.</p>
+<p>To do so, we will start by making two groups of actors in the scene.</p>
+<p><img src="/images/2d-collision/scene.png" alt=""></p>
+<p>We&#39;ll have a group for solid bodies, containing the map and the T-Rex, and another for our one-way platforms.
+Here is what it looks like in code.</p>
+<pre><code>Sup.ArcadePhysics2D.setGravity(<span class="hljs-number">0</span>, <span class="hljs-number">-0.02</span>);
+
+<span class="hljs-keyword">class</span> PlayerBehavior extends Sup.Behavior {
+  speed = <span class="hljs-number">0.3</span>;
+  jumpSpeed = <span class="hljs-number">0.45</span>;
+
+  solidBodies: Sup.ArcadePhysics2D.Body[] = [];
+  platformBodies: Sup.ArcadePhysics2D.Body[] = [];
+
+  awake() {
+    <span class="hljs-comment">// We get and store all the bodies in two arrays, one for each group</span>
+    <span class="hljs-keyword">let</span> solidActors = Sup.getActor(<span class="hljs-string">"Solids"</span>).getChildren();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> solidActor of solidActors) <span class="hljs-keyword">this</span>.solidBodies.push(solidActor.arcadeBody2D);
+    <span class="hljs-keyword">let</span> platformActors = Sup.getActor(<span class="hljs-string">"Platforms"</span>).getChildren();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> platformActor of platformActors) <span class="hljs-keyword">this</span>.platformBodies.push(platformActor.arcadeBody2D);
+  }
+
+  update() {
+    <span class="hljs-comment">// First, we'll check for collision with solid bodies</span>
+    Sup.ArcadePhysics2D.collides(<span class="hljs-keyword">this</span>.actor.arcadeBody2D, <span class="hljs-keyword">this</span>.solidBodies);
+    <span class="hljs-keyword">let</span> touchSolids = <span class="hljs-keyword">this</span>.actor.arcadeBody2D.getTouches().bottom;
+    <span class="hljs-keyword">let</span> velocity = <span class="hljs-keyword">this</span>.actor.arcadeBody2D.getVelocity();
+
+    <span class="hljs-comment">// Then we'll check for collision with one-way platforms,</span>
+    <span class="hljs-comment">// ... but only when falling! That's the trick.</span>
+    <span class="hljs-keyword">let</span> touchPlatforms = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">if</span> (velocity.y &lt; <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">let</span> position = <span class="hljs-keyword">this</span>.actor.getLocalPosition();
+      <span class="hljs-comment">// We must change the size of the player body so only the feet are checked</span>
+      <span class="hljs-comment">// To do so, we decrease the height of the body and adapt the offset</span>
+      <span class="hljs-keyword">this</span>.actor.arcadeBody2D.setSize(<span class="hljs-number">1.5</span>, <span class="hljs-number">0.4</span>);
+      <span class="hljs-keyword">this</span>.actor.arcadeBody2D.setOffset({ x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0.2</span> });
+      <span class="hljs-comment">// Then we override the body position using the current actor position</span>
+      <span class="hljs-keyword">this</span>.actor.arcadeBody2D.warpPosition(position);
+
+      <span class="hljs-comment">// Now, check against every platform</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> platformBody of <span class="hljs-keyword">this</span>.platformBodies) {
+        Sup.ArcadePhysics2D.collides(<span class="hljs-keyword">this</span>.actor.arcadeBody2D, platformBody);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.actor.arcadeBody2D.getTouches().bottom) {
+          touchPlatforms = <span class="hljs-literal">true</span>;
+          velocity.y = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">break</span>;
+        }
+      }
+
+      <span class="hljs-comment">// Once done, reset the body to its full size</span>
+      position = <span class="hljs-keyword">this</span>.actor.getLocalPosition();
+      <span class="hljs-keyword">this</span>.actor.arcadeBody2D.setSize(<span class="hljs-number">1.5</span>, <span class="hljs-number">1.8</span>);
+      <span class="hljs-keyword">this</span>.actor.arcadeBody2D.setOffset({ x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0.9</span> });
+      <span class="hljs-keyword">this</span>.actor.arcadeBody2D.warpPosition(position);
+    }
+
+    <span class="hljs-comment">// We override the velocity's `.x` component based on the player's input</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) {
+      velocity.x = -<span class="hljs-keyword">this</span>.speed;
+      <span class="hljs-comment">// When going left, we have to flip the sprite</span>
+      <span class="hljs-keyword">this</span>.actor.spriteRenderer.setHorizontalFlip(<span class="hljs-literal">true</span>);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) {
+      velocity.x = <span class="hljs-keyword">this</span>.speed;
+      <span class="hljs-comment">// When going right, we cancel the flip</span>
+      <span class="hljs-keyword">this</span>.actor.spriteRenderer.setHorizontalFlip(<span class="hljs-literal">false</span>);
+    } <span class="hljs-keyword">else</span> velocity.x = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// If the player is on the ground and wants to jump,</span>
+    <span class="hljs-comment">// we update the velocity's `.y` component accordingly</span>
+    <span class="hljs-keyword">let</span> touchBottom = touchSolids || touchPlatforms;
+    <span class="hljs-keyword">if</span> (touchBottom) {
+      <span class="hljs-keyword">if</span> (Sup.Input.wasKeyJustPressed(<span class="hljs-string">"UP"</span>)) {
+        velocity.y = <span class="hljs-keyword">this</span>.jumpSpeed;
+        <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Jump"</span>);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// Here, we should play either "Idle" or "Run" depending on the horizontal speed</span>
+        <span class="hljs-keyword">if</span> (velocity.x === <span class="hljs-number">0</span>) <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Idle"</span>);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Run"</span>);
+      }
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Here, we should play either "Jump" or "Fall" depending on the vertical speed</span>
+      <span class="hljs-keyword">if</span> (velocity.y &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Jump"</span>);
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"Fall"</span>);
+    }
+
+    <span class="hljs-comment">// Finally, we apply the velocity back to the ArcadePhysics body</span>
+    <span class="hljs-keyword">this</span>.actor.arcadeBody2D.setVelocity(velocity);
+  }
+}
+Sup.registerBehavior(PlayerBehavior);
+</code></pre><p>Vous pouvez <a href="https://bitbucket.org/sparklinlabs/superpowers-collision-demo">télécharger le projet de démonstration</a> et l&#39;essayer !
+Il comporte une version améliorée du comportement ci-dessus, qui gère l&#39;animation et l&#39;orientation du joueur.</p>
+<p><img src="http://i.imgur.com/v4tWyIN.gif" alt=""></p>
+<p>D&#39;autres méthodes sont disponibles sur le composant <code>.arcadeBody2D</code>. Jetez un oeil dans le &quot;TypeScript API browser&quot; dans Superpowers pour les découvrir.</p>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Votre premier jeu — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" class="active">Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="votre-premier-jeu">Votre premier jeu</h1>
+<div class="action">
+  <p><strong>Créez un asset de type Sprite</strong>, appelez-le <code>Leonard</code>, ouvrez-le en double-cliquant dessus et uploadez une petite image.<br>  Vous pouvez utiliser <a href="http://superpowers-html5.com/images/superpowers-logo.png">Léonard, la mascotte de Superpowers</a> par exemple).
+</div>
+
+<p>Assurez-vous de bien définir la taille de la grille à la taille de l&#39;image, pour que l&#39;image soit entièrement visible dans le panneau de prévisualisation (en bas).</p>
+<div class="action">
+  <p><strong>Créez un asset de type Script</strong>, appelez-le <code>Game</code> et ouvrez-le.
+</div>
+
+<p>Les scripts sont utilisés pour indiquer à Superpowers que faire avec vos assets.
+Quand vous lancez votre jeu, <strong>Superpowers lit chaque script dans l&#39;ordre, de haut en bas</strong>
+et exécute les instructions situées à l&#39;intérieur.
+Superpowers utilise <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a> comme language de script.</p>
+<p>Métaphoriquement, votre jeu est comme un film dont vous êtes le metteur en scène. Dans vos scripts, vous indiquez quels acteurs participent, quels costumes ils doivent enfiler et quels seront leurs rôles. Sans script, tout le monde restera dans les coulisses, personne ne sera sur le plateau et l&#39;écran restera donc noir.</p>
+<div class="action">
+  <p>Dans l&#39;éditeur de script, supprimez le texte de base et tapez le code suivant (ou copier / coller, mais vous apprendrez plus vite si vous tapez tout vous même) :
+</div>
+
+<pre><code><span class="hljs-comment">// Appelons notre premier acteur sur le plateau, il jouera le personnage principal</span>
+<span class="hljs-keyword">let</span> mainCharacterActor = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Personnage Principal"</span>);
+<span class="hljs-comment">// Disons à notre acteur de mettre le costume (sprite) "Leonard"</span>
+<span class="hljs-keyword">new</span> Sup.SpriteRenderer(mainCharacterActor, <span class="hljs-string">"Leonard"</span>);
+
+<span class="hljs-comment">// Appelons une seconde personne sur le plateau, ce sera notre caméraman</span>
+<span class="hljs-keyword">let</span> cameraManActor = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Camera Man"</span>);
+<span class="hljs-comment">// Donnons lui une caméra</span>
+<span class="hljs-keyword">new</span> Sup.Camera(cameraManActor);
+
+<span class="hljs-comment">// Plaçons nos acteurs. Le personnage principal sera au centre de la scène</span>
+mainCharacterActor.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+
+<span class="hljs-comment">// Le caméraman doit s'éloigner pour filmer l'acteur principal</span>
+cameraManActor.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
+</code></pre><p>Les lignes commençant par <code>//</code> sont des commentaires. Superpowers ne fait pas attention à ces lignes, elles ne sont là que pour expliquer comment tout fonctionne.</p>
+<div class="note">
+  <p><b>IMPORTANT:</b> Appuyez sur <code>Ctrl+S</code> pour appliquer les changements faits dans vos scripts. Vous remarquez que l&#39;indicateur <code>draft</code> dans l&#39;arbre d&#39;assets disparaît quand votre script est sauvegardé.</p>
+</div>
+
+<p>Superpowers peut détecter certaines erreurs de script (erreurs de syntaxe, référence ou de type) à la volée, donc si vous voyez des mots en rouges quand vous avez fini, vous savez que vous devez relire ces lignes et les lignes autour. Les messages d&#39;erreurs détaillés sont affichés en bas de l&#39;éditeur.</p>
+<p>Quand vous avez fini, lancez votre jeu avec le bouton <code>Run game</code> et vous devriez voir votre acteur apparaître !</p>
+
+    </div>
+  </main>
+</body>
+</html>

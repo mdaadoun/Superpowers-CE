@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Travailler avec des scènes — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" class="active">Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="travailler-avec-des-sc-nes">Travailler avec des scènes</h1>
+<p>Les scènes vous permettent de construire visuellement une configuration d&#39;acteurs et de composants (rendu, comportement, etc.).</p>
+<p>Nous allons reconstruire notre plateau depuis le début mais en utilisant une scène au lieu de le faire par script.</p>
+<div class="action">
+  <p>Créez une nouvelle scène, nommez-la <code>Main Scene</code> et ouvrez-la.
+</div>
+
+<div class="note">
+  <p><strong>Dans l&#39;éditeur de scène, utilisez <code>ZQSD</code></strong> pour vous déplacer vers l&#39;avant, arrière, gauche ou droite, la touche <code>Espace</code> pour monter et <code>Majuscule</code> pour descendre.
+</div>
+
+<div class="action">
+  <p>Créez un nouvel acteur, nommez-le <code>Main Character</code> et placez-le en (0, 0, 0).<br>  Ajoutez un composant <code>Sprite Renderer</code> et entrez le nom <code>Leonard</code> pour le sprite à utiliser.<br>  Ajoutez un autre composant, cette fois-ci de type <code>Behavior</code> et choisissez <code>CharacterBehavior</code> comme classe à utiliser.
+</div>
+
+<div class="action">
+  <p>Cliquez n&#39;importe où dans l&#39;arborescence de la scène pour désélectionner l&#39;acteur que vous venez de créer.<br>  Créez un autre acteur nommé <code>Camera Man</code> et placez-le en (0, 0, 5).<br>  Ajoutez un composant <code>Camera</code> dessus.
+</div>
+
+<div class="note">
+  <p><strong>Assurez-vous que l&#39;acteur <code>Camera Man</code> n&#39;est pas parenté à l&#39;acteur <code>Main Character</code></strong> dans l&#39;arborescence de la scène.<br>  Si c&#39;est le cas, glissez-le à la racine pour le détacher.
+</div>
+
+<p>Maintenant que notre scène est prête, retournons dans notre script. Nous pouvons nous débarrasser de tout notre code de création d&#39;acteurs et le remplacer par une unique instruction pour charger la scène. Nous avons cependant toujours besoin de déclarer notre <code>CharacterBehavior</code>.</p>
+<div class="action">
+  <p>Remplacez le contenu du script <code>Game</code> par le code suivant :
+</div>
+
+<pre><code><span class="hljs-keyword">class</span> CharacterBehavior extends Sup.Behavior {
+  update() {
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) <span class="hljs-keyword">this</span>.actor.move(<span class="hljs-number">-0.1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) <span class="hljs-keyword">this</span>.actor.move(<span class="hljs-number">0.1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+  }
+}
+Sup.registerBehavior(CharacterBehavior);
+
+Sup.loadScene(<span class="hljs-string">"Main Scene"</span>);
+</code></pre><div class="note">
+  <p><strong>Il est important de déclarer la classe <code>CharacterBehavior</code> avant de charger la scène avec <code>Sup.loadScene</code></strong> (c&#39;est-à-dire, le mettre plus haut dans le script), ou Superpowers vous indiquera qu&#39;il ne connait (pas encore) le comportement utilisé par la scène au moment de son chargement.
+</div>
+
+<p>Lorsque vous travaillez avec beaucoup de classes de comportement, vous pouvez mettre chacune dans son propre script pour mieux vous organiser. Comme les scripts sont lus dans l&#39;ordre, assurez-vous de charger votre scène dans un script placé en dessous de vos scripts définissant vos comportements.</p>
+<h2 id="charger-une-sc-ne-au-lancement-du-jeu-sans-code">Charger une scène au lancement du jeu sans code</h2>
+<p>Vous pouvez indiquer une scène qui sera automatiquement chargé par Superpowers après qu&#39;il a lu tous vos scripts dans la section <code>Game</code> de l&#39;outil <code>Settings</code>.</p>
+<p><img src="http://i.imgur.com/DaWYJqS.png" alt=""></p>
+<p>C&#39;est équivalent à insérer un appel à <code>Sup.loadScene</code> à la fin de votre dernier script, mais c&#39;est plus pratique puisque vous saurez toujours où trouver la scène de départ si vous devez la changer.</p>
+
+    </div>
+  </main>
+</body>
+</html>

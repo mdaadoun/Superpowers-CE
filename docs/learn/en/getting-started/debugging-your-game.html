@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Debugging your game — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" class="active">Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="debugging-your-game">Debugging your game</h1>
+<p>When using Superpowers from the app, you can open up the debugging tools by clicking on the <code>Debug game</code> button (or by pressing <code>F6</code>). Most browsers will let you open similar debugging tools by hitting the <code>F12</code> key while running the game.</p>
+<p>Since the Superpowers app is built on NW.js, which is based on Chrome&#39;s runtime, the built-in debugging tools are those of Chrome too.</p>
+<p>The two main tabs you&#39;ll care about when starting are:</p>
+<ul>
+<li><p>The <code>Console</code> tab, which provides runtime error reporting and will contain the result of any call to <code>Sup.log</code>.</p>
+</li>
+<li><p>The <code>Sources</code> tab, where you&#39;ll find your scripts as well as the whole engine powering your game.</p>
+</li>
+</ul>
+<h2 id="debugging-and-inspecting-your-game-s-state">Debugging and inspecting your game&#39;s state</h2>
+<div class="note">
+  <p>Check out <a href="https://developer.chrome.com/devtools">this overview of the Chrome DevTools</a> as well as <a href="https://developer.chrome.com/devtools/docs/javascript-debugging">this introduction to debugging JavaScript</a>. While Superpowers actually uses TypeScript, it is a superset of JavaScript so most of the information there should apply.
+</div>
+
+<p>With the debugger open, you can use <code>Ctrl+P</code> and type the name of one of your script assets to jump directly to it. <a href="https://developer.chrome.com/devtools/docs/javascript-debugging#add-remove-breakpoints">Place a breakpoint</a> in the <code>update</code> method of a behavior for instance, and your game will stop as soon it reaches that line again.</p>
+<p>When a breakpoint is hit, the right pane will show the <code>Call Stack</code> (showing you how your game reached the current function/method, like breadcrumbs) as well as <code>Scope Variables</code>, letting you inspect the content of all variables currently accessible.</p>
+<p><code>F10</code> lets you step forward one instruction at a time (useful if you want to inspect the details of a function one step at a time), while <code>F8</code> will resume the game&#39;s execution.</p>
+<p>You may want to <a href="https://developer.chrome.com/devtools/docs/javascript-debugging#pause-on-uncaught-exceptions">enable &quot;Pause on uncaught exceptions&quot;</a> so that your game will automatically stop at the specific line a runtime error is encountered and let you inspect the call stack and program state. This only has an effect when the debugger is open.</p>
+
+    </div>
+  </main>
+</body>
+</html>

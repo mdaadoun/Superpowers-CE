@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Setting up Superpowers — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" class="active">Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="setting-up-superpowers">Setting up Superpowers</h1>
+<div class="action">
+  <p>Download the correct ZIP for your platform from <a href="https://sparklinlabs.itch.io/superpowers" target="_blank">the download page</a>.<br>  Unzip it in a convenient location and double-click on <code>Superpowers</code>.<br>  The app will start.
+</div>
+
+<p>You&#39;ll see a list of servers and your own local server should start up right away.</p>
+<div class="note">
+  <p><strong>Superpowers uses TCP ports 4237 (for serving the client) and 4238 (for serving builds)</strong> by default, because port 80 requires special privileges on Linux &amp; OS X. Additionally, programs like Skype might already be listening on it. You can change the ports used by Superpowers in the app&#39;s server settings tab.
+
+  <p>If you do so, make sure to also edit the address of the &quot;My Server&quot; entry in the servers list to use the correct port.
+</div>
+
+<p>Double-click on &quot;My Server&quot; and a tab will open. You&#39;ll be asked to choose a username.</p>
+<h2 id="where-s-my-data-stored-">Where&#39;s my data stored?</h2>
+<p>By default, your server configuration and projects are stored in the following places, depending on your operating system:</p>
+<ul>
+<li>On Windows: <code>%APPDATA%\Superpowers</code></li>
+<li>On OS X: <code>~/Library/Application Support/Superpowers</code> (Use Finder&#39;s &quot;Go to folder&quot; menu item)</li>
+<li>On Linux: <code>~/.local/share/Superpowers</code></li>
+</ul>
+<p>To make Superpowers self-contained (if you want to carry Superpowers on an USB stick for example), you can move the <code>config.json</code> file and the <code>projects</code> folder to Superpowers&#39;s <code>app</code> folder and it will automatically start using those. Be careful when upgrading though, you&#39;ll need to move those files from the old version to the new version manually.</p>
+<h2 id="letting-others-join-your-server">Letting others join your server</h2>
+<p>By default, your server will only accept connections from the computer it is running on.</p>
+<div class="action">
+  <p>To open up your server to others, setup a password in the Settings and stop/start the server.
+</div>
+
+<div class="note">
+  <p><strong>You&#39;ll probably need to <a href="https://www.google.com/search?q=setting%20up%20port%20forwarding" target="_blank">configure your home router</a></strong> and/or firewall
+  to allow (or forward) inbound TCP connections on the port numbers your server is listening on (4237 and 4238 by default).
+</div>
+
+<p>Once your server is open, <a href="https://www.google.com/search?q=my%20ip" target="_blank">get your public IP address</a> and you can send a link of the form <code>ip:port</code> to the people you want to work with (e.g.&nbsp;<code>1.2.3.4:4237</code>). They can either paste this link in their browser&#39;s address bar to join without installing anything or add it to their Superpowers servers list from the app.</p>
+<div class="note">
+  <p><strong>Make sure to share your public IP address</strong> with those you want to collaborate with. <code>127.0.0.1</code> is a special address that always points to the computer you&#39;re using it on, so others won&#39;t be able to connect to your server with it.
+
+  <p>The simplest way to get your public IP address is to <a href="https://www.google.com/search?q=my%20ip" target="_blank">ask Google</a>.
+</div>
+
+<h2 id="running-a-superpowers-server-from-the-command-line">Running a Superpowers server from the command line</h2>
+<p>It might be useful to run Superpowers on a headless server so that you don&#39;t have to keep your desktop computer on at all times.<br>This should work on any Linux server including a Raspberry Pi.</p>
+<ul>
+<li>Install the latest version of <a href="https://nodejs.org/" target="_blank">Node.js</a>.</li>
+<li>Download <a href="https://github.com/superpowers/superpowers-core/releases">the latest release of Superpowers Core</a>  and <code>unzip</code> it.</li>
+<li>Run <code>node server start</code> at the root.</li>
+</ul>
+<p>By default, Superpowers will store configuration and projects files in <code>$XDG_DATA_HOME/Superpowers</code> (or <code>~/.local/share/Superpowers</code> if <code>$XGD_DATA_HOME</code> is undefined). You can use the <code>--data-path=</code> option to override that behavior.</p>
+<div class="note">
+  After launching your server for the first time, you&#39;ll need to stop it (with <code>Ctrl+C</code>)
+  and go edit the generated <code>config.json</code> file to set a password, then start the server up again.
+  You can also customize the ports it&#39;ll be listening on.
+</div>
+
+    </div>
+  </main>
+</body>
+</html>

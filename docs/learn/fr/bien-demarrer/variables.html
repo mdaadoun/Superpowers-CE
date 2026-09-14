@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Manipuler des états — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" class="active">Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="manipuler-des-tats">Manipuler des états</h1>
+<p>Les variables vous permettent de stocker, lire ou changer des données pendant que votre jeu est lancé. Elle peuvent être utilisées pour stocker dans quel niveau le joueur est, combien de vie un monstre possède, la vitesse d&#39;un objet, quels items sont dans l&#39;inventaire d&#39;une personnage ou vraiment n&#39;importe quoi d&#39;autre.</p>
+<p>Vous pouvez déclarer et initialiser une variable globale à la racine d&#39;un script :</p>
+<pre><code><span class="hljs-comment">// Niveau actuel</span>
+<span class="hljs-keyword">let</span> currentLevel  = <span class="hljs-number">1</span>;
+</code></pre><p>Quand un événement a lieu, vous pouvez incrémenter la valeur :</p>
+<pre><code><span class="hljs-comment">// ... Quand le joueur atteint la sortie ...</span>
+currentLevel++;
+Sup.loadScene(<span class="hljs-string">`Level <span class="hljs-subst">${currentLevel}</span>`</span>);
+</code></pre><p>Quand vous déclarez une variable dans une fonction, elle n&#39;existe que pendant que cette fonction s&#39;exécute :</p>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSomething</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+    i++;
+    <span class="hljs-comment">// `i` est maintenant égal à 1</span>
+}
+</code></pre><p>Peu importe combien de fois vous appelez <code>doSomething</code>, la variable <code>i</code> sera initialisée à <code>0</code> puis incrémentée à <code>1</code>. Elle n&#39;ira pas plus haut.</p>
+<p>De même, si une variable déclarée dans une fonction existe seulement pendant que cette fonction est executée, vous ne pouvez pas l&#39;utiliser dans une autre fonction.</p>
+<pre><code><span class="hljs-keyword">class</span> MyClass {
+    doSomething() {
+    <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+  }
+
+  doSomethingElse() {
+    <span class="hljs-comment">// Essayer d'accéder à `i` ici renverrait une erreur.</span>
+    <span class="hljs-comment">// Il n'y a pas de variable `i` dans le contexte de `doSomethingElse()`.</span>
+  }
+}
+</code></pre><p>Afin de maintenir des états associés à un comportement particulier (la vie d&#39;un personnage par exemple), vous pouvez utiliser des variables membres.</p>
+<pre><code><span class="hljs-keyword">class</span> MyBehavior extends Sup.Behavior {
+
+  <span class="hljs-comment">// Les variables membres doivent être déclarées sans utiliser le mot clé `let`,</span>
+  <span class="hljs-comment">// directement dans la classe :</span>
+  health = <span class="hljs-number">100</span>;
+
+  takeDamage(amount) {
+    <span class="hljs-comment">// Les variables membres sont initialisées quand le comportement est créé.</span>
+    <span class="hljs-comment">// Vous pouvez accéder au comportement lui-même et à ses variables membres avec `this`.</span>
+    <span class="hljs-keyword">this</span>.health -= amount;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.health &lt;= <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// Il est mort !</span>
+      <span class="hljs-keyword">this</span>.actor.destroy();
+    }
+  }
+
+}
+Sup.registerBehavior(MyBehavior);
+</code></pre><h2 id="personnalisation-des-propri-t-s-de-comportements">Personnalisation des propriétés de comportements</h2>
+<p>Quand vous ajoutez un comportement à un acteur dans une scène, vous pouvez personnaliser les valeurs initiales de ses variables membres, permettant de créer des personnages avec différentes vitesses, points de vie, etc.</p>
+<p>Vous pouvez réaliser la même chose en script en passant un objet en second paramètre de <code>Sup.Actor.addBehavior</code>.</p>
+<pre><code><span class="hljs-keyword">let</span> collectedPoints = <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">class</span> BonusBehavior extends Sup.Behavior {
+
+  <span class="hljs-comment">// Un bonus donne 10 points par défaut.</span>
+  points = <span class="hljs-number">10</span>;
+
+  ramasser() {
+    <span class="hljs-comment">// Cette méthode doit être appelée par notre joueur quand il rencontre un bonus</span>
+    collectedPoints += <span class="hljs-keyword">this</span>.points;
+    <span class="hljs-keyword">this</span>.actor.destroy();
+  }
+
+}
+Sup.registerBehavior(BonusBehavior);
+
+<span class="hljs-keyword">let</span> bigBonusActor = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Gros Bonus"</span>);
+<span class="hljs-comment">// ... ici on rajoutait probablement un rendu de sprite ou de modèle ...</span>
+
+<span class="hljs-comment">// C'est un gros bonus, donc nous remplaçons la valeur de points par défaut avec 50.</span>
+bigBonusActor.addBehavior(BonusBehavior, { points: <span class="hljs-number">50</span> });
+</code></pre>
+    </div>
+  </main>
+</body>
+</html>

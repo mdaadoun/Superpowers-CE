@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Cameras, viewports and UI — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" class="active">Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="cameras-viewports-and-ui">Cameras, viewports and UI</h1>
+<h2 id="perspective-versus-orthographic">Perspective versus Orthographic</h2>
+<p>A camera can either be in perspective or orthographic projection mode.</p>
+<p><img src="/images/cameras/camera-modes.png" alt=""></p>
+<p>When using a perspective projection, objects farther away from the camera will look smaller, just like in real life.
+It&#39;s great for most 3D games. Conversely, an orthographic projection is best for 2D or 3D-isometric games,
+as well as 2D user interfaces in 3D games. </p>
+<h3 id="configuring-a-perspective-camera">Configuring a perspective camera</h3>
+<p><img src="/images/cameras/perspective-settings.png" alt=""></p>
+<p>The <code>Field of view</code> (often abbreviated FOV) controls how wide of an angle your camera will see vertically.
+The resulting horizontal field of view will depend on the game window&#39;s ratio (you can enforce a fixed ratio like 16:9 through your project&#39;s settings, in the <code>Game</code> settings pane).</p>
+<h3 id="configuring-an-orthographic-camera">Configuring an orthographic camera</h3>
+<p><img src="/images/cameras/orthographic-settings.png" alt=""></p>
+<p>The <code>Orthographic Scale</code> controls the vertical extent of what your camera will look at, in scene units.
+Just like for the field of view, the horizontal extent will depend on the game window&#39;s ratio.</p>
+<h3 id="other-settings">Other settings</h3>
+<p>The <code>Near</code> and <code>Far plane</code> control the extent of the camera&#39;s <a href="https://en.wikipedia.org/wiki/Viewing_frustum">viewing frustum</a>.
+When rendering a 3D object, your GPU stores and compares the depth of any previously rendered object for each of the pixels
+occupied on screen to determine whether the object is occluded or not.</p>
+<h2 id="rendering-with-multiple-cameras">Rendering with multiple cameras</h2>
+<p>You can set up a camera&#39;s <code>Viewport</code> so that it renders only to an area of the game&#39;s window. This is useful for split-screen multiplayer games, for instance.
+The values should be in the 0-1 range.</p>
+<p>The <code>Depth</code> setting is used to order cameras when multiple viewports are overlapping. Cameras with higher depth values will appear in front.  </p>
+<h2 id="layers">Layers</h2>
+<p>Render layers allows you to only render some actors for a given camera.
+You can set up your game&#39;s layers from the <code>Game</code> pane in the <code>Settings</code>.
+You can then choose which layer(s) a camera should render.</p>
+<p>This could be used to have an orthographic camera that only renders user interface-related actors,
+while the main camera renders everything else.</p>
+<div class="note">
+  <strong>Setting a camera&#39;s layers isn&#39;t implemented yet</strong> as of Superpowers v0.12.<br>  Until it is, the recommended (and hacky) way to do user interface is to move the UI camera and its actors far away on one axis.
+</div>
+
+    </div>
+  </main>
+</body>
+</html>

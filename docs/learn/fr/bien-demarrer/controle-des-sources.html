@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Utiliser la gestion de versions — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" class="active">Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="utiliser-la-gestion-de-versions">Utiliser la gestion de versions</h1>
+<p>La <a href="https://fr.wikipedia.org/wiki/Gestion_de_versions">gestion des versions</a> permet de créer des points de contrôle dans votre projet, de comparer d&#39;anciennes révisions avec de nouvelles ainsi que de sauvegarder votre travail sur un service tel que <a href="https://github.com/">GitHub</a> ou <a href="https://bitbucket.org/">Bitbucket</a>.</p>
+<p>Les projets Superpowers sont bien adaptés pour être utilisés avec un outil de gestion de versions. Bien qu&#39;il n&#39;y ait pas de support intégré pour le moment, des outils existants comme Git ou Mercurial fonctionnent parfaitement.</p>
+<h2 id="d-lai-lors-des-modifications">Délai lors des modifications</h2>
+<p>De façon à minimiser son impact sur les performances, le serveur Superpowers n&#39;écrit pas immédiatement sur le disque tous les changements que vous faites à un projet. L&#39;écriture sur le disque peut avoir un délai allant jusqu&#39;à 60 secondes.</p>
+<p>Lorsque vous créez une nouvelle révision pour votre projet, vous pouvez soit attendre 60 secondes, soit arrêter votre serveur afin de vous assurer que tout a été correctement écrit sur le disque (nous ajouterons probablement à terme un bouton pour forcer la sauvegarde sur le disque).</p>
+<h2 id="fichiers-ne-pas-versionner">Fichiers à ne pas versionner</h2>
+<p>Il y a quelques répertoires que vous ne voudrez sans doute pas sauvegarder dans votre dépôt :</p>
+<ul>
+<li>Le répertoire <code>rooms/</code> contient votre historique de chat récent</li>
+<li>Le répertoire <code>trashedAssets/</code> contient les assets supprimés</li>
+</ul>
+<p>Vous pouvez utiliser un fichier <code>.gitignore</code> ou <code>.hgignore</code> pour les ignorer.</p>
+
+    </div>
+  </main>
+</body>
+</html>

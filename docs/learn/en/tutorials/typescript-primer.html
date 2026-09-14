@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>TypeScript primer — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" class="active">TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="typescript-primer">TypeScript primer</h1>
+<p>Superpowers scripts are written in TypeScript.
+It&#39;s a nice-to-use, powerful language, with a convoluted history.</p>
+<p>Here&#39;s some background, and an intro to get you started.</p>
+<h2 id="from-javascript-to-typescript">From JavaScript to TypeScript</h2>
+<p>JavaScript is a <a href="https://www.destroyallsoftware.com/talks/wat">quirky, flawed language</a> that&#39;s recently been getting much better.
+It is actually standardized under the name ECMAScript, for complicated reasons.
+The latest version of JavaScript, ECMAScript 2015 (previously known as ECMAScript 6), fixes many of the frustrations people had and adds lots of new features.</p>
+<p>It&#39;s <a href="https://kangax.github.io/compat-table/es6/">going to take a year or two</a> for all those improvements to make their way into the browsers.
+In the meantime, Web developers have created various tools like <a href="https://babeljs.io/">Babel.js</a>
+or languages like <a href="http://www.typescriptlang.org/">TypeScript</a>, <a href="http://flowtype.org/">Flow</a> and <a href="http://coffeescript.org/">CoffeeScript</a>
+that let you use new language features right now and will automatically rewrite (&quot;transpile&quot;) your scripts down to ECMAScript 5, the version of JavaScript currently supported by the browsers.</p>
+<h2 id="why-typescript-">Why TypeScript?</h2>
+<p>We chose TypeScript specifically, because it&#39;s a typed superset of the latest version of JavaScript. That means two things:</p>
+<ul>
+<li>When making games in Superpowers, millions of Web developers can reuse their hard-earned knowledge of JavaScript.</li>
+<li>TypeScript&#39;s powerful and fast type system allows Superpowers to provide real-time error reporting and great auto-completion.</li>
+</ul>
+<p><img src="http://i.imgur.com/vnJU8Tt.gif" alt=""></p>
+<p>As an added bonus, the developers of TypeScript are working with the standard committee to inform the design of upcoming JavaScript versions,
+so it&#39;s a great investment all around.</p>
+<h2 id="block-scoped-variables">Block-scoped variables</h2>
+<div class="note">
+  If you don&#39;t know too much about variables or functions, you should probably <a href="http://www.codecademy.com/en/tracks/javascript">take an intro to JavaScript</a> first.
+</div>
+
+<p><abbr title="ECMAScript 2015">ES2015</abbr> lets you declare block-scoped variables with the new <code>let</code> keyword.
+As a general rule, you should no longer use the old <code>var</code> keyword, which has less convenient, function-scoped semantics.</p>
+<pre><code><span class="hljs-comment">// myVariable doesn't exist here</span>
+
+<span class="hljs-keyword">if</span> (someCondition) {
+  <span class="hljs-comment">// myVariable can't be accessed here (before its declaration)</span>
+  <span class="hljs-keyword">let</span> myVariable = <span class="hljs-number">10</span>;
+  <span class="hljs-comment">// myVariable lives until the block is closed</span>
+}
+
+<span class="hljs-comment">// myVariable doesn't exist here either</span>
+<span class="hljs-comment">// All of those comments would be false if you used `var` instead.</span>
+</code></pre><h2 id="typed-variables-and-functions">Typed variables and functions</h2>
+<p>When declaring a variable, TypeScript can infer its type from the value you assign to it:</p>
+<pre><code><span class="hljs-keyword">let</span> myVariable = <span class="hljs-number">10</span>; <span class="hljs-comment">// myVariable's type is `number`</span>
+
+<span class="hljs-comment">// TypeScript will return an error if you do incorrect things like adding a number and a string </span>
+myVariable += <span class="hljs-string">"a string"</span>;
+</code></pre><p>You can explicitely define a variable&#39;s type even if you don&#39;t initialize it right away:</p>
+<pre><code><span class="hljs-keyword">let</span> myVariable: <span class="hljs-built_in">string</span>; <span class="hljs-comment">// myVariable's type is `string`, with `undefined` as its initial value</span>
+</code></pre><p>When declaring a function, you can annotate its parameters and return type:</p>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">repeat</span>(<span class="hljs-params">what: <span class="hljs-built_in">string</span>, times: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">let</span> result = <span class="hljs-string">""</span>;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; times; i++) result += what;
+  <span class="hljs-keyword">return</span> result;
+} 
+
+<span class="hljs-keyword">let</span> coolThrice = repeat(<span class="hljs-string">"cool"</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// This will return "coolcoolcool"</span>
+repeat(<span class="hljs-number">3</span>, <span class="hljs-string">"cool"</span>); <span class="hljs-comment">// Error, because of the incorrect argument types</span>
+</code></pre><p>In many cases, TypeScript can also infer a function&#39;s return type based on the value returned.</p>
+<p>Superpowers will even be able to auto-complete <code>repeat</code> for you and display its signature (parameters and return type). </p>
+<p><a href="http://www.typescriptlang.org/Handbook#basic-types">Read more about types</a>.</p>
+<h2 id="classes">Classes</h2>
+<p>ES5 only had prototype-based inheritance which is pretty flexible but hard to both write and read.
+ES2015 brings classes for a more traditional object-oriented paradigm, and TypeScript augments them once again with powerful type checking.</p>
+<p>Here&#39;s a look at the syntax:</p>
+<pre><code><span class="hljs-keyword">class</span> Lift {
+
+  <span class="hljs-comment">// TypeScript lets you declare members and their type</span>
+  floor: <span class="hljs-built_in">number</span>;
+
+  <span class="hljs-comment">// You can use default parameter values</span>
+  <span class="hljs-keyword">constructor</span>(initialFloor=1) {
+    <span class="hljs-keyword">this</span>.floor = initialFloor;
+  }
+
+  goUp() {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.floor &lt; <span class="hljs-number">10</span>) <span class="hljs-keyword">this</span>.floor++;
+  }
+
+  goDown() {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.floor &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">this</span>.floor--;
+  }
+}
+
+<span class="hljs-keyword">let</span> myLift = <span class="hljs-keyword">new</span> Lift();
+myLift.goUp(); <span class="hljs-comment">// myLift.floor is now 2</span>
+</code></pre><p><a href="http://www.typescriptlang.org/Handbook#classes">Read more about TypeScript classes</a>.</p>
+<h2 id="better-anonymous-functions">Better anonymous functions</h2>
+<p>In ECMAScript 5, when passing a function as a callback to another function, you used to have to do a little dance
+involving <code>Function.bind</code> to make sure the value of <code>this</code> was preserved.</p>
+<p>With ECMAScript 2015, you can now use the new fat-arrow <code>() =&gt;</code> syntax to create anonymous functions (&quot;lambdas&quot;)
+that preserve <code>this</code> automatically. </p>
+<pre><code><span class="hljs-comment">// Assuming we're in some context where `this` has a `saving` property.</span>
+<span class="hljs-keyword">this</span>.saving = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// In this example, `saveToDisk` would be a long-running asynchronous function</span>
+saveToDisk(() =&gt; {
+  <span class="hljs-comment">// `this` is still the same. With `function() { ... }`, you'd have no guarantee</span>
+  <span class="hljs-keyword">this</span>.saving = <span class="hljs-literal">false</span>;
+});
+</code></pre><p>With ECMAScript 2015 classes, methods also preserve the value of <code>this</code> for you.</p>
+<p><a href="http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39">Read more about lambdas and <code>this</code></a>.</p>
+<h2 id="iterating-over-arrays">Iterating over arrays</h2>
+<p>Another long-standing painpoint of JavaScript involves iterating over arrays.</p>
+<pre><code><span class="hljs-keyword">let</span> myArray = [ <span class="hljs-number">100</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span> ];
+
+<span class="hljs-comment">// With ECMAScript 2015's new `of` keyword, it's easy</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> value of myArray) <span class="hljs-built_in">console</span>.log(value);
+
+<span class="hljs-comment">// Previously, you would have written:</span>
+<span class="hljs-comment">// for (var i = 0; i &lt; myArray.length; i++) console.log(myArray[i]);</span>
+</code></pre><h2 id="learning-more">Learning more</h2>
+<ul>
+<li><a href="http://www.codecademy.com/en/tracks/javascript">Codecademy&#39;s JavaScript course</a></li>
+<li><a href="https://github.com/ericdouglas/ES6-Learning">Learning ES6</a></li>
+<li><a href="http://es6-features.org/">es6-features.org</a></li>
+<li><a href="http://www.typescriptlang.org/Handbook">TypeScript Handbook</a></li>
+</ul>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Comportements scriptés — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" class="active">Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="comportements-script-s">Comportements scriptés</h1>
+<p>Des comportements réutilisables peuvent être définis et assignés à plusieurs acteurs.<br>Voici comment définir un comportement :</p>
+<pre><code><span class="hljs-keyword">class</span> MyBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Déclarez les propriétés ici</span>
+
+  awake() {
+      <span class="hljs-comment">// L'initialisation se passe ici</span>
+    <span class="hljs-comment">// this.actor représente l'acteur sur lequel est attaché le comportement</span>
+  }
+
+  update() {
+    <span class="hljs-comment">// Le code placé ici sera exécuté 60x par seconde</span>
+  }
+
+}
+<span class="hljs-comment">// N'oubliez pas d'enregistrer votre classe de comportement</span>
+Sup.registerBehavior(MyBehavior);
+</code></pre><p>Dans les méthodes du comportement (<code>awake</code>, <code>update</code> et celles que vous définissez vous-même), vous pouvez faire référence au comportement actif avec <code>this</code> et à l&#39;acteur rattaché avec <code>this.actor</code>.</p>
+<p>Ajoutez un comportement à votre personnage principal du chapitre précédent.</p>
+<div class="action">
+  <p>Retournez sur votre script <code>Game</code> et ajoutez le code suivant à la fin :
+</div>
+
+<pre><code><span class="hljs-keyword">class</span> CharacterBehavior extends Sup.Behavior {
+
+  update() {
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) {
+      <span class="hljs-comment">// Déplacer l'acteur du comportement actif sur l'axe X (en négatif)</span>
+      <span class="hljs-keyword">this</span>.actor.move(<span class="hljs-number">-0.1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) {
+      <span class="hljs-comment">// La même chose, mais en positif, pour un déplacement vers la droite</span>
+      <span class="hljs-keyword">this</span>.actor.move(<span class="hljs-number">0.1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    }
+  }
+
+}
+Sup.registerBehavior(CharacterBehavior);
+
+<span class="hljs-comment">// Après avoir défini la classe de comportement,</span>
+<span class="hljs-comment">// nous devons l'attacher à notre personnage</span>
+mainCharacterActor.addBehavior(CharacterBehavior);
+</code></pre><p><code>Sup.Input.isKeyDown(...)</code> retourne <code>true</code> seulement si la touche spécifiée est enfoncée.</p>
+<div class="note">
+  <strong>Il y a plein d&#39;autres fonctions</strong> disponibles pour lire les entrées du joueur et pour y réagir.<br>  Elles sont toutes listées dans l&#39;outil <strong>TypeScript <abbr title="Application Programming Interface">API</abbr> browser</strong> disponible dans Superpowers.
+</div>
+
+    </div>
+  </main>
+</body>
+</html>

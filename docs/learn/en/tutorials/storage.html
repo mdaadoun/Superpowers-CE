@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Saving game data — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" class="active">Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="saving-game-data">Saving game data</h1>
+<p>You can use <code>Sup.Storage.get</code> and <code>.set</code> to save and restore strings of data.<br>This data is saved locally to the player&#39;s disk.</p>
+<pre><code><span class="hljs-comment">// ... When the player chooses a name</span>
+Sup.Storage.set(<span class="hljs-string">"characterName"</span>, <span class="hljs-string">"Leonard"</span>);
+
+<span class="hljs-comment">// ... When loading the game again later</span>
+<span class="hljs-keyword">let</span> characterName = Sup.Storage.get(<span class="hljs-string">"characterName"</span>);
+</code></pre><p>You can also pass a default value as a second parameter to <code>Sup.Storage.get</code>.
+It will be returned if no value was found for the requested key.</p>
+<pre><code><span class="hljs-keyword">let</span> characterName = Sup.Storage.get(<span class="hljs-string">"characterName"</span>, <span class="hljs-string">"Unnamed"</span>);
+</code></pre><p>Additionally, <code>Sup.Storage.clear</code> lets you clear all stored data for your game.</p>
+<div class="note">
+  Internally, Superpowers uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage API</a> so it has the same browser-dependent size limitations. It is best suited for small amounts of data. In any case, you probably shouldn&#39;t use it to store more than a few megabytes of data, as it is synchronous and will block the game while saving or loading.
+</div>
+
+<h2 id="storing-more-than-strings">Storing more than strings</h2>
+<p>To store and retrieve numbers, arrays or complex objects, you can use <code>Sup.Storage.setJSON</code> and <code>.getJSON</code>.<br>Internally, it will (de)serialize them using <code>JSON.stringify</code> and <code>.parse</code>.</p>
+<pre><code><span class="hljs-keyword">let</span> weapon = {
+  name: <span class="hljs-string">"Hand blender"</span>,
+  damage: <span class="hljs-number">9001</span>,
+  mode: <span class="hljs-string">"manual"</span>
+};
+
+Sup.Storage.setJSON(<span class="hljs-string">"weapon"</span>, weapon);
+
+<span class="hljs-comment">// ... Later</span>
+<span class="hljs-keyword">let</span> weapon = Sup.Storage.getJSON(<span class="hljs-string">"weapon"</span>);
+</code></pre><p>Class information isn&#39;t saved, only the various properties. So for instance, if you store a <code>Sup.Math.Vector2</code> object,
+you&#39;ll only get back an object of type <code>{ x: number; y: number; }</code> and you&#39;ll need to rebuild a vector from it.</p>
+<h2 id="saving-on-exit">Saving on exit</h2>
+<p>You can use a <code>Sup.Input</code> <code>&quot;exit&quot;</code> event handler to automatically save when the game closes.</p>
+<pre><code>Sup.Input.on(<span class="hljs-string">"exit"</span>, () =&gt; {
+  Sup.Storage.set(<span class="hljs-string">"key"</span>, value);
+});
+</code></pre><h2 id="storage-demo">Storage demo</h2>
+<p>This simple demo lets you move around a sprite and automatically saves its position when the game is closed.</p>
+<p>You can <a href="https://bitbucket.org/sparklinlabs/superpowers-storage-demo">download the demo project</a>.</p>
+<pre><code><span class="hljs-keyword">class</span> CharacterBehavior extends Sup.Behavior {
+  speed = <span class="hljs-number">0.1</span>;
+
+  update() {
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) <span class="hljs-keyword">this</span>.actor.moveX(-<span class="hljs-keyword">this</span>.speed);
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) <span class="hljs-keyword">this</span>.actor.moveX(<span class="hljs-keyword">this</span>.speed);
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"UP"</span>)) <span class="hljs-keyword">this</span>.actor.moveY(<span class="hljs-keyword">this</span>.speed);
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"DOWN"</span>)) <span class="hljs-keyword">this</span>.actor.moveY(-<span class="hljs-keyword">this</span>.speed);
+
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"ESCAPE"</span>)) <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+  }
+}
+Sup.registerBehavior(CharacterBehavior);
+
+
+<span class="hljs-comment">// Setup our character and camera</span>
+<span class="hljs-keyword">let</span> actor = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Character"</span>);
+<span class="hljs-keyword">new</span> Sup.SpriteRenderer(actor, Sup.get(<span class="hljs-string">"Sprite"</span>, Sup.Sprite));
+actor.addBehavior(CharacterBehavior);
+
+<span class="hljs-keyword">let</span> cameraActor = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Camera"</span>);
+<span class="hljs-keyword">new</span> Sup.Camera(cameraActor);
+cameraActor.setLocalPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>);
+
+
+<span class="hljs-comment">// Save character position on exit</span>
+Sup.Input.on(<span class="hljs-string">"exit"</span>, () =&gt; {
+  Sup.Storage.setJSON(<span class="hljs-string">"myCharacterPosition"</span>, { x: actor.getX(), y: actor.getY() });
+});
+
+
+<span class="hljs-comment">// Restore saved character position on load</span>
+<span class="hljs-keyword">let</span> savedPosition = Sup.Storage.getJSON(<span class="hljs-string">"myCharacterPosition"</span>, { x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span> });
+actor.setPosition(savedPosition.x, savedPosition.y, <span class="hljs-number">0</span>);
+</code></pre>
+    </div>
+  </main>
+</body>
+</html>

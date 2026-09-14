@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Cameras, fenêtres et UI — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" class="active">Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="cameras-fen-tres-et-ui">Cameras, fenêtres et UI</h1>
+<div class="note">
+  Cette page n&#39;a pas encore été traduite. <a href="https://bitbucket.org/superpowers/docs.sparklinlabs.com/src/tip/pages/fr/?at=default">Vous pouvez contribuer à sa traduction sur Bitbucket</a>.
+</div>
+
+<h2 id="perspective-versus-orthographic">Perspective versus Orthographic</h2>
+<p>A camera can either be in perspective or orthographic projection mode.</p>
+<p><img src="/images/cameras/camera-modes.png" alt=""></p>
+<p>When using a perspective projection, objects farther away from the camera will look smaller, just like in real life.
+It&#39;s great for most 3D games. Conversely, an orthographic projection is best for 2D or 3D-isometric games,
+as well as 2D user interfaces in 3D games. </p>
+<h3 id="configuring-a-perspective-camera">Configuring a perspective camera</h3>
+<p><img src="/images/cameras/perspective-settings.png" alt=""></p>
+<p>The <code>Field of view</code> (often abbreviated FOV) controls how wide of an angle your camera will see vertically.
+The resulting horizontal field of view will depend on the game window&#39;s ratio (you can enforce a fixed ratio like 16:9 through your project&#39;s settings, in the <code>Game</code> settings pane).</p>
+<h3 id="configuring-an-orthographic-camera">Configuring an orthographic camera</h3>
+<p><img src="/images/cameras/orthographic-settings.png" alt=""></p>
+<p>The <code>Orthographic Scale</code> controls the vertical extent of what your camera will look at, in scene units.
+Just like for the field of view, the horizontal extent will depend on the game window&#39;s ratio.</p>
+<h3 id="other-settings">Other settings</h3>
+<p>The <code>Near</code> and <code>Far plane</code> control the extent of the camera&#39;s <a href="https://en.wikipedia.org/wiki/Viewing_frustum">viewing frustum</a>.
+When rendering a 3D object, your GPU stores and compares the depth of any previously rendered object for each of the pixels
+occupied on screen to determine whether the object is occluded or not.</p>
+<h2 id="rendering-with-multiple-cameras">Rendering with multiple cameras</h2>
+<p>You can set up a camera&#39;s <code>Viewport</code> so that it renders only to an area of the game&#39;s window. This is useful for split-screen multiplayer games, for instance.
+The values should be in the 0-1 range.</p>
+<p>The <code>Depth</code> setting is used to order cameras when multiple viewports are overlapping. Cameras with higher depth values will appear in front.  </p>
+<h2 id="layers">Layers</h2>
+<p>Render layers allows you to only render some actors for a given camera.
+You can set up your game&#39;s layers from the <code>Game</code> pane in the <code>Settings</code>.
+You can then choose which layer(s) a camera should render.</p>
+<p>This could be used to have an orthographic camera that only renders user interface-related actors,
+while the main camera renders everything else.</p>
+<div class="note">
+  <strong>Setting a camera&#39;s layers isn&#39;t implemented yet</strong> as of Superpowers v0.12.<br>  Until it is, the recommended (and hacky) way to do user interface is to move the UI camera and its actors far away on one axis.
+</div>
+
+    </div>
+  </main>
+</body>
+</html>

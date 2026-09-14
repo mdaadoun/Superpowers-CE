@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Sounds and music — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" class="active">Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="sounds-and-music">Sounds and music</h1>
+<div class="note">
+  <strong>Heads up!</strong> <code>Sup.Audio.SoundInstance</code> was renamed to <code>Sup.Audio.SoundPlayer</code> in Superpowers v0.12, for clarity.
+</div>
+
+<h2 id="playing-a-sound-effect">Playing a sound effect</h2>
+<p>Playing a one-shot sound effect is very straightforward:</p>
+<pre><code><span class="hljs-comment">// Just play the sound!</span>
+Sup.Audio.playSound(<span class="hljs-string">"My Sound Asset"</span>);
+
+<span class="hljs-comment">// Or, play the sound at half volume</span>
+Sup.Audio.playSound(<span class="hljs-string">"My Sound Asset"</span>, <span class="hljs-number">0.5</span>);
+</code></pre><p>You can control pitch, pan (anywhere between -1.0 for left, 1.0 for right) and whether to loop:</p>
+<pre><code><span class="hljs-keyword">let</span> player = Sup.Audio.playSound(<span class="hljs-string">"My Sound Asset"</span>, <span class="hljs-number">0.5</span>, { pitch: <span class="hljs-number">0.5</span>, pan: <span class="hljs-number">-1</span>, loop: <span class="hljs-literal">true</span> });
+
+<span class="hljs-comment">// Later on, you can stop the sound with:</span>
+player.stop();
+</code></pre><h3 id="creating-a-sound-player-for-later-usage">Creating a sound player for later usage</h3>
+<p>If you want to create a sound without playing it right away,
+you can use the <code>Sup.Audio.SoundPlayer</code> constructor.</p>
+<pre><code><span class="hljs-keyword">let</span> sfxPlayer = <span class="hljs-keyword">new</span> Sup.Audio.SoundPlayer(<span class="hljs-string">"My Sound Asset"</span>);
+
+<span class="hljs-comment">// Set it up how you wish</span>
+sfxPlayer.setVolume(<span class="hljs-number">0.8</span>);
+
+<span class="hljs-comment">// ... Later on ...</span>
+sfxPlayer.play();
+</code></pre><h2 id="looping-background-music-or-a-machine-gun-">Looping background music (or a machine gun...)</h2>
+<p>For looping sound effects or music, you&#39;ll want to hold onto the sound player
+so that you can stop playback later on.</p>
+<p>For instance, you can put this at the root of a script:</p>
+<pre><code><span class="hljs-keyword">let</span> inGameMusicPlayer = <span class="hljs-keyword">new</span> Sup.Audio.SoundPlayer(<span class="hljs-string">"In-Game Music"</span>, <span class="hljs-number">1.0</span>, { loop: <span class="hljs-literal">true</span> });
+
+<span class="hljs-comment">// ... When entering the game, from some behavior ...</span>
+inGameMusicPlayer.play();
+
+<span class="hljs-comment">// ... When returning to the menu ...</span>
+inGameMusicPlayer.stop();
+</code></pre><p>And if you have multiple actors with each their own looping sound effect when they shoot,
+you can store the sound player as a member variable of their behavior, like so:</p>
+<pre><code><span class="hljs-keyword">class</span> SoldierBehavior {
+  sfxPlayer = <span class="hljs-keyword">new</span> Sup.Audio.SoundInstance(<span class="hljs-string">"Shoot"</span>, <span class="hljs-number">1.0</span>, { loop: <span class="hljs-literal">true</span> });
+
+  update() {
+    <span class="hljs-keyword">if</span> (<span class="hljs-comment">/* some condition for shooting */</span>) {
+      <span class="hljs-comment">// If the sound is already playing, play() does nothing so we can call it repeatedly</span>
+      <span class="hljs-keyword">this</span>.sfxPlayer.play();
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">this</span>.sfxPlayer.stop();
+    }
+  }
+};
+Sup.register(SoldierBehavior);
+</code></pre>
+    </div>
+  </main>
+</body>
+</html>

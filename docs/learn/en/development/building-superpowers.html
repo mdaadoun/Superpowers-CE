@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Building Superpowers — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" class="active">Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="building-superpowers">Building Superpowers</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You&#39;ll need to install the latest <a href="https://nodejs.org/dist/latest-v5.x/"><code>5.x</code> version of Node.js</a> and a Git client.</p>
+<p>If you are not already familiar with Git and GitHub,
+<a href="https://google.com/search?q=learn+git+github">we recommend reading up on them</a>.<br>You can either <a href="http://git-scm.com/">use the command line version of Git</a> or a Git client app
+like <a href="http://gitextensions.github.io/">GitExtensions</a>, <a href="https://www.sourcetreeapp.com/">SourceTree</a> or <a href="https://desktop.github.com/">GitHub Desktop</a>.</p>
+<p>We also recommend using a text editor with good TypeScript support like <a href="https://code.visualstudio.com/">Visual Studio Code</a> for development.</p>
+<h2 id="building-superpowers-core-and-systems">Building Superpowers core and systems</h2>
+<p>In a terminal, run the following commands:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Clone the core repository in superpowers/core</span>
+git <span class="hljs-built_in">clone</span> https://github.com/superpowers/superpowers-core superpowers/core
+<span class="hljs-built_in">cd</span> superpowers/core
+
+<span class="hljs-comment"># Clone the Superpowers Game system in superpowers/core/systems/game</span>
+git <span class="hljs-built_in">clone</span> --recursive https://github.com/superpowers/superpowers-game systems/game
+
+<span class="hljs-comment"># Build it all. This will take a few minutes.</span>
+npm run build
+</code></pre>
+<h3 id="running-the-server">Running the server</h3>
+<p>Once it&#39;s done, you can start the server with:</p>
+<pre><code class="lang-bash">node server start
+</code></pre>
+<p>Open <code>http://localhost:4237/</code> in your browser.
+Later, you can hit <code>Ctrl+C</code> in the terminal to stop the server.</p>
+<h3 id="rebuilding-selectively">Rebuilding selectively</h3>
+<p>After updating the Git repositories or making changes, you&#39;ll need to rebuild.</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> superpowers/core
+
+<span class="hljs-comment"># You can rebuild core and all systems with one command</span>
+npm run build
+<span class="hljs-comment"># Or rebuild only some specific folders like SupCore</span>
+npm run build SupCore
+<span class="hljs-comment"># or a particular system</span>
+npm run build systems/game
+
+<span class="hljs-comment"># To build in verbose mode</span>
+<span class="hljs-comment"># (Notice there are two pairs of double dashes)</span>
+npm run build -- --verbose
+</code></pre>
+<h2 id="building-the-desktop-app">Building the desktop app</h2>
+<p>The desktop app is powered by <a href="http://electron.atom.io/">Electron</a>.</p>
+<p>In a terminal, run the following commands:</p>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/superpowers/superpowers-app superpowers/app
+<span class="hljs-built_in">cd</span> superpowers/app
+npm run build
+</code></pre>
+<p>Once it&#39;s done, you can start the app by running:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Install Electron the first time (and then everytime you want to update it)</span>
+npm install -g electron
+
+npm run start
+</code></pre>
+<h2 id="enabling-development-mode">Enabling development mode</h2>
+<p>In order to catch as many runtime errors as possible while working on Superpowers,
+you can enable development mode.
+When development mode is enabled, the project header in the top-left corner
+will be blue. When it turns red, it&#39;s a good sign that you should
+open your browser&#39;s dev tools and look for errors in the Console tab.</p>
+<p>Enabling development mode will also add the <code>None</code> language to the language selector, which is useful for finding strings that need to be internationalized.</p>
+<p>To enable development mode, open a Superpowers project, press <code>F12</code> to open the dev tools and type the following in the console:</p>
+<pre><code>localStorage.setItem(<span class="hljs-string">"superpowers-dev-mode"</span>, <span class="hljs-string">"true"</span>);
+</code></pre><p>Reload for the change to take effect.</p>
+
+    </div>
+  </main>
+</body>
+</html>

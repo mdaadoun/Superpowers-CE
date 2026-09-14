@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Sauvegarde et chargement — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" >Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" class="active">Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="sauvegarde-et-chargement">Sauvegarde et chargement</h1>
+<p>Vous pouvez utiliser <code>Sup.Storage.get</code> et <code>.set</code> pour sauvegarder et restaurer des chaînes de caractères de données.
+Ces données sont sauvegardées localement sur le disque du joueur.</p>
+<pre><code><span class="hljs-comment">// ... Quand le joueur choisit un nom</span>
+Sup.Storage.set(<span class="hljs-string">"characterName"</span>, <span class="hljs-string">"Leonard"</span>);
+
+<span class="hljs-comment">// ... Quand il relance le jeu plus tard</span>
+<span class="hljs-keyword">let</span> characterName = Sup.Storage.get(<span class="hljs-string">"characterName"</span>);
+</code></pre><p>Vous pouvez aussi passer une valeur par défaut comme second paramètre à <code>Sup.Storage.get</code>.
+Elle sera retournée si aucune valeur stockée n&#39;est trouvée pour la clé demandée.</p>
+<pre><code><span class="hljs-keyword">let</span> characterName = Sup.Storage.get(<span class="hljs-string">"characterName"</span>, <span class="hljs-string">"Sans nom"</span>);
+</code></pre><p>De plus, <code>Sup.Storage.clear</code> vous permet d&#39;effacer toutes les données stockées pour votre jeu.</p>
+<div class="note">
+  En interne, Superpowers utilise l&#39;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">API Web Storage</a>, donc il hérite des mêmes limitations de taille en fonction du navigateur. Cette API a été pensée pour stocker de faibles quantités de données. Dans tous les cas, vous ne devriez probablement pas l&#39;utiliser pour stocker plus de quelques méga-octets de données, car elle est synchrone et bloquera le jeu lors de la sauvegarde ou du chargement.
+</div>
+
+<h2 id="stocker-plus-que-des-cha-nes-de-caract-res">Stocker plus que des chaînes de caractères</h2>
+<p>Pour stocker ou récupérer des nombres, tableaux ou objets complexes, vous pouvez utiliser <code>Sup.Storage.setJSON</code> et <code>.getJSON</code>.
+En interne, ils seront (dé)sérialiser avec <code>JSON.stringify</code> et <code>.parse</code>.</p>
+<pre><code><span class="hljs-keyword">let</span> weapon = {
+  name: <span class="hljs-string">"Mélangeur à main"</span>,
+  damage: <span class="hljs-number">9001</span>,
+  mode: <span class="hljs-string">"manual"</span>
+};
+
+Sup.Storage.setJSON(<span class="hljs-string">"weapon"</span>, weapon);
+
+<span class="hljs-comment">// ... Plus tard</span>
+<span class="hljs-keyword">let</span> weapon = Sup.Storage.getJSON(<span class="hljs-string">"weapon"</span>);
+</code></pre><p>La classe d&#39;un objet n&#39;est pas sauvegardée, seulement ses différentes propriétés. Si par exemple, vous stockez un objet <code>Sup.Math.Vector2</code>,
+vous recupérerez seulement un objet de type <code>{ x: number; y: number; }</code> et vous devrez recréer un vecteur à partir de celui-ci. </p>
+<h2 id="sauvegarder-en-quittant">Sauvegarder en quittant</h2>
+<p>Vous pouvez utiliser un gestionnaire d&#39;événement <code>Sup.Input</code> <code>&quot;exit&quot;</code> pour sauvegarder automatiquement quand le jeu se ferme.</p>
+<pre><code>Sup.Input.on(<span class="hljs-string">"exit"</span>, () =&gt; {
+  Sup.Storage.set(<span class="hljs-string">"key"</span>, value);
+});
+</code></pre><h2 id="d-mo-de-la-sauvegarde">Démo de la sauvegarde</h2>
+<p>Cette petite démo vous permet de déplacer un sprite et de sauvegarder automatiquement sa position quand on ferme le jeu.</p>
+<p>Vous pouvez <a href="https://bitbucket.org/sparklinlabs/superpowers-storage-demo">télécharger le projet démo</a>.</p>
+<pre><code><span class="hljs-keyword">class</span> CharacterBehavior extends Sup.Behavior {
+  speed = <span class="hljs-number">0.1</span>;
+
+  update() {
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"LEFT"</span>)) <span class="hljs-keyword">this</span>.actor.moveX(-<span class="hljs-keyword">this</span>.speed);
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"RIGHT"</span>)) <span class="hljs-keyword">this</span>.actor.moveX(<span class="hljs-keyword">this</span>.speed);
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"UP"</span>)) <span class="hljs-keyword">this</span>.actor.moveY(<span class="hljs-keyword">this</span>.speed);
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"DOWN"</span>)) <span class="hljs-keyword">this</span>.actor.moveY(-<span class="hljs-keyword">this</span>.speed);
+
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(<span class="hljs-string">"ESCAPE"</span>)) <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+  }
+}
+Sup.registerBehavior(CharacterBehavior);
+
+
+<span class="hljs-comment">// Paramétrer notre personnage et notre caméra</span>
+<span class="hljs-keyword">let</span> actor = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Character"</span>);
+<span class="hljs-keyword">new</span> Sup.SpriteRenderer(actor, Sup.get(<span class="hljs-string">"Sprite"</span>, Sup.Sprite));
+actor.addBehavior(CharacterBehavior);
+
+<span class="hljs-keyword">let</span> cameraActor = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Camera"</span>);
+<span class="hljs-keyword">new</span> Sup.Camera(cameraActor);
+cameraActor.setLocalPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>);
+
+
+<span class="hljs-comment">// Sauvegarder la position du personnage en quittant</span>
+Sup.Input.on(<span class="hljs-string">"exit"</span>, () =&gt; {
+  Sup.Storage.setJSON(<span class="hljs-string">"myCharacterPosition"</span>, { x: actor.getX(), y: actor.getY() });
+});
+
+
+<span class="hljs-comment">// Restaurer la position du personnage au lancement</span>
+<span class="hljs-keyword">let</span> savedPosition = Sup.Storage.getJSON(<span class="hljs-string">"myCharacterPosition"</span>, { x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span> });
+actor.setPosition(savedPosition.x, savedPosition.y, <span class="hljs-number">0</span>);
+</code></pre>
+    </div>
+  </main>
+</body>
+</html>

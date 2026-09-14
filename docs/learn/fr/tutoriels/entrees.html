@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Clavier, souris, manettes... — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Bien démarrer</li><ol><li><a href="../bien-demarrer/a-propos-de-superpowers.html" >A propos de Superpowers</a></li><li><a href="../bien-demarrer/installer-superpowers.html" >Installer Superpowers</a></li><li><a href="../bien-demarrer/premier-projet.html" >Créez votre premier projet</a></li><li><a href="../bien-demarrer/premier-jeu.html" >Votre premier jeu</a></li><li><a href="../bien-demarrer/comportements-scriptes.html" >Comportements scriptés</a></li><li><a href="../bien-demarrer/scenes.html" >Travailler avec des scènes</a></li><li><a href="../bien-demarrer/variables.html" >Manipuler des états</a></li><li><a href="../bien-demarrer/composants.html" >Accesseurs de composants</a></li><li><a href="../bien-demarrer/deboguer-votre-jeu.html" >Déboguer votre jeu</a></li><li><a href="../bien-demarrer/publier-votre-jeu.html" >Publier votre jeu</a></li><li><a href="../bien-demarrer/controle-des-sources.html" >Utiliser la gestion de versions</a></li></ol><li>Tutoriels</li><ol><li><a href="../tutoriels/introduction-typescript.html" >Introduction à TypeScript</a></li><li><a href="../tutoriels/entrees.html" class="active">Clavier, souris, manettes...</a></li><li><a href="../tutoriels/cameras.html" >Cameras, fenêtres et UI</a></li><li><a href="../tutoriels/modeles-3d.html" >Utiliser des modèles 3D</a></li><li><a href="../tutoriels/audio.html" >Sons et musique</a></li><li><a href="../tutoriels/stockage.html" >Sauvegarde et chargement</a></li><li><a href="../tutoriels/collision-2d.html" >Collision de base en 2D</a></li><li><a href="../tutoriels/lancer-de-rayon.html" >Rayons et sélection à la souris</a></li><li><a href="../tutoriels/prefabs.html" >Préfabs et instanciation</a></li><li><a href="../tutoriels/dom-apis.html" >Utiliser les APIs du DOM</a></li></ol><li>Ressources</li><ol><li><a href="../ressources/demander-de-l-aide.html" >Demander de l'aide</a></li><li><a href="../ressources/donner-de-l-aide.html" >Aider les autres</a></li><li><a href="../ressources/documentation-api.html" >Documentation de l'API</a></li><li><a href="../ressources/projets-de-demonstration.html" >Projets de démonstration</a></li><li><a href="../ressources/plugins-additionnels.html" >Plugins additionnels</a></li><li><a href="../ressources/ressources.html" >Ressources téléchargeables</a></li><li><a href="../ressources/tutoriels-externes.html" >Tutoriels externes</a></li></ol><li>Développement</li><ol></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" >English</option><option value="fr" selected>Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="clavier-souris-manettes-">Clavier, souris, manettes...</h1>
+<p>Toutes les fonctions liées aux entrées utilisateur peuvent être trouvées dans l&#39;espace de nom <code>Sup.Input</code>.</p>
+<h2 id="v-rifier-si-une-touche-a-t-press-e">Vérifier si une touche a été pressée</h2>
+<p>Vous pouvez passer les valeurs spéciales <code>&quot;ANY&quot;</code> et <code>&quot;NONE&quot;</code> à <code>Sup.Input.wasKeyJustPressed()</code> (et fonctions similaires) pour savoir, respectivement, si n&#39;importe quelle touche ou aucune touche n&#39;a été pressée lors de la dernière image du jeu.</p>
+<p>La liste complète des noms de touche peut être trouvée dans le navigateur d&#39;API TypeScript, situé dans Superpowers.</p>
+<h2 id="utiliser-les-manettes">Utiliser les manettes</h2>
+<p>Les APIs Web présentent quelques bizarreries, émanant du fait que le navigateur ne doit pas donner trop de contrôle ou d&#39;informations à des sites Web quelconques. Par exemple, pour éviter de faciliter l&#39;identification d&#39;un utilisateur, les navigateurs ne permettent pas de lister toutes les manettes connectées. Vous devrez demander à l&#39;utilisateur d&#39;appuyer sur un bouton pour utiliser sa manette.</p>
+<p>Vous pouvez utiliser <a href="http://html5gamepad.com/">l&#39;outil de test de manette HTML5gamepad.com</a>
+pour voir les indices associés à chaque bouton d&#39;une manette.</p>
+<h2 id="coordonn-es-de-la-souris">Coordonnées de la souris</h2>
+<p><code>Sup.Input.getMousePosition()</code> retourne les coordonnées <code>x</code> et <code>y</code> normalisées (entre <code>-1</code> et <code>1</code>), avec <code>y</code> qui augmente lorsque la souris bouge vers le haut.</p>
+<p>Si vous avez besoin des coordonnées en pixel, vous pouvez utiliser le code suivant pour faire la conversion :</p>
+<pre><code><span class="hljs-keyword">let</span> { x, y } = Sup.Input.getMousePosition();
+
+x = (x + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span> * Sup.Input.getScreenSize().x;
+y = (<span class="hljs-number">1</span> - (y + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) * Sup.Input.getScreenSize().y;
+</code></pre><p>Téléchargez <a href="https://bitbucket.org/sparklinlabs/superpowers-mouse-pixels/">le projet exemple</a> pour une démonstration.</p>
+<h2 id="verrouiller-la-souris-et-passer-en-plein-cran">Verrouiller la souris et passer en plein écran</h2>
+<p><code>Sup.Input.lockMouse()</code> vous permet de désactiver le pointeur de la souris. C&#39;est parfait pour les jeux de tir en vue subjective où l&#39;on contrôle l&#39;orientation de la caméra avec la souris.</p>
+<p><code>Sup.Input.goFullscreen()</code> peut être utilisée pour passer en plein écran.</p>
+<p>Comme pour les manettes, pour des raisons de sécurité, un jeu Web ne peut pas verrouiller le pointeur de la souris ou passer en plein écran à volonté, mais seulement en réponse à un événement clic de souris, ou autre interaction similaire. Superpowers s&#39;occupe de gérer ces limitations pour vous et vous permet d&#39;appeler <code>.lockMouse()</code> et <code>.goFullscreen()</code> à n&#39;importe quel moment, mais sachez que l&#39;action en elle-même sera retardée jusqu&#39;à ce qu&#39;un bouton de la souris soit pressé ou relâché.</p>
+<p>Une bonne façon de procéder consiste à activer le verrouillage de la souris ou le plein écran lorsqu&#39;un bouton de la souris vient d&#39;être enfoncé. Le changement sera en réalité exécuté par Superpowers quand le bouton est relâché un instant plus tard.</p>
+<pre><code><span class="hljs-keyword">if</span> (Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)) {
+  Sup.Input.lockMouse();
+}
+</code></pre><p>Dans le navigateur, le joueur peut également quitter le plein écran ou déverrouiller le pointeur de la souris à tout moment en appuyant sur <code>Échap</code>. Superpowers reverrouillera automatiquement la souris et/ou repassera en plein écran dès que l&#39;utilisateur clique dans la fenêtre de jeu, et ce jusqu&#39;à ce que vous appeliez explicitement <code>Sup.unlockMouse()</code> et/ou <code>Sup.exitFullscreen()</code>.</p>
+<p>Vous voudrez sans doute mettre le jeu en pause lorsque le verrouillage de la souris ou le plein écran a été suspendu.
+Pour réaliser cela, vous pouvez utiliser un gestionnaire d&#39;événement comme suit :</p>
+<pre><code><span class="hljs-keyword">class</span> MyBehavior extends Sup.Behavior {
+
+  awake() {
+    Sup.Input.on(<span class="hljs-string">"mouseLockStateChange"</span>, <span class="hljs-keyword">this</span>.onLockChange);
+    <span class="hljs-comment">// Pour surveiller le plein écran, l'événement serait "fullscreenStateChange" à la place</span>
+  }
+
+  onDestroy() {
+    <span class="hljs-comment">// Il est important que vous nettoyiez vos gestionnaires d'événements</span>
+    <span class="hljs-comment">// lorsque le comportement est détruit (ce qui arrive</span>
+    <span class="hljs-comment">// lorsque l'on change de scène par exemple), autrement,</span>
+    <span class="hljs-comment">// cela pourrait mener à des fuites de mémoire ou des erreurs</span>
+    Sup.Input.off(<span class="hljs-string">"mouseLockStateChange"</span>, <span class="hljs-keyword">this</span>.onLockChange);
+  }
+
+  onLockChange(state) {
+    <span class="hljs-keyword">if</span> (state === <span class="hljs-string">"suspended"</span>) {
+      <span class="hljs-comment">// Le verrouillage a été suspendu</span>
+      <span class="hljs-comment">// ... Mettre le jeu en pause ...</span>
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Le verrouillage a été repris (state a pour valeur "active")</span>
+      <span class="hljs-comment">// ... Reprendre le jeu ...</span>
+    }
+  }
+
+}
+Sup.registerBehavior(MyBehavior);
+</code></pre>
+    </div>
+  </main>
+</body>
+</html>

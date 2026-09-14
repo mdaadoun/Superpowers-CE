@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Keys, mouse, gamepads... — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" class="active">Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" >Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="keys-mouse-gamepads-">Keys, mouse, gamepads...</h1>
+<p>All input-related functions can be found in the <code>Sup.Input</code> namespace.</p>
+<h2 id="checking-if-any-key-has-been-pressed">Checking if any key has been pressed</h2>
+<p>You can pass the special values <code>&quot;ANY&quot;</code> and <code>&quot;NONE&quot;</code> to <code>Sup.Input.wasKeyJustPressed()</code> (and other similar functions) to find out if any/no key has been pressed during the last frame.</p>
+<p>The full list of key names can be found in the TypeScript API browser inside Superpowers.</p>
+<h2 id="working-with-gamepads">Working with gamepads</h2>
+<p>The Web APIs have some quirks stemming from the fact that the browser must not
+give too much control or information to random websites. For instance,
+to avoid user fingerprinting, the Web doesn&#39;t let you list all connected gamepads.
+You&#39;ll need to ask the user to press a button to use their gamepad.</p>
+<p>You can use <a href="http://html5gamepad.com/">HTML5gamepad.com&#39;s test tool</a>
+to find out how gamepad buttons are mapped to indices.</p>
+<h2 id="mouse-coordinates">Mouse coordinates</h2>
+<p><code>Sup.Input.getMousePosition()</code> returns normalized <code>x</code> and <code>y</code> coordinates (range <code>-1</code> to <code>1</code>), with <code>y</code> increasing as the mouse moves up.</p>
+<p>If you need pixel coordinates, you can use the following snippet to convert:</p>
+<pre><code><span class="hljs-keyword">let</span> { x, y } = Sup.Input.getMousePosition();
+
+x = (x + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span> * Sup.Input.getScreenSize().x;
+y = (<span class="hljs-number">1</span> - (y + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) * Sup.Input.getScreenSize().y;
+</code></pre><p>Download <a href="https://bitbucket.org/sparklinlabs/superpowers-mouse-pixels/">the example project</a> for a demo.</p>
+<h2 id="locking-the-mouse-and-going-fullscreen">Locking the mouse and going fullscreen</h2>
+<p><code>Sup.Input.lockMouse()</code> lets you disable the mouse pointer. It&#39;s great for first-person games with mouse look.</p>
+<p><code>Sup.Input.goFullscreen()</code> can be used to go fullscreen.</p>
+<p>As with gamepads, for security reasons, a Web game can&#39;t go lock the mouse pointer or go fullscreen at will, but only as part of a mouse click event callback or similar user input. Superpowers abstracts these limitations from your game by letting you call <code>.lockMouse</code> and <code>.goFullscreen</code> at any point in time but know that the actual action will be delayed until the next time a mouse button is pressed or released.</p>
+<p>A useful pattern is to setup the mouse lock or fullscreen when a mouse button has just been pressed, and the action will be effectively applied by Superpowers in its internal mouse button released event handler:</p>
+<pre><code><span class="hljs-keyword">if</span> (Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)) {
+  Sup.Input.lockMouse();
+}
+</code></pre><p>In the browser, the player can also exit fullscreen or unlock the mouse pointer at any point in time by hitting <code>Escape</code>. Superpowers will automatically re-lock the mouse and/or switch back to fullscreen as soon as the user clicks back in the game, until you explicitely call <code>Sup.unlockMouse()</code> and/or <code>Sup.exitFullscreen()</code>.</p>
+<p>You might want to pause your game when the mouse lock or fullscreen mode has been suspended.<br>To do so, you can use an event handler like so:</p>
+<pre><code><span class="hljs-keyword">class</span> MyBehavior extends Sup.Behavior {
+
+  awake() {
+    Sup.Input.on(<span class="hljs-string">"mouseLockStateChange"</span>, <span class="hljs-keyword">this</span>.onLockChange);
+    <span class="hljs-comment">// To monitor fullscreen, the event should be "fullscreenStateChange" instead</span>
+  }
+
+  onDestroy() {
+    <span class="hljs-comment">// It is important that you clear your event handlers</span>
+    <span class="hljs-comment">// when the behavior gets destroyed (which happens</span>
+    <span class="hljs-comment">// when switching to another scene for instance),</span>
+    <span class="hljs-comment">// otherwise it might lead to memory leaks or errors</span>
+    Sup.Input.off(<span class="hljs-string">"mouseLockStateChange"</span>, <span class="hljs-keyword">this</span>.onLockChange);
+  }
+
+  onLockChange(state) {
+    <span class="hljs-keyword">if</span> (state === <span class="hljs-string">"suspended"</span>) {
+      <span class="hljs-comment">// Lock has been suspended</span>
+      <span class="hljs-comment">// ... pause the game ...</span>
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Lock has been resumed (state is "active")</span>
+      <span class="hljs-comment">// ... resume the game ...</span>
+    }
+  }
+
+}
+Sup.registerBehavior(MyBehavior);
+</code></pre><h2 id="text-input">Text Input</h2>
+<p>You can get the text entered over the course of the last update with <code>Sup.Input.getTextEntered()</code>. You can loop over it like so:</p>
+<pre><code><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> character of Sup.Input.getTextEntered()) {
+  <span class="hljs-keyword">if</span> (character === <span class="hljs-string">"\b"</span>) { <span class="hljs-comment">/* Backspace was hit, maybe erase the last character */</span> }
+  <span class="hljs-keyword">else</span> { <span class="hljs-comment">/* Another character was entered, append it to your text */</span> }
+}
+</code></pre><p><img src="http://i.imgur.com/MWG8yPe.gif" alt=""></p>
+<p>See the <a href="https://bitbucket.org/sparklinlabs/superpowers-text-input-demo/src">text input demo project</a>.</p>
+
+    </div>
+  </main>
+</body>
+</html>

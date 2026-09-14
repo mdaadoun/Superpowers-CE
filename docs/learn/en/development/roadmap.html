@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Roadmap — Superpowers CE Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="../../styles/highlight.css">
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <ol><li>Getting started</li><ol><li><a href="../getting-started/about-superpowers.html" >About Superpowers</a></li><li><a href="../getting-started/setting-up-superpowers.html" >Setting up Superpowers</a></li><li><a href="../getting-started/first-project.html" >Creating your first project</a></li><li><a href="../getting-started/first-game.html" >Your first (almost) game</a></li><li><a href="../getting-started/scripted-behaviors.html" >Scripted behaviors</a></li><li><a href="../getting-started/scenes.html" >Working with scenes</a></li><li><a href="../getting-started/variables.html" >Manipulating states</a></li><li><a href="../getting-started/components.html" >Component accessors</a></li><li><a href="../getting-started/debugging-your-game.html" >Debugging your game</a></li><li><a href="../getting-started/publishing-your-game.html" >Publishing your game</a></li><li><a href="../getting-started/source-control.html" >Using source control</a></li></ol><li>Tutorials</li><ol><li><a href="../tutorials/typescript-primer.html" >TypeScript primer</a></li><li><a href="../tutorials/input.html" >Keys, mouse, gamepads...</a></li><li><a href="../tutorials/cameras.html" >Cameras, viewports and UI</a></li><li><a href="../tutorials/3d-models.html" >Working with 3D models</a></li><li><a href="../tutorials/audio.html" >Sounds and music</a></li><li><a href="../tutorials/storage.html" >Saving game data</a></li><li><a href="../tutorials/collision-2d.html" >Basic collision in 2D</a></li><li><a href="../tutorials/raycasting.html" >Casting rays, mouse picking</a></li><li><a href="../tutorials/prefabs.html" >Prefabs and instantiation</a></li><li><a href="../tutorials/dom-apis.html" >Using the DOM APIs</a></li></ol><li>Resources</li><ol><li><a href="../resources/getting-help.html" >Getting help</a></li><li><a href="../resources/giving-help.html" >Helping others out</a></li><li><a href="../resources/api-documentation.html" >API Documentation</a></li><li><a href="../resources/demo-projects.html" >Demo projects</a></li><li><a href="../resources/additional-plugins.html" >Additional plugins</a></li><li><a href="../resources/assets.html" >Downloadable assets</a></li><li><a href="../resources/external-tutorials.html" >External tutorials</a></li></ol><li>Development</li><ol><li><a href="../development/roadmap.html" class="active">Roadmap</a></li><li><a href="../development/how-to-contribute.html" >How to contribute</a></li><li><a href="../development/building-superpowers.html" >Building Superpowers</a></li><li><a href="../development/translating-superpowers.html" >Translating Superpowers</a></li><li><a href="../development/extending-superpowers.html" >Extending Superpowers</a></li></ol></ol>
+    </div>
+    <div class="language">
+      <select onchange="window.location.href=\"../../\" + this.value + \"/1_getting-started/1_about-superpowers.html\";">
+        <option value="en" selected>English</option><option value="fr" >Français</option>
+      </select>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers Community Edition &mdash; Documentation</span>
+      </a>
+    </header>
+    <div class="page">
+      <h1 id="roadmap">Roadmap</h1>
+<p>Before migrating to GitHub, the core development team used <a href="https://trello.com/b/eQUeNKrq/superpowers">a Trello board</a> to keep track of planned features, but we are slowly moving away from it.</p>
+<h2 id="superpowers-v2-0-or-later">Superpowers v2.0 or later</h2>
+<ul>
+<li><a href="https://github.com/superpowers/superpowers-core/issues/73">Allow enabling/disabling plugins on a per-project basis</a> and only export enabled plugins for shorter load times</li>
+<li><a href="https://github.com/superpowers/superpowers-core/issues/55">Authentication, access rights and user settings</a></li>
+<li><a href="https://github.com/superpowers/superpowers-core/issues/35">Support exporting for various platforms right from Superpowers</a></li>
+<li>Superpowers Game:<ul>
+<li><a href="https://github.com/superpowers/superpowers-game/issues/33">Allow choosing which assets to load on startup and loading the rest dynamically</a> for shorter load times</li>
+<li><a href="https://github.com/superpowers/superpowers-game/issues/35">Typed asset tree</a> to increase confidence when reorganizing assets</li>
+</ul>
+</li>
+</ul>
+<h2 id="superpowers-v1-0">Superpowers v1.0</h2>
+<p>This release will focus on making it easy to release and upgrade the major parts of Superpowers independently.</p>
+<ul>
+<li><a href="https://trello.com/c/IVEnTXCe/701-redesign-launcher">Split the launcher from the server and redesign it</a></li>
+<li>Release the server and each system (aka. project type) separately with their own version numbers</li>
+<li>Support updating the server and each system from the launcher</li>
+<li>Superpowers Game:<ul>
+<li><a href="https://github.com/superpowers/superpowers-game/issues/30">Support drag&#39;n&#39;dropping assets from the asset tree into a scene</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="previous-releases">Previous releases</h2>
+<p>Release notes for all releases can be found on GitHub:</p>
+<ul>
+<li><a href="https://github.com/superpowers/superpowers-core/releases">Client/Server releases</a></li>
+<li><a href="https://github.com/superpowers/superpowers-app/releases">Launcher releases</a></li>
+<li><a href="https://github.com/superpowers/superpowers-game/releases">Superpowers Game releases</a></li>
+</ul>
+<p>Release notes for other systems can be found on their own repository.</p>
+
+    </div>
+  </main>
+</body>
+</html>
