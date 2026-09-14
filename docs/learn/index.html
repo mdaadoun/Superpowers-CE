@@ -4,11 +4,15 @@
   <meta charset="utf8">
   <title>Superpowers CE Documentation</title>
   <script>
-    var lang = (navigator.language.slice(0, 2) === "fr") ? "fr" : "en";
-    window.location.href = lang + "/getting-started/about-superpowers.html";
+    var lang = (navigator.language && navigator.language.slice(0, 2) === "fr") ? "fr" : "en";
+    if (lang === "fr") {
+      window.location.href = "fr/bien-demarrer/a-propos-de-superpowers.html";
+    } else {
+      window.location.href = "en/getting-started/about-superpowers.html";
+    }
   </script>
 </head>
 <body>
-  <p>Redirecting to <a href="en/getting-started/about-superpowers.html">Documentation</a>...</p>
+  <p>Redirecting to <a href="en/getting-started/about-superpowers.html">Documentation (English)</a> / <a href="fr/bien-demarrer/a-propos-de-superpowers.html">Documentation (Français)</a>...</p>
 </body>
 </html>
