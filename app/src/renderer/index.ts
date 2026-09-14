@@ -74,7 +74,7 @@ function start() {
     } else {
       me.start();
       // IRC auto-connection disabled in Superpowers CE
-      updateSystemsAndPlugins();
+      localServer.start();
     }
   });
 }
@@ -148,41 +148,5 @@ function installFirstSystem(callback: Function) {
         callback();
       }
     ]);
-  });
-}
-
-function updateSystemsAndPlugins() {
-  serverSettingsSystems.getRegistry((registry) => {
-    if (registry == null) { localServer.start(); return; }
-
-    const systemsAndPlugins: string[] = [];
-    for (const systemId in registry.systems) {
-      const system = registry.systems[systemId];
-      if (!system.isLocalDev && system.localVersion != null && system.version !== system.localVersion) systemsAndPlugins.push(systemId);
-
-      for (const authorName in system.plugins) {
-        for (const pluginName in system.plugins[authorName]) {
-          const plugin = system.plugins[authorName][pluginName];
-          if (!plugin.isLocalDev && plugin.localVersion != null && plugin.version !== plugin.localVersion) systemsAndPlugins.push(`${systemId}:${authorName}/${pluginName}`);
-        }
-      }
-    }
-
-    if (systemsAndPlugins.length === 0) { localServer.start(); return; }
-
-    const label = i18n.t("startup:updateAvailable.systemsAndPlugins", { systemsAndPlugins: systemsAndPlugins.join(", ") });
-    const options = {
-      validationLabel: i18n.t("common:actions.update"),
-      cancelLabel: i18n.t("common:actions.skip")
-    };
-
-    new dialogs.ConfirmDialog(label, options, (shouldUpdate) => {
-      if (shouldUpdate) {
-        openServerSettings();
-        serverSettingsSystems.updateAll(() => { localServer.start(); });
-      } else {
-        localServer.start();
-      }
-    });
   });
 }
