@@ -1,0 +1,17 @@
+{
+  "name": "superpowers-ce",
+  "version": "1.0.0",
+  "description": "Superpowers Community Edition (CE) - 2D/3D Three.js Game Engine & IDE",
+  "private": true,
+  "scripts": {
+    "setup:core": "cd core && npm install",
+    "setup:app": "cd app && npm install",
+    "setup": "npm run setup:core && npm run setup:app",
+    "build:core": "cd core && npm run build",
+    "build:app": "cd app && npm run build",
+    "build": "npm run build:core && npm run build:app",
+    "start": "cd app && npm run start",
+    "start:server": "cd core && node server start",
+    "package:app": "cd app && npm run package"
+  }
+}

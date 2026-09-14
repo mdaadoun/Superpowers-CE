@@ -1,0 +1,27 @@
+{
+  "title": "Home",
+
+  "tagline": "Motor de jogo 2D+3D para indies. Gratuito e de código aberto,&nbsp;<b>finalmente</b>.",
+
+  "news": {
+    "couldNotFetch": "Não foi possível obter as últimas notícias."
+  },
+
+  "chatrooms": {
+    "title": "Salas de Chat",
+
+    "en": "Inglês",
+    "fr": "Francês"
+  },
+
+  "links": {
+    "title": "Links",
+
+    "documentation": "Documentação",
+    "forums": "Fóruns da Comunidade",
+    "patreon": "Patreon",
+    "openSource": "Código Aberto",
+    "freeAssets": "Assets Gratuitos",
+    "teamSpeak": "Servidor de TeamSpeak"
+  }
+}
