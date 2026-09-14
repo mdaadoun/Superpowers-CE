@@ -10,3 +10,6 @@ Thumbs.db
 
 # TypeScript build cache
 *.tsbuildinfo
+
+# Local project-flow debug scripts
+test-project-flow*.js

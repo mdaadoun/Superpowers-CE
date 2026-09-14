@@ -27,6 +27,7 @@ export default class ProjectHub {
     const serveProjects = (callback: async.ErrorCallback<NodeJS.ErrnoException>) => {
       async.eachSeries(fs.readdirSync(this.projectsPath), (folderName: string, cb: (err: Error) => any) => {
         if (folderName.indexOf(".") !== -1) { cb(null); return; }
+        if (!fs.existsSync(path.join(this.projectsPath, folderName, "manifest.json"))) { cb(null); return; }
         this.loadingProjectFolderName = folderName;
         this.loadProject(folderName, cb);
       }, (err) => {
