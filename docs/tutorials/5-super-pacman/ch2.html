@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>2. Project Structure — Super Pacman — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch0.html" >Devlog</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" class="active">2. Project Structure</a></li><li><a href="ch3.html" >3. Setting Assets</a></li><li><a href="ch4.html" >4. Designing Levels</a></li><li><a href="ch5.html" >5. Composing Scenes</a></li><li><a href="ch6.html" >6. Global Game Behavior</a></li><li><a href="ch7.html" >7. Menu Behavior</a></li><li><a href="ch8.html" >8. Level & Start</a></li><li><a href="ch9.html" >9. Pacman Behavior</a></li><li><a href="ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="ch11.html" >11. Polishing the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pacman</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-game-development-series-5">Superpowers Game Development Series #5</h1>
+<h2 id="super-pacman"><strong>SUPER PACMAN</strong></h2>
+<h3 id="chapter-2-setting-the-project-structure"><strong>Chapter 2 : Setting the project structure</strong></h3>
+<h4 id="basic-structure">Basic structure</h4>
+<p>When we start with superpowers, one of the first great feature we notice is how easy and great we can structure all the assets of our game in a way that make them easily accessible 
+while we develop our game.</p>
+<p>As the game become more complex, it is important to keep a logical structure to be able to find out where everything is and not become confused by our own jumble. </p>
+<p>For the first step of our pacman game we create the folders and assets structure. The easier is to see a game like an interaction between objects, big object like the whole game and 
+little object like a simple sound. We can separate our game in different folders for each big objects : the ghosts, the pacman, the items, the sounds, the levels, etc.</p>
+<p><img src="img/ch2/mainstructure.png" alt="Basic structure"></p>
+<p><em>Note : It is easier to set the global settings for the sprite and tilemap assets (16px/unit instead of 100) before to create them and avoid to change the pixels per unit for each after.</em></p>
+<h4 id="global-script">Global script</h4>
+<p>The global script will contain most of the game datas and global function that we need for all our others script to interact with each other. We make it blank as it won&#39;t contain no Class.</p>
+<ul>
+<li>Global (script)</li>
+</ul>
+<h4 id="game-structure">Game structure</h4>
+<p>The game folder contain the scene and script of the game itself. The game script will contain mostly global methods of the game that concern all other objects of the game in runtime like the 
+timer, updating the score, checking if the game is won, etc. The game scene is where we combine and place all actors together in the scene editor.</p>
+<ul>
+<li><strong>Game</strong> (folder)<ul>
+<li>Game (script)</li>
+<li>Scene (scene)</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/ch2/gamestructure.png" alt="Game structure"></p>
+<h4 id="menu-structure">Menu structure</h4>
+<p>The Menu folder contain what is related to all the screens that does not concern the game directly like the introduction screen, the level selection to start a new game and the 
+victory or game over screens. The Menu script will have the logic of buttons and screens change. The screens and buttons come as different sprites that we set in the Menu scene.</p>
+<ul>
+<li><strong>Menu</strong> (folder)<ul>
+<li>Menu (script)</li>
+<li>Scene (scene)</li>
+<li>Screens (folder)<ul>
+<li>Start (sprite)</li>
+<li>Levels (sprite)</li>
+<li>End (sprite)</li>
+</ul>
+</li>
+<li>Buttons (folder)<ul>
+<li>Buttons (sprite)</li>
+<li>Levels (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/ch2/menustructure.png" alt="Menu structure">     </p>
+<h4 id="level-structure">Level structure</h4>
+<p>The Level folder contain all what concern the game mazes, the tileset and each tilemap for each level. The template level will help us for mapping, as we will draw once
+ the basic layout of all the maps and then copy it for each level.</p>
+<ul>
+<li><strong>Levels</strong> (folder)<ul>
+<li>Tileset (tile set)</li>
+<li>Template (folder)<ul>
+<li>Tilemap (tile map)</li>
+</ul>
+</li>
+<li>Level1 (folder)<ul>
+<li>// We can let the folder empty as we will copy the Template Tilemap thereafter on which we will map our level. (see chapter 4)</li>
+</ul>
+</li>
+<li>idem for Level2, Level3, etc..</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/ch2/levelstructure.png" alt="Level structure"></p>
+<h4 id="pacman-structure">Pacman structure</h4>
+<p>The Pacman folder contain the script and sprites that are related to the character controlled by the player.</p>
+<ul>
+<li><strong>Pacman</strong> (folder)<ul>
+<li>Pacman (script)</li>
+<li>Move (sprite)</li>
+<li>Life (sprite)</li>
+<li>Death (sprite)</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/ch2/pacmanstructure.png" alt="Pacman structure"></p>
+<h4 id="ghosts-structure">Ghosts structure</h4>
+<p>The Ghosts folder contain the script and sprites that are related to the characters moving in the mazes as the player try to avoid or eat them.</p>
+<ul>
+<li><strong>Ghosts</strong> (folder)<ul>
+<li>Ghost (script)</li>
+<li>Ghost1 (sprite)</li>
+<li>Ghost2 (sprite)</li>
+<li>Ghost3 (sprite)</li>
+<li>Ghost4 (sprite)</li>
+<li>Vulnerable (sprite)</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/ch2/ghoststructure.png" alt="Ghost structure"></p>
+<h4 id="items-structure">Items structure</h4>
+<p>The Items folder contain the objects that the player can interact with.</p>
+<ul>
+<li><strong>Items</strong> (folder)<ul>
+<li>Coins (folder)<ul>
+<li>Small (sprite)</li>
+<li>Big (sprite)</li>
+</ul>
+</li>
+<li>Fruits (folder)<ul>
+<li>Fruits (script)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/ch2/itemstructure.png" alt="Items structure"></p>
+<h4 id="sounds-structure">Sounds structure</h4>
+<p>The Sounds folder contains all the sounds assets we use in our game.</p>
+<ul>
+<li><strong>Sounds</strong> (folder)<ul>
+<li>Music</li>
+<li>MenuButton</li>
+<li>EatCoin</li>
+<li>EatGhost</li>
+<li>EatFruit</li>
+<li>PacmanDeath</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/ch2/soundstructure.png" alt="Sounds structure"></p>
+<h4 id="font">Font</h4>
+<p>The Font asset is the text we use for our game score and to display others statistics.</p>
+<ul>
+<li>Font (font)</li>
+</ul>
+<p>We can download the superpowers project <strong>v2</strong> from this chapter <a href="https://github.com/mseyne/super-pacman-project">here</a>.</p>
+<p><a href="ch1.html">&lt;-- go to chapter 1</a> -- <a href="ch3.html">go to chapter 3 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

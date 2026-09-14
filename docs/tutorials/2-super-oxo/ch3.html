@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>3. Player Actions — Super OXO (Tic-Tac-Toe) — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Introduction & Plan</a></li><li><a href="ch2.html" >2. Building Structure</a></li><li><a href="ch3.html" class="active">3. Player Actions</a></li><li><a href="ch4.html" >4. Computer Response AI</a></li><li><a href="ch5.html" >5. Polishing the Game</a></li><li><a href="ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super OXO (Tic-Tac-Toe)</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-2-super-oxo">SUPERPOWERS TUTORIAL #2 SUPER OXO</h1>
+<h2 id="chapter-3-writing-the-player-actions-game-logic-part-1"><em>Chapter 3 : Writing the Player actions, Game logic part 1</em></h2>
+<p>Our game have a structure and we know the features we want to add.</p>
+<p>First we will code the behavior of the mouse with the squares on the game board,
+however we need before that to create a constant that will hold the Squares.</p>
+<p>We have created two Scripts, <strong>Global</strong> and <strong>Player</strong>.</p>
+<ul>
+<li>Global will contain all our main functions and global variables.</li>
+<li>Player will contain all functions which is relative to the mouse behavior and the player turn.</li>
+</ul>
+<h3 id="setting-the-global-script">Setting the global script</h3>
+<p>We have already built the board and placed the squares, we need now a way to access
+to each of this squares through the program. For this we will build a <strong>SQUARES constant Array</strong>
+ which will be a container for our board datas and an important indicator
+about the state of all the squares of the board.</p>
+<p><em>Note : an Array is a list of data in JavaScript.</em></p>
+<p>We initialize the constant SQUARES by writing in the beginning of our Global script :</p>
+<pre><code class="lang-TypeScript"><span class="hljs-comment">// Initialize globally the SQUARES Array</span>
+<span class="hljs-keyword">const</span> SQUARES = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>;
+</code></pre>
+<p>For now, SQUARES is only an empty Array, we need to fill it with the nine squares
+to be able to access it at any time.</p>
+<p>We have before separated each square as individuals Actors. Instead of adding them
+one by one in the Array, we will use a loop that will <strong>push 9 times</strong> the 9 differents
+squares inside our SQUARES array and we will do so in a way that the index number
+in the array is in the same order that the name of each square (and it is why we
+started with Square0), then when we want to access to the first square of the board
+(up left corner) we use the square index that is in his name, in our example SQUARES[0]
+for Square0.</p>
+<p>In fact, we are going to push arrays inside the main Array SQUARES, like 9 times
+little list of two datas that we will access by using their <strong>index numbers between brackets</strong>.</p>
+<p>Each of the nine arrays will represent one square and be composed of :</p>
+<ul>
+<li><p><strong>SQUARES [SquareIndex] [0]</strong> : The SquareX Actor (by which we access to modify
+the Sprite), X being the index number.</p>
+</li>
+<li><p><strong>SQUARES [SquareIndex] [1]</strong> : The current square situation (if it&#39;s hover or not,
+if there is a cross or circle played on it.)</p>
+</li>
+</ul>
+<p>We are going to write the loop and function to set the squares arrays in a function
+inside the Global script and we are going to encapsulate our function (and the next one)
+in a <strong>namespace Game{}</strong>. This way we could call our (exported) function from anywhere in
+our others scripts calling <strong>Game.theFunction()</strong>, it make the code cleaner and it is a good
+habit to have our functions out of the global scope to avoid overwriting and conflict
+between functions that could be elsewhere.</p>
+<p>Here the commented loop function <strong>setSquares</strong> in the Game namespace wrote to the
+following of the global variables :</p>
+<pre><code class="lang-TypeScript">[...]
+<span class="hljs-keyword">namespace</span> Game{
+
+  <span class="hljs-comment">// define and export the function setSquare</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSquares</span>(<span class="hljs-params"></span>)</span>{
+
+    <span class="hljs-comment">/*
+    Build the SQUARES array with arrays
+    0 : the Square Actor of current index
+    1 : default string value of situation : "unHover"
+    */</span>
+
+    <span class="hljs-comment">// define a local addSquare function</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addSquare</span>(<span class="hljs-params">index</span>)</span>{
+      <span class="hljs-comment">// get the name of current square</span>
+      <span class="hljs-keyword">let</span> name = <span class="hljs-string">"Square"</span> + index.toString();
+
+      <span class="hljs-comment">// get the actor from the Game scene</span>
+      <span class="hljs-keyword">let</span> square = Sup.getActor(<span class="hljs-string">"Board"</span>).getChild(name);
+
+      <span class="hljs-comment">// push the square array in SQUARES array to the next index</span>
+      SQUARES.push([square, <span class="hljs-string">"unHover"</span>]);
+    }
+
+    <span class="hljs-comment">// loop calling 9 times the function addSquare with the square index as parameter</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">9</span>; i++){
+      addSquare(i);
+    }
+  }
+
+}
+</code></pre>
+<p>We cannot use our new setSquare() function if we call it directly in the Global
+script, we need to call it after the Game Scene is loaded in the game because the
+function use the Actors that are loaded with the Game Scene.</p>
+<p>To do this correctly, in Game Scene we add a <strong>new component Behavior</strong> to the Board Actor.
+We attach then attach the <strong>class PlayerBehavior</strong> from our script Player.</p>
+<p><img src="img/behavior.png" alt="behavior.png"></p>
+<p>This PlayerBehavior class will initialize (awake) after the scene is loaded, we
+will call our Game function from here.</p>
+<p>We go in the script Player and we write in the default template the call or our
+function setSquare in the awake method :</p>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">class</span> PlayerBehavior extends Sup.Behavior {
+  awake() {
+    <span class="hljs-comment">//Call the function setSquares which build the SQUARES Array</span>
+    Game.setSquares();
+  }
+
+  update() {
+
+  }
+}
+Sup.registerBehavior(PlayerBehavior);
+</code></pre>
+<p>If we start the game, nothing appear, it is normal as we just made a behind the
+scene Array. If we want to check than our Array SQUARES is made, we can add,
+after the call of your function, Sup.log(SQUARES); that will log in the console
+the 9 arrays of 2 datas for each.</p>
+<h3 id="scripting-the-mouse-behavior">Scripting the Mouse Behavior</h3>
+<p>First thing to do is to initialize inside the Global script our raycasting variable
+than we call <strong>ray</strong>. This will be required to detect intersection between the mouse and the Game Scene actors.</p>
+<pre><code class="lang-TypeScript">  <span class="hljs-comment">// Initialize globally the ray casting</span>
+  <span class="hljs-keyword">var</span> ray = <span class="hljs-keyword">new</span> Sup.Math.Ray();
+  [...]
+</code></pre>
+<p>To start to write the behavior of the mouse, we need to write a new method that
+check the differents actions that the player can obtain in the game by using the mouse.</p>
+<p>In the PlayerBehavior class of the Player script, we create the method <strong>mouse</strong> which
+take an <strong>action</strong> and the <strong>square</strong> on which this action apply as a parameter and we
+build the complete checking if, else if conditions, the directionals branchs that
+will take the program according to the parameter action.</p>
+<pre><code class="lang-TypeScript">  [...]
+  awake() {
+  [...]
+  }
+
+  <span class="hljs-comment">// mouse method receiving parameters of the player action and the square related to this action</span>
+  mouse(action, square){
+    <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"isHover"</span>){
+      Sup.log(<span class="hljs-string">"The mouse is over the"</span> + square.getName()); <span class="hljs-comment">// temporary log;</span>
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"unHover"</span>){
+      Sup.log(<span class="hljs-string">"The mouse is out from the"</span> + square.getName()); <span class="hljs-comment">// temporary log;</span>
+
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"click"</span>){
+      Sup.log(<span class="hljs-string">"The mouse click the"</span> + square.getName()); <span class="hljs-comment">// temporary log;</span>
+    }
+  }
+
+[...]
+</code></pre>
+<p><em>Note : The 3 Sup.log() ; are used to check our method, we will replace them afterwards.</em></p>
+<p>We can&#39;t test our game right now, we need to write first the conditions that check
+the behavior of the mouse before to call the mouse method.</p>
+<p>In our <strong>update loop</strong>, we will now refresh constantly the ray caster and the mouse
+position in the screen and check each time if something changed. We set the conditions
+that will check the differents behaviors of the mouse and if one behavior fill one
+of the conditions, we will update the square situation in the array and ask to
+execute the mouse method by sending in the datas related to this behavior.</p>
+<p>We write our update loop  :</p>
+<pre><code class="lang-TypeScript">  [...]
+  update() {
+    <span class="hljs-comment">// Refresh the ray casting to the mouse position inside the camera screen</span>
+    ray.setFromCamera(Sup.getActor(<span class="hljs-string">"Camera"</span>).camera, Sup.Input.getMousePosition());
+
+    <span class="hljs-comment">// Create a new empty variable that will as value the differents array of the SQUARES constant</span>
+    <span class="hljs-keyword">let</span> array;
+
+    <span class="hljs-comment">/*
+    We loop through all the arrays in SQUARES and give the current array to the square variable.
+    We then check differents conditions :
+    - If the mouse ray intersect with a current square :
+        - then if this same square was previously not hovered.
+        - and then if there is the left click button pressed from the mouse.
+    - Else if the mouse ray leave a square previously hovered.
+    */</span>
+
+    <span class="hljs-comment">// Loop which give successively to array the values of the SQUARES array.</span>
+    <span class="hljs-keyword">for</span>(array of SQUARES){
+
+      <span class="hljs-comment">// Check if ray intersect with a current square (index 0 of array)</span>
+      <span class="hljs-keyword">if</span>(ray.intersectActor(array[<span class="hljs-number">0</span>], <span class="hljs-literal">false</span>).length &gt; <span class="hljs-number">0</span>){
+
+        <span class="hljs-keyword">if</span>(array[<span class="hljs-number">1</span>] == <span class="hljs-string">"unHover"</span>){
+          <span class="hljs-comment">// if true, set the square new situation to isHover</span>
+          array[<span class="hljs-number">1</span>] = <span class="hljs-string">"isHover"</span>;
+          <span class="hljs-comment">// and call the local mouse method with the action isHover and the related square actor</span>
+          <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"isHover"</span>, array[<span class="hljs-number">0</span>]);
+        }
+
+        <span class="hljs-comment">// Check if the left click button of the mouse is pressed on a free square</span>
+        <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>) &amp;&amp; array[<span class="hljs-number">1</span>] == <span class="hljs-string">"isHover"</span>){
+          <span class="hljs-comment">// if true, set the square new situation to cross</span>
+          array[<span class="hljs-number">1</span>] = <span class="hljs-string">"cross"</span>;
+          <span class="hljs-comment">// and call the local mouse method with the action click and the related square actor</span>
+          <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"click"</span>, array[<span class="hljs-number">0</span>]);
+        }
+      }
+
+      <span class="hljs-comment">// Else if ray does not intersect with a previous hovered square, the square change situation</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(array[<span class="hljs-number">1</span>] == <span class="hljs-string">"isHover"</span>){
+        <span class="hljs-comment">// if true, set the square new situation to unHover</span>
+        array[<span class="hljs-number">1</span>] = <span class="hljs-string">"unHover"</span>;
+        <span class="hljs-comment">// and call the local mouse method with the action unHover and the related square actor</span>
+        <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"unHover"</span>, array[<span class="hljs-number">0</span>]);
+      }
+    }
+  }
+[...]
+</code></pre>
+<p>We can now test the behavior of our mouse, we can hover, unhover and click squares,
+the console log return us the mouse action.</p>
+<p>We won&#39;t play our game from the console though. Now than we have tested and seen
+than everything work like expected we can remove the Sup.log() functions and enhance
+the graphical experience of our game.</p>
+<p>In our mouse method we can access to the spriteRenderer component of the square
+on which we are focusing and passing an action. We use the setAnimation method
+to change the sprite accordingly.</p>
+<p>Here the mouse method updated :</p>
+<pre><code class="lang-TypeScript">  [...]
+  mouse(action, square){
+    <span class="hljs-comment">// change the square sprite depending of action</span>
+    <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"isHover"</span>){
+      square.spriteRenderer.setAnimation(<span class="hljs-string">"isHover"</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"unHover"</span>){
+      square.spriteRenderer.setAnimation(<span class="hljs-string">"unHover"</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"click"</span>){
+      square.spriteRenderer.setAnimation(<span class="hljs-string">"cross"</span>);
+    }
+  }
+  [...]
+</code></pre>
+<p>We can now launch the game and fill the complete board of cross. No problem to win this game.</p>
+<h3 id="a-turn-based-game">A turn based game</h3>
+<p>The tic tac toe wouldn&#39;t be the tic tac toe with only cross, we need also the
+opponent to come in game, the circle. We need to add an other player by calling
+the computer turn after each player turn.</p>
+<p>An important value during the game to know is the one telling which <strong>turn</strong> is it,
+the player or the computer. It is a kind of flag indicator than we want to keep
+track of in a turn variable which will take alternatively the &#39;&#39;cross&#39;&#39; (player)
+and the &#39;&#39;circle&#39;&#39; value&#39;&#39; (computer).</p>
+<p>We initialize the variable turn by writing in the beginning of our Global script :</p>
+<pre><code class="lang-TypeScript"><span class="hljs-comment">// Initialize globally the turn variable</span>
+<span class="hljs-keyword">var</span> turn : <span class="hljs-built_in">string</span>;
+[...]
+</code></pre>
+<p>We implement the turn based game by changing the value of the turn variable after each turn.<br>When we start the game and call for the first time the playerBehavior function (awake)
+we need to say that the player or the computer begin. We need to have a random function
+to choose between one or the other, but for now we simply give to the turn variable the string value cross.</p>
+<p>Here we add in the awake method of the Player script :</p>
+<pre><code class="lang-TypeScript">  [...]
+  awake() {
+     […]
+     turn = <span class="hljs-string">"cross"</span>; <span class="hljs-comment">// temporary start value</span>
+     }
+  [...]
+</code></pre>
+<p><em>Note : Later we will remove this line of code and change it by a function that
+choose randomly who from the player or the computer, start the game.</em></p>
+<p>Now we want to be able to give permission to the player to play if he have the
+right or block him if it is the computer turn. We do this by adding a condition
+in the condition that check when the player click with the mouse inside the update
+loop. We simply need to check if it is the player turn before to call the mouse method.</p>
+<p>If it is the player turn when there is a mouse click, we then call the mouse method
+and also we initialize a new game turn. We create a new method <strong>gameTurn</strong> in the
+player behavior class, it will be this method that will change directly the turn
+string value to circle and call for the turn of computer to play. For now we will
+just display in the console that it is the turn of Computer, but later we will
+call the main computer function from here.</p>
+<pre><code class="lang-TypeScript">  [...]
+  gameTurn(){
+    <span class="hljs-comment">// change to computer turn</span>
+    turn = <span class="hljs-string">"circle"</span>;
+    <span class="hljs-comment">// Call for the computer turn</span>
+    Sup.log(<span class="hljs-string">"The computer play now !"</span>) <span class="hljs-comment">// temporary log;</span>
+    <span class="hljs-comment">// change to player turn</span>
+     turn = <span class="hljs-string">"cross"</span>;
+  }
+  [...]
+</code></pre>
+<p>We can now call our gameTurn() method in our checking condition when we click the mouse like so :</p>
+<pre><code class="lang-TypeScript">  [...]
+        <span class="hljs-comment">// Check if the left click button of the mouse is pressed on a free square</span>
+        <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>) &amp;&amp; array[<span class="hljs-number">1</span>] == <span class="hljs-string">"isHover"</span>){
+          <span class="hljs-comment">// Check if it is the player turn</span>
+          <span class="hljs-keyword">if</span>(turn == <span class="hljs-string">"cross"</span>){
+      [...]
+            <span class="hljs-comment">// call a game turn</span>
+            <span class="hljs-keyword">this</span>.gameTurn() ;
+          }
+        }
+  [...]
+</code></pre>
+<p>The player turn using the mouse is now complete, the player can now only choose
+one square to play and the console then tell us that it is now for the computer to play.</p>
+<p>All right ! For the sake of this game, it is time to give life to our virtual opponent.</p>
+
+    </div>
+  </main>
+</body>
+</html>

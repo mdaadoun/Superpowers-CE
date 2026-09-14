@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>3. Setting Assets — Super Pacman — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch0.html" >Devlog</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Project Structure</a></li><li><a href="ch3.html" class="active">3. Setting Assets</a></li><li><a href="ch4.html" >4. Designing Levels</a></li><li><a href="ch5.html" >5. Composing Scenes</a></li><li><a href="ch6.html" >6. Global Game Behavior</a></li><li><a href="ch7.html" >7. Menu Behavior</a></li><li><a href="ch8.html" >8. Level & Start</a></li><li><a href="ch9.html" >9. Pacman Behavior</a></li><li><a href="ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="ch11.html" >11. Polishing the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pacman</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-game-development-series-5">Superpowers Game Development Series #5</h1>
+<h2 id="super-pacman"><strong>SUPER PACMAN</strong></h2>
+<h3 id="chapter-3-setting-the-assets"><strong>Chapter 3 : Setting the assets</strong></h3>
+<p><em>Note : For this chapter concerning assets you can download the sources assets <a href="https://github.com/mseyne/superpowers-sources">here</a> and continue the tutorial with them or you can decide
+to do your own assets from scratch but you should be careful to check than your sprite are the same sizes and placements than the originals to avoid too much change in the code and settings thereafter.</em></p>
+<h4 id="settings-for-assets">Settings for assets</h4>
+<p>We have now the structure of our game but the assets are empty, we are going to load each asset file and set them ready to be used in the game scenes.</p>
+<p>One decision we need to take in the beginning is the size of our game screen, we decide than one unit will be 16 pixels and the screen will 24 units width and 32 units height.
+Which is the same to say than our screen will be 384 width x 512 height with a screen ratio of 3 x 4 in the General settings. 
+As we build our levels, we will think with the units, 1 unit = 1 tile = 16x16pixels.</p>
+<p><img src="img/ch3/settings.png" alt="settings"></p>
+<h4 id="menu-assets">Menu assets</h4>
+<p>We load for each sprite asset the image file related and we set the grids, here the settings for each sprite of the menu folder.</p>
+<ul>
+<li>Menu<ul>
+<li>Screens<ul>
+<li><strong>Start</strong>, file : menu/startscreen.png, grid size : 600x800, origin : 0x0, pixel/unit : 16</li>
+<li><strong>Levels</strong>, file : menu/levelscreen.png, grid size : 600x800, origin : 0x0, pixel/unit : 16</li>
+<li><strong>End</strong>, file : menu/endscreen.png, grid size : 600x800, origin : 0x0, pixel/unit : 16</li>
+</ul>
+</li>
+<li>Buttons<ul>
+<li><strong>Buttons</strong>, file : menu/buttons.png, grid size : 258x60, origin : 50x50, pixel/unit : 16</li>
+<li><strong>Levels</strong>, file  : menu/levels.png, grid size : 156x184, origin : 50x50, pixel/unit : 16</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>Note : we change the frames/second to 1 because to slow in maximum the static animation.</em></p>
+<h5 id="start-screen">Start screen</h5>
+<p><img src="img/ch3/menustart.png" alt="Menu Start screen"></p>
+<p>For the Start screen we create two animations, hover and unhover, with the first and second frames, it is static animations with only one frame each.</p>
+<ul>
+<li><strong>unhover</strong> with the start and end frame to 0 </li>
+<li><strong>hover</strong> with the start and end frame to 1</li>
+</ul>
+<h5 id="end-screen">End screen</h5>
+<p><img src="img/ch3/menuend.png" alt="Menu End screen"></p>
+<p>For the End screen we create two animations, victory and gameover, with the first and second frames, it is also static animations with only one frame each.</p>
+<ul>
+<li><strong>victory</strong> with the start and end frame to 0 </li>
+<li><strong>gameover</strong> with the start and end frame to 1</li>
+</ul>
+<h5 id="buttons">Buttons</h5>
+<p><img src="img/ch3/menubuttons.png" alt="Buttons"></p>
+<p>For the buttons we create fours animations for the fours frames.</p>
+<ul>
+<li><strong>hoverPlay</strong> with the start and end frame to 0 </li>
+<li><strong>unhoverPlay</strong> with the start and end frame to 1</li>
+<li><strong>hoverReturn</strong> with the start and end frame to 2 </li>
+<li><strong>unhoverReturn</strong> with the start and end frame to 3</li>
+</ul>
+<h5 id="levels-buttons">Levels buttons</h5>
+<p><img src="img/ch3/menulevels.png" alt="Levels buttons"></p>
+<p>For the levels buttons we create six animations for the six frames.</p>
+<ul>
+<li><strong>level1</strong> with the start and end frame to 0 </li>
+<li><strong>level2</strong> with the start and end frame to 1</li>
+<li><strong>level3</strong> with the start and end frame to 2 </li>
+<li><strong>level4</strong> with the start and end frame to 3</li>
+<li><strong>level5</strong> with the start and end frame to 4</li>
+<li><strong>level6</strong> with the start and end frame to 5</li>
+</ul>
+<h4 id="levels-assets">Levels assets</h4>
+<p>We will see in the next chapter the level design part of our game, for now, we simply add the Tile Set sprite.</p>
+<ul>
+<li>Levels<ul>
+<li><strong>Tile Set</strong>, file : tileset.png, grid : 16x16px</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/ch3/leveltileset.png" alt="Tile Set"></p>
+<h4 id="pacman-assets">Pacman assets</h4>
+<p>We load the pacman sprite and set the differents animations :</p>
+<ul>
+<li>Pacman<ul>
+<li><strong>Move</strong>, file : pacman/move.png, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+<li><strong>Life</strong>, file : pacman/life.png, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+<li><strong>Death</strong>, file : pacman/death.png, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+</ul>
+</li>
+</ul>
+<h5 id="move-animation">Move animation</h5>
+<p><img src="img/ch3/pacmanmove.png" alt="pacman move"></p>
+<p>For the move animations, we set four animations with 4 frames each.</p>
+<ul>
+<li><strong>goLEFT</strong> with the start frame at 0 and end frame to 3 </li>
+<li><strong>goRIGHT</strong> with the start frame at 4 and end frame to 7</li>
+<li><strong>goUP</strong> with the start frame at 8 and end frame to 11</li>
+<li><strong>goDOWN</strong> with the start frame at 12 and end frame to 15</li>
+</ul>
+<h5 id="life-sprites">Life sprites</h5>
+<p><img src="img/ch3/pacmanlife.png" alt="pacman life"></p>
+<p>We set two static animations, one for each frame.</p>
+<ul>
+<li><strong>full</strong> with the start and end frame to 0 </li>
+<li><strong>empty</strong> with the start and end frame to 1</li>
+</ul>
+<h5 id="death-animation">Death animation</h5>
+<p><img src="img/ch3/pacmandeath.png" alt="pacman death"></p>
+<p>Only one death animation with all the frames of the sprite.</p>
+<ul>
+<li><strong>death</strong> with the start frame at 0 and end frame to 11 </li>
+</ul>
+<h4 id="ghosts-assets">Ghosts assets</h4>
+<p>The four ghosts have the sames parameters, so we could delete all ghosts assets and start a new one ghost1, set it and duplicate it 3 times with differents sprite file.</p>
+<ul>
+<li>Ghosts<ul>
+<li><strong>ghost1</strong>, file : ghosts/ghost1.png, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+<li><strong>ghost2</strong>, file : ghosts/ghost2.png, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+<li><strong>ghost3</strong>, file : ghosts/ghost3.png, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+<li><strong>ghost4</strong>, file : ghosts/ghost4.png, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+<li><strong>vulnerable</strong>, file: ghosts/vulnerable.png, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+</ul>
+</li>
+</ul>
+<h5 id="move-animation">move animation</h5>
+<p><img src="img/ch3/ghostmove.png" alt="ghost move"></p>
+<p>We set four animations with 3 frames each for the four directions, and <strong>we do that 4 times for each ghost</strong> (or we do it for one and duplicate it 3 times).</p>
+<p><em>Note : we change the frames/second to 5, to make the animation slower.</em></p>
+<ul>
+<li><strong>goLEFT</strong> with the start frame at 0 and end frame to 2 </li>
+<li><strong>goRIGHT</strong> with the start frame at 3 and end frame to 5</li>
+<li><strong>goDOWN</strong> with the start frame at 6 and end frame to 8</li>
+<li><strong>goUP</strong> with the start frame at 9 and end frame to 11</li>
+</ul>
+<h5 id="vulnerable-animation">vulnerable animation</h5>
+<p><img src="img/ch3/ghostvulnerable.png" alt="ghost vulnerable"></p>
+<p>This sprite is used when the player eat a big coin, it is then possible to eat the ghost, after a time, the ghost start to blink and can eat the player again.</p>
+<p>We set four animations with the same 3 frames for the four directions. The fifth animation is the ghost blinking before coming back to normal.</p>
+<p><em>Note : we change the frames/second to 5, to make the animation slower.</em></p>
+<ul>
+<li><strong>goLEFT</strong> with the start frame at 0 and end frame to 2 </li>
+<li><strong>goRIGHT</strong> with the start frame at 0 and end frame to 2</li>
+<li><strong>goDOWN</strong> with the start frame at 0 and end frame to 2</li>
+<li><strong>goUP</strong> with the start frame at 0 and end frame to 2</li>
+<li><strong>blink</strong> with the start frame at 3 and end frame to 5</li>
+</ul>
+<h4 id="items-assets">Items assets</h4>
+<p>We add sprite for the small coin, big coin and for the fruits.</p>
+<ul>
+<li>Items<ul>
+<li>Coins<ul>
+<li>Small, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+<li>Big, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+</ul>
+</li>
+<li>Fruits<ul>
+<li>Sprite, grid size : 16x16, origin : 0x0, pixel/unit : 16</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="fruits-sprites">Fruits sprites</h5>
+<p><img src="img/ch3/itemsfruits.png" alt="items fruits"></p>
+<p>We create static animation to separate each fruit from the Sprite :</p>
+<p><em>Note : we change the frames/second to 1 because to slow in maximum the static animation.</em></p>
+<ul>
+<li><strong>banana</strong> with the start and end frame to 0 </li>
+<li><strong>orange</strong> with the start and end frame to 1</li>
+<li><strong>apple</strong> with the start and end frame to 2</li>
+<li><strong>cherry</strong> with the start and end frame to 3</li>
+<li><strong>strawberry</strong> with the start and end frame to 4</li>
+</ul>
+<h4 id="sounds-assets">Sounds assets</h4>
+<p>For each sound we load the mp3 file related :</p>
+<ul>
+<li>Sounds<ul>
+<li><strong>Music</strong>, file : sounds/music.mp3</li>
+<li><strong>MenuButton</strong>, file : sounds/menu.mp3</li>
+<li><strong>EatCoin</strong>, file : sounds/eatcoin.mp3</li>
+<li><strong>EatGhost</strong>, file : sounds/eatghost.mp3</li>
+<li><strong>EatFruit</strong>, file : sounds/eatfruit.mp3</li>
+<li><strong>PacmanDeath</strong>, file : sounds/pacmandeath.mp3</li>
+</ul>
+</li>
+</ul>
+<h4 id="font-asset">Font asset</h4>
+<p>We load the bitmap font with a grid of 20x20 and a pixel/unit of 20.</p>
+<p><img src="img/ch3/font.png" alt="Font"></p>
+<p>We can download the superpowers project <strong>v3</strong> from this chapter <a href="https://github.com/mseyne/super-pacman-project">here</a>.</p>
+<p><a href="ch2.html">&lt;-- go to chapter 2</a> -- <a href="ch4.html">go to chapter 4 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

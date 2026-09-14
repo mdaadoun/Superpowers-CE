@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>2. Preparing Superpowers — Super Pong — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Introduction & Plan</a></li><li><a href="ch2.html" class="active">2. Preparing Superpowers</a></li><li><a href="ch3.html" >3. Game Logic</a></li><li><a href="ch4.html" >4. Polishing the Game</a></li><li><a href="ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pong</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-1-super-pong">SUPERPOWERS TUTORIAL #1 SUPER PONG</h1>
+<h2 id="chapter-2-preparing-superpowers"><em>Chapter 2 : Preparing Superpowers</em></h2>
+<h3 id="building-the-project-structure">Building the project structure</h3>
+<p><em>I&#39;m assuming you already have Superpowers installed and working so we can jump directly to the game.
+If you want to learn the basics of the application please check the <a href="http://docs.superpowers-html5.com/en/getting-started/about-superpowers">official documentation</a>.</em></p>
+<p>We&#39;ll start our server and create our <strong>new project</strong> that we&#39;ll call PongTutorial.</p>
+<p>We&#39;ll start by creating a <strong>Scene</strong> (new asset or ctrl+n) called <strong>Game</strong>.</p>
+<p>In <strong>Settings</strong>, put Game in the <strong>Startup Scene</strong> (drag and drop or write Game). A gray <code>Startup Scene</code> label should appear on the sidebar next to Game. We&#39;ll also set the <strong>Screen ratio</strong> to (400, 300)</p>
+<p>We&#39;ll create a hierarchy structure for our assets, putting sprites files inside
+GameSprites, sounds in GameSounds and scripts in GameScripts.</p>
+<p>We&#39;ll create new assets, 4 Sprites, 3 Sounds and 2 Scripts, and also add a Font asset. You can leave the assets empty for now, we&#39;ll add their content below.</p>
+<p><em>Note: The order of your assets and folders does not matter.</em></p>
+<ul>
+<li>Game</li>
+<li>GameSprites<ul>
+<li>background</li>
+<li>pad1</li>
+<li>pad2</li>
+<li>ball</li>
+</ul>
+</li>
+<li>GameScripts<ul>
+<li>Ball</li>
+<li>Paddles</li>
+</ul>
+</li>
+<li>GameSounds<ul>
+<li>tac</li>
+<li>toc</li>
+<li>tada</li>
+</ul>
+</li>
+<li>Font</li>
+</ul>
+<p><img src="img/settingassets.png" alt="settingassets.png"></p>
+<h3 id="loading-the-game-assets">Loading the game assets</h3>
+<p><em>An asset is a box holding an element of the game, it can be an image, a script, a sound, etc.</em></p>
+<p>We have built the game assets structure but they will stay empty if we don&#39;t give
+them contents (which is files for sprites and sounds and code for scripts).</p>
+<p>First you will need to download the source assets on <a href="https://github.com/mseyne/superpowers-sources/tree/master/1SuperPong">the repository github here</a>.</p>
+<p>The sprites and sound assets need to be uploaded inside the project.
+For each asset, we load the related file (For example, <strong>background.png</strong> in asset <strong>background</strong>).</p>
+<p>After uploading the images, the sprites assets need calibration by clicking <strong>Setup</strong>. The <strong>grid size</strong> must be the same size than
+the image because we don&#39;t use frames for this game.
+Setup will ask you &quot;How many frames per row?&quot; - we&#39;ll accept the default frames/row and frames/column which is 1 for both.</p>
+<p>Change the rendering <strong>Pixels / Unit</strong> of each Sprite assets to 50 (default is 100).</p>
+<p>We don&#39;t need to change the <strong>origin</strong> of our sprites. The default percentage (50, 50) sets the origin to the center center which is good for all of our sprites for this game.</p>
+<p>Here the example of pad2 with the correct set up.</p>
+<p><img src="img/spriteset.png" alt="spriteset.png"></p>
+<p>In the Font Asset, we&#39;ll change the <strong>Pixels / Unit</strong> to 100 and the <strong>Size</strong> to 64.</p>
+<p>After loading the sound file into the Sound assets, everything should be fine, you can just test each sound.</p>
+<p>We are now finished with the assets, and can start to build our game scene.</p>
+<h3 id="building-the-scene">Building the scene</h3>
+<p><em>The Scene is the screen where all objects (called actors) are connected together.</em></p>
+<p>We will now set all the objects of the scene. We call an object inside the scene an Actor.</p>
+<p>To see the others Actors inside the game, we first need a Camera Actor.</p>
+<p><em>Note : We can switch the camera mode 2D / 3D to navigate inside the scene, see documentation.</em></p>
+<p>We&#39;ll create a <strong>new actor</strong> that we&#39;ll name <strong>Camera</strong>.</p>
+<p>Set the <strong>position</strong> on axis Z (the third) to 5 to place the camera to the front of all
+others objects who have a position on axis Z less than 5 (Position will be 0, 0, 5).</p>
+<p>Add a <strong>new component</strong> of type Camera.</p>
+<p>Change the mode to <strong>Orthographic</strong>.</p>
+<p>Now set the <strong>Orthographic Scale</strong> to 6 (we do this to fit with the background).</p>
+<p><img src="img/camera.png" alt="camera.png"></p>
+<p>Now we&#39;ll create all of the Actor objects, following this organization of actors :</p>
+<p><img src="img/actors.png" alt="actors.png"></p>
+<p>We&#39;ll add a <strong>new component</strong> of type <strong>Sprite Renderer</strong> in Background Actor and select the Sprite
+background as the Sprite. (or write the path GameSprites/background)</p>
+<p>We&#39;ll do this step again for the Actors Ball, and the two paddles of Player1 and Player2.
+For each of them we&#39;ll create a new component <strong>Sprite Renderer</strong> and  connect the Sprite
+Path of the correct Sprite. Pad1 for the Paddle of Player1, etc.</p>
+<p>We&#39;ll create a new component <strong>Text Renderer</strong> for each of the Score Actors and select the Font in the Font area. We write 0 to the Text area.</p>
+<p><em>Note : When the project becomes bigger, it is possible to duplicate Actors
+to avoid repetition, but as we are learning, repetition of this step is important.</em></p>
+<p>We have everything inside the scene now.</p>
+<p>We need to set all the correct <strong>positions</strong> of the Actors to be able to see them
+nicely when we launch the game.</p>
+<p>We have already set the Position of the Actor Camera to (0, 0, 5), here the position
+of all the others Actors :</p>
+<ul>
+<li>Background (0, 0, 0)</li>
+<li>Ball (0, 0, 4)</li>
+<li>Player1 (0, 0, 0)<ul>
+<li>Paddle (-3.7, 0, 4)</li>
+<li>Score (-2, 2.5, 2)</li>
+</ul>
+</li>
+<li>Player2 (0, 0, 0)<ul>
+<li>Paddle (3.7, 0, 4)</li>
+<li>Score (2, 2.5, 2)</li>
+</ul>
+</li>
+</ul>
+<p>To finish we can change the color of each Score Actor, you can do so by clicking
+on the little checkbox next to the label <strong>color</strong> and choosing a color.
+Here the hexadecimal colors codes:</p>
+<ul>
+<li>Player 1 – Score : f14735</li>
+<li>Player 2 – Score : 356ef1</li>
+</ul>
+<p>Ok, now all the Actors are placed and we can launch the game to see if everything displays correctly.</p>
+<p>Right now, nothing will happen beside the display and it is normal. We need to start
+programming the logic of our game to have some interaction. However a last step before jumping in the code is to set the Physic Bodies to our sprites, we will need these solid bodies
+for the collision between the ball and the paddles.</p>
+<h3 id="setting-arcade-bodies">Setting Arcade Bodies</h3>
+<p>In our Game Scene, we need to gave new component <strong>Arcade Body 2D</strong> to both of our Paddles and to our Ball.</p>
+<p>We then change for both paddles the size of x to 0.2 and keep y to 1 (size = 0.2, 1) and for the ball
+the size of x and y to 0.2  (size = 0.2, 0.2). Now the Arcade Body outlines are the same size as our sprites.</p>
+<p>In the game the illusion is than the <strong>sprite ball will collide with the sprite paddle</strong>, when
+in reality it is the <strong>ball physic body and the paddles physic bodies</strong> that will collide.
+The sprites are just attached to them and follow the movement of the body.</p>
+<p><img src="img/arcadebody.png" alt="arcadebody.png"></p>
+<p>Next: <a href="ch3.html#chapter-3--programming-the-game-logic">Programming the game logic</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

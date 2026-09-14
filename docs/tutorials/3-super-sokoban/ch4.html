@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>4. Level Scripting — Super Sokoban — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Plan the Game</a></li><li><a href="ch2.html" >2. Shaping Structure</a></li><li><a href="ch3.html" >3. World & Player Logic</a></li><li><a href="ch4.html" class="active">4. Level Scripting</a></li><li><a href="ch5.html" >5. Polishing the Game</a></li><li><a href="ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Sokoban</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-3-super-sokoban">SUPERPOWERS TUTORIAL #3 : SUPER SOKOBAN</h1>
+<h2 id="chapter-4-level-scripting">Chapter 4 : Level scripting</h2>
+<h3 id="level-checking">Level checking</h3>
+<p>What we need now to complete our game is a level transition and victory checking,
+to do so, we need to check the level.</p>
+<p>We write a function <strong>checkLevel</strong> in our Main script, in the Game namespace :</p>
+<pre><code class="lang-TypeScript">[...]
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkLevel</span>(<span class="hljs-params">level</span>)</span>{
+
+    <span class="hljs-comment">/*
+    We check all the level for the crates and targets positions.
+    We then compare if the position of crates and targets match, if all crate are on target, the level is won.
+    */</span>
+
+    <span class="hljs-keyword">let</span> boxesNumber : <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> boxesPositions = [];
+    <span class="hljs-keyword">let</span> targetsPositions = [];
+
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> column = <span class="hljs-number">0</span>; column &lt; <span class="hljs-number">12</span>; column++){
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> row = <span class="hljs-number">0</span>; row &lt; <span class="hljs-number">16</span>; row++){
+
+        <span class="hljs-comment">// Take the tiles from two layers to coordinates row and column</span>
+        <span class="hljs-keyword">let</span> actorTile = level.getTileAt(Layers.Actors, row, column);
+        <span class="hljs-keyword">let</span> worldTile = level.getTileAt(Layers.World, row, column);
+
+        <span class="hljs-comment">// If the actor tile is a box, keep the position</span>
+        <span class="hljs-keyword">if</span>(actorTile === Tiles.Crate || actorTile === Tiles.Packet){
+          <span class="hljs-keyword">let</span> position = <span class="hljs-keyword">new</span> Sup.Math.Vector2(row, column);
+          boxesPositions.push(position);
+
+          <span class="hljs-comment">// we count the total number of crate</span>
+          boxesNumber++;
+        }
+
+        <span class="hljs-comment">// If the world tile is a target, keep the position</span>
+        <span class="hljs-keyword">if</span>(worldTile === Tiles.Target){
+          <span class="hljs-keyword">let</span> position = <span class="hljs-keyword">new</span> Sup.Math.Vector2(row, column);
+          targetsPositions.push(position);
+        }
+      }
+    }
+
+    <span class="hljs-comment">// Check if all boxes</span>
+    <span class="hljs-keyword">if</span>(checkVictory(level, boxesNumber, boxesPositions, targetsPositions)){
+      isLevelWon = <span class="hljs-literal">true</span>;
+      levelCount++;
+      Sup.log(<span class="hljs-string">"DEBUG : VICTORY"</span>); <span class="hljs-comment">// temporary log</span>
+    };
+  }
+[...]
+</code></pre>
+<p>To see it work, we need to add a local function in the Game namespace :</p>
+<pre><code class="lang-TypeScript">[…]
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkVictory</span>(<span class="hljs-params">level, boxesNumber, boxesPositions, targetsPositions</span>)</span>{
+
+    <span class="hljs-keyword">let</span> posBox = <span class="hljs-keyword">new</span> Sup.Math.Vector2;
+    <span class="hljs-keyword">let</span> posTarget = <span class="hljs-keyword">new</span> Sup.Math.Vector2;
+    <span class="hljs-keyword">let</span> count : <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">for</span>(posBox of boxesPositions){
+      <span class="hljs-keyword">for</span>(posTarget of targetsPositions){
+        <span class="hljs-keyword">if</span>(posBox.x === posTarget.x &amp;&amp; posBox.y === posTarget.y){
+          count++;
+        }
+      }
+    }
+
+    <span class="hljs-keyword">if</span>(count === boxesNumber){
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+  }
+[…]
+</code></pre>
+<p>We need to call the checkLevel function each time the player move, to do so we need to add a call in the move method of the PlayerBehavior, when the condition that check if the player can move is true.</p>
+<pre><code class="lang-TypeScript">[…]
+<span class="hljs-comment">// (6)</span>
+    <span class="hljs-keyword">if</span>(canMove === <span class="hljs-literal">true</span>){
+      <span class="hljs-comment">// We update the Player Actor with the new playerPosition vector coordinate</span>
+      <span class="hljs-keyword">this</span>.actor.setPosition(playerPosition.x, playerPosition.y);
+
+      Game.checkLevel(level);
+    }
+[…]
+</code></pre>
+<p>We can now play the first level and have a log when we solved the puzzle.</p>
+<h3 id="levels-transition">Levels transition</h3>
+<p>We want now a transition and be able to go to the next level up until the end of the game.</p>
+<p>First we create in the Main script a new function <strong>setLevel</strong> than we will call when we want to start a new level.</p>
+<pre><code class="lang-TypeScript">[…]
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setLevel</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-comment">//reset values to default</span>
+        isLevelWon = <span class="hljs-literal">false</span>;
+        <span class="hljs-comment">//reload the scene</span>
+        Sup.loadScene(<span class="hljs-string">"Game"</span>);
+  }
+[…]
+</code></pre>
+<p>Then we modify the update method of the levelBehavior.</p>
+<pre><code class="lang-TypeScript">[…]
+  update() {
+
+    <span class="hljs-comment">/*
+    If the level is won we check
+      - if it was the last level
+        - if yes, we go to the victory screen
+        - else we change the transition text visibility to true
+      - if the key space is pressed
+        - change the transition text visibility to false
+        - change the new level tile map
+        - call the setLevel function that will prepare the scene before to reload it
+    */</span>
+
+    <span class="hljs-keyword">if</span>(isLevelWon){
+      <span class="hljs-keyword">if</span>(levelCount == levelMax){
+        Sup.loadScene(<span class="hljs-string">"Victory/Scene"</span>);
+      }
+      <span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Next"</span>).setVisible(<span class="hljs-literal">true</span>);
+      }
+
+      <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(<span class="hljs-string">"SPACE"</span>)){
+        <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Next"</span>).setVisible(<span class="hljs-literal">false</span>);
+
+        <span class="hljs-keyword">this</span>.level.setTileMap(<span class="hljs-string">"Levels/"</span>+LEVELS[levelCount]);
+
+        Game.setLevel();
+      }
+    }
+  }
+[…]
+</code></pre>
+<p>We can now play the different level until the end, though, there will be a crash
+as we have not set yet the victory scene.</p>
+<h3 id="victory-scene">Victory Scene</h3>
+<p>We first create a new asset sprite Screen to which we attach the screen image. (grid size same as image size)</p>
+<p>We create a new scene Victory with a new Actor Camera which we attach a new
+component Camera, we set the mode to orthographic with a scale of 12.</p>
+<p>We create a new Actor Screen to which we attach a sprite renderer, with the Screen sprite asset.</p>
+<p>Both actor should be in position (0, 0) but the camera should have a z coordinate a
+bit in front of the image like 2.</p>
+<p>We can remove the temporary log of checkLevel and try the game. It should be complete now.</p>
+<p>The only problem is that, right now, it is impossible to do mistake without the
+necessity to restart the game. We will do a level reset option in the next chapter.</p>
+
+    </div>
+  </main>
+</body>
+</html>

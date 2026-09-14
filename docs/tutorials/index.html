@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Demos & Tutorials Handbook — Superpowers Community Edition</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="styles/index.css">
+  <style>
+    main { margin-left: 0 !important; max-width: 960px; margin: 0 auto; padding: 2em; }
+    .hub-header { text-align: center; margin-bottom: 2.5em; }
+    .hub-header h1 { font-size: 2.4em; margin-bottom: 0.3em; color: #222; }
+    .hub-header p { font-size: 1.2em; color: #666; max-width: 650px; margin: 0 auto; }
+    .nav-buttons { text-align: center; margin-top: 1.5em; margin-bottom: 2em; }
+    .nav-buttons a {
+      display: inline-block;
+      padding: 0.6em 1.2em;
+      margin: 0 0.5em;
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .nav-buttons a.secondary {
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5em;
+      margin-bottom: 3em;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .card h2 { font-size: 1.4em; margin-top: 0; color: #1e293b; }
+    .card p { color: #64748b; font-size: 0.95em; line-height: 1.5; flex-grow: 1; }
+    .card-links { margin-top: 1.2em; }
+    .card-links a.btn {
+      display: block;
+      text-align: center;
+      padding: 0.6em 1em;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .card-links .sub-links {
+      font-size: 0.85em;
+      text-align: center;
+      color: #64748b;
+    }
+    .sources-box {
+      background: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 1.2em 1.5em;
+      border-radius: 0 8px 8px 0;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="hub-header">
+      <h1>Superpowers Game Demos & Tutorials</h1>
+      <p>Explore step-by-step game creation tutorials, read the complete handbooks, and inspect the project sources included with Superpowers Community Edition.</p>
+      <div class="nav-buttons">
+        <a href="../index.html">&larr; Superpowers Home</a>
+        <a href="../learn/index.html" class="secondary">Engine Documentation</a>
+        <a href="https://github.com/mdaadoun/Superpowers-CE" target="_blank" class="secondary">GitHub Repository</a>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      
+        <div class="card">
+          <div>
+            <h2>1. Super Pong</h2>
+            <p>Start learning game development with a classic 2-player Pong game.</p>
+          </div>
+          <div class="card-links">
+            <a href="1-super-pong/index.html" class="btn">Read Tutorial (6 chapters)</a>
+            <div class="sub-links">
+              <span>Project included in <code>demos/projects/</code></span>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div>
+            <h2>2. Super OXO</h2>
+            <p>Learn board games and basic computer AI with Tic-Tac-Toe in 3D.</p>
+          </div>
+          <div class="card-links">
+            <a href="2-super-oxo/index.html" class="btn">Read Tutorial (7 chapters)</a>
+            <div class="sub-links">
+              <span>Project included in <code>demos/projects/</code></span>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div>
+            <h2>3. Super Sokoban</h2>
+            <p>Build a puzzle game with tilemaps, grid movement, and level progression.</p>
+          </div>
+          <div class="card-links">
+            <a href="3-super-sokoban/index.html" class="btn">Read Tutorial (7 chapters)</a>
+            <div class="sub-links">
+              <span>Project included in <code>demos/projects/</code></span>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div>
+            <h2>4. Super Asteroids & Spacewar</h2>
+            <p>Recreate arcade classics with inertia physics, shooting, alien AI, and modding.</p>
+          </div>
+          <div class="card-links">
+            <a href="4-super-asteroids/index.html" class="btn">Read Tutorial (13 chapters)</a>
+            <div class="sub-links">
+              <span>Project included in <code>demos/projects/</code></span>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div>
+            <h2>5. Super Pacman</h2>
+            <p>Complete 12-chapter guide recreating Pac-Man with mazes, ghosts AI, and sounds.</p>
+          </div>
+          <div class="card-links">
+            <a href="5-super-pacman/index.html" class="btn">Read Tutorial (14 chapters)</a>
+            <div class="sub-links">
+              <span>Project included in <code>demos/projects/</code></span>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+
+    <div class="sources-box">
+      <h3>📁 Monorepo Directory Organization</h3>
+      <p>All projects, raw assets and markdown sources are structured in the repository:</p>
+      <ul>
+        <li><code>demos/projects/</code> — Ready-to-run Superpowers projects for each game (Super Pong, Super OXO, Super Sokoban, Super Asteroids, Super Pacman).</li>
+        <li><code>demos/sources/</code> — Raw assets (spritesheets, audio files, textures, fonts).</li>
+        <li><code>demos/tutorials/</code> — Markdown tutorial sources.</li>
+        <li><code>docs/tutorials/</code> — This static handbook website deployed on GitHub Pages.</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

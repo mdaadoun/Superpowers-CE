@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>9. Menu & Game Over — Super Asteroids & Super Spacewar — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Building Structure</a></li><li><a href="ch3.html" >3. Loading Assets</a></li><li><a href="ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="ch5.html" >5. Program Structure</a></li><li><a href="ch6.html" >6. Alien & Asteroids</a></li><li><a href="ch7.html" >7. Ship & Missiles</a></li><li><a href="ch8.html" >8. Collision & Life</a></li><li><a href="ch9.html" class="active">9. Menu & Game Over</a></li><li><a href="ch10.html" >10. Polishing the Game</a></li><li><a href="ch11.html" >11. Modding the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Asteroids & Super Spacewar</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-4">SUPERPOWERS TUTORIAL #4</h1>
+<h2 id="super-asteroids-and-super-spacewar-chapter-9">SUPER ASTEROIDS and SUPER SPACEWAR, Chapter 9</h2>
+<h3 id="setting-menu-and-game-over-screens"><strong>Setting menu and game over screens</strong></h3>
+<p>We will now set the menu which is the startup scene with the buttons that allow us to choose what game we want to play.</p>
+<h4 id="menu-behavior">Menu behavior</h4>
+<h5 id="menu-datas">Menu datas</h5>
+<p>We start to write the MenuBehavior by initializing the datas we need in the Menu script.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> MenuBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// The current menu screen</span>
+  screen: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Ray casting</span>
+  ray = <span class="hljs-keyword">new</span> Sup.Math.Ray();
+  <span class="hljs-comment">// First button</span>
+  button0: Sup.Actor;
+  <span class="hljs-comment">// Second button</span>
+  button1: Sup.Actor;
+  awake() {
+  }
+  update() {
+  }
+}
+Sup.registerBehavior(MenuBehavior);
+</code></pre>
+<p><em>Note : To do test with the menu, we have to change the Startup Scene in the Settings with Menu/Scene.</em> </p>
+<h5 id="awakening-the-setscreen-method">Awakening the setScreen method</h5>
+<p>When the menu awake the first time, we want it to set the Main screen. We need to write a method setScreen and call this function in the awake method of the MenuBehavior.</p>
+<pre><code class="lang-ts">[...]
+  awake() {
+      <span class="hljs-comment">// Call the function setScreen</span>
+      <span class="hljs-keyword">this</span>.setScreen(Menu.screens.main);
+  }
+
+  setScreen(screenName: <span class="hljs-built_in">string</span>){
+    <span class="hljs-comment">// Set the current screen to the screen string Name</span>
+    <span class="hljs-keyword">this</span>.screen = screenName;
+    <span class="hljs-comment">// Loop through all the screen of the scene and set visible the current screen</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> screen <span class="hljs-keyword">in</span> Menu.screens){
+      <span class="hljs-comment">// If the screen of the loop is the same as the current screen</span>
+      <span class="hljs-keyword">if</span> (Menu.screens[screen] == <span class="hljs-keyword">this</span>.screen){
+        <span class="hljs-comment">// Set visible true the screen</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Menu.screens[screen]).setVisible(<span class="hljs-literal">true</span>);
+      }
+      <span class="hljs-comment">// Else, hide the screen, set visible false</span>
+      <span class="hljs-keyword">else</span> {
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Menu.screens[screen]).setVisible(<span class="hljs-literal">false</span>);
+      }
+    }
+    <span class="hljs-comment">// call the function updateTitle</span>
+    <span class="hljs-keyword">this</span>.updateTitle();
+  }
+
+  updateTitle(){
+    <span class="hljs-comment">// Set title visible true</span>
+    Sup.getActor(<span class="hljs-string">"Title"</span>).setVisible(<span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// Set score visible false</span>
+    Sup.getActor(<span class="hljs-string">"Score"</span>).setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Change the title depending if the game is asteroids or spacewar</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.screen === Menu.screens.asteroids|| <span class="hljs-keyword">this</span>.screen === Menu.screens.spacewar){
+      Sup.getActor(<span class="hljs-string">"Title"</span>).getChild(<span class="hljs-string">"Text2"</span>).textRenderer.setText(<span class="hljs-keyword">this</span>.screen);
+    }
+    <span class="hljs-comment">// Else, it change the title with an empty string</span>
+    <span class="hljs-keyword">else</span>{
+      Sup.getActor(<span class="hljs-string">"Title"</span>).getChild(<span class="hljs-string">"Text2"</span>).textRenderer.setText(<span class="hljs-string">""</span>);
+    }
+  }
+[...]
+</code></pre>
+<h5 id="awakening-the-updatebuttonstext-method">Awakening the updateButtonsText method</h5>
+<p>We also need to update the buttons each time a screen is set.</p>
+<pre><code class="lang-ts">[...]
+  awake() {
+    [...]
+    <span class="hljs-comment">// Update the buttons</span>
+    <span class="hljs-keyword">this</span>.updateButtonsText(); 
+  }
+[...]  
+  updateButtonsText() {
+    <span class="hljs-comment">// Get the two buttons actors in one variable each</span>
+    <span class="hljs-keyword">this</span>.button0 = Sup.getActor(<span class="hljs-string">"Buttons"</span>).getChild(<span class="hljs-string">"Button1"</span>);
+    <span class="hljs-keyword">this</span>.button1 = Sup.getActor(<span class="hljs-string">"Buttons"</span>).getChild(<span class="hljs-string">"Button2"</span>);
+    <span class="hljs-comment">// If it is the Main screen</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.screen === Menu.screens.main){
+      <span class="hljs-comment">// Set the button to display the game name</span>
+      <span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Text"</span>).textRenderer.setText(<span class="hljs-string">"asteroids"</span>);
+      <span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Text"</span>).textRenderer.setText(<span class="hljs-string">"spacewar"</span>);
+    }
+    <span class="hljs-comment">// For the other screens</span>
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Set the button to display start and return</span>
+      <span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Text"</span>).textRenderer.setText(<span class="hljs-string">"start"</span>);
+      <span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Text"</span>).textRenderer.setText(<span class="hljs-string">"return"</span>);
+    }
+  }
+[...]
+</code></pre>
+<h5 id="menu-process">Menu process</h5>
+<p>Now, in the update loop of the menu, we need to check the actions of the player with the mouse and the button and respond to them.</p>
+<pre><code class="lang-ts">[...]
+  update() {
+    <span class="hljs-comment">// Update the position of the raycaster of the mouse</span>
+    <span class="hljs-keyword">this</span>.ray.setFromCamera(Sup.getActor(<span class="hljs-string">"Camera"</span>).camera, Sup.Input.getMousePosition());
+    <span class="hljs-comment">// Return an object if the raycaster intersect the actor buttons</span>
+    <span class="hljs-keyword">let</span> hitB1 = <span class="hljs-keyword">this</span>.ray.intersectActor(<span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Sprite"</span>));
+    <span class="hljs-keyword">let</span> hitB2 = <span class="hljs-keyword">this</span>.ray.intersectActor(<span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Sprite"</span>));
+
+    <span class="hljs-comment">// If the button 1 is hovered</span>
+    <span class="hljs-keyword">if</span>(hitB1[<span class="hljs-number">0</span>]){
+      <span class="hljs-comment">// Change the opacity of the button to full bright</span>
+      <span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setOpacity(<span class="hljs-number">1</span>);
+      <span class="hljs-comment">// If the left mouse button is pressed</span>
+      <span class="hljs-keyword">if</span> (Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)) {
+        <span class="hljs-comment">// Differents case possible depending the current screen</span>
+        <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">this</span>.screen){
+          <span class="hljs-comment">// If the current screen is the Main screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.main:
+            <span class="hljs-comment">// Set the new screen to Asteroids screen</span>
+            <span class="hljs-keyword">this</span>.setScreen(Menu.screens.asteroids);
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-comment">// If the current screen is the Asteroid screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.asteroids:
+            <span class="hljs-comment">// Set the nameIndex to 0</span>
+            Game.nameIndex = Menu.names.Asteroids;
+            <span class="hljs-comment">// Start the game</span>
+            Game.start();
+            <span class="hljs-keyword">return</span>;
+          <span class="hljs-comment">// If the current screen is the Spacewar screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.spacewar:
+            <span class="hljs-comment">// Set the nameIndex to 1</span>
+            Game.nameIndex = Menu.names.Spacewar;
+            <span class="hljs-comment">// Start the game</span>
+            Game.start();
+            <span class="hljs-keyword">return</span>;
+          <span class="hljs-comment">// If the current screen is the Game Over screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.gameover:
+            <span class="hljs-comment">// Restart the game</span>
+            Game.start();
+            <span class="hljs-keyword">return</span>;
+        }
+      }
+    }
+    <span class="hljs-comment">// If the button is not hovered, set opacity half bright</span>
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setOpacity(<span class="hljs-number">0.5</span>); 
+    }
+
+    <span class="hljs-comment">// If the button 2 is hovered</span>
+    <span class="hljs-keyword">if</span>(hitB2[<span class="hljs-number">0</span>]){
+      <span class="hljs-comment">// Change the opacity of the button to full bright</span>
+      <span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setOpacity(<span class="hljs-number">1</span>);
+      <span class="hljs-comment">// If the left mouse button is pressed</span>
+      <span class="hljs-keyword">if</span> (Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)) {
+        <span class="hljs-comment">// Loop through different case</span>
+        <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">this</span>.screen){
+          <span class="hljs-comment">// If the current screen is the Main screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.main:
+            <span class="hljs-comment">// Set the screen of the Spacewar game screen</span>
+            <span class="hljs-keyword">this</span>.setScreen(Menu.screens.spacewar);
+            <span class="hljs-keyword">break</span>;
+            <span class="hljs-comment">// Else, in other case, return to main screen</span>
+          <span class="hljs-keyword">default</span>:
+            <span class="hljs-keyword">this</span>.setScreen(Menu.screens.main);
+        }
+      }
+    }
+    <span class="hljs-comment">// If the button is not hovered, set opacity half bright</span>
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setOpacity(<span class="hljs-number">0.5</span>);
+    }
+    <span class="hljs-comment">// Update the buttons</span>
+    <span class="hljs-keyword">this</span>.updateButtonsText();
+  }
+[...]
+</code></pre>
+<h5 id="load-game-scene">Load Game Scene</h5>
+<p>In the global script, we need to load a new Scene Game when we start a new game. (In the beginning of the function Game.start)
+We remove the temporary Game.start() call if we still have it somewhere in the Game script to avoid a bug when the behavior is loaded.</p>
+<pre><code class="lang-ts">[...]
+<span class="hljs-keyword">namespace</span> Game{
+[...]
+  <span class="hljs-comment">// Start the game</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">start</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Load Game Scene</span>
+    Sup.loadScene(<span class="hljs-string">"Game/Scene"</span>);
+[...]
+</code></pre>
+<p>Our menu is now working and we can choose in the menu the game we want to play.</p>
+<h4 id="game-over-screen-and-final-score">Game over screen and final score</h4>
+<h5 id="global-script-the-game-gameover-function">Global script : The Game.gameOver function</h5>
+<p>We will now set the game over screen when the game finish (there is two, way, one ship lose all it&#39;s life or the timer is out).</p>
+<p>We add a function in the Game module of the Global script.</p>
+<pre><code class="lang-ts">[...]
+<span class="hljs-keyword">namespace</span> Game{
+  [...]
+  <span class="hljs-comment">// Load the gameOver screen and display score</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">gameOver</span>(<span class="hljs-params">winner: <span class="hljs-built_in">string</span></span>)</span>{
+    <span class="hljs-comment">// Initialize variables</span>
+    <span class="hljs-keyword">let</span> score1: <span class="hljs-built_in">number</span>;
+    <span class="hljs-keyword">let</span> score2: <span class="hljs-built_in">number</span>;
+    <span class="hljs-comment">// Store the ship1 score before to leave the scene</span>
+    score1 = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).score;
+    <span class="hljs-comment">// If the game is spacewar, stock also the Ship2 score</span>
+    <span class="hljs-keyword">if</span> (nameIndex === <span class="hljs-number">1</span>) {
+      score2 = Sup.getActor(<span class="hljs-string">"Ship2"</span>).getBehavior(ShipBehavior).score;
+    }
+    <span class="hljs-comment">// Close game scene and load menu scene</span>
+    Sup.loadScene(<span class="hljs-string">"Menu/Scene"</span>);
+    <span class="hljs-comment">// Set game over Screen</span>
+    Sup.getActor(<span class="hljs-string">"Menu"</span>).getBehavior(MenuBehavior).setScreen(Menu.screens.gameover);
+    <span class="hljs-comment">// Get in a variable gameOverScreen the gameover screen actor</span>
+    <span class="hljs-keyword">let</span> gameOverScreen = Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Menu.screens.gameover.toString());
+    <span class="hljs-comment">// Set the Sprite from the actor to display the winner frame</span>
+    gameOverScreen.spriteRenderer.setAnimation(winner);
+    <span class="hljs-comment">// Display Score</span>
+    <span class="hljs-comment">// Set title visible false</span>
+    Sup.getActor(<span class="hljs-string">"Title"</span>).setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Get the Score actor in a variable</span>
+    <span class="hljs-keyword">let</span> score: Sup.Actor = Sup.getActor(<span class="hljs-string">"Score"</span>);
+    <span class="hljs-comment">// Set the Score actor visible</span>
+    score.setVisible(<span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// Set the score text to the current score of ship1</span>
+    score.getChild(<span class="hljs-string">"Ship1"</span>).textRenderer.setText(<span class="hljs-string">"Ship1:"</span>+score1);
+    <span class="hljs-comment">// If the game is spacewar</span>
+    <span class="hljs-keyword">if</span> (nameIndex === <span class="hljs-number">1</span>) {
+      <span class="hljs-comment">// Set visible true the score of Ship2</span>
+      score.getChild(<span class="hljs-string">"Ship2"</span>).setVisible(<span class="hljs-literal">true</span>);
+      <span class="hljs-comment">// Set the score text to the current score of ship2</span>
+      score.getChild(<span class="hljs-string">"Ship2"</span>).textRenderer.setText(<span class="hljs-string">"Ship2:"</span>+score2);
+
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Set visible false the ship2 score</span>
+      score.getChild(<span class="hljs-string">"Ship2"</span>).setVisible(<span class="hljs-literal">false</span>);
+    }
+  }
+}
+[...]
+</code></pre>
+<h4 id="game-options-quit-and-restart">Game options : Quit and Restart</h4>
+<p>In the game script, we add two little functionalities, the possibility to leave or restart the game at any moment.</p>
+<pre><code class="lang-ts">[...]
+  update() {
+  [...]
+    <span class="hljs-comment">// Restart game when key (R) is pressed, call Game.start function which reload the game scene</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.wasKeyJustPressed(<span class="hljs-string">"R"</span>)) {
+      Game.start();
+    }
+
+    <span class="hljs-comment">// Leave Game when key (ESCAPE) is pressed, load the menu scene</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.wasKeyJustPressed(<span class="hljs-string">"ESCAPE"</span>)) {
+      Sup.loadScene(<span class="hljs-string">"Menu/Scene"</span>);
+    }
+  }
+[...]
+</code></pre>
+<p>Our game is mostly finished, in the next chapter we will polish it to add the background scrolling and the sound effects.</p>
+<p><a href="ch8.html">&lt;-- back to chapter 8</a> -- <a href="ch10.html">go to chapter 10 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

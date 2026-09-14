@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>4. Polishing the Game — Super Pong — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Introduction & Plan</a></li><li><a href="ch2.html" >2. Preparing Superpowers</a></li><li><a href="ch3.html" >3. Game Logic</a></li><li><a href="ch4.html" class="active">4. Polishing the Game</a></li><li><a href="ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pong</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-1-super-pong">SUPERPOWERS TUTORIAL #1 SUPER PONG</h1>
+<h2 id="chapter-4-polishing-the-game"><em>Chapter 4: Polishing the game</em></h2>
+<h3 id="build-the-menu-structure-and-load-assets-files">Build the Menu Structure and load assets files</h3>
+<p>We are going to build a Menu, it is the place where the player comes when the game
+is launched for the first time. It is an opportunity for us to build a simple button
+in Superpowers and have a glimpse of Mouse control and interaction.</p>
+<p>We start by adding assets to the structure of our program, we add one Scene that
+we name Menu, We add the sprites and load the image files for each. We also add a
+new script, button, than we will use for the code of our Menu.</p>
+<ul>
+<li>Menu (Startup Scene)</li>
+<li>MenuSprites<ul>
+<li>title</li>
+<li>starton</li>
+<li>startoff</li>
+</ul>
+</li>
+<li>MenuScripts<ul>
+<li>button</li>
+</ul>
+</li>
+</ul>
+<p>In Settings, we change the start up screen from Game to Menu, this way the game
+will start with the Menu Scene we are building. We have now this structure :</p>
+<p><img src="img/menustructure.png" alt="menustructure.png"></p>
+<p>When we load sprites assets we need to do a setup for each to give the grid size
+ the same as the image size. It will also set the origin to the center, which will be
+  important to positioning the sprites in the scene later.</p>
+<h3 id="build-the-menu-scene">Build the Menu Scene</h3>
+<p>We are going to combine assets together in a way to have this screen when we launch the game:</p>
+<p><img src="img/menu.png" alt="menu.png"></p>
+<p>We start by creating an Actor Camera with a new component <strong>Camera</strong>. We also create two
+ actors with the component <strong>sprite renderer</strong>, (Title, Button) and two actors with
+ the component <strong>text renderer</strong>. (Info1 and Info2).</p>
+<p>Here the properties for each actors :</p>
+<ul>
+<li>Camera, position (0, 0, 4), mode = Orthigraphic, Orthographic Scale = 3 (the camera should fit with the image title.png)</li>
+<li>Title, position(0, 0, 0), sprite = MenuSprites/title</li>
+<li>Button, position(0, -1, 2), sprite = MenuSprites/startoff</li>
+<li>Info1, position(-1.2, -1, 0), Text = Player 1 W / S, color = f14735 , size = 32</li>
+<li>Info2, position(1.2, -1, 0), Text = Player 2 Up / Down, color = 356ef1 , size = 32</li>
+</ul>
+<p>We have now our menu with game instructions. We only need to have a functional button. We start programming it.</p>
+<h3 id="scripting-a-button">Scripting a Button</h3>
+<p>We now add the variables we will need for our script, the important part is
+the Math.Ray function that we need to locate the intersection between the mouse and the game screen.</p>
+<pre><code class="lang-TypeScript"><span class="hljs-comment">// We initialize a global variable ray which is of type Math.Ray</span>
+<span class="hljs-keyword">var</span> ray : Sup.Math.Ray;
+
+<span class="hljs-keyword">class</span> ButtonBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// flag to tell when the mouse hover the button</span>
+  isHover : <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+
+  awake() {
+    ray = <span class="hljs-keyword">new</span> Sup.Math.Ray(<span class="hljs-keyword">this</span>.actor.getPosition(), <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>));
+  }
+[...]
+</code></pre>
+<p>We next define a function mouse inside the class ButtonBehavior. We change the
+sprites of an actor by calling the method spriteRenderer.setSprite(spritepath) to
+ this actor. We load the scene Game when the button is clicked with Sup.loadScene(SceneName).</p>
+<pre><code class="lang-TypeScript">  <span class="hljs-comment">/* We define different possible actions of the mouse,
+  click action load the game scene, hovering and unhovering
+  make the button to change the sprite.*/</span>
+
+  mouse(action) {
+    <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"click"</span>){
+      Sup.loadScene(<span class="hljs-string">"Game"</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"hover"</span>){
+      Sup.getActor(<span class="hljs-string">"Button"</span>).spriteRenderer.setSprite(<span class="hljs-string">"MenuSprites/starton"</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"unhover"</span>){
+      Sup.getActor(<span class="hljs-string">"Button"</span>).spriteRenderer.setSprite(<span class="hljs-string">"MenuSprites/startoff"</span>);
+    }
+  }
+</code></pre>
+<p>And finally in the update loop, we build the logic of our button with checking conditions.
+ We update our variable ray at each frame to have the position of the mouse in the screen.
+  We check the intersection of the mouse and the button with the method intersectActor.
+  For each condition, if the check is true, the function mouse(action) is called.</p>
+<pre><code class="lang-TypeScript">  update() {
+    <span class="hljs-comment">// Refresh position of the mouse in the camera</span>
+    ray.setFromCamera(Sup.getActor(<span class="hljs-string">"Camera"</span>).camera, Sup.Input.getMousePosition());
+
+    <span class="hljs-comment">/* Condition to check if yes or no, the mouse hover
+    the button, and if yes, check if the mouse click.
+    We call the mouse function with the action related. */</span>
+
+    <span class="hljs-keyword">if</span>(ray.intersectActor(<span class="hljs-keyword">this</span>.actor, <span class="hljs-literal">false</span>).length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">this</span>.isHover){
+        <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"hover"</span>);
+        <span class="hljs-keyword">this</span>.isHover = <span class="hljs-literal">true</span>;
+      }
+      <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)){
+        <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"click"</span>)
+      }
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.isHover){
+      <span class="hljs-keyword">this</span>.isHover = <span class="hljs-literal">false</span>;
+      <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"unhover"</span>)
+    }
+
+  }
+}
+Sup.registerBehavior(ButtonBehavior);
+</code></pre>
+<p>Before starting the game, we need to attach our script by adding a new component
+ behavior to the actor Button and choose the class ButtonBehavior.</p>
+<p>We now have a menu and an almost finished game, we can now give sounds and a possibility to end the game.</p>
+<h3 id="adding-sound">Adding Sound</h3>
+<p>We have already loaded the sound assets, we are going to incorporate them inside our game.</p>
+<p>But before returning to the Game scripts, we can add one sound to the menu when
+we click to start the game by simply writing one line of code with the method <strong>Audio.playsound</strong>.</p>
+<pre><code class="lang-TypeScript">[...]
+<span class="hljs-keyword">if</span>(action == <span class="hljs-string">"click"</span>){
+      Sup.loadScene(<span class="hljs-string">"Game"</span>);
+      Sup.Audio.playSound(<span class="hljs-string">"GameSounds/toc"</span>);
+    }
+[…]
+</code></pre>
+<p>We want a sound when the ball touches a side or the paddle, and we also want a sound when there is a goal. We then go in the Ball script and add Audio sounds in the conditions of update :</p>
+<pre><code class="lang-TypeScript">[…]
+<span class="hljs-keyword">if</span>(y &gt; <span class="hljs-number">2.85</span> || y &lt; <span class="hljs-number">-2.85</span>){
+      Sup.Audio.playSound(<span class="hljs-string">"GameSounds/tac"</span>);
+[…]
+
+[…]
+<span class="hljs-keyword">if</span>(Sup.ArcadePhysics2D.collides(<span class="hljs-keyword">this</span>.ball, Sup.ArcadePhysics2D.getAllBodies())){
+      Sup.Audio.playSound(<span class="hljs-string">"GameSounds/toc"</span>);
+[…]
+
+[…]
+    <span class="hljs-keyword">if</span>(x &gt; <span class="hljs-number">4</span> || x &lt; <span class="hljs-number">-4</span>){
+      Sup.Audio.playSound(<span class="hljs-string">"GameSounds/tada"</span>);
+[…]
+</code></pre>
+<p>The game now has sounds.</p>
+<h3 id="adding-an-end-to-the-game">Adding an end to the game</h3>
+<p>To polish the game we could create a new scene victory which displays the player
+who won on the screen. We would need to load this scene when the number of point reach a maximum.
+But here, we will just return to the menu screen when one player get 10 points.</p>
+<p>We need to add a condition at the end of the loop update.</p>
+<pre><code class="lang-TypeScript">[…]
+<span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.score[<span class="hljs-number">0</span>] == <span class="hljs-number">10</span> || <span class="hljs-keyword">this</span>.score[<span class="hljs-number">1</span>] == <span class="hljs-number">10</span>){
+      Sup.loadScene(<span class="hljs-string">"Menu"</span>);
+    }
+[…]
+</code></pre>
+<p>The game is now complete.</p>
+<p>Finally: <a href="ch5.html#chapter-5--complete-game-source-reference">Complete Game Source Reference</a> </p>
+
+    </div>
+  </main>
+</body>
+</html>

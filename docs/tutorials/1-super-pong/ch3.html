@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>3. Game Logic — Super Pong — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Introduction & Plan</a></li><li><a href="ch2.html" >2. Preparing Superpowers</a></li><li><a href="ch3.html" class="active">3. Game Logic</a></li><li><a href="ch4.html" >4. Polishing the Game</a></li><li><a href="ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pong</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-1-super-pong">SUPERPOWERS TUTORIAL #1 SUPER PONG</h1>
+<h2 id="chapter-3-programming-the-game-logic"><em>Chapter 3 : programming the game logic</em></h2>
+<h3 id="introduction">Introduction</h3>
+<p>If you don&#39;t know nothing about Programming in Javascript (which TypeScript is based on)
+you will maybe need to look at a tutorial to have a first idea (like the track JavaScript on Khan Academy).
+Don&#39;t worry, coding/programming is not as difficult as we could imagine, it is about
+solving real problems with logic and not much about abstraction. It is important to not
+go fast and take the time to understand basic concepts. You could feel it is really
+slow and abstract to get a really simple thing, but it will go faster and more concrete
+as you understand by practicing this steps (the frustration comes often when we try
+  to do something we aren&#39;t prepared to do).</p>
+<p>However you can continue the tutorial and try to understand the basics by jumping in 
+right now and copying the code below in Superpowers, by repetition and practice alone,
+exploring and testing, making mistakes and repairing them (which we call debugging,
+a fundamental concept in programming, where errors and mistakes are not to be avoid
+but understood) slowly but confidently, you will make amazing progress.</p>
+<h3 id="scripting-the-paddles-behaviors">Scripting the paddles behaviors</h3>
+<p>We can now start to code the logic of our game, starting by implementing the movement of the paddles.</p>
+<p>In our folder GameScripts, we will start to code in the script Paddles. You will have a default script, but
+let&#39;s remove it all and write this template instead:</p>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">class</span> Paddle1Behavior extends Sup.Behavior {
+
+  update() {
+
+  }
+}
+
+<span class="hljs-keyword">class</span> Paddle2Behavior extends Sup.Behavior {
+
+  update() {
+
+  }
+}
+
+Sup.registerBehavior(Paddle1Behavior);
+Sup.registerBehavior(Paddle2Behavior);
+</code></pre>
+<p>We will work in the first Class Paddle1Behavior, and the second Class Paddle2Behavior will be almost the same.</p>
+<p>We define variables for the Class, <strong>pad</strong> which will be a connection to the body of our
+scene and a number <strong>speed</strong>. We write under the Class line :</p>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">class</span> Paddle1Behavior extends Sup.Behavior {
+    <span class="hljs-comment">// connect the paddle body to a variable which will be used many times in the script</span>
+    pad = <span class="hljs-keyword">this</span>.actor.arcadeBody2D;
+    <span class="hljs-comment">// set the speed of the paddle</span>
+    speed : <span class="hljs-built_in">number</span> = <span class="hljs-number">0.1</span>;
+[...]
+</code></pre>
+<p>We will use a condition <strong>if</strong> and the command <strong>Sup.Input</strong> which is important in Superpowers
+to be able to get user input, which is the way player can have control in the game with
+the mouse, the keyboard, the gamepad or his fingers on mobile.</p>
+<p>We need a way to say to the sprite body to move if we press a keyboard key. We use the command
+setVelocityY (because for the paddle we will move only on the y axis).</p>
+<p>We also need to check if the paddle don&#39;t go out of the screen and we need to limit
+maximum and minimun until which the paddle can go up and down. To do so, we will
+keep track of the Y position of our paddle and add in our condition the possibility
+to move the paddle only if the y is under a maximum y and above a minimum y.</p>
+<p>In the <strong>update</strong> method we write our script as follow.</p>
+<pre><code class="lang-TypeScript">[...]
+update() {
+
+    <span class="hljs-comment">// get Y position of paddle in a variable</span>
+    <span class="hljs-keyword">let</span> y : <span class="hljs-built_in">number</span> = <span class="hljs-keyword">this</span>.actor.getY() ;
+
+    <span class="hljs-comment">// if the key W is pressed and y &lt; to max, the velocity of the body is set in motion with speed</span>
+    <span class="hljs-keyword">if</span>(Sup.Input.isKeyDown(<span class="hljs-string">"W"</span>) &amp;&amp; y &lt; <span class="hljs-number">2.35</span>){
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(<span class="hljs-keyword">this</span>.speed);
+    }
+    <span class="hljs-comment">// if the key S is pressed and y &gt; to min, the velocity of the body is set in motion with negative speed</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Sup.Input.isKeyDown(<span class="hljs-string">"S"</span>) &amp;&amp; y &gt; <span class="hljs-number">-2.35</span>){
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(-<span class="hljs-keyword">this</span>.speed);
+    }
+    <span class="hljs-comment">// in other situations the velocity of the body is set to 0</span>
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(<span class="hljs-number">0</span>);
+    }
+
+  }
+[…]
+</code></pre>
+<p>To try our Behavior we need to attach it to our Actor in the Scene. In the Paddle of
+player1 create a new component <strong>Behavior</strong> and choose the class Paddle1Behavior.</p>
+<p><img src="img/behavior.png" alt="behavior.png"></p>
+<p>We can now start our program and we should be able to see the paddle moving up and
+down with the key W and S.</p>
+<p>We can copy our code into the Class Paddle2Behavior, but instead
+of W and S we change the Sup.Input.isKeyDown to &#39;UP&#39; and &#39;DOWN&#39;. We will use this for the second paddle.</p>
+<p>In the same way than before, we attach the script in the Scene Game to the paddle of player 2.
+(new component&gt;Behavior), we choose the class Paddle2Behavior.</p>
+<h3 id="scripting-the-ball-behavior">Scripting the ball behavior</h3>
+<p>We can now start to code the movements of the ball in the asset script Ball in the folder
+GameScripts. This Script will be contain more than the script paddles because we will
+write the collisions and the scores systems inside the same Class.</p>
+<p>We won&#39;t use the start method, so we can remove it from the default template. We should now have now as a starter script:</p>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">class</span> BallBehavior extends Sup.Behavior {
+
+  update() {
+
+  }
+}
+Sup.registerBehavior(BallBehavior);
+</code></pre>
+<p>Because our ball will have acceleration we can now add the default/starting speed, which
+will be a constant that we will refer to. We put our constant outside of the main Class -
+in won&#39;t matter in this game, but in other games, this constant could be then used in
+other Classes of the game, so it is a good habit to get used to.</p>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">const</span> BALLSPEED : <span class="hljs-built_in">number</span> = <span class="hljs-number">0.05</span> ;
+<span class="hljs-keyword">class</span> BallBehavior extends Sup.Behavior {
+[…]
+</code></pre>
+<p>We will now add our variables to BallBehavior:</p>
+<ul>
+<li>one for the speed of the moving ball, starting from our constant BALLSPEED (it will accellerate)</li>
+<li>one Array which contain both scores of player1 and player2</li>
+<li>two variables that will be flags positive or
+negative which will give us the x/y direction of the ball (for example if the ball goes up and touches the up side of the game table, the variable will take the oposite value, telling us than the ball should move in the oposite direction)</li>
+</ul>
+<pre><code class="lang-TypeScript">[…]
+<span class="hljs-keyword">class</span> BallBehavior extends Sup.Behavior {
+    <span class="hljs-comment">// speed variable</span>
+    speed : <span class="hljs-built_in">number</span> = BALLSPEED;
+    <span class="hljs-comment">// Connect the actor body to a constant</span>
+    ball = <span class="hljs-keyword">this</span>.actor.arcadeBody2D;
+    <span class="hljs-comment">// An Array with score[0] for player 1 and score[1] for player 2</span>
+    score = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+    <span class="hljs-comment">// set positive or negative direction variables of x and y</span>
+    dx : <span class="hljs-built_in">number</span> = <span class="hljs-number">1</span>; dy : <span class="hljs-built_in">number</span> = <span class="hljs-number">1</span>;
+[…]
+</code></pre>
+<p>We write different conditions for different cases :</p>
+<ol>
+<li><p>If the ball touches the up or down sides of the table, the ball will  direction the on y axis and continue to move on the same x axis. We will  check a condition and if true, change the variable <strong>dy</strong>.</p>
+</li>
+<li><p>If the ball collides with the paddles, the ball take a little acceleration and goes in
+the opposite direction on the x axis while stay the same on y axis (if the ball collides with left or right side of the paddle).
+We will use the <strong>Sup.ArcadePhysics2D.collides</strong> method to check if the Physics Bodies
+of the ball and the paddles collides together. We will also have a second check of the side of the ball collision with the method <strong>getTouches</strong>.</p>
+</li>
+<li><p>If the ball touches the right or left side (when the paddle misses the ball), a score is made for the player who made the goal (we will see this point a bit later), and the ball returns to the center and resumes with the default speed.</p>
+</li>
+</ol>
+<p>Ok, now we write the behavior of the ball inside the loop method update.</p>
+<pre><code class="lang-TypeScript">[…]
+  update() {
+
+    <span class="hljs-comment">// get the ball position of x and y</span>
+
+    <span class="hljs-keyword">let</span> x : <span class="hljs-built_in">number</span>  = <span class="hljs-keyword">this</span>.actor.getX(); <span class="hljs-keyword">let</span> y : <span class="hljs-built_in">number</span>  = <span class="hljs-keyword">this</span>.actor.getY();
+
+    <span class="hljs-comment">// change direction of y if ball reach up and down sides</span>
+
+    <span class="hljs-keyword">if</span>(y &gt; <span class="hljs-number">2.85</span> || y &lt; <span class="hljs-number">-2.85</span>){
+      <span class="hljs-keyword">this</span>.dy = <span class="hljs-keyword">this</span>.dy * <span class="hljs-number">-1</span>;
+    }
+
+    <span class="hljs-comment">// We check if there is collision between the ball and the two paddles</span>
+
+    <span class="hljs-keyword">if</span>(Sup.ArcadePhysics2D.collides(<span class="hljs-keyword">this</span>.ball, Sup.ArcadePhysics2D.getAllBodies())){
+
+      <span class="hljs-comment">/* If there is collision we check if the ball touch
+      a left or right side (we change the x direction) or
+      the up and down side of the paddles (y direction),
+      the speed of the ball take an acceleration. */</span>
+
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.ball.getTouches().right || <span class="hljs-keyword">this</span>.ball.getTouches().left){
+        <span class="hljs-keyword">this</span>.dx = <span class="hljs-keyword">this</span>.dx * <span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">this</span>.speed += <span class="hljs-number">0.01</span>
+        }
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">this</span>.dy = <span class="hljs-keyword">this</span>.dy * <span class="hljs-number">-1</span>;
+        }
+
+      }
+
+    <span class="hljs-comment">/* We check if the ball pass the paddle and go beyond
+    (sides left and right of the game table) if yes, we move
+    the ball to the center and change the direction of x axis,
+    the speed take the default speed. */</span>
+
+    <span class="hljs-keyword">if</span>(x &gt; <span class="hljs-number">4</span> || x &lt; <span class="hljs-number">-4</span>){
+       <span class="hljs-keyword">this</span>.ball.warpPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+       <span class="hljs-keyword">this</span>.dx = <span class="hljs-keyword">this</span>.dx * <span class="hljs-number">-1</span>;
+       <span class="hljs-keyword">this</span>.speed = BALLSPEED;
+       }
+
+    <span class="hljs-comment">// set ball movement velocity speed*direction for x and y axis (the ball stay in movement at any time)</span>
+
+    <span class="hljs-keyword">this</span>.ball.setVelocity(<span class="hljs-keyword">this</span>.speed*<span class="hljs-keyword">this</span>.dx, <span class="hljs-keyword">this</span>.speed*<span class="hljs-keyword">this</span>.dy);
+
+  }
+[…]
+</code></pre>
+<p>To see the script in action we need to do the same thing we did to test the paddles: attach the
+script Ball in the Scene Game to the Actor Ball. (new component&gt;behavior, class = BallBehavior)</p>
+<p>We should have now a game working nicely.</p>
+<h3 id="scoring-system">Scoring system</h3>
+<p>We will now add a simple scoring system. What we want is that player who gets the ball in the other camp scores one point (the score increments by one).</p>
+<p>To do so, we add two conditions at the end of our class BallBehavior, one for the
+case that the ball touches the side of player 1 and one for the side of player 2.</p>
+<p>We use then the <strong>textRenderer</strong> method to change the display of the score that we connect with
+the method getActor(&#39;Player1&#39;).getChild(&#39;Score&#39;) for the score of player 1 and getActor(&#39;Player2&#39;).getChild(&#39;Score&#39;)
+for the score of player 2.</p>
+<pre><code class="lang-TypeScript">[...]
+    <span class="hljs-comment">//We change the score depending on which side the ball go on x axis</span>
+    <span class="hljs-keyword">if</span>(x &gt; <span class="hljs-number">4</span>){
+      ++<span class="hljs-keyword">this</span>.score[<span class="hljs-number">0</span>];
+      Sup.getActor(<span class="hljs-string">"Player1"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(<span class="hljs-keyword">this</span>.score[<span class="hljs-number">0</span>]);
+    }
+
+    <span class="hljs-keyword">if</span>(x &lt; <span class="hljs-number">-4</span>){
+      ++<span class="hljs-keyword">this</span>.score[<span class="hljs-number">1</span>];
+      Sup.getActor(<span class="hljs-string">"Player2"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(<span class="hljs-keyword">this</span>.score[<span class="hljs-number">1</span>]);
+    }
+
+    <span class="hljs-comment">// set ball movement velocity speed*direction for x and y axis (the ball stay in movement at any time)</span>
+    <span class="hljs-keyword">this</span>.ball.setVelocity(<span class="hljs-keyword">this</span>.speed*<span class="hljs-keyword">this</span>.dx, <span class="hljs-keyword">this</span>.speed*<span class="hljs-keyword">this</span>.dy);
+  }
+}
+Sup.registerBehavior(BallBehavior);
+</code></pre>
+<p>The game logic is finished, we just need to polish it a bit before release - but now we have our game.</p>
+<p>Next: <a href="ch4.html#chapter-4--polishing-the-game">Polishing the game</a> </p>
+
+    </div>
+  </main>
+</body>
+</html>

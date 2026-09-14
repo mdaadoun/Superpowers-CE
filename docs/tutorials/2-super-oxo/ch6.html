@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>6. Source Reference — Super OXO (Tic-Tac-Toe) — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Introduction & Plan</a></li><li><a href="ch2.html" >2. Building Structure</a></li><li><a href="ch3.html" >3. Player Actions</a></li><li><a href="ch4.html" >4. Computer Response AI</a></li><li><a href="ch5.html" >5. Polishing the Game</a></li><li><a href="ch6.html" class="active">6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super OXO (Tic-Tac-Toe)</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-2-super-oxo">SUPERPOWERS TUTORIAL #2 SUPER OXO</h1>
+<h2 id="chapter-6-complete-game-source-reference"><em>Chapter 6, Complete Game Source Reference</em></h2>
+<h3 id="assets-files">Assets files</h3>
+<ul>
+<li>board.png</li>
+<li>symbols.png</li>
+<li>screens.png</li>
+<li>scripts<ul>
+<li>global.ts</li>
+<li>player.ts</li>
+</ul>
+</li>
+</ul>
+<h3 id="project-structure">Project structure</h3>
+<ul>
+<li>Game (Startup Scene)</li>
+<li>Sprites<ul>
+<li>Symbols</li>
+<li>Screens</li>
+<li>Board</li>
+</ul>
+</li>
+<li>Scripts<ul>
+<li>Global</li>
+<li>Player</li>
+</ul>
+</li>
+</ul>
+<h3 id="scripts-sources">Scripts sources</h3>
+<ul>
+<li>global.ts</li>
+</ul>
+<pre><code class="lang-TypeScript"><span class="hljs-comment">// Initialize globally the SQUARES Array</span>
+<span class="hljs-keyword">const</span> SQUARES = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>;
+
+<span class="hljs-comment">// Initialize globally the ray casting</span>
+<span class="hljs-keyword">var</span> ray = <span class="hljs-keyword">new</span> Sup.Math.Ray();
+
+<span class="hljs-comment">// Initialize globally the turn variable</span>
+<span class="hljs-keyword">var</span> turn : <span class="hljs-built_in">string</span>;
+
+<span class="hljs-comment">// All the victory lines position index that will be used for checking</span>
+<span class="hljs-keyword">const</span> VICTORIES = [
+  <span class="hljs-comment">// Rows</span>
+  [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+  [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+  [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>],
+  <span class="hljs-comment">// Columns</span>
+  [<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>],
+  [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>],
+  [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>],
+  <span class="hljs-comment">// Diagonals</span>
+  [<span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>],
+  [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>],
+];
+
+<span class="hljs-keyword">namespace</span> Game{
+
+  <span class="hljs-comment">// define and export the function setSquare</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSquares</span>(<span class="hljs-params"></span>)</span>{
+
+    <span class="hljs-comment">/*
+    Build the SQUARES array with arrays
+    0 : the Square Actor of current index
+    1 : default string value of situation : "unHover"
+    */</span>
+
+    <span class="hljs-comment">// define a local addSquare function</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addSquare</span>(<span class="hljs-params">index</span>)</span>{
+      <span class="hljs-comment">// get the name of current square</span>
+      <span class="hljs-keyword">let</span> name = <span class="hljs-string">"Square"</span> + index.toString();
+
+      <span class="hljs-comment">// get the actor from the Game scene</span>
+      <span class="hljs-keyword">let</span> square = Sup.getActor(<span class="hljs-string">"Board"</span>).getChild(name);
+
+      <span class="hljs-comment">// push the square array in SQUARES array to the next index</span>
+      SQUARES.push([square, <span class="hljs-string">"unHover"</span>]);
+    }
+
+    <span class="hljs-comment">// loop calling 9 times the function addSquare with the square index as parameter</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">9</span>; i++){
+      addSquare(i);
+    }
+  }
+
+  <span class="hljs-comment">// function checking the board SQUARES and return [Action, Array]</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkBoard</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> crossCount : <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> circleCount : <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> freeSquare;
+    <span class="hljs-keyword">let</span> line; <span class="hljs-keyword">let</span> index;
+    <span class="hljs-keyword">let</span> win;
+    <span class="hljs-keyword">let</span> block;
+
+    <span class="hljs-comment">// loop through all the line in VICTORIES</span>
+    <span class="hljs-keyword">for</span>(line of VICTORIES){
+      <span class="hljs-comment">// loop through all the index position in line</span>
+      <span class="hljs-keyword">for</span>(index of line){
+        <span class="hljs-comment">/*
+        Check the situation of square from index
+        - if there is a cross, increment crossCount
+        - if there is a circle, increment circleCount
+        - else we keep track of it as a free square
+        */</span>
+        <span class="hljs-keyword">if</span>(SQUARES[index][<span class="hljs-number">1</span>] == <span class="hljs-string">"cross"</span>){
+          crossCount++
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(SQUARES[index][<span class="hljs-number">1</span>] == <span class="hljs-string">"circle"</span>){
+          circleCount++
+        }
+        <span class="hljs-keyword">else</span>{
+          freeSquare = SQUARES[index];
+        }
+      }
+      <span class="hljs-comment">// Check is there if a winning line for computer</span>
+      <span class="hljs-keyword">if</span>(circleCount == <span class="hljs-number">2</span> &amp;&amp; crossCount == <span class="hljs-number">0</span>){
+        win = [<span class="hljs-string">"Win"</span>, freeSquare];
+      }
+      <span class="hljs-comment">// Check is there is a winning line for player</span>
+      <span class="hljs-keyword">if</span>(crossCount == <span class="hljs-number">2</span> &amp;&amp; circleCount == <span class="hljs-number">0</span>){
+        block = [<span class="hljs-string">"Block"</span>, freeSquare];
+      }
+      <span class="hljs-comment">// Reset counts for new line check</span>
+      crossCount = <span class="hljs-number">0</span>;
+      circleCount = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-comment">// Return datas by order of priority</span>
+    <span class="hljs-keyword">if</span>(win){
+      <span class="hljs-keyword">return</span> win;
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(block){
+      <span class="hljs-keyword">return</span> block;
+    }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">return</span> [<span class="hljs-string">"Play"</span>, <span class="hljs-literal">undefined</span>];
+    }
+  }
+
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">computerTurn</span>(<span class="hljs-params"></span>)</span>{
+
+    <span class="hljs-comment">// Call the function checkBoard which return [Action, Array]</span>
+    <span class="hljs-keyword">let</span> check = checkBoard();
+
+    <span class="hljs-comment">/*
+    The computer follow the conditions as follow :
+    - if the situation is Win, then play the freeSquare
+    - else if the situation is Block, then play the freeSquare
+    - else if the situation is Play, then we enter to a new branch of conditions :
+      - if the center is free, then take it
+      - else if one corner is free, then take it
+      - else if one one side is free, then take it
+      - else, the game is finished
+    */</span>
+
+    <span class="hljs-keyword">if</span>(check[<span class="hljs-number">0</span>] == <span class="hljs-string">"Win"</span>){
+      playSquare(check[<span class="hljs-number">1</span>]);
+    }
+
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(check[<span class="hljs-number">0</span>] == <span class="hljs-string">"Block"</span>){
+      playSquare(check[<span class="hljs-number">1</span>]);
+    }
+
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(check[<span class="hljs-number">0</span>] == <span class="hljs-string">"Play"</span>){
+
+      <span class="hljs-keyword">if</span>(SQUARES[<span class="hljs-number">4</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">4</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span>){
+        playSquare(SQUARES[<span class="hljs-number">4</span>]);
+      }
+
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(
+              SQUARES[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span> ||
+              SQUARES[<span class="hljs-number">2</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">2</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span> ||
+              SQUARES[<span class="hljs-number">6</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">6</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span> ||
+              SQUARES[<span class="hljs-number">8</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">8</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span>
+             ){
+        playSquare(getSquare([<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>]));
+      }
+
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(
+              SQUARES[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span> ||
+              SQUARES[<span class="hljs-number">3</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">3</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span> ||
+              SQUARES[<span class="hljs-number">5</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">5</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span> ||
+              SQUARES[<span class="hljs-number">7</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[<span class="hljs-number">7</span>][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span>
+             ){
+        playSquare(getSquare([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>]));
+      }
+
+      <span class="hljs-keyword">else</span>{
+        Sup.log(<span class="hljs-string">"The game is finished."</span>)
+      }
+    }
+  }
+
+  <span class="hljs-comment">// function that return a square that is free to play</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSquare</span>(<span class="hljs-params">array</span>)</span>{
+    <span class="hljs-keyword">let</span> index;
+    <span class="hljs-keyword">let</span> freeSquares = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>;
+
+    <span class="hljs-comment">/*
+    Loop that check the array index in SQUARES
+    and if the square is free to take, add it to the array freeSquares
+    */</span>
+
+    <span class="hljs-keyword">for</span>(index of array){
+      <span class="hljs-keyword">if</span>(SQUARES[index][<span class="hljs-number">1</span>] !== <span class="hljs-string">"cross"</span> &amp;&amp; SQUARES[index][<span class="hljs-number">1</span>] !== <span class="hljs-string">"circle"</span>){
+        freeSquares.push(SQUARES[index]);
+      }
+    }
+    <span class="hljs-comment">// then take randomly one the square from freeSquares and return it</span>
+    <span class="hljs-keyword">let</span> randomIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * freeSquares.length);
+    <span class="hljs-keyword">return</span> freeSquares[randomIndex];
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">playSquare</span>(<span class="hljs-params">square</span>)</span>{
+    <span class="hljs-comment">// apply change on the actor and change the situation to circle</span>
+    square[<span class="hljs-number">0</span>].spriteRenderer.setAnimation(<span class="hljs-string">"circle"</span>);
+    square[<span class="hljs-number">1</span>] = <span class="hljs-string">"circle"</span>;
+  }
+
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkVictory</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">//set the variables</span>
+    <span class="hljs-keyword">let</span> countCross: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> countCircle: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> countFreeSquares: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> line: <span class="hljs-built_in">number</span>[];
+    <span class="hljs-keyword">let</span> index: <span class="hljs-built_in">number</span>;
+
+    <span class="hljs-comment">/*
+    We loop through the victory lines to check this conditions for each square:
+    - if the square is hovered by a cross, increment countCross
+    - else if the square is hovered by a circle, increment countCircle
+    - else, count it a a free square in the countFreeSquares variable
+
+    For each line checked, we then look for this conditions :
+    - if there is 3 cross counted, then player won
+    - if there is 3 circle counted, then computer won
+
+    At the end of the loop, if countFreeSquares is still 0 and no victory is announced,
+    then it is a tie.
+    */</span>
+
+    <span class="hljs-comment">//loop</span>
+    <span class="hljs-keyword">for</span>(line of VICTORIES){
+      <span class="hljs-keyword">for</span>(index of line){
+        <span class="hljs-keyword">if</span>(SQUARES[index][<span class="hljs-number">1</span>] == <span class="hljs-string">"cross"</span>){
+          countCross++
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(SQUARES[index][<span class="hljs-number">1</span>] == <span class="hljs-string">"circle"</span>){
+          countCircle++
+        }
+        <span class="hljs-keyword">else</span>{
+          countFreeSquares++
+        }
+      }
+      <span class="hljs-keyword">if</span>(countCross == <span class="hljs-number">3</span>){
+        displayScreen();
+      }
+      <span class="hljs-keyword">if</span>(countCircle == <span class="hljs-number">3</span>){
+        displayScreen();
+      }
+      <span class="hljs-comment">// reset count to 0 for new line to check</span>
+      countCross = <span class="hljs-number">0</span>;
+      countCircle = <span class="hljs-number">0</span>;
+    }
+   <span class="hljs-comment">// end of loop</span>
+   <span class="hljs-keyword">if</span>(countFreeSquares == <span class="hljs-number">0</span>){
+        turn = <span class="hljs-string">"tie"</span>; <span class="hljs-comment">// we give the value 'tie' to the turn variable for the function displayScreen()</span>
+        displayScreen();
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayScreen</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Create a new Screen actor</span>
+    <span class="hljs-keyword">let</span> Screen = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Screen"</span>);
+    <span class="hljs-comment">// Create a new SpriteRenderer and attach it to the Screen Actor</span>
+    <span class="hljs-keyword">new</span> Sup.SpriteRenderer(Screen, <span class="hljs-string">"Sprites/Screens"</span>);
+    <span class="hljs-comment">// Set the frame of the sprite to the current turn, cross, circle or tie</span>
+    Screen.spriteRenderer.setAnimation(turn);
+    <span class="hljs-comment">// Attach the behavior ScreenBehavior the the screen Actor</span>
+    Screen.addBehavior(ScreenBehavior);
+
+    <span class="hljs-comment">// Set the frame position to the center (0, 0) and -2 on z axis to be behind the board backgroung</span>
+    Screen.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-2</span>);
+    turn = <span class="hljs-string">"end"</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayFrame</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-comment">// Set the frame position to the center (0, 0) and 4 on z axis to be in front of the board backgroung</span>
+      Screen.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>);
+    }
+    <span class="hljs-comment">// load the displayFrame function after 3000 millisecondes</span>
+    Sup.setTimeout(<span class="hljs-number">2000</span>, displayFrame);
+  }
+
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startGame</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> square;
+
+    <span class="hljs-comment">// loop through all the square of the game and set them to default</span>
+    <span class="hljs-keyword">for</span>(square of SQUARES){
+      square[<span class="hljs-number">0</span>].spriteRenderer.setAnimation(<span class="hljs-string">"unHover"</span>);
+      square[<span class="hljs-number">1</span>] = <span class="hljs-string">"unHover"</span>;
+    }
+
+    randomStart();
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">randomStart</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">//Call a random number between 0 and 1 to see if we start with computer</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">2</span>)){
+      <span class="hljs-comment">// Take a random index between the 9 squares and play this square</span>
+      <span class="hljs-keyword">let</span> randomIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">9</span>);
+      playSquare(SQUARES[randomIndex]);
+    }
+    <span class="hljs-comment">// then give back control to player</span>
+    turn = <span class="hljs-string">"cross"</span>;
+  }
+}
+</code></pre>
+<ul>
+<li>player.ts</li>
+</ul>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">class</span> PlayerBehavior extends Sup.Behavior {
+  awake() {
+    <span class="hljs-comment">// Call the function setSquares which build the SQUARES Array</span>
+    Game.setSquares();
+    <span class="hljs-comment">// Call the function startGame to randomize the new game</span>
+    Game.startGame();
+  }
+
+  <span class="hljs-comment">// mouse method receiving parameters of the player action and the square related to this action</span>
+  mouse(action, square){
+    <span class="hljs-comment">// change the square sprite depending of action</span>
+    <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"isHover"</span>){
+      square.spriteRenderer.setAnimation(<span class="hljs-string">"isHover"</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"unHover"</span>){
+      square.spriteRenderer.setAnimation(<span class="hljs-string">"unHover"</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"click"</span>){
+      square.spriteRenderer.setAnimation(<span class="hljs-string">"cross"</span>);
+    }
+  }
+
+  gameTurn(){
+    turn = <span class="hljs-string">"cross"</span>;
+    <span class="hljs-comment">// check if player won</span>
+    Game.checkVictory();
+
+    <span class="hljs-comment">// change to computer turn if game not ended</span>
+    <span class="hljs-keyword">if</span>(turn !== <span class="hljs-string">"end"</span>){
+      turn = <span class="hljs-string">"circle"</span>;
+      <span class="hljs-comment">// Call for the computer turn</span>
+
+      Game.computerTurn();
+      <span class="hljs-comment">// check if computer won</span>
+      Game.checkVictory();
+
+      <span class="hljs-comment">// change to player turn if game not ended</span>
+      <span class="hljs-keyword">if</span>(turn !== <span class="hljs-string">"end"</span>){
+       turn = <span class="hljs-string">"cross"</span>;
+      }
+    }
+  }
+
+  update() {
+    <span class="hljs-comment">// Refresh the ray casting to the mouse position inside the camera screen</span>
+    ray.setFromCamera(Sup.getActor(<span class="hljs-string">"Camera"</span>).camera, Sup.Input.getMousePosition());
+
+    <span class="hljs-comment">// Create a new empty variable that will as value the differents array of the SQUARES constant</span>
+    <span class="hljs-keyword">let</span> array;
+
+    <span class="hljs-comment">/*
+    We loop through all the arrays in SQUARES and give the current array to the square variable.
+    We then check differents conditions :
+    - If the mouse ray intersect with a current square :
+        - then if this same square was previously not hovered.
+        - and then if there is the left click button pressed from the mouse.
+    - Else if the mouse ray leave a square previously hovered.
+    */</span>
+
+    <span class="hljs-comment">// Loop which give successively to array the values of the SQUARES array.</span>
+    <span class="hljs-keyword">for</span>(array of SQUARES){
+
+      <span class="hljs-comment">// Check if ray intersect with a current square (index 0 of array)</span>
+      <span class="hljs-keyword">if</span>(ray.intersectActor(array[<span class="hljs-number">0</span>], <span class="hljs-literal">false</span>).length &gt; <span class="hljs-number">0</span>){
+
+        <span class="hljs-keyword">if</span>(array[<span class="hljs-number">1</span>] == <span class="hljs-string">"unHover"</span>){
+          <span class="hljs-comment">// if true, set the square new situation to isHover</span>
+          array[<span class="hljs-number">1</span>] = <span class="hljs-string">"isHover"</span>;
+          <span class="hljs-comment">// and call the local mouse method with the action isHover and the related square actor</span>
+          <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"isHover"</span>, array[<span class="hljs-number">0</span>]);
+        }
+
+        <span class="hljs-comment">// Check if the left click button of the mouse is pressed on a free square</span>
+        <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>) &amp;&amp; array[<span class="hljs-number">1</span>] == <span class="hljs-string">"isHover"</span>){
+          <span class="hljs-comment">// Check if it is the player turn</span>
+          <span class="hljs-keyword">if</span>(turn == <span class="hljs-string">"cross"</span>){
+            <span class="hljs-comment">// if true, set the square new situation to cross</span>
+            array[<span class="hljs-number">1</span>] = <span class="hljs-string">"cross"</span>;
+            <span class="hljs-comment">// and call the local mouse method with the action click and the related square actor</span>
+            <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"click"</span>, array[<span class="hljs-number">0</span>]);
+            <span class="hljs-comment">// call a game turn</span>
+            turn = <span class="hljs-string">"break"</span>; <span class="hljs-comment">// take control away from player</span>
+            Sup.setTimeout(<span class="hljs-number">600</span>, <span class="hljs-keyword">this</span>.gameTurn);
+          }
+        }
+      }
+
+      <span class="hljs-comment">// Else if ray does not intersect with a previous hovered square, the square change situation</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(array[<span class="hljs-number">1</span>] == <span class="hljs-string">"isHover"</span>){
+        <span class="hljs-comment">// if true, set the square new situation to unHover</span>
+        array[<span class="hljs-number">1</span>] = <span class="hljs-string">"unHover"</span>;
+        <span class="hljs-comment">// and call the local mouse method with the action unHover and the related square actor</span>
+        <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"unHover"</span>, array[<span class="hljs-number">0</span>]);
+      }
+    }
+  }
+}
+Sup.registerBehavior(PlayerBehavior);
+
+<span class="hljs-keyword">class</span> ScreenBehavior extends Sup.Behavior {
+
+  <span class="hljs-comment">/*
+  when space key pressed :
+  - Destroy the victory screen
+  - Start a new game
+  */</span>
+
+  update() {
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(<span class="hljs-string">"SPACE"</span>)){
+      Sup.getActor(<span class="hljs-string">"Screen"</span>).destroy();
+      Game.startGame();
+      }
+    }
+ }
+Sup.registerBehavior(ScreenBehavior);
+</code></pre>
+
+    </div>
+  </main>
+</body>
+</html>

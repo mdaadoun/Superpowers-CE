@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>2. Building Structure — Super OXO (Tic-Tac-Toe) — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Introduction & Plan</a></li><li><a href="ch2.html" class="active">2. Building Structure</a></li><li><a href="ch3.html" >3. Player Actions</a></li><li><a href="ch4.html" >4. Computer Response AI</a></li><li><a href="ch5.html" >5. Polishing the Game</a></li><li><a href="ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super OXO (Tic-Tac-Toe)</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-2-super-oxo">SUPERPOWERS TUTORIAL #2 SUPER OXO</h1>
+<h2 id="chapter-2-building-the-game-structure"><em>Chapter 2 : Building the Game Structure</em></h2>
+<p>Before to write the game logic, we will use Superpowers to prepare everything we will need for our game to display correctly.</p>
+<p>After launching our server, we create a new Project for our game.</p>
+<h3 id="loading-game-assets">Loading game assets</h3>
+<p>We start to create a <strong>new Scene</strong> called <strong>Game</strong> and set it up as the <strong>Startup Scene</strong> in the <strong>Settings</strong>.</p>
+<p>Also, in the Settings we can give the <strong>Screen ratio</strong> of our game to 300 for x and 300 for y.</p>
+<p>We build the assets structure by creating two folders, one for the <strong>Sprites</strong> and an other for the <strong>Scripts</strong>.</p>
+<p>We create next the <strong>new assets</strong> : 3 Sprites and 2 Scripts. Here the structure of our game :</p>
+<ul>
+<li>Game (Startup Scene)</li>
+<li>Sprites<ul>
+<li>Symbols</li>
+<li>Screens</li>
+<li>Board</li>
+</ul>
+</li>
+<li>Scripts<ul>
+<li>Global</li>
+<li>Player</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/assets.png" alt="assets.png"></p>
+<p>For each of our sprites asset we upload the img file related (you can find them in
+this <a href="https://github.com/mseyne/superpowers-sources/tree/master/2SuperOXO">source repository</a>)
+and we set the grid with setup.</p>
+<p>For the Symbols and Screens Sprites we create new Animations which will only be frames we
+use to select when we need them. For <strong>Symbols</strong> Sprite we have four differents frames:
+unHover, isHover, cross and circle. We use animation with only 1 frame each as we use
+this tool to switch from one to an other in the game but we won&#39;t use animated sprites as a feature.</p>
+<p><img src="img/symbols.png" alt="symbols.png"></p>
+<p>We do the same with the <strong>Screens</strong> Sprite, we have 3 frames, cross, circle and tie.</p>
+<p><img src="img/screens.png" alt="screens.png"></p>
+<p>We have now this configuration for each sprites :</p>
+<ul>
+<li><strong>Symbols</strong>, file : symbols.png, size : 96 x 384 , grid : 96 x 96<ul>
+<li>Animations :<ul>
+<li>unHover (0,0,1)</li>
+<li>isHover (1,1,1)</li>
+<li>cross (2,2,1)</li>
+<li>circle (3,3,1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Screens</strong>, file : screens.png, size : 300 x 900, grid : 300 x 300<ul>
+<li>Animations :<ul>
+<li>cross (0,0,1)</li>
+<li>circle (1,1,1)</li>
+<li>tie (2,2,1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Board</strong>, file : board.png, size : 300 x 300, grid : 300 x 300</li>
+</ul>
+<h3 id="building-the-game-scene">Building the game scene</h3>
+<p>In the Game Scene, we start by creating a <strong>new Actor Camera</strong> with a <strong>new component Camera</strong>.</p>
+<p>We set the <strong>position</strong> of Camera to (x = 0, y = 0,  z = 6), all the others actors
+will be placed in relation to this origin x = 0 and y = 0 and placed on z before 6.
+ (After 6, the Actors are out of the camera focus).</p>
+<p>We create a <strong>new Actor Board</strong> with a <strong>new component Sprite Renderer</strong> with the Sprite
+(path) Sprites/Board. We check the position of Board is to (0, 0, 0).</p>
+<p>In the Camera Actor we change the <strong>Camera Mode</strong> to Orthographic and the <strong>Orthographic
+Scale</strong> to 3. (To fit with the Board Sprite)</p>
+<p><img src="img/camera.png" alt="camera.png"></p>
+<p>We now need to set the 9 <strong>new Actor Squares</strong> of the game and place each of them on the
+board grid. These actors will be the one which interact with the game logic.</p>
+<p>The Board Actor will be the parent and background and all the Squares Actors will
+be to a z position in front of the Board.</p>
+<p>We create a first <strong>new Actor Square4</strong> (the center square) and check its position to (0, 0, 2) and we give
+a new component Sprite Renderer with the Sprite Sprites/Symbols. (The first frame
+  unHover is a little grey square that fit right in the board squares)</p>
+<p>We duplicate it 8 times (Ctrl + D), changing the names accordingly to have <strong>Square0</strong> to <strong>Square8</strong>.</p>
+<p><em>Note : Because in Javascript and in many other programming language, we start to count to 0, we will
+approach the squares names the same way starting from Square0, Square1, Square2, etc.</em></p>
+<p>We have now to set the position of each square, starting from Square0 to the up
+left and the Square8 to the down right position. Here the correct positions (x, y, z)
+for each Square to fit in the board.</p>
+<ul>
+<li>Square0 (-1, 1, 2)</li>
+<li>Square1 (0, 1, 2)</li>
+<li>Square2 (1, 1, 2)</li>
+<li>Square3 (-1, 0, 2)</li>
+<li>Square4 (0, 0, 2)</li>
+<li>Square5 (1, 0, 2)</li>
+<li>Square6 (-1, -1, 2)</li>
+<li>Square7 (0, -1, 2)</li>
+<li>Square8 (1, -1, 2)</li>
+</ul>
+<p>We have now a complete Scene.</p>
+<p><img src="img/board.png" alt="board.png"></p>
+<p>We can also switch to the <strong>3D mode</strong> of the camera and run the game to check if everything is
+in place and work fine before to jump in the code.</p>
+<p><img src="img/3D.png" alt="3D.png"></p>
+
+    </div>
+  </main>
+</body>
+</html>

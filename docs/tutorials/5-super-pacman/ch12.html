@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>12. Source Reference — Super Pacman — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch0.html" >Devlog</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Project Structure</a></li><li><a href="ch3.html" >3. Setting Assets</a></li><li><a href="ch4.html" >4. Designing Levels</a></li><li><a href="ch5.html" >5. Composing Scenes</a></li><li><a href="ch6.html" >6. Global Game Behavior</a></li><li><a href="ch7.html" >7. Menu Behavior</a></li><li><a href="ch8.html" >8. Level & Start</a></li><li><a href="ch9.html" >9. Pacman Behavior</a></li><li><a href="ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="ch11.html" >11. Polishing the Game</a></li><li><a href="ch12.html" class="active">12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pacman</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-game-development-series-5">Superpowers Game Development Series #5</h1>
+<h2 id="super-pacman"><strong>SUPER PACMAN</strong></h2>
+<h3 id="chapter-12-game-source-reference"><strong>Chapter 12 : Game Source Reference</strong></h3>
+<h4 id="project-structure">Project structure</h4>
+<ul>
+<li>Global (script)</li>
+<li>Game (folder)<ul>
+<li>Game (script)</li>
+<li>Scene (scene)</li>
+</ul>
+</li>
+<li>Menu (folder)<ul>
+<li>Menu (script)</li>
+<li>Scene (scene)</li>
+<li>Screens (folder)<ul>
+<li>End (sprite)</li>
+<li>Start (sprite)</li>
+<li>Levels (sprite)</li>
+</ul>
+</li>
+<li>Buttons (folder)<ul>
+<li>Buttons (sprite)</li>
+<li>Levels (sprite) </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Level (folder)<ul>
+<li>Tileset (tile set)</li>
+<li>Template (folder)<ul>
+<li>Tilemap (tile map)</li>
+</ul>
+</li>
+<li>Level1 (folder)<ul>
+<li>Tilemap (tile map)</li>
+</ul>
+</li>
+<li>Level2 (folder)<ul>
+<li>Tilemap (tile map)</li>
+</ul>
+</li>
+<li>Level3 (folder)<ul>
+<li>Tilemap (tile map)</li>
+</ul>
+</li>
+<li>Level4 (folder)<ul>
+<li>Tilemap (tile map)</li>
+</ul>
+</li>
+<li>Level5 (folder)<ul>
+<li>Tilemap (tile map)</li>
+</ul>
+</li>
+<li>Level6 (folder) // if modding<ul>
+<li>Tilemap (tile map)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pacman (folder)<ul>
+<li>Pacman (script)</li>
+<li>Move (sprite)</li>
+<li>Life (sprite)</li>
+<li>Death (sprite)</li>
+</ul>
+</li>
+<li>Ghosts (folder)<ul>
+<li>Ghost (script)</li>
+<li>Ghost1 (sprite)</li>
+<li>Ghost2 (sprite)</li>
+<li>Ghost3 (sprite)</li>
+<li>Ghost4 (sprite)</li>
+<li>Vulnerable (sprite)</li>
+</ul>
+</li>
+<li>Items (folder)<ul>
+<li>Coins (folder)<ul>
+<li>Small (sprite)</li>
+<li>Big (sprite)</li>
+</ul>
+</li>
+<li>Fruits (folder)<ul>
+<li>Fruits (script)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sounds (folder)<ul>
+<li>Music</li>
+<li>MenuButton</li>
+<li>EatCoin</li>
+<li>EatGhost</li>
+<li>EatFruit</li>
+<li>PacmanDeath</li>
+</ul>
+</li>
+<li>Font (font)</li>
+</ul>
+<h4 id="source-assets">Source Assets</h4>
+<ul>
+<li>ghosts<ul>
+<li>ghost1.png</li>
+<li>ghost2.png</li>
+<li>ghost3.png</li>
+<li>ghost4.png</li>
+<li>vulnerable.png</li>
+</ul>
+</li>
+<li>items<ul>
+<li>bigcoin.png</li>
+<li>fruits.png</li>
+<li>smallcoin.png</li>
+</ul>
+</li>
+<li>menu<ul>
+<li>button.png</li>
+<li>endscreen.png</li>
+<li>levels.png</li>
+<li>levelscreen.png</li>
+<li>startscreen.png</li>
+</ul>
+</li>
+<li>pacman<ul>
+<li>death.png</li>
+<li>life.png</li>
+<li>move.png</li>
+</ul>
+</li>
+<li>scripts<ul>
+<li>fruit.ts</li>
+<li>ghost.ts</li>
+<li>game.ts</li>
+<li>global.ts</li>
+<li>menu.ts</li>
+<li>pacman.ts</li>
+</ul>
+</li>
+<li>sounds<ul>
+<li>eatcoin.mp3</li>
+<li>eatfruit.mp3</li>
+<li>eatghost.mp3</li>
+<li>menu.mp3</li>
+<li>music.mp3</li>
+<li>pacmandeath.mp3</li>
+</ul>
+</li>
+<li>font.png</li>
+<li>tileset.png</li>
+</ul>
+<h4 id="source-code">Source Code</h4>
+<h5 id="global-ts">global.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-comment">// Super Pacman - Game Development Tutorial #5</span>
+<span class="hljs-comment">// Pax Fabrica - Learn creative development while revisiting video game history</span>
+<span class="hljs-comment">// @MichaelSeyne - mseyne.github.io</span>
+<span class="hljs-comment">// Peer Production Licence - Free and open for peers</span>
+<span class="hljs-comment">// Release Version Finale</span>
+
+<span class="hljs-comment">// This variable will be used to open a web url in a new window, it is not directly related to the game logic</span>
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">var</span> <span class="hljs-built_in">window</span>;
+
+<span class="hljs-comment">// A global module</span>
+<span class="hljs-keyword">namespace</span> Global {
+
+  <span class="hljs-comment">// points for each objects the pacman can eat</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> points {
+        coin = <span class="hljs-number">10</span>,
+        bigcoin = <span class="hljs-number">50</span>,
+        fruit = <span class="hljs-number">100</span>,
+        ghost = <span class="hljs-number">200</span>
+       }
+
+  <span class="hljs-comment">// keyboard's keys the player will use in the game</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> keys = {
+        left: <span class="hljs-string">"LEFT"</span>,
+        right: <span class="hljs-string">"RIGHT"</span>,
+        up: <span class="hljs-string">"UP"</span>,
+        down: <span class="hljs-string">"DOWN"</span>,
+        space: <span class="hljs-string">"SPACE"</span>,
+        exit: <span class="hljs-string">"ESCAPE"</span>
+       }
+
+  <span class="hljs-comment">// name of the menu screens</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> menuScreens = {
+    start: <span class="hljs-string">"Start"</span>,
+    levels: <span class="hljs-string">"Levels"</span>,
+    end: <span class="hljs-string">"End"</span>
+  }
+
+  <span class="hljs-comment">// number of coins small and big</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> coins = {
+        small: <span class="hljs-number">0</span>,
+        big: <span class="hljs-number">0</span>
+       }
+
+  <span class="hljs-comment">// list of all the coins in game, small and big</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> coinsList = {
+        small: [],
+        big: []
+       }
+
+  <span class="hljs-comment">// starting life</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> lifesMax:<span class="hljs-built_in">number</span> = <span class="hljs-number">3</span>;
+  <span class="hljs-comment">// life order indicator for HUD</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> lifesOrder:<span class="hljs-built_in">boolean</span>[][] = [[<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>], [<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>], [<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>]]
+
+  <span class="hljs-comment">// the game behavior</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> game:GameBehavior;
+  <span class="hljs-comment">// the game HUD (game information displayed)</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> HUD:Sup.Actor;
+  <span class="hljs-comment">// the pacman behavior</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> pacman:PacmanBehavior;
+  <span class="hljs-comment">// the ghosts behavior in a list</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> ghosts:GhostBehavior[];
+  <span class="hljs-comment">// the fruits behavior in a list</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruits:FruitsBehavior[];
+  <span class="hljs-comment">// the game time</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> time:<span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// the game score</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> score: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// level chosen to play</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> currentLevel:<span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// boolean flag if the game is won or not</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> won:<span class="hljs-built_in">boolean</span>;
+  <span class="hljs-comment">// number of frame the game stay blocked before continue</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> freeze: <span class="hljs-built_in">number</span>;
+
+  <span class="hljs-comment">// the current pacman lifes</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> pacmanLifes: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// number of coins eaten</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> coinsEatens: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// number of ghosts eaten</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> ghostsEaten:<span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// number of fruits eaten</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruitsEaten:<span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// fruits status, each position in list is a fruit, if false the fruit is not eaten</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruitsEatenByIndex: <span class="hljs-built_in">boolean</span>[] = [<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>];
+
+
+  <span class="hljs-comment">// fruits positions in the level</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruitsRandomPositions:Sup.Math.Vector2[];
+  <span class="hljs-comment">// current available fruits positions in the level</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruitsAvailablePositions:Sup.Math.Vector2[];
+
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startNewGame</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Set datas to default    </span>
+    won = <span class="hljs-literal">undefined</span>;
+    ghosts = [];
+    coins.small = <span class="hljs-number">0</span>;
+    coins.big = <span class="hljs-number">0</span>;
+    coinsList.small = [];
+    coinsList.big = [];
+    fruits = [];
+    fruitsRandomPositions = [];
+    fruitsAvailablePositions = [];
+    fruitsEatenByIndex = [<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>];
+    score = <span class="hljs-number">0</span>;
+    fruitsEaten = <span class="hljs-number">0</span>;
+    ghostsEaten = <span class="hljs-number">0</span>;
+    coinsEatens = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// Start life</span>
+    pacmanLifes = lifesMax;
+
+    <span class="hljs-comment">// Freeze the game for 300 frames before to start</span>
+    freeze = <span class="hljs-number">300</span>;
+
+    Sup.Audio.playSound(<span class="hljs-string">"Sounds/Music"</span>);
+
+    <span class="hljs-comment">// Load the game scene (leave the menu scene)</span>
+    Sup.loadScene(<span class="hljs-string">"Game/Scene"</span>);
+    <span class="hljs-comment">// Get the HUD actor for global access</span>
+    HUD = Sup.getActor(<span class="hljs-string">"HUD"</span>);
+    <span class="hljs-comment">// Set the current level Tile Map</span>
+    Sup.getActor(<span class="hljs-string">"Level"</span>).tileMapRenderer.setTileMap(<span class="hljs-string">"Levels/"</span>+currentLevel+<span class="hljs-string">"/Tile Map"</span>);
+  }
+}
+
+
+<span class="hljs-keyword">namespace</span> Level {
+  <span class="hljs-comment">// All the different level names  </span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> levels = {
+               <span class="hljs-number">1</span>:<span class="hljs-string">"Level1"</span>,
+               <span class="hljs-number">2</span>:<span class="hljs-string">"Level2"</span>,
+               <span class="hljs-number">3</span>:<span class="hljs-string">"Level3"</span>,
+               <span class="hljs-number">4</span>:<span class="hljs-string">"Level4"</span>,
+               <span class="hljs-number">5</span>:<span class="hljs-string">"Level5"</span>,
+               <span class="hljs-number">6</span>:<span class="hljs-string">"Level6"</span>
+              }
+
+  <span class="hljs-comment">// The differents layers of the tile map for each level</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> layers {
+        positions = <span class="hljs-number">0</span>,
+        backgroung = <span class="hljs-number">1</span>,
+        walls = <span class="hljs-number">2</span>
+       }
+
+  <span class="hljs-comment">// Size of level per unit of 16 pixels</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> size {
+        width = <span class="hljs-number">26</span>,
+        height = <span class="hljs-number">32</span> 
+       }
+
+  <span class="hljs-comment">// Tile set references of the game objects</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> tiles {
+        smallcoin = <span class="hljs-number">63</span>,
+        bigcoin = <span class="hljs-number">64</span>,
+        fruits = <span class="hljs-number">65</span>,
+        ghost = <span class="hljs-number">66</span>,
+        pacman = <span class="hljs-number">67</span>
+       }
+
+  <span class="hljs-comment">// End statistics of the game</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> endStats = [<span class="hljs-string">"Score"</span>, <span class="hljs-string">"Time"</span>, <span class="hljs-string">"Ghosts"</span>, <span class="hljs-string">"Coins"</span>, <span class="hljs-string">"Fruits"</span>, <span class="hljs-string">"Lifes"</span>];
+
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Call all the Level functions once </span>
+    setPacman();
+    setGhosts();
+    setCoins();
+    getFruitsRandomPositions();
+  }
+
+  <span class="hljs-comment">// function that check all the tile from the tile map and return the position of the searched tile</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkMap</span>(<span class="hljs-params">layer:<span class="hljs-built_in">number</span>, tile:<span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">// Loop the number of unit there is on width size</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt; size.width; x++){
+      <span class="hljs-comment">// Loop the number of unit there is on height size</span>
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>; y &lt; size.height; y++){
+        <span class="hljs-comment">// Check if the tile in x and y is the tiled looked for</span>
+        <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layer, x, y) === tile){
+          <span class="hljs-comment">// if yes, return the position as a new Vector2</span>
+          <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Sup.Math.Vector2(x, y);
+        }
+      }
+    }
+  }
+
+  <span class="hljs-comment">// function that get the start position of pacman on the map</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setPacman</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Call the checkMap function and set the returned position to the variable</span>
+    <span class="hljs-keyword">let</span> spawnPosition = checkMap(layers.positions, tiles.pacman);
+    <span class="hljs-comment">// Give to the pacman actor the spawnposition of this level (constant)</span>
+    Global.pacman.spawnPosition = spawnPosition;
+    <span class="hljs-comment">// Copy this position for the current position (variable)</span>
+    Global.pacman.position = spawnPosition.clone();
+  }
+
+  <span class="hljs-comment">// function that get the start ghost positions on the map</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setGhosts</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Index of ghosts, start with the first</span>
+    <span class="hljs-keyword">let</span> ghostIndex: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// Loop through all the tile set</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt; size.width; x++){
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>; y &lt; size.height; y++){
+        <span class="hljs-comment">// If the current tile x, y is a ghost start position tile</span>
+        <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.ghost){
+            <span class="hljs-comment">// If yes, create a new Vector 2 with the position of the tile</span>
+            <span class="hljs-keyword">let</span> spawnPosition = <span class="hljs-keyword">new</span> Sup.Math.Vector2(x, y)
+            <span class="hljs-comment">// Give the position to the current ghost Actor as the spawnPosition and the current position</span>
+            Global.ghosts[ghostIndex].spawnPosition = spawnPosition;
+            Global.ghosts[ghostIndex].position = spawnPosition.clone();
+            <span class="hljs-comment">// Change ghost index to prepare the next one</span>
+            ghostIndex++
+        }
+      }
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCoins</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Loop to check all the tile positions from the Tile Map</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt; size.width; x++){
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>; y &lt; size.height; y++){
+        <span class="hljs-comment">// If the tile is a fruit or a small coin, add a small coin actor</span>
+        <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.smallcoin ||
+        Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.fruits){
+          <span class="hljs-comment">// Add a coin to the total count</span>
+          Global.coins.small++
+          <span class="hljs-comment">// Create a new actor</span>
+          <span class="hljs-keyword">let</span> coin = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"smallCoin"</span>);
+          <span class="hljs-comment">// Set X and Y position to the actor and a Z position to 10</span>
+          coin.setPosition(x, y, <span class="hljs-number">10</span>);
+          <span class="hljs-comment">// Set a new component Sprite renderer to the actor with the smallCoin sprite</span>
+          <span class="hljs-keyword">new</span> Sup.SpriteRenderer(coin, <span class="hljs-string">"Items/Coins/Small"</span>);
+          <span class="hljs-comment">// Add the actor to the list of small coins</span>
+          Global.coinsList.small.push(coin);
+        }
+        <span class="hljs-comment">// If the tile is a big coin, add a big coin actor</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.bigcoin){
+          <span class="hljs-comment">// Add a coin to the total count</span>
+          Global.coins.big++
+          <span class="hljs-comment">// Create a new actor</span>
+          <span class="hljs-keyword">let</span> coin = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"bigCoin"</span>);
+          <span class="hljs-comment">// Set X and Y position to the actor and a Z position to 10</span>
+          coin.setPosition(x, y, <span class="hljs-number">10</span>);
+          <span class="hljs-comment">// Set a new component Sprite renderer to the actor with the bigCoin sprite</span>
+          <span class="hljs-keyword">new</span> Sup.SpriteRenderer(coin, <span class="hljs-string">"Items/Coins/Big"</span>);
+          <span class="hljs-comment">// Add the actor to the list of big coins</span>
+          Global.coinsList.big.push(coin);
+        }
+      }
+    }
+  }
+
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFruitsRandomPositions</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Check all the tile positions from the tile map</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt; size.width; x++){
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>; y &lt; size.height; y++){
+       <span class="hljs-comment">// if the tile checked is a fruit tile, add it to the fruitsRandomPositions list</span>
+       <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.fruits){
+         Global.fruitsRandomPositions.push(<span class="hljs-keyword">new</span> Sup.Math.Vector2(x, y));
+       }
+      }
+    }
+  }
+}
+</code></pre>
+<h5 id="game-ts">game.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> GameBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// We initialize the tile map</span>
+  <span class="hljs-keyword">public</span> tileMap: Sup.TileMap;
+  <span class="hljs-comment">// We initialize locally the timer variable</span>
+  <span class="hljs-keyword">private</span> time: <span class="hljs-built_in">number</span>; <span class="hljs-keyword">private</span> second: <span class="hljs-built_in">number</span>; <span class="hljs-keyword">private</span> minute: <span class="hljs-built_in">number</span>;
+
+  start() {
+    <span class="hljs-comment">// We set the game behavior globally</span>
+    Global.game = <span class="hljs-keyword">this</span>;
+    <span class="hljs-comment">//  We reset the game timer globally and locally</span>
+    Global.time = <span class="hljs-string">"0"</span>; <span class="hljs-keyword">this</span>.time = <span class="hljs-number">0</span>; <span class="hljs-keyword">this</span>.second = <span class="hljs-number">0</span>; <span class="hljs-keyword">this</span>.minute = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// We set the tilemap to the current game level</span>
+    <span class="hljs-keyword">this</span>.tileMap = Sup.getActor(<span class="hljs-string">"Level"</span>).tileMapRenderer.getTileMap();
+    <span class="hljs-comment">// We prepare the level with the function Level.set()</span>
+    Level.set();
+  }
+
+  updateScore(points:<span class="hljs-built_in">number</span>){
+        <span class="hljs-comment">// Add the points to the game score</span>
+        Global.score += points;
+        <span class="hljs-comment">// Update the HUD score display</span>
+        Global.HUD.getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(<span class="hljs-string">"SCORE:"</span>+Global.score.toString());
+  }
+
+  displayNewScore(position:Sup.Math.Vector3, points:<span class="hljs-built_in">number</span>){
+      <span class="hljs-comment">// Create a new actor score</span>
+      <span class="hljs-keyword">let</span> score = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"score"</span>);
+      <span class="hljs-comment">// Add a new component text renderer to the actor with the points as text</span>
+      <span class="hljs-keyword">new</span> Sup.TextRenderer(score, points.toString());
+      <span class="hljs-comment">// Add the font Font to the component text renderer</span>
+      score.textRenderer.setFont(<span class="hljs-string">"Font"</span>);
+      <span class="hljs-comment">// Give the current position to the score (+0.5 to adapt to the centered origin)</span>
+      score.setPosition(position.x+<span class="hljs-number">0.5</span>, position.y+<span class="hljs-number">0.5</span>, position.z);
+      <span class="hljs-comment">// Destroy the actor score after 1 second</span>
+      Sup.setTimeout(<span class="hljs-number">1000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{score.destroy();});
+    }
+
+  updateLife(){
+      <span class="hljs-comment">// Loop the number of maximum lifes the pacman got (3 times) and give the current value to index</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>; index &lt; Global.lifesMax; index++){
+        <span class="hljs-comment">// Get the sprite Renderer component from HUD/Lifes/index actor</span>
+        <span class="hljs-keyword">let</span> sprite = Global.HUD.getChild(<span class="hljs-string">"Lifes"</span>).getChild(index.toString()).spriteRenderer;
+        <span class="hljs-comment">// Check the boolean flag from the lifesOrder pattern of the pacman current lifes and current index</span>
+        <span class="hljs-keyword">if</span>(Global.lifesOrder[Global.pacmanLifes][index] === <span class="hljs-literal">true</span>){
+          <span class="hljs-comment">// If the flag is true, set the sprite animation to full</span>
+          sprite.setAnimation(<span class="hljs-string">"full"</span>, <span class="hljs-literal">false</span>);
+        }
+        <span class="hljs-keyword">else</span>{
+          <span class="hljs-comment">// If the flag is false, set the sprite animation to empty</span>
+          sprite.setAnimation(<span class="hljs-string">"empty"</span>, <span class="hljs-literal">false</span>);
+        }
+      }
+    }
+
+  updateTimer(){
+    <span class="hljs-comment">// convert minute and second to string and set them to variables</span>
+    <span class="hljs-keyword">let</span> minute = <span class="hljs-keyword">this</span>.minute.toString(); <span class="hljs-keyword">let</span> second = <span class="hljs-keyword">this</span>.second.toString();
+    <span class="hljs-comment">// If the minutes or seconds are inferior to 10, then add a 0 to the string to keep display consistency </span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.minute &lt; <span class="hljs-number">10</span>){
+      minute = <span class="hljs-string">"0"</span>+minute;
+    }
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.second &lt; <span class="hljs-number">10</span>){
+      second = <span class="hljs-string">"0"</span>+second;
+    }
+    <span class="hljs-comment">// Build the complete string for the current time</span>
+    Global.time = minute+<span class="hljs-string">':'</span>+second;
+    <span class="hljs-comment">// Display it with the HUD/Timer text renderer</span>
+    Global.HUD.getChild(<span class="hljs-string">'Timer'</span>).textRenderer.setText(<span class="hljs-string">"TIME:"</span>+Global.time);
+  }  
+
+  update() {
+    <span class="hljs-comment">// If the freeze counter is on, decrease it from 1 and return to pass the block and repeat </span>
+    <span class="hljs-keyword">if</span>(Global.freeze &gt; <span class="hljs-number">0</span>){
+      Global.freeze--
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// Check if the game is won or not (when the Global.won is not undefined anymore)</span>
+    <span class="hljs-keyword">if</span>(Global.won === <span class="hljs-literal">false</span> || Global.won === <span class="hljs-literal">true</span>){
+      <span class="hljs-comment">// Load the menu scene and destroy the game scene</span>
+      Sup.loadScene(<span class="hljs-string">"Menu/Scene"</span>);
+      <span class="hljs-comment">// Call the function that will load the victory or gameover end screen</span>
+      Sup.getActor(<span class="hljs-string">"Menu"</span>).getBehavior(MenuBehavior).setEndscreen();
+    }
+
+    <span class="hljs-comment">// Increase the game timer by one</span>
+    <span class="hljs-keyword">this</span>.time++;
+    <span class="hljs-comment">// When the time got 60 frames add 1 second (the game is default set as 60 frames = 1 second)</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.time%<span class="hljs-number">60</span> === <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.second++;
+      <span class="hljs-comment">// When the second is 60, add 1 minute and reset second to 0 </span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.second%<span class="hljs-number">60</span> === <span class="hljs-number">0</span>){
+        <span class="hljs-keyword">this</span>.minute++; <span class="hljs-keyword">this</span>.second = <span class="hljs-number">0</span>;
+      }
+      <span class="hljs-comment">// Call the updateTimer method every second</span>
+      <span class="hljs-keyword">this</span>.updateTimer();
+    }
+
+    <span class="hljs-comment">// Check if the exit key is pressed</span>
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.exit)){
+      <span class="hljs-comment">// If yes, load the menu scene and destroy the game scene</span>
+      Sup.loadScene(<span class="hljs-string">"Menu/Scene"</span>);
+    }
+
+    <span class="hljs-comment">// Check if there is still coins left, if not, the game is won</span>
+    <span class="hljs-keyword">if</span>(Global.coins.small === <span class="hljs-number">0</span> &amp;&amp; Global.coins.big === <span class="hljs-number">0</span>){
+      Sup.Audio.playSound(<span class="hljs-string">"Sounds/Music"</span>);
+      <span class="hljs-comment">// Set the won flag to true</span>
+      Global.won = <span class="hljs-literal">true</span>;
+      <span class="hljs-comment">// Set frames number freeze counter</span>
+      Global.freeze = <span class="hljs-number">100</span>;
+    }
+
+    <span class="hljs-comment">// Check if there is still lifes for pacman, if not, the game is lost</span>
+    <span class="hljs-keyword">if</span> (Global.pacmanLifes === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Set the won flag to false</span>
+      Global.won = <span class="hljs-literal">false</span>;
+    }
+  }
+}
+Sup.registerBehavior(GameBehavior);
+</code></pre>
+<h5 id="menu-ts">menu.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> MenuBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Create a ray caster used to check collision between the mouse and objects of the screen</span>
+  <span class="hljs-keyword">private</span> ray = <span class="hljs-keyword">new</span> Sup.Math.Ray;
+  <span class="hljs-comment">// The current screen displayed</span>
+  <span class="hljs-keyword">private</span> screen:<span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Init The button actor</span>
+  <span class="hljs-keyword">private</span> button:Sup.Actor;
+  <span class="hljs-comment">// Init The level buttons actors in a list</span>
+  <span class="hljs-keyword">private</span> levelsList:Sup.Actor[];
+
+  awake() {
+    <span class="hljs-comment">// Set the current screen with the start screen</span>
+    <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.start);
+    <span class="hljs-comment">// Set the button actor to local button variable</span>
+    <span class="hljs-keyword">this</span>.button = Sup.getActor(<span class="hljs-string">"Button"</span>);
+    <span class="hljs-comment">// Set the level button actors to an empty list</span>
+    <span class="hljs-keyword">this</span>.levelsList = [];
+    <span class="hljs-comment">// Call the function that add all levels buttons actors to the list</span>
+    <span class="hljs-keyword">this</span>.getLevelsList();
+    <span class="hljs-comment">// Set the opacity of the levels buttons to default</span>
+    <span class="hljs-keyword">this</span>.setLevelOpacityDefault();
+  }
+
+  updateScreen(screenName:<span class="hljs-built_in">string</span>){
+    <span class="hljs-comment">// Set the screenName parameter as the current screen</span>
+    <span class="hljs-keyword">this</span>.screen = screenName;
+    <span class="hljs-comment">// Get the Screens actor in a variable</span>
+    <span class="hljs-keyword">let</span> menuScreens = Sup.getActor(<span class="hljs-string">"Screens"</span>);
+    <span class="hljs-comment">// Loop through all the menu Screen</span>
+    <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">let</span> screen <span class="hljs-keyword">in</span> Global.menuScreens){
+      <span class="hljs-comment">// Check if the screen from loop is the same than the current screen</span>
+      <span class="hljs-keyword">if</span> (Global.menuScreens[screen] === <span class="hljs-keyword">this</span>.screen){
+        <span class="hljs-comment">// if yes, set the screen visibility to true</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Global.menuScreens[screen]).setVisible(<span class="hljs-literal">true</span>);
+      }
+      <span class="hljs-keyword">else</span>{
+        <span class="hljs-comment">// else, set the screen visibility to false</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Global.menuScreens[screen]).setVisible(<span class="hljs-literal">false</span>);
+      }
+    }
+  }
+
+  getLevelsList(){
+    <span class="hljs-comment">// Loop through all the levels name</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> level <span class="hljs-keyword">in</span> Level.levels){
+      <span class="hljs-comment">// Get the actor of the level from the loop and add it to the levelsList </span>
+      <span class="hljs-keyword">this</span>.levelsList.push(Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(<span class="hljs-string">"Levels"</span>).getChild(Level.levels[level]));
+    }
+  }
+
+  setLevelOpacityDefault(){
+    <span class="hljs-comment">// Loop through all the levels actors from the list</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> level of <span class="hljs-keyword">this</span>.levelsList){
+      <span class="hljs-comment">// Set the opacity of the sprite to half</span>
+      level.spriteRenderer.setOpacity(<span class="hljs-number">0.5</span>);
+    }
+  }
+
+  setLevelOpacityBright(actor:Sup.Actor){
+    <span class="hljs-comment">// Loop through all the levels actors from the list</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> level of <span class="hljs-keyword">this</span>.levelsList){
+      <span class="hljs-comment">// if the actor name is the same than the level name from the loop</span>
+      <span class="hljs-keyword">if</span>(actor.getName() === level.getName()){
+        <span class="hljs-comment">// Set the opacity of this level button to full</span>
+        level.spriteRenderer.setOpacity(<span class="hljs-number">1</span>);
+      }
+      <span class="hljs-keyword">else</span>{
+        <span class="hljs-comment">// Else, set the opacity of this level button to half</span>
+        level.spriteRenderer.setOpacity(<span class="hljs-number">0.5</span>);
+      }
+    }
+  }
+
+  setEndscreen(){
+    <span class="hljs-comment">// Update the screen display with the end screen</span>
+    <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.end);
+    <span class="hljs-comment">// Get the actor of the end screen</span>
+    <span class="hljs-keyword">let</span> endScreen: Sup.Actor = Sup.getActor(<span class="hljs-string">'Screens'</span>).getChild(<span class="hljs-string">"End"</span>);
+    <span class="hljs-comment">// If the game won flag is true</span>
+    <span class="hljs-keyword">if</span>(Global.won){
+      <span class="hljs-comment">// Set the animation victory of the sprite (without looping the animation)</span>
+      endScreen.spriteRenderer.setAnimation(<span class="hljs-string">"victory"</span>, <span class="hljs-literal">false</span>);
+    }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-comment">// Set the animation game over of the sprite (without looping the animation)</span>
+      endScreen.spriteRenderer.setAnimation(<span class="hljs-string">"gameover"</span>, <span class="hljs-literal">false</span>);
+    }
+
+    <span class="hljs-comment">// Set the statistic datas to update the text display in the end screen</span>
+    endScreen.getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(<span class="hljs-string">"Score:"</span>+Global.score);
+    endScreen.getChild(<span class="hljs-string">"Time"</span>).textRenderer.setText(<span class="hljs-string">"Time:"</span>+Global.time);
+    endScreen.getChild(<span class="hljs-string">"Ghosts"</span>).textRenderer.setText(<span class="hljs-string">"Ghosts eaten:"</span>+Global.ghostsEaten);
+    endScreen.getChild(<span class="hljs-string">"Coins"</span>).textRenderer.setText(<span class="hljs-string">"Coins eaten:"</span>+Global.coinsEatens);
+    endScreen.getChild(<span class="hljs-string">"Fruits"</span>).textRenderer.setText(<span class="hljs-string">"Fruits eaten:"</span>+Global.fruitsEaten);
+    endScreen.getChild(<span class="hljs-string">"Lifes"</span>).textRenderer.setText(<span class="hljs-string">"Lifes left:"</span>+Global.pacmanLifes);
+  }
+
+  update() {
+    <span class="hljs-comment">// Update the position of the raycaster of the mouse inside the camera zone</span>
+    <span class="hljs-keyword">this</span>.ray.setFromCamera(Sup.getActor(<span class="hljs-string">"Camera"</span>).camera, Sup.Input.getMousePosition());
+    <span class="hljs-comment">// Give data related to the collision between the mouse and the button to a variable</span>
+    <span class="hljs-keyword">let</span> hitButton = <span class="hljs-keyword">this</span>.ray.intersectActor(Sup.getActor(<span class="hljs-string">"Button"</span>));
+
+    <span class="hljs-comment">// if the hitButton variable got datas, it is hovered</span>
+    <span class="hljs-keyword">if</span>(hitButton.length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// If the current screen is the start screen</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.screen === Global.menuScreens.start){
+        <span class="hljs-comment">// Change the animation of the button to hoverPlay</span>
+        <span class="hljs-keyword">this</span>.button.spriteRenderer.setAnimation(<span class="hljs-string">"hoverPlay"</span>, <span class="hljs-literal">false</span>);
+        <span class="hljs-comment">// Change the animation of the start screen</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(<span class="hljs-string">"Start"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"hover"</span>, <span class="hljs-literal">false</span>);
+      }
+      <span class="hljs-comment">// If the current screen is the level selection or the end screen</span>
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// Change the animation of the button to hoverReturn</span>
+        <span class="hljs-keyword">this</span>.button.spriteRenderer.setAnimation(<span class="hljs-string">"hoverReturn"</span>, <span class="hljs-literal">false</span>);
+      }
+      <span class="hljs-comment">// If the button is pressed while hovering it</span>
+      <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)){
+        Sup.Audio.playSound(<span class="hljs-string">"Sounds/MenuButton"</span>);
+        <span class="hljs-comment">// call the updateScreen() function with a parameter depending of the current screen</span>
+        <span class="hljs-keyword">switch</span>(<span class="hljs-keyword">this</span>.screen){
+          <span class="hljs-keyword">case</span> <span class="hljs-string">"Start"</span>:
+            <span class="hljs-comment">// If the current screen was start screen, go to levels screen</span>
+            <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.levels);
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-keyword">case</span> <span class="hljs-string">"Levels"</span>:
+            <span class="hljs-comment">// If the current screen was levels screen, go to start screen</span>
+            <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.start);
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-keyword">case</span> <span class="hljs-string">"End"</span>:
+            <span class="hljs-comment">// If the current screen was end screen, go to start screen</span>
+            <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.start);
+            <span class="hljs-keyword">break</span>;
+        }
+      }
+    }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-comment">// If the button is not hovered, reset animation to unhoverPlay is the current screen is Start</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.screen === <span class="hljs-string">"Start"</span>){
+        <span class="hljs-keyword">this</span>.button.spriteRenderer.setAnimation(<span class="hljs-string">"unhoverPlay"</span>);
+        <span class="hljs-comment">// Change the animation of the start screen</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(<span class="hljs-string">"Start"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"unhover"</span>, <span class="hljs-literal">false</span>);
+      }
+      <span class="hljs-comment">// Else reset animation to unhoverReturn for the others screens</span>
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">this</span>.button.spriteRenderer.setAnimation(<span class="hljs-string">"unhoverReturn"</span>);
+      }
+    }
+
+    <span class="hljs-comment">// If the current screen is levels screen</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.screen === <span class="hljs-string">"Levels"</span>){
+    <span class="hljs-comment">// Give data related to the collision between the mouse and all the levels buttons to a variable</span>
+      <span class="hljs-keyword">let</span> hitLevel = <span class="hljs-keyword">this</span>.ray.intersectActors(<span class="hljs-keyword">this</span>.levelsList);
+      <span class="hljs-keyword">if</span> (hitLevel.length &gt; <span class="hljs-number">0</span>){
+        <span class="hljs-comment">// if there is hitLevel data, a button level is hovered, call funtion to set a light opacity</span>
+        <span class="hljs-keyword">this</span>.setLevelOpacityBright(hitLevel[<span class="hljs-number">0</span>].actor);
+        <span class="hljs-comment">// if the current button is clicked</span>
+        <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)){
+          <span class="hljs-comment">// If the level clicked is the level 6 (which is a tutorial link than we will change later)</span>
+          <span class="hljs-keyword">if</span> (hitLevel[<span class="hljs-number">0</span>].actor.getName() === <span class="hljs-string">"Level6"</span>){
+            <span class="hljs-comment">// Open a new window with the url</span>
+            <span class="hljs-built_in">window</span>.open(<span class="hljs-string">"http://mseyne.github.io/"</span>);
+          }
+          <span class="hljs-comment">// Else, for all others levels</span>
+          <span class="hljs-keyword">else</span>{
+            <span class="hljs-comment">// Set the current level to the level which have been clicked</span>
+            Global.currentLevel =  hitLevel[<span class="hljs-number">0</span>].actor.getName();
+            <span class="hljs-comment">// Start a new game</span>
+            Global.startNewGame();
+          }
+        }
+      }
+      <span class="hljs-comment">// if no one is hovered set opacity false to all levels buttons</span>
+      <span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">this</span>.setLevelOpacityDefault();
+      }
+    }
+  }
+}
+Sup.registerBehavior(MenuBehavior);
+</code></pre>
+<h5 id="pacman-ts">pacman.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> PacmanBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Spawn position in the current level</span>
+  <span class="hljs-keyword">public</span> spawnPosition: Sup.Math.Vector2;
+  <span class="hljs-comment">// Current position in the maze</span>
+  <span class="hljs-keyword">public</span> position: Sup.Math.Vector2;
+  <span class="hljs-comment">// Next direction the pacman will follow</span>
+  <span class="hljs-keyword">private</span> nextDirection: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Current direction of the pacman</span>
+  <span class="hljs-keyword">private</span> currentDirection: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Time in frame before respawn</span>
+  <span class="hljs-keyword">private</span> respawnCooldown: <span class="hljs-built_in">number</span>;
+
+  awake() {
+    <span class="hljs-comment">// Give global access to this actor behavior</span>
+    Global.pacman = <span class="hljs-keyword">this</span>;
+  }
+
+  start(){
+    <span class="hljs-comment">// Set the current position to the actor in the scene</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Multiply the position by ten to work only with integer numbers</span>
+    <span class="hljs-keyword">this</span>.position.multiplyScalar(<span class="hljs-number">10</span>);
+  }
+
+  getCoinAt(column:<span class="hljs-built_in">number</span>, row:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// Loop through all the small coins of the level</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> coin of Global.coinsList.small){
+      <span class="hljs-comment">// If the position in x and the position in y of the small coin is the same than the position of the pacman</span>
+      <span class="hljs-keyword">if</span>(coin.getX() === column &amp;&amp; coin.getY() === row){
+        Sup.Audio.playSound(<span class="hljs-string">"Sounds/EatCoin"</span>);
+        <span class="hljs-comment">// Get the index of this actor from the coin list</span>
+        <span class="hljs-keyword">let</span> coinIndex = Global.coinsList.small.indexOf(coin);
+        <span class="hljs-comment">// Remove this index from the coin list</span>
+        Global.coinsList.small.splice(coinIndex, <span class="hljs-number">1</span>);
+        <span class="hljs-comment">// Remove one coin from the total coin counter</span>
+        Global.coins.small--;
+        <span class="hljs-comment">// Call the function getFruitAvailablePosition to check if it is also a fruit position</span>
+        <span class="hljs-keyword">this</span>.getFruitAvailablePosition(column, row);
+        <span class="hljs-comment">// Then destroy the coin actor (and sprite renderer)</span>
+        coin.destroy();
+        <span class="hljs-comment">// Add score for this coin</span>
+        Global.game.updateScore(Global.points.coin);
+        <span class="hljs-comment">// Add a coin to the statistic of coin eaten</span>
+        Global.coinsEatens++;
+      }
+    }
+  }
+
+  getFruitAvailablePosition(column:<span class="hljs-built_in">number</span>, row:<span class="hljs-built_in">number</span>){
+      <span class="hljs-comment">// Loop through all the random positions for the fruits to appear</span>
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> position of Global.fruitsRandomPositions){
+        <span class="hljs-comment">// If the current pacman position is one of them</span>
+        <span class="hljs-keyword">if</span>(position.x === column &amp;&amp; position.y === row){
+          <span class="hljs-comment">// Then add this position as a new vector in the available position list</span>
+          Global.fruitsAvailablePositions.push(<span class="hljs-keyword">new</span> Sup.Math.Vector2(column, row));
+        }
+      }
+    }
+
+  getBigcoinAt(column:<span class="hljs-built_in">number</span>, row:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// Loop through all the big coins of the level</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> bigcoin of Global.coinsList.big) {
+      <span class="hljs-comment">// If the position in x and the position in y of the big coin is the same than the position of the pacman</span>
+      <span class="hljs-keyword">if</span> (bigcoin.getX() === column &amp;&amp; bigcoin.getY() === row) {
+        Sup.Audio.playSound(<span class="hljs-string">"Sounds/EatGhost"</span>);
+        <span class="hljs-comment">// Get the index of this big coin from the list</span>
+        <span class="hljs-keyword">let</span> bigcoinIndex = Global.coinsList.big.indexOf(bigcoin);
+        <span class="hljs-comment">// Remove the big coin from the list of big coins</span>
+        Global.coinsList.big.splice(bigcoinIndex, <span class="hljs-number">1</span>);
+        <span class="hljs-comment">// Decrease by one the number of total coin counter in the level</span>
+        Global.coins.big--;
+        <span class="hljs-comment">// Destroy the bigcoin actor (and sprite renderer)</span>
+        bigcoin.destroy();
+        <span class="hljs-comment">// Add score for this big coin</span>
+        Global.game.updateScore(Global.points.bigcoin);
+        <span class="hljs-comment">// Add a coin to the statistic of coin eaten</span>
+        Global.coinsEatens++;
+        <span class="hljs-comment">// Loop through all the ghosts from the list</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> ghost of Global.ghosts){
+          <span class="hljs-comment">// Call a method from the ghost behavior to set their vulnerability</span>
+          ghost.setVulnerabilityOn();
+        }
+      }
+    }
+  }
+
+  getFruitAt(column:<span class="hljs-built_in">number</span>, row:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// Loop through all the fruits from the list</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> fruit of Global.fruits){
+      <span class="hljs-comment">// If the fruit position are the same than the current pacman position</span>
+      <span class="hljs-keyword">if</span>(fruit.position.x === column &amp;&amp; fruit.position.y === row){
+        Sup.Audio.playSound(<span class="hljs-string">"Sounds/EatFruit"</span>);
+        <span class="hljs-comment">// Remove the fruit from the list</span>
+        Global.fruits.splice(Global.fruits.indexOf(fruit), <span class="hljs-number">1</span>);
+        <span class="hljs-comment">// Call a local function of the fruit script</span>
+        fruit.eaten();
+      }
+    }
+  }
+
+  canMove(moveX:<span class="hljs-built_in">number</span>, moveY:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// If the pacman position is not centered on the grid, don't check the tile, return false</span>
+    <span class="hljs-keyword">if</span> (moveX !== <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>.position.y%<span class="hljs-number">10</span> !== <span class="hljs-number">0</span> || moveY !== <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>.position.x%<span class="hljs-number">10</span> !==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+    <span class="hljs-comment">// Initialize cursor coordinates on tile to check   </span>
+    <span class="hljs-keyword">let</span> tileX:<span class="hljs-built_in">number</span>; <span class="hljs-keyword">let</span> tileY:<span class="hljs-built_in">number</span>;
+    <span class="hljs-comment">// The cursor origin we check on a tile is left, down of a tile, we change the cursor position :</span>
+    <span class="hljs-keyword">if</span>(moveX === <span class="hljs-number">-1</span>){
+      <span class="hljs-comment">// When going to left move the origin cursor to right position and move it to the next tile on the left</span>
+      tileX = <span class="hljs-built_in">Math</span>.floor((<span class="hljs-keyword">this</span>.position.x+<span class="hljs-number">9</span>)/<span class="hljs-number">10</span>)+moveX;
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Move the cursor to the next tile on the right</span>
+      tileX = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-keyword">this</span>.position.x/<span class="hljs-number">10</span>)+moveX;
+    }
+    <span class="hljs-keyword">if</span>(moveY === <span class="hljs-number">-1</span>){
+      <span class="hljs-comment">// When going to left move the origin cursor to up position and move it to the next tile up</span>
+      tileY = <span class="hljs-built_in">Math</span>.floor((<span class="hljs-keyword">this</span>.position.y+<span class="hljs-number">9</span>)/<span class="hljs-number">10</span>)+moveY;
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Move the cursor to the next tile up</span>
+      tileY = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">10</span>)+moveY;
+    }
+    <span class="hljs-comment">// If the tile checked is empty in tileMap, then return true, else return false</span>
+    <span class="hljs-keyword">if</span> (Global.game.tileMap.getTileAt(Level.layers.walls, tileX, tileY) === <span class="hljs-number">-1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  setDirection(){
+    <span class="hljs-comment">// Next direction become current direction</span>
+    <span class="hljs-keyword">this</span>.currentDirection = <span class="hljs-keyword">this</span>.nextDirection;
+    <span class="hljs-comment">// Change the animation with the current direction</span>
+    <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"go"</span>+<span class="hljs-keyword">this</span>.currentDirection);
+  }
+
+  die(){
+    <span class="hljs-comment">// Decrease by one the pacman lifes</span>
+    Global.pacmanLifes--
+    <span class="hljs-comment">// Update life from HUD</span>
+    Global.game.updateLife();
+    <span class="hljs-comment">// Set the pacman actor invisible</span>
+    <span class="hljs-keyword">this</span>.actor.setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Create a new actor called Death</span>
+    <span class="hljs-keyword">let</span> death = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Death"</span>);
+    <span class="hljs-comment">// Set the current position to the death actor</span>
+    death.setPosition(<span class="hljs-keyword">this</span>.actor.getPosition());
+    <span class="hljs-comment">// Add a sprite renderer component and play once the death animation</span>
+    <span class="hljs-keyword">new</span> Sup.SpriteRenderer(death).setSprite(<span class="hljs-string">"Pacman/Death"</span>).setAnimation(<span class="hljs-string">"death"</span>, <span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Timer before respawn</span>
+    <span class="hljs-keyword">this</span>.respawnCooldown = <span class="hljs-number">10</span>;
+  }
+
+  respawn(){
+    <span class="hljs-comment">// Reset current position to the spawn position</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.spawnPosition.clone();
+    <span class="hljs-comment">// Set the current position to the actor in the scene</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Multiply the position to work with integer</span>
+    <span class="hljs-keyword">this</span>.position.multiplyScalar(<span class="hljs-number">10</span>);
+    <span class="hljs-comment">// Reset the movement current and next direction</span>
+    <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">""</span>;
+    <span class="hljs-keyword">this</span>.currentDirection = <span class="hljs-string">""</span>;
+    <span class="hljs-comment">// Stop the movement animation</span>
+    <span class="hljs-keyword">this</span>.actor.spriteRenderer.stopAnimation();
+    <span class="hljs-comment">// Set the pacman actor visible</span>
+    <span class="hljs-keyword">this</span>.actor.setVisible(<span class="hljs-literal">true</span>);
+  }
+
+  update() {
+    <span class="hljs-comment">// If the game is freezed, return to the beginning of the loop</span>
+    <span class="hljs-keyword">if</span>(Global.freeze &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// If the respawnCooldown is on, decrease it by one each frame</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.respawnCooldown &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.respawnCooldown--;
+      <span class="hljs-comment">// When the timer reach 1, call the respawn function</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.respawnCooldown === <span class="hljs-number">1</span>){
+        <span class="hljs-keyword">this</span>.respawn();
+      }
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// When the player press a directional key, store it as the next direction.</span>
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.left)){
+      <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">"LEFT"</span>;
+    }
+
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.right)){
+      <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">"RIGHT"</span>;
+    }
+
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.up)){
+      <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">"UP"</span>;
+    }
+
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.down)){
+      <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">"DOWN"</span>;
+    }
+
+    <span class="hljs-comment">// Check if it is possible to go in the next direction and if yes, set it as the current direction</span>
+    <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.nextDirection === <span class="hljs-string">"LEFT"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>)){    
+      <span class="hljs-keyword">this</span>.setDirection();
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.nextDirection === <span class="hljs-string">"RIGHT"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)){       
+      <span class="hljs-keyword">this</span>.setDirection();
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.nextDirection === <span class="hljs-string">"UP"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)){    
+      <span class="hljs-keyword">this</span>.setDirection();
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.nextDirection === <span class="hljs-string">"DOWN"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>)){    
+      <span class="hljs-keyword">this</span>.setDirection();
+    }
+
+    <span class="hljs-comment">// Check if it is possible to go in the current direction and if yes keep moving</span>
+    <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.currentDirection === <span class="hljs-string">"LEFT"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>)){    
+      <span class="hljs-keyword">this</span>.position.add(<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.currentDirection === <span class="hljs-string">"RIGHT"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)){    
+      <span class="hljs-keyword">this</span>.position.add(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.currentDirection === <span class="hljs-string">"UP"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)){    
+      <span class="hljs-keyword">this</span>.position.add(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.currentDirection === <span class="hljs-string">"DOWN"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>)){    
+      <span class="hljs-keyword">this</span>.position.add(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>);
+    }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-comment">// Stop the animation movement if the pacman is blocked</span>
+      <span class="hljs-keyword">this</span>.actor.spriteRenderer.stopAnimation();
+    }
+
+    <span class="hljs-comment">// Update the position actor with the new position, (divide by ten to get the real unit)</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position.x/<span class="hljs-number">10</span>, <span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">10</span>);
+
+    <span class="hljs-comment">// Keep pacman in the game screen on the x axis (tunnel)</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &lt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.position.x = (Level.size.width * <span class="hljs-number">10</span>)<span class="hljs-number">-10</span>;
+    }
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &gt; (Level.size.width * <span class="hljs-number">10</span>)<span class="hljs-number">-10</span>){
+      <span class="hljs-keyword">this</span>.position.x = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-comment">// If the pacman is centered in the unit gride, check if there is something to eat</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x%<span class="hljs-number">10</span> === <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>.position.y%<span class="hljs-number">10</span> === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Get the current x and y position, divise by ten, to work with the real unit</span>
+      <span class="hljs-keyword">let</span> posX: <span class="hljs-built_in">number</span> = <span class="hljs-keyword">this</span>.position.x/<span class="hljs-number">10</span>; 
+      <span class="hljs-keyword">let</span> posY: <span class="hljs-built_in">number</span> = <span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">10</span>;
+       <span class="hljs-comment">// Check if there is a coin in current position and take it if yes</span>
+      <span class="hljs-keyword">this</span>.getCoinAt(posX, posY);
+      <span class="hljs-comment">// Check if there is a bigCoin in current position and take it if yes</span>
+      <span class="hljs-keyword">this</span>.getBigcoinAt(posX, posY);
+      <span class="hljs-comment">// Check if there is a fruit in current position and take it if yes</span>
+      <span class="hljs-keyword">this</span>.getFruitAt(posX, posY);
+    }
+  }
+}
+Sup.registerBehavior(PacmanBehavior);
+</code></pre>
+<h5 id="ghost-ts">ghost.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> GhostBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// The starting position of the ghost (in jail)</span>
+  <span class="hljs-keyword">public</span> spawnPosition: Sup.Math.Vector2;
+  <span class="hljs-comment">// The current position of this ghost</span>
+  <span class="hljs-keyword">public</span> position: Sup.Math.Vector2;
+  <span class="hljs-comment">// Timer before being free to leave the jail</span>
+  <span class="hljs-keyword">private</span> freedomCoolDown: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// The current moving direction of this ghost</span>
+  <span class="hljs-keyword">private</span> moveDirection: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Flag checking if the jail door is open for this ghost</span>
+  <span class="hljs-keyword">private</span> doorOpen: <span class="hljs-built_in">boolean</span>;
+  <span class="hljs-comment">// If the ghost have vulnerability</span>
+  <span class="hljs-keyword">private</span> vulnerable: <span class="hljs-built_in">boolean</span>;
+  <span class="hljs-comment">// Timer before the ghost loose vulnerability</span>
+  <span class="hljs-keyword">private</span> vulnerabilityCooldown: <span class="hljs-built_in">number</span>;
+
+  awake() {
+    <span class="hljs-comment">// add this behavior to the ghosts list</span>
+    Global.ghosts.push(<span class="hljs-keyword">this</span>);
+    <span class="hljs-comment">// close the door of the jail</span>
+    <span class="hljs-keyword">this</span>.doorOpen = <span class="hljs-literal">false</span>;
+    <span class="hljs-comment">// Choose a random time before to be free from jail</span>
+    <span class="hljs-keyword">this</span>.freedomCoolDown = Sup.Math.Random.integer(<span class="hljs-number">50</span>, <span class="hljs-number">300</span>);
+    <span class="hljs-comment">// We start not vulnerable</span>
+    <span class="hljs-keyword">this</span>.vulnerable = <span class="hljs-literal">false</span>;
+  }
+
+  start(){
+    <span class="hljs-comment">// Set the current position of this actor</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Multiply the current position by 100 to work only with integer an not float number</span>
+    <span class="hljs-keyword">this</span>.position.multiplyScalar(<span class="hljs-number">100</span>);
+  }
+
+  setVulnerabilityOn(){
+    <span class="hljs-keyword">this</span>.vulnerable = <span class="hljs-literal">true</span>;
+    <span class="hljs-comment">// Timer before to loose vulnerability</span>
+    <span class="hljs-keyword">this</span>.vulnerabilityCooldown = <span class="hljs-number">500</span>;
+    <span class="hljs-comment">// Set the ghost sprite of vulnerability</span>
+    <span class="hljs-keyword">this</span>.actor.spriteRenderer.setSprite(<span class="hljs-string">"Ghosts/Vulnerable"</span>);
+  }
+
+  setVulnerabilityOff(){
+    <span class="hljs-keyword">this</span>.vulnerable = <span class="hljs-literal">false</span>;
+    <span class="hljs-comment">// Change back sprite to normal</span>
+    <span class="hljs-keyword">this</span>.actor.spriteRenderer.setSprite(<span class="hljs-string">"Ghosts/Ghost"</span>+<span class="hljs-keyword">this</span>.actor.getName());
+  }
+
+  leaveJail(){
+      <span class="hljs-comment">// Check the tile Up and tile Down of the current position</span>
+      <span class="hljs-keyword">let</span> tileUp = <span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">100</span> + <span class="hljs-number">1</span>;
+      <span class="hljs-keyword">let</span> tileDown = <span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">100</span> - <span class="hljs-number">1</span>;
+      <span class="hljs-comment">// If the tile up or down of the ghost is a door, then go on this tile and get out</span>
+      <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(Level.layers.walls, <span class="hljs-keyword">this</span>.position.x / <span class="hljs-number">100</span>, tileUp) === <span class="hljs-number">54</span>) <span class="hljs-keyword">this</span>.moveDirection = <span class="hljs-string">"UP"</span>;
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(Level.layers.walls, <span class="hljs-keyword">this</span>.position.x / <span class="hljs-number">100</span>, tileDown) === <span class="hljs-number">58</span>) <span class="hljs-keyword">this</span>.moveDirection = <span class="hljs-string">"DOWN"</span>;
+  }
+
+  goToJail(){
+    <span class="hljs-comment">// Set the position of the ghost to the starting position</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.spawnPosition.clone();
+    <span class="hljs-comment">// Then set the new position to the ghost actor</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Stop the movement direction</span>
+    <span class="hljs-keyword">this</span>.moveDirection = <span class="hljs-string">""</span>;
+    <span class="hljs-comment">// Close the door of the jail</span>
+    <span class="hljs-keyword">this</span>.doorOpen = <span class="hljs-literal">false</span>;
+    <span class="hljs-comment">// Multiply the new position to 100 to use them anew in the script</span>
+    <span class="hljs-keyword">this</span>.position.multiplyScalar(<span class="hljs-number">100</span>);
+  }
+
+  eaten(){
+    <span class="hljs-comment">// Set the timer before to be free again</span>
+    <span class="hljs-keyword">this</span>.freedomCoolDown = <span class="hljs-number">600</span>;
+    <span class="hljs-comment">// Update the score of the player with ghost points</span>
+    Global.game.updateScore(Global.points.ghost);
+    <span class="hljs-comment">// Display the new points to the current ghost position</span>
+    Global.game.displayNewScore(<span class="hljs-keyword">this</span>.actor.getPosition(), Global.points.ghost);
+    <span class="hljs-comment">// Add statistic, number of ghost eaten in total</span>
+    Global.ghostsEaten++;
+    <span class="hljs-comment">// Return this ghost to jail</span>
+    <span class="hljs-keyword">this</span>.goToJail();
+  }
+
+  canMove(moveX:<span class="hljs-built_in">number</span>, moveY:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// get the tiles x and y for the next tile of the current position and direction</span>
+    <span class="hljs-keyword">let</span> tileX = <span class="hljs-keyword">this</span>.position.x/<span class="hljs-number">100</span> + moveX;
+    <span class="hljs-keyword">let</span> tileY = <span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">100</span> + moveY;
+    <span class="hljs-comment">// If the next tile is not a wall, return true </span>
+    <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(Level.layers.walls,tileX, tileY) === <span class="hljs-number">-1</span>){
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+    <span class="hljs-comment">// else return false</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  chooseDirection(){
+    <span class="hljs-comment">// Initialize a new list of possible directions</span>
+    <span class="hljs-keyword">let</span> availableDirections:<span class="hljs-built_in">string</span>[] = [];
+
+    <span class="hljs-comment">/*
+    - Check if the next tile is free to go in all chooseDirection
+    - Return false, if the direction checked is the one from which the ghost come from
+    - If it is possible to move on the next tile and the ghost don't come from this direction, add the direction to the list.
+    */</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>) &amp;&amp; <span class="hljs-keyword">this</span>.moveDirection !== <span class="hljs-string">"LEFT"</span>){
+      availableDirections.push(<span class="hljs-string">"RIGHT"</span>);
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>) &amp;&amp; <span class="hljs-keyword">this</span>.moveDirection !== <span class="hljs-string">"RIGHT"</span>){
+      availableDirections.push(<span class="hljs-string">"LEFT"</span>);
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) &amp;&amp; <span class="hljs-keyword">this</span>.moveDirection !== <span class="hljs-string">"DOWN"</span>){
+      availableDirections.push(<span class="hljs-string">"UP"</span>);
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>) &amp;&amp; <span class="hljs-keyword">this</span>.moveDirection !== <span class="hljs-string">"UP"</span>){
+      availableDirections.push(<span class="hljs-string">"DOWN"</span>);
+    }
+    <span class="hljs-comment">// then choose randomly a new direction from the list</span>
+    <span class="hljs-keyword">this</span>.moveDirection = Sup.Math.Random.sample(availableDirections);
+    <span class="hljs-comment">// Don't change animation if movement is undefined (in the case the ghost is stuck and have to go back)</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.moveDirection === <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">return</span>;
+    <span class="hljs-comment">// Set the new walk animation now related to the new direction</span>
+    <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"go"</span>+<span class="hljs-keyword">this</span>.moveDirection);
+  }
+
+  update() {
+    <span class="hljs-comment">// Skip the loop if the freeze timer is on</span>
+    <span class="hljs-keyword">if</span>(Global.freeze &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// Stay in jail as long as the freedom timer is on</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.freedomCoolDown &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// When the timer reach 1</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.freedomCoolDown === <span class="hljs-number">1</span>){
+        <span class="hljs-comment">// Open the door and set off vulnerability</span>
+        <span class="hljs-keyword">this</span>.doorOpen = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">this</span>.setVulnerabilityOff();
+      }
+      <span class="hljs-comment">// Decrease by one each frame</span>
+      <span class="hljs-keyword">this</span>.freedomCoolDown--
+    }
+
+    <span class="hljs-comment">// Keep moving in the current direction</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.moveDirection === <span class="hljs-string">"RIGHT"</span>){
+      <span class="hljs-keyword">this</span>.position.x += <span class="hljs-number">5</span>;
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.moveDirection === <span class="hljs-string">"LEFT"</span>){
+      <span class="hljs-keyword">this</span>.position.x -= <span class="hljs-number">5</span>;
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.moveDirection === <span class="hljs-string">"UP"</span>){
+      <span class="hljs-keyword">this</span>.position.y += <span class="hljs-number">5</span>;
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.moveDirection === <span class="hljs-string">"DOWN"</span>){
+      <span class="hljs-keyword">this</span>.position.y -= <span class="hljs-number">5</span>;
+    }
+
+    <span class="hljs-comment">// Check if the ghost change direction when centered in the grid</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.position.x%<span class="hljs-number">100</span> === <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>.position.y%<span class="hljs-number">100</span> === <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.chooseDirection();
+      <span class="hljs-comment">// If the door is open, leave the jail</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.doorOpen){
+        <span class="hljs-keyword">this</span>.leaveJail();
+      }
+    }
+
+    <span class="hljs-comment">/*
+    - check if there is a contact with the pacman    
+    - if contact, something different happen according to the ghost vulnerability
+    - if the distance between the pacman and the ghost is inferior to half the size of a case
+    */</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Math</span>.abs(<span class="hljs-keyword">this</span>.position.x/<span class="hljs-number">10</span> - Global.pacman.position.x) &lt; <span class="hljs-number">5</span> &amp;&amp; <span class="hljs-built_in">Math</span>.abs(<span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">10</span> - Global.pacman.position.y) &lt; <span class="hljs-number">5</span>){
+      <span class="hljs-comment">// if the ghost is vulnerable</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.vulnerable){
+        Sup.Audio.playSound(<span class="hljs-string">"Sounds/EatGhost"</span>);
+        <span class="hljs-comment">// The ghost is eaten</span>
+        <span class="hljs-keyword">this</span>.eaten();
+        <span class="hljs-comment">// The game freeze for 20 frames</span>
+        Global.freeze = <span class="hljs-number">20</span>;
+      }
+      <span class="hljs-comment">// if the ghost is not vulnerable</span>
+      <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">this</span>.vulnerable){
+        Sup.Audio.playSound(<span class="hljs-string">"Sounds/PacmanDeath"</span>);
+        Sup.setTimeout(<span class="hljs-number">1000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{Sup.Audio.playSound(<span class="hljs-string">"Sounds/Music"</span>)});
+        <span class="hljs-comment">// the pacman die</span>
+        Global.pacman.die();
+        <span class="hljs-comment">// All the ghosts return to jail</span>
+        <span class="hljs-comment">// Loop through the ghosts list</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> ghost of Global.ghosts){
+          <span class="hljs-comment">// Call the method to send the ghost in jail</span>
+          ghost.goToJail();
+          <span class="hljs-comment">// Set a timer before being free from jail</span>
+          ghost.freedomCoolDown = Sup.Math.Random.integer(<span class="hljs-number">200</span>, <span class="hljs-number">400</span>);
+        }
+        <span class="hljs-comment">// The game freeze for 200 frames</span>
+        Global.freeze = <span class="hljs-number">200</span>;
+      }
+    }
+
+    <span class="hljs-comment">// If vulnerable, decrease by one cooldown timer</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.vulnerable){
+      <span class="hljs-keyword">this</span>.vulnerabilityCooldown--;
+      <span class="hljs-comment">// If the timer is inferior to 150 frames, start actor blinking</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.vulnerabilityCooldown &lt; <span class="hljs-number">150</span>){
+        <span class="hljs-comment">// blinking magic :)</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.vulnerabilityCooldown % <span class="hljs-number">40</span> &lt; <span class="hljs-number">8</span> &amp;&amp; <span class="hljs-keyword">this</span>.vulnerabilityCooldown % <span class="hljs-number">40</span> &gt; <span class="hljs-number">-8</span>){
+          <span class="hljs-comment">// Set the sprite animation blink</span>
+          <span class="hljs-keyword">this</span>.actor.spriteRenderer.setAnimation(<span class="hljs-string">"blink"</span>);
+        }
+      }
+      <span class="hljs-comment">// If the timer reach 1, set off the vulnerability</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.vulnerabilityCooldown === <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">this</span>.setVulnerabilityOff();
+      }
+    }
+
+    <span class="hljs-comment">// Stay in the maze when go out of the screen</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.position.x &lt; <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">this</span>.position.x = (Level.size.width<span class="hljs-number">-1</span>) * <span class="hljs-number">100</span>;
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.position.x &gt; (Level.size.width<span class="hljs-number">-1</span>) * <span class="hljs-number">100</span>) {
+      <span class="hljs-keyword">this</span>.position.x = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-comment">// Update ghost actor position</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position.x / <span class="hljs-number">100</span>, <span class="hljs-keyword">this</span>.position.y / <span class="hljs-number">100</span>);
+  }
+}
+Sup.registerBehavior(GhostBehavior);
+</code></pre>
+<h5 id="fruit-ts">fruit.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> FruitsBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Position of the fruit</span>
+  <span class="hljs-keyword">public</span> position: Sup.Math.Vector2;
+  <span class="hljs-comment">// Flag check if fruit have spawned or not</span>
+  <span class="hljs-keyword">private</span> spawn: <span class="hljs-built_in">boolean</span>;
+  <span class="hljs-comment">// Timer before to spawn</span>
+  <span class="hljs-keyword">private</span> spawnCooldown: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Fruit number and name</span>
+  <span class="hljs-keyword">private</span> name: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Previous fruit number and name</span>
+  <span class="hljs-keyword">private</span> previousFruit: <span class="hljs-built_in">number</span>;
+
+  awake() {
+    <span class="hljs-comment">// Add this fruit to the fruits list</span>
+    Global.fruits.push(<span class="hljs-keyword">this</span>);
+    <span class="hljs-comment">// Set this fruit as not spawned</span>
+    <span class="hljs-keyword">this</span>.spawn = <span class="hljs-literal">false</span>;
+    <span class="hljs-comment">// Store the name of this fruit (a number)</span>
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-keyword">this</span>.actor.getName();
+    <span class="hljs-comment">// Get the name of the previous fruit before this one (integral number - 1)</span>
+    <span class="hljs-keyword">this</span>.previousFruit = <span class="hljs-built_in">parseInt</span>(<span class="hljs-keyword">this</span>.name) - <span class="hljs-number">1</span>;
+    <span class="hljs-comment">// Get the position of the actor</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.actor.getPosition().toVector2();
+  }
+
+  startSpawn(){
+    <span class="hljs-comment">// Set spawn flag as true</span>
+    <span class="hljs-keyword">this</span>.spawn = <span class="hljs-literal">true</span>;
+    <span class="hljs-comment">// Set timer before spawn</span>
+    <span class="hljs-keyword">this</span>.spawnCooldown = <span class="hljs-number">500</span>;
+  }
+
+  setPosition(){
+    <span class="hljs-comment">// Get a random position from available positions</span>
+    <span class="hljs-keyword">this</span>.position = Sup.Math.Random.sample(Global.fruitsAvailablePositions);
+    <span class="hljs-comment">// Set the position to the actor</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position);
+  }
+
+  eaten(){
+    <span class="hljs-comment">// Add points to the player</span>
+    Global.game.updateScore(Global.points.fruit);
+    <span class="hljs-comment">// Display the point to the current position</span>
+    Global.game.displayNewScore(<span class="hljs-keyword">this</span>.actor.getPosition(), Global.points.fruit);
+    <span class="hljs-comment">// Set true, as the fruit eaten status</span>
+    Global.fruitsEatenByIndex[<span class="hljs-built_in">parseInt</span>(<span class="hljs-keyword">this</span>.name)] = <span class="hljs-literal">true</span>;
+    <span class="hljs-comment">// Add 1 to total fruits eaten</span>
+    Global.fruitsEaten++;
+    <span class="hljs-comment">// Destroy this actor</span>
+    <span class="hljs-keyword">this</span>.actor.destroy();
+  }
+
+  update() {
+    <span class="hljs-comment">// if this fruits have not spawn and if there is an available positions</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.spawn === <span class="hljs-literal">false</span> &amp;&amp; Global.fruitsAvailablePositions.length &gt; <span class="hljs-number">0</span> ){
+      <span class="hljs-comment">// If there is no previous fruit before this one</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.previousFruit === <span class="hljs-number">-1</span>){
+        <span class="hljs-comment">// Call the method to start to spawn</span>
+        <span class="hljs-keyword">this</span>.startSpawn();
+      }
+      <span class="hljs-comment">// Else, check if the previous fruit have already been eaten</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Global.fruitsEatenByIndex[<span class="hljs-keyword">this</span>.previousFruit] === <span class="hljs-literal">true</span>){
+        <span class="hljs-comment">// If yes, call the method to start to spawn</span>
+        <span class="hljs-keyword">this</span>.startSpawn();
+      }
+    }
+
+    <span class="hljs-comment">// If the spawn flag is true</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.spawn === <span class="hljs-literal">true</span>){
+      <span class="hljs-comment">// Decrease spawn cooldown by one</span>
+      <span class="hljs-keyword">this</span>.spawnCooldown--
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.spawnCooldown === <span class="hljs-number">1</span>){
+      <span class="hljs-comment">// when timer is 1, spawn actor to an available position in the maze</span>
+      <span class="hljs-keyword">this</span>.setPosition();
+      }
+    }
+  }
+}
+Sup.registerBehavior(FruitsBehavior);
+</code></pre>
+<p><a href="ch11.html">&lt;-- go to chapter 11</a> -- <a href="index.html">go back to summary --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

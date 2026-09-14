@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>9. Pacman Behavior — Super Pacman — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch0.html" >Devlog</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Project Structure</a></li><li><a href="ch3.html" >3. Setting Assets</a></li><li><a href="ch4.html" >4. Designing Levels</a></li><li><a href="ch5.html" >5. Composing Scenes</a></li><li><a href="ch6.html" >6. Global Game Behavior</a></li><li><a href="ch7.html" >7. Menu Behavior</a></li><li><a href="ch8.html" >8. Level & Start</a></li><li><a href="ch9.html" class="active">9. Pacman Behavior</a></li><li><a href="ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="ch11.html" >11. Polishing the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pacman</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-game-development-series-5">Superpowers Game Development Series #5</h1>
+<h2 id="super-pacman"><strong>SUPER PACMAN</strong></h2>
+<h3 id="chapter-9-scripting-pacman-behavior"><strong>Chapter 9 : Scripting pacman behavior</strong></h3>
+<p>We write the pacman script.</p>
+<h4 id="pacman-behavior">Pacman behavior</h4>
+<p>We need to define all the methods our pacman will need to interact with the world objects, moving inside the walls and eating ghosts, coins and fruits. It define also the behavior when
+the pacman is eaten and respawn.</p>
+<h5 id="datas">Datas</h5>
+<p>We initialize the variables with their types. </p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> PacmanBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Spawn position in the current level</span>
+  <span class="hljs-keyword">public</span> spawnPosition: Sup.Math.Vector2;
+  <span class="hljs-comment">// Current position in the maze</span>
+  <span class="hljs-keyword">public</span> position: Sup.Math.Vector2;
+  <span class="hljs-comment">// Next direction the pacman will follow</span>
+  <span class="hljs-keyword">private</span> nextDirection: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Current direction of the pacman</span>
+  <span class="hljs-keyword">private</span> currentDirection: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Time in frame before respawn</span>
+  <span class="hljs-keyword">private</span> respawnCooldown: <span class="hljs-built_in">number</span>;
+[...]
+</code></pre>
+<h5 id="awakening-and-starting">Awakening and starting</h5>
+<p>We set the datas of the pacman when the game start for the first time.</p>
+<pre><code class="lang-ts">[...]
+  awake() {
+    <span class="hljs-comment">// Give global access to this actor behavior</span>
+    Global.pacman = <span class="hljs-keyword">this</span>;
+  }
+
+  start(){
+    <span class="hljs-comment">// Set the current position to the actor in the scene</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Multiply the position by ten to work only with integer numbers</span>
+    <span class="hljs-keyword">this</span>.position.multiplyScalar(<span class="hljs-number">10</span>);
+  }
+[...]
+</code></pre>
+<h5 id="get-small-coin">Get small coin</h5>
+<p>This method check if there is a coin when the pacman reach the center a tile. We also need a method that check if this position is one of the random position
+for the fruit to appear, if it is the case, we give the information as now the position is available for a fruit.</p>
+<pre><code class="lang-ts">[...]
+  getCoinAt(column:<span class="hljs-built_in">number</span>, row:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// Loop through all the small coins of the level</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> coin of Global.coinsList.small){
+      <span class="hljs-comment">// If the position in x and the position in y of the small coin is the same than the position of the pacman</span>
+      <span class="hljs-keyword">if</span>(coin.getX() === column &amp;&amp; coin.getY() === row){
+        <span class="hljs-comment">// Get the index of this actor from the coin list</span>
+        <span class="hljs-keyword">let</span> coinIndex = Global.coinsList.small.indexOf(coin);
+        <span class="hljs-comment">// Remove this index from the coin list</span>
+        Global.coinsList.small.splice(coinIndex, <span class="hljs-number">1</span>);
+        <span class="hljs-comment">// Remove one coin from the total coin counter</span>
+        Global.coins.small--;
+        <span class="hljs-comment">// Call the function getFruitAvailablePosition to check if it is also a fruit position</span>
+        <span class="hljs-keyword">this</span>.getFruitAvailablePosition(column, row);
+        <span class="hljs-comment">// Then destroy the coin actor (and sprite renderer)</span>
+        coin.destroy();
+        <span class="hljs-comment">// Add score for this coin</span>
+        Global.game.updateScore(Global.points.coin);
+        <span class="hljs-comment">// Add a coin to the statistic of coin eaten</span>
+        Global.coinsEatens++;
+      }
+    }
+  }
+
+  getFruitAvailablePosition(column:<span class="hljs-built_in">number</span>, row:<span class="hljs-built_in">number</span>){
+      <span class="hljs-comment">// Loop through all the random positions for the fruits to appear</span>
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> position of Global.fruitsRandomPositions){
+        <span class="hljs-comment">// If the current pacman position is one of them</span>
+        <span class="hljs-keyword">if</span>(position.x === column &amp;&amp; position.y === row){
+          <span class="hljs-comment">// Then add this position as a new vector in the available position list</span>
+          Global.fruitsAvailablePositions.push(<span class="hljs-keyword">new</span> Sup.Math.Vector2(column, row));
+        }
+      }
+    }
+[...]
+</code></pre>
+<h5 id="get-big-coin">Get big coin</h5>
+<p>This method is mostly the same than the previous one, except than when a big coin is taken, the vulnerability of the ghosts switch.</p>
+<pre><code class="lang-ts">[...]
+  getBigcoinAt(column:<span class="hljs-built_in">number</span>, row:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// Loop through all the big coins of the level</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> bigcoin of Global.coinsList.big) {
+      <span class="hljs-comment">// If the position in x and the position in y of the big coin is the same than the position of the pacman</span>
+      <span class="hljs-keyword">if</span> (bigcoin.getX() === column &amp;&amp; bigcoin.getY() === row) {
+        <span class="hljs-comment">// Get the index of this big coin from the list</span>
+        <span class="hljs-keyword">let</span> bigcoinIndex = Global.coinsList.big.indexOf(bigcoin);
+        <span class="hljs-comment">// Remove the big coin from the list of big coins</span>
+        Global.coinsList.big.splice(bigcoinIndex, <span class="hljs-number">1</span>);
+        <span class="hljs-comment">// Decrease by one the number of total coin counter in the level</span>
+        Global.coins.big--;
+        <span class="hljs-comment">// Destroy the bigcoin actor (and sprite renderer)</span>
+        bigcoin.destroy();
+        <span class="hljs-comment">// Add score for this big coin</span>
+        Global.game.updateScore(Global.points.bigcoin);
+        <span class="hljs-comment">// Add a coin to the statistic of coin eaten</span>
+        Global.coinsEatens++;
+        <span class="hljs-comment">// Loop through all the ghosts from the list</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> ghost of Global.ghosts){
+          <span class="hljs-comment">// Call a method from the ghost behavior to set their vulnerability</span>
+          ghost.setVulnerabilityOn();
+        }
+      }
+    }
+  }
+[...]
+</code></pre>
+<p>To avoid an error we can set an empty function in the ghost script, we will complete it in the next chapter.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> GhostBehavior extends Sup.Behavior {
+[...]
+  setVulnerabilityOn(){}
+[...]
+</code></pre>
+<h5 id="get-fruit">Get fruit</h5>
+<p>This method check if there is a fruit to take in the pacman current position.</p>
+<pre><code class="lang-ts">[...]
+  getFruitAt(column:<span class="hljs-built_in">number</span>, row:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// Loop through all the fruits from the list</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> fruit of Global.fruits){
+      <span class="hljs-comment">// If the fruit position are the same than the current pacman position</span>
+      <span class="hljs-keyword">if</span>(fruit.position.x === column &amp;&amp; fruit.position.y === row){
+        <span class="hljs-comment">// Remove the fruit from the list</span>
+        Global.fruits.splice(Global.fruits.indexOf(fruit), <span class="hljs-number">1</span>);
+        <span class="hljs-comment">// Call a local function of the fruit script</span>
+        fruit.eaten();
+      }
+    }
+  }
+[...]
+</code></pre>
+<p>To avoid error we will need to initialize the fruit script and the die function.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> FruitsBehavior extends Sup.Behavior {
+  <span class="hljs-keyword">public</span> position: Sup.Math.Vector2;
+[...]
+</code></pre>
+<h5 id="movement-check">Movement check</h5>
+<p>This method check a tile and return true only if the pacman is aligned on the grid and can </p>
+<pre><code class="lang-ts">[...]
+  canMove(moveX:<span class="hljs-built_in">number</span>, moveY:<span class="hljs-built_in">number</span>){
+    <span class="hljs-comment">// If the pacman position is not centered on the grid, don't check the tile, return false</span>
+    <span class="hljs-keyword">if</span> (moveX !== <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>.position.y%<span class="hljs-number">10</span> !== <span class="hljs-number">0</span> || moveY !== <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>.position.x%<span class="hljs-number">10</span> !==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+    <span class="hljs-comment">// Initialize cursor coordinates on tile to check   </span>
+    <span class="hljs-keyword">let</span> tileX:<span class="hljs-built_in">number</span>; <span class="hljs-keyword">let</span> tileY:<span class="hljs-built_in">number</span>;
+    <span class="hljs-comment">// The cursor origin we check on a tile is left, down of a tile, we change the cursor position :</span>
+    <span class="hljs-keyword">if</span>(moveX === <span class="hljs-number">-1</span>){
+      <span class="hljs-comment">// When going to left move the origin cursor to right position and move it to the next tile on the left</span>
+      tileX = <span class="hljs-built_in">Math</span>.floor((<span class="hljs-keyword">this</span>.position.x+<span class="hljs-number">9</span>)/<span class="hljs-number">10</span>)+moveX;
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Move the cursor to the next tile on the right</span>
+      tileX = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-keyword">this</span>.position.x/<span class="hljs-number">10</span>)+moveX;
+    }
+    <span class="hljs-keyword">if</span>(moveY === <span class="hljs-number">-1</span>){
+      <span class="hljs-comment">// When going to left move the origin cursor to up position and move it to the next tile up</span>
+      tileY = <span class="hljs-built_in">Math</span>.floor((<span class="hljs-keyword">this</span>.position.y+<span class="hljs-number">9</span>)/<span class="hljs-number">10</span>)+moveY;
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Move the cursor to the next tile up</span>
+      tileY = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">10</span>)+moveY;
+    }
+    <span class="hljs-comment">// If the tile checked is empty in tileMap, then return true, else return false</span>
+    <span class="hljs-keyword">if</span> (Global.game.tileMap.getTileAt(Level.layers.walls, tileX, tileY) === <span class="hljs-number">-1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+[...]
+</code></pre>
+<h5 id="set-direction-animation">Set direction animation</h5>
+<p>This method update the current direction and the moving sprite of the pacman.</p>
+<pre><code class="lang-ts">[...]
+  setDirection(){
+    <span class="hljs-comment">// Next direction become current direction</span>
+    <span class="hljs-keyword">this</span>.currentDirection = <span class="hljs-keyword">this</span>.nextDirection;
+    <span class="hljs-comment">// Change the animation with the current direction</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Move"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"go"</span>+<span class="hljs-keyword">this</span>.currentDirection);
+  }
+[...]
+</code></pre>
+<h5 id="death">death</h5>
+<p>This method update the life of the pacman, hide the actor and create a new actor which play the death animation.</p>
+<pre><code class="lang-ts">[...]
+  die(){
+    <span class="hljs-comment">// Decrease by one the pacman lifes</span>
+    Global.pacmanLifes--
+    <span class="hljs-comment">// Update life from HUD</span>
+    Global.game.updateLife();
+    <span class="hljs-comment">// Set the pacman actor invisible</span>
+    <span class="hljs-keyword">this</span>.actor.setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Create a new actor called Death</span>
+    <span class="hljs-keyword">let</span> death = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Death"</span>);
+    <span class="hljs-comment">// Set the current position to the death actor</span>
+    death.setPosition(<span class="hljs-keyword">this</span>.actor.getPosition());
+    <span class="hljs-comment">// Add a sprite renderer component and play once the death animation</span>
+    <span class="hljs-keyword">new</span> Sup.SpriteRenderer(death).setSprite(<span class="hljs-string">"Pacman/Death"</span>).setAnimation(<span class="hljs-string">"death"</span>, <span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Set the timer before respawn</span>
+    <span class="hljs-keyword">this</span>.respawnCooldown = <span class="hljs-number">10</span>;
+  }
+[...]
+</code></pre>
+<h5 id="respawn">respawn</h5>
+<p>This method reset the pacman to the spawn position.</p>
+<pre><code class="lang-ts">[...]
+  respawn(){
+    <span class="hljs-comment">// Reset current position to the spawn position</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.spawnPosition.clone();
+    <span class="hljs-comment">// Set the current position to the actor in the scene</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Multiply the position to work with integer</span>
+    <span class="hljs-keyword">this</span>.position.multiplyScalar(<span class="hljs-number">10</span>);
+    <span class="hljs-comment">// Reset the movement current and next direction</span>
+    <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">""</span>;
+    <span class="hljs-keyword">this</span>.currentDirection = <span class="hljs-string">""</span>;
+    <span class="hljs-comment">// Stop the movement animation</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Move"</span>).spriteRenderer.stopAnimation();
+    <span class="hljs-comment">// Set the pacman actor visible</span>
+    <span class="hljs-keyword">this</span>.actor.setVisible(<span class="hljs-literal">true</span>);
+  }
+[...]
+</code></pre>
+<h5 id="update-loop">Update loop</h5>
+<p>The loop check the input of the player, check the tilemap by calling methods for collisions/eating and possibility of movements.</p>
+<pre><code class="lang-ts">[...]
+  update() {
+    <span class="hljs-comment">// If the game is freezed, return to the beginning of the loop</span>
+    <span class="hljs-keyword">if</span>(Global.freeze &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// If the respawnCooldown is on, decrease it by one each frame</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.respawnCooldown &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.respawnCooldown--;
+      <span class="hljs-comment">// When the timer reach 1, call the respawn function</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.respawnCooldown === <span class="hljs-number">1</span>){
+        <span class="hljs-keyword">this</span>.respawn();
+      }
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// When the player press a directional key, store it as the next direction.</span>
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.left)){
+      <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">"LEFT"</span>;
+    }
+
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.right)){
+      <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">"RIGHT"</span>;
+    }
+
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.up)){
+      <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">"UP"</span>;
+    }
+
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.down)){
+      <span class="hljs-keyword">this</span>.nextDirection = <span class="hljs-string">"DOWN"</span>;
+    }
+
+    <span class="hljs-comment">// Check if it is possible to go in the next direction and if yes, set it as the current direction</span>
+    <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.nextDirection === <span class="hljs-string">"LEFT"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>)){    
+      <span class="hljs-keyword">this</span>.setDirection();
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.nextDirection === <span class="hljs-string">"RIGHT"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)){       
+      <span class="hljs-keyword">this</span>.setDirection();
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.nextDirection === <span class="hljs-string">"UP"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)){    
+      <span class="hljs-keyword">this</span>.setDirection();
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.nextDirection === <span class="hljs-string">"DOWN"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>)){    
+      <span class="hljs-keyword">this</span>.setDirection();
+    }
+
+    <span class="hljs-comment">// Check if it is possible to go in the current direction and if yes keep moving</span>
+    <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.currentDirection === <span class="hljs-string">"LEFT"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>)){    
+      <span class="hljs-keyword">this</span>.position.add(<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.currentDirection === <span class="hljs-string">"RIGHT"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)){    
+      <span class="hljs-keyword">this</span>.position.add(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.currentDirection === <span class="hljs-string">"UP"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)){    
+      <span class="hljs-keyword">this</span>.position.add(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>.currentDirection === <span class="hljs-string">"DOWN"</span> &amp;&amp; <span class="hljs-keyword">this</span>.canMove(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>)){    
+      <span class="hljs-keyword">this</span>.position.add(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>);
+    }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-comment">// Stop the animation movement if the pacman is blocked</span>
+      <span class="hljs-keyword">this</span>.actor.spriteRenderer.stopAnimation();
+    }
+
+    <span class="hljs-comment">// Update the position actor with the new position, (divide by ten to get the real unit)</span>
+    <span class="hljs-keyword">this</span>.actor.setPosition(<span class="hljs-keyword">this</span>.position.x/<span class="hljs-number">10</span>, <span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">10</span>);
+
+    <span class="hljs-comment">// Keep pacman in the game screen on the x axis (tunnel)</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &lt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.position.x = (Level.size.width * <span class="hljs-number">10</span>)<span class="hljs-number">-10</span>;
+    }
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &gt; (Level.size.width * <span class="hljs-number">10</span>)<span class="hljs-number">-10</span>){
+      <span class="hljs-keyword">this</span>.position.x = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-comment">// If the pacman is centered in the unit gride, check if there is something to eat</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x%<span class="hljs-number">10</span> === <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>.position.y%<span class="hljs-number">10</span> === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Get the current x and y position, divise by ten, to work with the real unit</span>
+      <span class="hljs-keyword">let</span> posX: <span class="hljs-built_in">number</span> = <span class="hljs-keyword">this</span>.position.x/<span class="hljs-number">10</span>; 
+      <span class="hljs-keyword">let</span> posY: <span class="hljs-built_in">number</span> = <span class="hljs-keyword">this</span>.position.y/<span class="hljs-number">10</span>;
+       <span class="hljs-comment">// Check if there is a coin in current position and take it if yes</span>
+      <span class="hljs-keyword">this</span>.getCoinAt(posX, posY);
+      <span class="hljs-comment">// Check if there is a bigCoin in current position and take it if yes</span>
+      <span class="hljs-keyword">this</span>.getBigcoinAt(posX, posY);
+      <span class="hljs-comment">// Check if there is a fruit in current position and take it if yes</span>
+      <span class="hljs-keyword">this</span>.getFruitAt(posX, posY);
+    }
+  }
+}
+Sup.registerBehavior(PacmanBehavior);
+</code></pre>
+<p>We can download the superpowers project <strong>v9</strong> from this chapter <a href="https://github.com/mseyne/super-pacman-project">here</a>.</p>
+<p><a href="ch8.html">&lt;-- go to chapter 8</a> -- <a href="ch10.html">go to chapter 10 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

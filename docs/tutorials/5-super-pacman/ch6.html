@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>6. Global Game Behavior — Super Pacman — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch0.html" >Devlog</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Project Structure</a></li><li><a href="ch3.html" >3. Setting Assets</a></li><li><a href="ch4.html" >4. Designing Levels</a></li><li><a href="ch5.html" >5. Composing Scenes</a></li><li><a href="ch6.html" class="active">6. Global Game Behavior</a></li><li><a href="ch7.html" >7. Menu Behavior</a></li><li><a href="ch8.html" >8. Level & Start</a></li><li><a href="ch9.html" >9. Pacman Behavior</a></li><li><a href="ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="ch11.html" >11. Polishing the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pacman</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-game-development-series-5">Superpowers Game Development Series #5</h1>
+<h2 id="super-pacman"><strong>SUPER PACMAN</strong></h2>
+<h3 id="chapter-6-scripting-global-game-behavior"><strong>Chapter 6 : Scripting global game behavior</strong></h3>
+<h4 id="global-datas">Global datas</h4>
+<p>The first thing we can add in our scripts is the datas we will use in our game, like the points, the game keys and others datas we will need to keep track of what happen in the game.</p>
+<pre><code class="lang-ts"><span class="hljs-comment">// This variable will be used to open a web url in a new window, it is not directly related to the game logic</span>
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">var</span> <span class="hljs-built_in">window</span>;
+
+<span class="hljs-comment">// A global module</span>
+<span class="hljs-keyword">namespace</span> Global {
+
+  <span class="hljs-comment">// points for each objects the pacman can eat</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> points {
+        coin = <span class="hljs-number">10</span>,
+        bigcoin = <span class="hljs-number">50</span>,
+        fruit = <span class="hljs-number">100</span>,
+        ghost = <span class="hljs-number">200</span>
+       }
+
+  <span class="hljs-comment">// keyboard's keys the player will use in the game</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> keys = {
+        left: <span class="hljs-string">"LEFT"</span>,
+        right: <span class="hljs-string">"RIGHT"</span>,
+        up: <span class="hljs-string">"UP"</span>,
+        down: <span class="hljs-string">"DOWN"</span>,
+        space: <span class="hljs-string">"SPACE"</span>,
+        exit: <span class="hljs-string">"ESCAPE"</span>
+       }
+
+  <span class="hljs-comment">// name of the menu screens</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> menuScreens = {
+    start: <span class="hljs-string">"Start"</span>,
+    levels: <span class="hljs-string">"Levels"</span>,
+    end: <span class="hljs-string">"End"</span>
+  }
+
+  <span class="hljs-comment">// number of coins small and big</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> coins = {
+        small: <span class="hljs-number">0</span>,
+        big: <span class="hljs-number">0</span>
+       }
+
+  <span class="hljs-comment">// list of all the coins in game, small and big</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> coinsList = {
+        small: [],
+        big: []
+       }
+
+  <span class="hljs-comment">// starting life</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> lifesMax:<span class="hljs-built_in">number</span> = <span class="hljs-number">3</span>;
+  <span class="hljs-comment">// life order indicator for HUD</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> lifesOrder:<span class="hljs-built_in">boolean</span>[][] = [[<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>], [<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>], [<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>]]
+
+  <span class="hljs-comment">// the game behavior</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> game:GameBehavior;
+  <span class="hljs-comment">// the game HUD (game information displayed)</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> HUD:Sup.Actor;
+  <span class="hljs-comment">// the pacman behavior</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> pacman:PacmanBehavior;
+  <span class="hljs-comment">// the ghosts behavior in a list</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> ghosts:GhostBehavior[];
+  <span class="hljs-comment">// the fruits behavior in a list</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruits:FruitsBehavior[];
+  <span class="hljs-comment">// the game time</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> time:<span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// the game score</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> score: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// level chosen to play</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> currentLevel:<span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// boolean flag if the game is won or not</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> won:<span class="hljs-built_in">boolean</span>;
+  <span class="hljs-comment">// number of frame the game stay blocked before continue</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> freeze: <span class="hljs-built_in">number</span>;
+
+  <span class="hljs-comment">// the current pacman lifes</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> pacmanLifes: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// number of coins eaten</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> coinsEatens: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// number of ghosts eaten</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> ghostsEaten:<span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// number of fruits eaten</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruitsEaten:<span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// fruits status, each position in list is a fruit, if false the fruit is not eaten</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruitsEatenByIndex: <span class="hljs-built_in">boolean</span>[] = [<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>];
+
+
+  <span class="hljs-comment">// fruits positions in the level</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruitsRandomPositions:Sup.Math.Vector2[];
+  <span class="hljs-comment">// current available fruits positions in the level</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> fruitsAvailablePositions:Sup.Math.Vector2[];
+</code></pre>
+<h4 id="game-behavior">Game behavior</h4>
+<p>The game behavior is the script which monitoring what is happening in the game behind the gameplay logic of movement and collision, like keeping track of the timer.</p>
+<h5 id="initialize-behavior">Initialize behavior</h5>
+<p>First we start the class (here we prefer the start method above the awake method because it give time to the other behavior to load).</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> GameBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// We initialize the tile map</span>
+  <span class="hljs-keyword">public</span> tileMap: Sup.TileMap;
+  <span class="hljs-comment">// We initialize locally the timer variable</span>
+  <span class="hljs-keyword">private</span> time: <span class="hljs-built_in">number</span>; <span class="hljs-keyword">private</span> second: <span class="hljs-built_in">number</span>; <span class="hljs-keyword">private</span> minute: <span class="hljs-built_in">number</span>;
+
+  start() {
+    <span class="hljs-comment">// We set the game behavior globally</span>
+    Global.game = <span class="hljs-keyword">this</span>;
+    <span class="hljs-comment">//  We reset the game timer globally and locally</span>
+    Global.time = <span class="hljs-string">"0"</span>; <span class="hljs-keyword">this</span>.time = <span class="hljs-number">0</span>; <span class="hljs-keyword">this</span>.second = <span class="hljs-number">0</span>; <span class="hljs-keyword">this</span>.minute = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// We set the tilemap to the current game level</span>
+    <span class="hljs-keyword">this</span>.tileMap = Sup.getActor(<span class="hljs-string">"Level"</span>).tileMapRenderer.getTileMap();
+    <span class="hljs-comment">// We prepare the level with the function Level.set()</span>
+    Level.set();
+  }
+[...]
+</code></pre>
+<p><em>Note : the Level.set() function will be writen in the chapter 8, for now we can comment it to avoid errors.</em></p>
+<p>And then we add different methods we will use to update and display game informations.</p>
+<h5 id="update-score">update score</h5>
+<p>A method who receive points to update the score when needed.</p>
+<pre><code class="lang-ts">[...]
+  updateScore(points:<span class="hljs-built_in">number</span>){
+        <span class="hljs-comment">// Add the points to the game score</span>
+        Global.score += points;
+        <span class="hljs-comment">// Update the HUD score display</span>
+        Global.HUD.getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(<span class="hljs-string">"SCORE:"</span>+Global.score.toString());
+  }
+[...]
+</code></pre>
+<h5 id="display-new-score">display new score</h5>
+<p>A method who display the new score won in the current position when a ghost or a fruit is eaten by the player. 
+It take as parameters a position and points.</p>
+<pre><code class="lang-ts">[...]
+  displayNewScore(position:Sup.Math.Vector3, points:<span class="hljs-built_in">number</span>){
+      <span class="hljs-comment">// Create a new actor score</span>
+      <span class="hljs-keyword">let</span> score = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"score"</span>);
+      <span class="hljs-comment">// Add a new component text renderer to the actor with the points as text</span>
+      <span class="hljs-keyword">new</span> Sup.TextRenderer(score, points.toString());
+      <span class="hljs-comment">// Add the font Font to the component text renderer</span>
+      score.textRenderer.setFont(<span class="hljs-string">"Font"</span>);
+      <span class="hljs-comment">// Give the current position to the score (+0.5 to adapt to the centered origin)</span>
+      score.setPosition(position.x+<span class="hljs-number">0.5</span>, position.y+<span class="hljs-number">0.5</span>, position.z);
+      <span class="hljs-comment">// Destroy the actor score after 1 second</span>
+      Sup.setTimeout(<span class="hljs-number">1000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{score.destroy();});
+    }
+[...]
+</code></pre>
+<h5 id="update-life">update life</h5>
+<p>A method that update and display the Pacman lifes. How it works is than when the pacman loose one life, the method is called, it compare the life sprite from the HUD 
+with the pattern of boolean flag lifesOrder related to the current life of the Pacman. If the life is true, then the sprite is full, else, the sprite is empty.</p>
+<pre><code class="lang-ts">[...]
+  updateLife(){
+      <span class="hljs-comment">// Loop the number of maximum lifes the pacman got (3 times) and give the current value to index</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>; index &lt; Global.lifesMax; index++){
+        <span class="hljs-comment">// Get the sprite Renderer component from HUD/Lifes/index actor</span>
+        <span class="hljs-keyword">let</span> sprite = Global.HUD.getChild(<span class="hljs-string">"Lifes"</span>).getChild(index.toString()).spriteRenderer;
+        <span class="hljs-comment">// Check the boolean flag from the lifesOrder pattern of the pacman current lifes and current index</span>
+        <span class="hljs-keyword">if</span>(Global.lifesOrder[Global.pacmanLifes][index] === <span class="hljs-literal">true</span>){
+          <span class="hljs-comment">// If the flag is true, set the sprite animation to full</span>
+          sprite.setAnimation(<span class="hljs-string">"full"</span>, <span class="hljs-literal">false</span>);
+        }
+        <span class="hljs-keyword">else</span>{
+          <span class="hljs-comment">// If the flag is false, set the sprite animation to empty</span>
+          sprite.setAnimation(<span class="hljs-string">"empty"</span>, <span class="hljs-literal">false</span>);
+        }
+      }
+    }
+[...]
+</code></pre>
+<h5 id="update-timer">update timer</h5>
+<p>A method that store the local time globally and display it to the HUD.</p>
+<pre><code class="lang-ts">[...]
+  updateTimer(){
+    <span class="hljs-comment">// convert minute and second to string and set them to variables</span>
+    <span class="hljs-keyword">let</span> minute = <span class="hljs-keyword">this</span>.minute.toString(); <span class="hljs-keyword">let</span> second = <span class="hljs-keyword">this</span>.second.toString();
+    <span class="hljs-comment">// If the minutes or seconds are inferior to 10, then add a 0 to the string to keep display consistency </span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.minute &lt; <span class="hljs-number">10</span>){
+      minute = <span class="hljs-string">"0"</span>+minute;
+    }
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.second &lt; <span class="hljs-number">10</span>){
+      second = <span class="hljs-string">"0"</span>+second;
+    }
+    <span class="hljs-comment">// Build the complete string for the current time</span>
+    Global.time = minute+<span class="hljs-string">':'</span>+second;
+    <span class="hljs-comment">// Display it with the HUD/Timer text renderer</span>
+    Global.HUD.getChild(<span class="hljs-string">'Timer'</span>).textRenderer.setText(<span class="hljs-string">"TIME:"</span>+Global.time);
+  }  
+[...]
+</code></pre>
+<h5 id="update-game-loop">update() game loop</h5>
+<p>The update loop go 60 frames per second and check the differents flag of the game to see if something happen globally.</p>
+<pre><code class="lang-ts">[...]
+  update() {
+    <span class="hljs-comment">// If the freeze counter is on, decrease it from 1 and return to pass the block and repeat </span>
+    <span class="hljs-keyword">if</span>(Global.freeze &gt; <span class="hljs-number">0</span>){
+      Global.freeze--
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// Check if the game is won or not (when the Global.won is not undefined anymore)</span>
+    <span class="hljs-keyword">if</span>(Global.won === <span class="hljs-literal">false</span> || Global.won === <span class="hljs-literal">true</span>){
+      <span class="hljs-comment">// Load the menu scene and destroy the game scene</span>
+      Sup.loadScene(<span class="hljs-string">"Menu/Scene"</span>);
+      <span class="hljs-comment">// Call the function that will load the victory or gameover end screen</span>
+      Sup.getActor(<span class="hljs-string">"Menu"</span>).getBehavior(MenuBehavior).setEndscreen();
+    }
+
+    <span class="hljs-comment">// Increase the game timer by one</span>
+    <span class="hljs-keyword">this</span>.time++;
+    <span class="hljs-comment">// When the time got 60 frames add 1 second (the game is default set as 60 frames = 1 second)</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.time%<span class="hljs-number">60</span> === <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.second++;
+      <span class="hljs-comment">// When the second is 60, add 1 minute and reset second to 0 </span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.second%<span class="hljs-number">60</span> === <span class="hljs-number">0</span>){
+        <span class="hljs-keyword">this</span>.minute++; <span class="hljs-keyword">this</span>.second = <span class="hljs-number">0</span>;
+      }
+      <span class="hljs-comment">// Call the updateTimer method every second</span>
+      <span class="hljs-keyword">this</span>.updateTimer();
+    }
+
+    <span class="hljs-comment">// Check if the exit key is pressed</span>
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Global.keys.exit)){
+      <span class="hljs-comment">// If yes, load the menu scene and destroy the game scene</span>
+      Sup.loadScene(<span class="hljs-string">"Menu/Scene"</span>);
+    }
+
+    <span class="hljs-comment">// Check if there is still coins left, if not, the game is won</span>
+    <span class="hljs-keyword">if</span>(Global.coins.small === <span class="hljs-number">0</span> &amp;&amp; Global.coins.big === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Set the won flag to true</span>
+      Global.won = <span class="hljs-literal">true</span>;
+      <span class="hljs-comment">// Set frames number freeze counter</span>
+      Global.freeze = <span class="hljs-number">100</span>;
+    }
+
+    <span class="hljs-comment">// Check if there is still lifes for pacman, if not, the game is lost</span>
+    <span class="hljs-keyword">if</span> (Global.pacmanLifes === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Set the won flag to false</span>
+      Global.won = <span class="hljs-literal">false</span>;
+    }
+  }
+}
+Sup.registerBehavior(GameBehavior);
+</code></pre>
+<p><em>Note : the .setEndscreen() method will be writen in the chapter 7 with the menu, for now we can comment it to avoid errors.</em></p>
+<p>We can now start to script the menu logic.</p>
+<p>We can download the superpowers project <strong>v6</strong> from this chapter <a href="https://github.com/mseyne/super-pacman-project">here</a>.</p>
+<p><a href="ch5.html">&lt;-- go to chapter 5</a> -- <a href="ch7.html">go to chapter 7 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>8. Level & Start — Super Pacman — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch0.html" >Devlog</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Project Structure</a></li><li><a href="ch3.html" >3. Setting Assets</a></li><li><a href="ch4.html" >4. Designing Levels</a></li><li><a href="ch5.html" >5. Composing Scenes</a></li><li><a href="ch6.html" >6. Global Game Behavior</a></li><li><a href="ch7.html" >7. Menu Behavior</a></li><li><a href="ch8.html" class="active">8. Level & Start</a></li><li><a href="ch9.html" >9. Pacman Behavior</a></li><li><a href="ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="ch11.html" >11. Polishing the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pacman</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-game-development-series-5">Superpowers Game Development Series #5</h1>
+<h2 id="super-pacman"><strong>SUPER PACMAN</strong></h2>
+<h3 id="chapter-8-scripting-level-and-start"><strong>Chapter 8 : Scripting level and start</strong></h3>
+<p>In the previous chapters we called differents functions which wasn&#39;t written yet, the Global.startNewGame() when we click on a level button from the menu and 
+the Level.set() called once a new game start.</p>
+<p>We can now create all of the to finish the logic behing the launch of the game.</p>
+<h4 id="new-level-settings">New level settings</h4>
+<p>In the global script we add a namespace Level where we will add our datas and function related to the game level. The function serve mostly to explore the tile map and return the datas
+we need to start a new game.</p>
+<h5 id="level-datas">Level datas</h5>
+<p>Datas we access from other part of the program.</p>
+<pre><code class="lang-ts">[...]
+<span class="hljs-keyword">namespace</span> Level {
+  <span class="hljs-comment">// All the different level names  </span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> levels = {
+               <span class="hljs-number">1</span>:<span class="hljs-string">"Level1"</span>,
+               <span class="hljs-number">2</span>:<span class="hljs-string">"Level2"</span>,
+               <span class="hljs-number">3</span>:<span class="hljs-string">"Level3"</span>,
+               <span class="hljs-number">4</span>:<span class="hljs-string">"Level4"</span>,
+               <span class="hljs-number">5</span>:<span class="hljs-string">"Level5"</span>,
+               <span class="hljs-number">6</span>:<span class="hljs-string">"Level6"</span>
+              }
+
+  <span class="hljs-comment">// The differents layers of the tile map for each level</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> layers {
+        positions = <span class="hljs-number">0</span>,
+        backgroung = <span class="hljs-number">1</span>,
+        walls = <span class="hljs-number">2</span>
+       }
+
+  <span class="hljs-comment">// Size of level per unit of 16 pixels</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> size {
+        width = <span class="hljs-number">26</span>,
+        height = <span class="hljs-number">32</span> 
+       }
+
+  <span class="hljs-comment">// Tile set references of the game objects</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> tiles {
+        smallcoin = <span class="hljs-number">63</span>,
+        bigcoin = <span class="hljs-number">64</span>,
+        fruits = <span class="hljs-number">65</span>,
+        ghost = <span class="hljs-number">66</span>,
+        pacman = <span class="hljs-number">67</span>
+       }
+
+  <span class="hljs-comment">// End statistics of the game</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> endStats = [<span class="hljs-string">"Score"</span>, <span class="hljs-string">"Time"</span>, <span class="hljs-string">"Ghosts"</span>, <span class="hljs-string">"Coins"</span>, <span class="hljs-string">"Fruits"</span>, <span class="hljs-string">"Lifes"</span>];
+[...]
+</code></pre>
+<h5 id="set-level">Set level</h5>
+<p>This function is a hub function, serve to redirect to all the local function and call them once.</p>
+<pre><code class="lang-ts">[...]
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Call all the Level functions once </span>
+    setPacman();
+    setGhosts();
+    setCoins();
+    getFruitsRandomPositions();
+  }
+[...]
+</code></pre>
+<h5 id="set-pacman">Set pacman</h5>
+<p>This functions serve to find out where is the starting position of the pacman on the tile map and return it&#39;s position to the game actor.</p>
+<pre><code class="lang-ts">[...]
+  <span class="hljs-comment">// function that check all the tile from the tile map and return the position of the searched tile</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkMap</span>(<span class="hljs-params">layer:<span class="hljs-built_in">number</span>, tile:<span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">// Loop the number of unit there is on width size</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt; size.width; x++){
+      <span class="hljs-comment">// Loop the number of unit there is on height size</span>
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>; y &lt; size.height; y++){
+        <span class="hljs-comment">// Check if the tile in x and y is the tiled looked for</span>
+        <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layer, x, y) === tile){
+          <span class="hljs-comment">// if yes, return the position as a new Vector2</span>
+          <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Sup.Math.Vector2(x, y);
+        }
+      }
+    }
+  }
+
+  <span class="hljs-comment">// function that get the start position of pacman on the map</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setPacman</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Call the checkMap function and set the returned position to the variable</span>
+    <span class="hljs-keyword">let</span> spawnPosition = checkMap(layers.positions, tiles.pacman);
+    <span class="hljs-comment">// Give to the pacman actor the spawnposition of this level (constant)</span>
+    Global.pacman.spawnPosition = spawnPosition;
+    <span class="hljs-comment">// Copy this position for the current position (variable)</span>
+    Global.pacman.position = spawnPosition.clone();
+  }
+[...]
+</code></pre>
+<h5 id="set-ghosts">Set ghosts</h5>
+<pre><code class="lang-ts">[...]  
+  <span class="hljs-comment">// function that get the start ghost positions on the map</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setGhosts</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Index of ghosts, start with the first</span>
+    <span class="hljs-keyword">let</span> ghostIndex: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// Loop through all the tile set</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt; size.width; x++){
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>; y &lt; size.height; y++){
+        <span class="hljs-comment">// If the current tile x, y is a ghost start position tile</span>
+        <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.ghost){
+            <span class="hljs-comment">// If yes, create a new Vector 2 with the position of the tile</span>
+            <span class="hljs-keyword">let</span> spawnPosition = <span class="hljs-keyword">new</span> Sup.Math.Vector2(x, y)
+            <span class="hljs-comment">// Give the position to the current ghost Actor as the spawnPosition and the current position</span>
+            Global.ghosts[ghostIndex].spawnPosition = spawnPosition;
+            Global.ghosts[ghostIndex].position = spawnPosition.clone();
+            <span class="hljs-comment">// Change ghost index to prepare the next one</span>
+            ghostIndex++
+        }
+      }
+    }
+  }
+[...]
+</code></pre>
+<h5 id="set-coins">Set coins</h5>
+<p>This function check the Tile Map in the beginning to find all the position of small and big coins to set them as actors in a list.</p>
+<pre><code class="lang-ts">[...]
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCoins</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Loop to check all the tile positions from the Tile Map</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt; size.width; x++){
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>; y &lt; size.height; y++){
+        <span class="hljs-comment">// If the tile is a fruit or a small coin, add a small coin actor</span>
+        <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.smallcoin ||
+        Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.fruits){
+          <span class="hljs-comment">// Add a coin to the total count</span>
+          Global.coins.small++
+          <span class="hljs-comment">// Create a new actor</span>
+          <span class="hljs-keyword">let</span> coin = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"smallCoin"</span>);
+          <span class="hljs-comment">// Set X and Y position to the actor and a Z position to 10</span>
+          coin.setPosition(x, y, <span class="hljs-number">10</span>);
+          <span class="hljs-comment">// Set a new component Sprite renderer to the actor with the smallCoin sprite</span>
+          <span class="hljs-keyword">new</span> Sup.SpriteRenderer(coin, <span class="hljs-string">"Items/Coins/Small"</span>);
+          <span class="hljs-comment">// Add the actor to the list of small coins</span>
+          Global.coinsList.small.push(coin);
+        }
+        <span class="hljs-comment">// If the tile is a big coin, add a big coin actor</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.bigcoin){
+          <span class="hljs-comment">// Add a coin to the total count</span>
+          Global.coins.big++
+          <span class="hljs-comment">// Create a new actor</span>
+          <span class="hljs-keyword">let</span> coin = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"bigCoin"</span>);
+          <span class="hljs-comment">// Set X and Y position to the actor and a Z position to 10</span>
+          coin.setPosition(x, y, <span class="hljs-number">10</span>);
+          <span class="hljs-comment">// Set a new component Sprite renderer to the actor with the bigCoin sprite</span>
+          <span class="hljs-keyword">new</span> Sup.SpriteRenderer(coin, <span class="hljs-string">"Items/Coins/Big"</span>);
+          <span class="hljs-comment">// Add the actor to the list of big coins</span>
+          Global.coinsList.big.push(coin);
+        }
+      }
+    }
+  }
+[...]
+</code></pre>
+<h5 id="set-fruits">Set fruits</h5>
+<p>This function get the position of the fruit starting position and add them to a list.</p>
+<pre><code class="lang-ts">[...]  
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFruitsRandomPositions</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Check all the tile positions from the tile map</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt; size.width; x++){
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>; y &lt; size.height; y++){
+       <span class="hljs-comment">// if the tile checked is a fruit tile, add it to the fruitsRandomPositions list</span>
+       <span class="hljs-keyword">if</span>(Global.game.tileMap.getTileAt(layers.positions, x, y) === tiles.fruits){
+         Global.fruitsRandomPositions.push(<span class="hljs-keyword">new</span> Sup.Math.Vector2(x, y));
+       }
+      }
+    }
+  }
+}
+</code></pre>
+<h5 id="pacman-and-ghosts-positions">Pacman and Ghosts positions</h5>
+<p>To be able to make it work, we need to initialize variables in the pacman and ghost scripts. We will see in the next chapters how to complete them.</p>
+<p>Pacman script</p>
+<pre><code class="lang-ts">[...]
+<span class="hljs-keyword">class</span> PacmanBehavior extends Sup.Behavior {
+  <span class="hljs-keyword">public</span> spawnPosition: Sup.Math.Vector2;
+  <span class="hljs-keyword">public</span> position: Sup.Math.Vector2;
+
+  awake() {
+    <span class="hljs-comment">// Set this actor a global access </span>
+    Global.pacman = <span class="hljs-keyword">this</span>;
+  }
+[...]
+</code></pre>
+<p>Ghost script</p>
+<pre><code class="lang-ts">[...]
+<span class="hljs-keyword">class</span> GhostBehavior extends Sup.Behavior {
+  <span class="hljs-keyword">public</span> spawnPosition: Sup.Math.Vector2;
+  <span class="hljs-keyword">public</span> position: Sup.Math.Vector2;
+
+  awake() {
+    Global.ghosts.push(<span class="hljs-keyword">this</span>);
+  }
+[...]
+</code></pre>
+<h4 id="start-new-game">Start new game</h4>
+<p>In the global module of the global script we add an exported function. This function serve as a starter when we start a new level from the menu.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Global {
+[...]
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startNewGame</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Set datas to default    </span>
+    won = <span class="hljs-literal">undefined</span>;
+    ghosts = [];
+    coins.small = <span class="hljs-number">0</span>;
+    coins.big = <span class="hljs-number">0</span>;
+    coinsList.small = [];
+    coinsList.big = [];
+    fruits = [];
+    fruitsRandomPositions = [];
+    fruitsAvailablePositions = [];
+    fruitsEatenByIndex = [<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>];
+    score = <span class="hljs-number">0</span>;
+    fruitsEaten = <span class="hljs-number">0</span>;
+    ghostsEaten = <span class="hljs-number">0</span>;
+    coinsEatens = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// Start life</span>
+    pacmanLifes = lifesMax;
+
+    <span class="hljs-comment">// Freeze the game for 300 frames before to start</span>
+    freeze = <span class="hljs-number">300</span>;
+
+    <span class="hljs-comment">// Load the game scene (leave the menu scene)</span>
+    Sup.loadScene(<span class="hljs-string">"Game/Scene"</span>);
+    <span class="hljs-comment">// Get the HUD actor for global access</span>
+    HUD = Sup.getActor(<span class="hljs-string">"HUD"</span>);
+    <span class="hljs-comment">// Set the current level Tile Map</span>
+    Sup.getActor(<span class="hljs-string">"Level"</span>).tileMapRenderer.setTileMap(<span class="hljs-string">"Levels/"</span>+currentLevel+<span class="hljs-string">"/Tile Map"</span>);
+  }
+[...]
+</code></pre>
+<p>We now have a complete menu, start a new game and set the level logic complete. We can now focus on the player control of the pacman.</p>
+<p>We can download the superpowers project <strong>v8</strong> from this chapter <a href="https://github.com/mseyne/super-pacman-project">here</a>.</p>
+<p><a href="ch7.html">&lt;-- go to chapter 7</a> -- <a href="ch9.html">go to chapter 9 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

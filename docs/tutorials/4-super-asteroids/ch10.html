@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>10. Polishing the Game — Super Asteroids & Super Spacewar — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Building Structure</a></li><li><a href="ch3.html" >3. Loading Assets</a></li><li><a href="ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="ch5.html" >5. Program Structure</a></li><li><a href="ch6.html" >6. Alien & Asteroids</a></li><li><a href="ch7.html" >7. Ship & Missiles</a></li><li><a href="ch8.html" >8. Collision & Life</a></li><li><a href="ch9.html" >9. Menu & Game Over</a></li><li><a href="ch10.html" class="active">10. Polishing the Game</a></li><li><a href="ch11.html" >11. Modding the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Asteroids & Super Spacewar</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-4">SUPERPOWERS TUTORIAL #4</h1>
+<h2 id="super-asteroids-and-super-spacewar-chapter-10">SUPER ASTEROIDS and SUPER SPACEWAR, Chapter 10</h2>
+<h3 id="polishing-the-game"><strong>Polishing the game</strong></h3>
+<h4 id="background-scrolling">Background scrolling</h4>
+<p>We create a scrolling movement for the background in the Background script.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> BackgroundBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Initialize position and speed variables</span>
+  position: <span class="hljs-built_in">number</span>;
+  speed : <span class="hljs-built_in">number</span>;
+
+  awake() {
+    <span class="hljs-comment">// Get the position on Y axis of the actor</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.actor.getLocalY();
+    <span class="hljs-comment">// Set the speed of background scrolling</span>
+    <span class="hljs-keyword">this</span>.speed = <span class="hljs-number">0.01</span>;
+  }
+
+  update() {
+    <span class="hljs-comment">// Add the speed movement to the current position</span>
+    <span class="hljs-keyword">this</span>.position += <span class="hljs-keyword">this</span>.speed;
+    <span class="hljs-comment">// Set the current position to the actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalY(<span class="hljs-keyword">this</span>.position);
+
+    <span class="hljs-comment">// If the sprite moved all its height (480/16 = 60 units)</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position &gt; <span class="hljs-number">60</span>) {
+      <span class="hljs-comment">// Then return down to start again</span>
+      <span class="hljs-keyword">this</span>.position = <span class="hljs-number">-60</span>;
+    }
+  }
+}
+Sup.registerBehavior(BackgroundBehavior);
+</code></pre>
+<h4 id="sounds-and-music">Sounds and Music</h4>
+<p><em>Note : The music is still in development, the tutorial will be updated when ready</em></p>
+<p>We add all the sounds in differents place of our script :</p>
+<ul>
+<li>When the player use the mouse on a button in the menu.</li>
+<li>When the alien shoot a missile.</li>
+<li>When the ship missile touch the alien ship.</li>
+<li>When the ship shoot a missile.</li>
+<li>When the player ship, an asteroid or the alien ship is destroyed.</li>
+</ul>
+<h5 id="menu-script">Menu script</h5>
+<pre><code class="lang-ts">[...]
+  update(){
+    <span class="hljs-comment">// If the button 1 is hovered</span>
+        <span class="hljs-keyword">if</span>(hitB1[<span class="hljs-number">0</span>]){
+        [...]
+        <span class="hljs-comment">// If the left mouse button is pressed</span>
+        <span class="hljs-keyword">if</span> (Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)) {
+            Sup.Audio.playSound(<span class="hljs-string">"Sounds/shipShot"</span>);
+
+    <span class="hljs-comment">// If the button 2 is hovered</span>
+        <span class="hljs-keyword">if</span>(hitB2[<span class="hljs-number">0</span>]){
+        [...]
+        <span class="hljs-comment">// If the left mouse button is pressed</span>
+        <span class="hljs-keyword">if</span> (Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)) {
+            Sup.Audio.playSound(<span class="hljs-string">"Sounds/shipShot"</span>);
+[...]  
+</code></pre>
+<h5 id="alien-script">Alien script</h5>
+<pre><code class="lang-ts">[...]
+  update() {
+  [...]
+    <span class="hljs-comment">// Set death if alien don't have lifes anymore</span>
+    <span class="hljs-keyword">if</span>(Alien.lifes === <span class="hljs-number">0</span>){
+      Sup.Audio.playSound(<span class="hljs-string">'Sounds/explosion'</span>);
+      [...]
+
+    <span class="hljs-comment">// Keep shooting</span>
+    <span class="hljs-comment">// If the timer is not finished, decrease value of one</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.shootCooldown &gt; <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">this</span>.shootCooldown--;
+    }
+    <span class="hljs-comment">// If the timer is finished, shoot missile</span>
+    <span class="hljs-keyword">else</span> {
+      Sup.Audio.playSound(<span class="hljs-string">'Sounds/alienShot'</span>);
+      <span class="hljs-keyword">this</span>.shoot();
+    }
+    [...]
+
+    <span class="hljs-comment">// If there is player ship1 missiles, call a collision checking for this actor with the list of the player Ship missiles</span>
+    <span class="hljs-keyword">if</span>(Ships.missiles[<span class="hljs-number">0</span>].length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// If the collision checking return true</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">0</span>], <span class="hljs-keyword">this</span>.amplitude)) {
+        Sup.Audio.playSound(<span class="hljs-string">'Sounds/shotContact'</span>);
+[...]
+</code></pre>
+<h5 id="asteroid-script">Asteroid script</h5>
+<pre><code class="lang-ts">[...]
+  die() {
+    Sup.Audio.playSound(<span class="hljs-string">'Sounds/explosion'</span>);
+[...]
+</code></pre>
+<h5 id="ship-script">Ship script</h5>
+<pre><code class="lang-ts">[...]
+  die() {
+    Sup.Audio.playSound(<span class="hljs-string">'Sounds/explosion'</span>);
+  [...]
+  update() {
+    [...]
+    <span class="hljs-comment">// If the timer is 0 (!0 = true)</span>
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.shootCooldown) {
+      <span class="hljs-comment">// If the shoot key is pressed</span>
+      <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Ships.commands[<span class="hljs-keyword">this</span>.index].shoot)){
+        Sup.Audio.playSound(<span class="hljs-string">'Sounds/shipShot'</span>);
+[...]
+</code></pre>
+<p>Our game is now complete and ready for release. We can still do whatever we want with it and transform it to do a new game, we will see that in the next chapter.</p>
+<p><a href="ch9.html">&lt;-- back to chapter 9</a> -- <a href="ch11.html">go to chapter 11 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

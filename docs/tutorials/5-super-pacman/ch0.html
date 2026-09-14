@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Devlog — Super Pacman — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch0.html" class="active">Devlog</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Project Structure</a></li><li><a href="ch3.html" >3. Setting Assets</a></li><li><a href="ch4.html" >4. Designing Levels</a></li><li><a href="ch5.html" >5. Composing Scenes</a></li><li><a href="ch6.html" >6. Global Game Behavior</a></li><li><a href="ch7.html" >7. Menu Behavior</a></li><li><a href="ch8.html" >8. Level & Start</a></li><li><a href="ch9.html" >9. Pacman Behavior</a></li><li><a href="ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="ch11.html" >11. Polishing the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pacman</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-game-development-series-5">Superpowers Game Development Series #5</h1>
+<h2 id="super-pacman-game-devlog"><strong>Super Pacman Game Devlog</strong></h2>
+<h3 id="26-04-2016"><strong>26/04/2016</strong></h3>
+<ul>
+<li>Finale Release</li>
+</ul>
+<h3 id="25-04-2016"><strong>25/04/2016</strong></h3>
+<ul>
+<li>I wrote the <a href="ch10.html">Chapter 10 : Scripting ghost and fruit behaviors</a> and release the v10 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+</ul>
+<h3 id="22-04-2016"><strong>22/04/2016</strong></h3>
+<ul>
+<li>I wrote the <a href="ch8.html">Chapter 8 : Scripting level and start</a> and release the v8 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+<li>I wrote the <a href="ch9.html">Chapter 9 : Scripting pacman behavior</a> and release the v9 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+</ul>
+<h3 id="21-04-2016"><strong>21/04/2016</strong></h3>
+<ul>
+<li>I wrote the <a href="ch6.html">Chapter 6 : Scripting global game behavior</a> and release the v6 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+<li>I wrote the <a href="ch7.html">Chapter 7 : Scripting menu behavior</a> and release the v7 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+</ul>
+<h3 id="19-04-2016"><strong>19/04/2016</strong></h3>
+<ul>
+<li>I wrote the <a href="ch5.html">Chapter 5 : Composing the scenes</a> and release the v5 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+</ul>
+<p><img src="img/ch5/menuscene.png" alt="Tile Set">
+<img src="img/ch5/gamescene.png" alt="Tile Set"></p>
+<h3 id="18-04-2016"><strong>18/04/2016</strong></h3>
+<ul>
+<li>I wrote the <a href="ch4.html">Chapter 4 : Designing the levels</a> and release the v4 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+<li>I polished the tileset.</li>
+</ul>
+<p><img src="img/ch3/leveltileset.png" alt="Tile Set"></p>
+<ul>
+<li>I made all the levels.</li>
+</ul>
+<p><img src="img/ch3/menulevels.png" alt="Levels buttons"></p>
+<h3 id="16-04-2016"><strong>16/04/2016</strong></h3>
+<ul>
+<li>I wrote the <a href="ch3.html">Chapter 3 : Setting the assets</a> and release the v3 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+<li>I also polished all the sprites, will finish the tileset with the chapter 4 tomorrow.</li>
+</ul>
+<p><img src="img/ch3/menustart.png" alt="Chapter 3"></p>
+<h3 id="14-04-2016"><strong>14/04/2016</strong></h3>
+<ul>
+<li>I wrote the <a href="ch2.html">Chapter 2 : Setting the project structure</a> and released the v2 of the project <a href="https://github.com/mseyne/super-pacman-project">here</a>.</li>
+</ul>
+<p><img src="img/ch0/140416-1.png" alt="Chapter 2"></p>
+<h3 id="13-04-2016"><strong>13/04/2016</strong></h3>
+<ul>
+<li><p>Today I start the tutorial from a second build of the Game. The reason why I start again from scratch is that I can build it as I write the tutorial and I will do release of the game by chapter.
+To see the evolution as we follow the tutorial.</p>
+</li>
+<li><p>I wrote the <a href="ch1.html">Chapter 1 : Planning the game</a>.</p>
+</li>
+</ul>
+<h3 id="12-04-2016"><strong>12/04/2016</strong></h3>
+<ul>
+<li>Victory and game over screen with game statistics added.</li>
+</ul>
+<p><img src="img/ch0/120416-1.png" alt="End screen"></p>
+<ul>
+<li><p>The ghosts are now blinking before to get back vulnerability.</p>
+</li>
+<li><p>I have built some more levels patterns and also improved the wall tiles and made some variants.</p>
+</li>
+</ul>
+<p><img src="img/ch0/120416-2.png" alt="New level"></p>
+<ul>
+<li>I did sounds and music for the game.</li>
+</ul>
+<h3 id="11-04-2016"><strong>11/04/2016</strong></h3>
+<ul>
+<li>Today I mostly did some bug fixes and added the game timer.</li>
+</ul>
+<h3 id="10-04-2016"><strong>10/04/2016</strong></h3>
+<ul>
+<li><p>The hud update when pacman lose one life.</p>
+</li>
+<li><p>The pacman death animation is added.</p>
+</li>
+</ul>
+<p><img src="img/ch0/100416-1.png" alt="Death animation"></p>
+<h4 id="menu-levels-selection">Menu levels selection</h4>
+<ul>
+<li>I worked on the menu screens, added levels buttons and selection system.</li>
+</ul>
+<p><img src="img/ch0/100416-2.png" alt="Level selection"></p>
+<h3 id="09-04-2016"><strong>09/04/2016</strong></h3>
+<ul>
+<li><p>The pacman now eat fruits that appear randomly and got the score displayed in the position where the fruit was.</p>
+</li>
+<li><p>When the pacman eat a big coin, the ghosts become vulnerable for a certain amount of time. Still need to add a blinking when the ghost come back to normal.</p>
+</li>
+<li><p>The pacman can eat ghost or be eaten and loose one life, just need to update HUD.</p>
+</li>
+<li><p>The ghosts go in jail when eaten (<em>I have not done the eye track back until jail from the original pacman, too lazy</em>).</p>
+</li>
+</ul>
+<p><img src="img/ch0/090416-1.png" alt="Ghost eating"></p>
+<h3 id="08-04-2016"><strong>08/04/2016</strong></h3>
+<ul>
+<li>I added the Ghosts behavior, they are now moving on the map randomly. I also improved the ghost sprite and animation (eyes looking in the current direction)</li>
+</ul>
+<p><img src="img/ch0/080416-1.png" alt="Ghost come on board"></p>
+<ul>
+<li>There is a kind of timer when they stay in jail and when they can go through the door after this timer. There is a random timer when the game start to not let them go in the same time.</li>
+</ul>
+<h3 id="07-04-2016"><strong>07/04/2016</strong></h3>
+<ul>
+<li>Today I fixed the pacman movement, what was important to find out was a way to keep access to a grid based coordinate that I could use to check the tiles and I get rid of the float numbers
+multiplying position by ten to make operation and dividing by ten to get back coordinates, it is less messy this way (thanks sparkinlabs code source for the idea).</li>
+<li>The pacman can also eat coins and earn points from them.</li>
+</ul>
+<p><img src="img/ch0/070416-1.png" alt="Pacman can eat a lot"></p>
+<h3 id="06-04-2016"><strong>06/04/2016</strong></h3>
+<ul>
+<li><p>I changed my mind with the objects positions on the level, now I do a layer that I won&#39;t erase and keep as a reference each time I start the level. 
+In game this layer is simply hidden by the background layer.</p>
+</li>
+<li><p>I added the HUD (position of sprite in scene only) with the pacman lifes and fruits than I forgot yesterday.</p>
+</li>
+<li><p>I also started to write the pacman movement and I struggle a bit with it. What I try to do is to check on the tileMap each tile on the position next to the pacman position.
+I will try tomorrow to fix a bug with the collision movements or change my method.</p>
+</li>
+</ul>
+<p><img src="img/ch0/060416-1.png" alt="game screen with HUD"></p>
+<ul>
+<li>Now I can just call once a set function and it will do all the level preparation with the position layer.</li>
+</ul>
+<h3 id="05-04-2016"><strong>05/04/2016</strong></h3>
+<p>Today I started the game from scratch with superpowers, on my previously games I did the menu at the end and found that it was bringing me little issues to solve when I had to polish the game, 
+so this time I set the start screen menu directly, even if it doesn&#39;t do anything else than jump to the game scene when I press the Space key. </p>
+<p>Doing the start screen is also an opportunity to think about the general art design of the game, I start with this colors palette and will improve it from this base.</p>
+<p><img src="img/ch0/050416-1.png" alt="start screen"></p>
+<p>From here I can work on the menu and the game in the same time as my need appears.</p>
+<p>I also started to make a template level test with the dev tile set. This will be good enough art to start to code the game logic.</p>
+<p><img src="img/ch0/050416-2.png" alt="level template"></p>
+<p>With a checking of tile on the Map, I can already set the positions of the Pacman, Coin and Ghosts actor to their starting position. This simple script allow me to build differents 
+levels in the editor and automatically place all the objects on the map dynamically. It erase the tiles that I use for level design and replace it with the game actors. </p>
+<p><img src="img/ch0/050416-3.png" alt="actors in place!"></p>
+<h3 id="04-04-2016"><strong>04/04/2016</strong></h3>
+<p>I am starting today the development of Pacman with superpowers, I believe it will take me between 3 weeks and 1 month to build the complete game with assets and the tutorial gitbook.</p>
+<p>Today, I mostly explored and rewrote the sparkinlab <a href="https://github.com/superpowers-extra/pac-man-like-game">code</a> to find out inspiration and a global view before to start the clone.</p>
+<p>I also draw on paper a <strong>quick draft</strong> of what I want, a game start screen, a level selection screen, the game itself with the level selected and a game over screen with the score.</p>
+<p><img src="img/ch0/040416-1.png" alt="quick draft">  </p>
+<p>I already know there will be the classic pacman and the 4 ghosts, the coins and somes fruits.</p>
+<p>I won&#39;t need to think much about the design of the game, I will do my best to clone the original from memory and follow my own idea in the same time, we will see where it is going.</p>
+<p>I also started today a remake of the classic sprites, nothing fancy, I just need the shapes for now as it will help me to build the levels and game structure first.</p>
+<p><img src="img/ch0/040416-2.png" alt="first assets"> </p>
+<p>It is a simple test made with the map editor of superpowers, no logic yet, I will improve the sprites as long this development go forward.</p>
+
+    </div>
+  </main>
+</body>
+</html>

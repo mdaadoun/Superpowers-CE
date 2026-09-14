@@ -52,10 +52,16 @@ superpowers-ce/
 │               ├── extra/           # Additional physics & utils (cannonjs, p2js, tweenjs)
 │               ├── florentpoujol/   # Florent Poujol plugins (threejs, fmouseinput, ftext...)
 │               └── sparedray/       # SparedRay plugins (easystarjs pathfinding)
+├── demos/                           # Complete playable demo projects, raw sources & tutorials
+│   ├── projects/                    # 5 ready-to-run projects (Pong, OXO, Sokoban, Asteroids, Pacman)
+│   ├── sources/                     # Raw graphics, audio, fonts and spritesheet sources
+│   └── tutorials/                   # Markdown tutorial sources for each game
 │
-├── docs/                            # Inlined offline documentation
-│   ├── handbook/                    # Guides & tutorials from docs.superpowers-html5.com
-│   └── site/                        # Reference articles & landing page from superpowers-html5.com
+├── docs/                            # Inlined offline documentation & GitHub Pages site
+│   ├── learn/                       # Static Engine Documentation handbook
+│   ├── tutorials/                   # Static Demos & Game Tutorials handbook
+│   ├── handbook/                    # Raw guides & handbook markdown pages
+│   └── site/                        # Reference articles & landing page sources
 │
 ├── package.json                     # Monorepo orchestrator scripts
 ├── ROADMAP.md                       # Project vision, modernizations, and future milestones

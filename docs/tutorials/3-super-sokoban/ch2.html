@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>2. Shaping Structure — Super Sokoban — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Plan the Game</a></li><li><a href="ch2.html" class="active">2. Shaping Structure</a></li><li><a href="ch3.html" >3. World & Player Logic</a></li><li><a href="ch4.html" >4. Level Scripting</a></li><li><a href="ch5.html" >5. Polishing the Game</a></li><li><a href="ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Sokoban</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-3-super-sokoban">SUPERPOWERS TUTORIAL #3 : SUPER SOKOBAN</h1>
+<h2 id="chapter-2-shaping-the-game-structure"><em>Chapter 2 : Shaping the game structure</em></h2>
+<h3 id="settings">Settings</h3>
+<p>Like before, we will first use Superpowers to build our game as much as we can
+before to start the programming process. This time it is not only about loading
+assets and combine them in a Scene which we will use in our code, but also we will
+ take advantage of the map editor from Superpowers to build our levels.</p>
+<p>First let create a new project and go in the settings. We will choose a standard
+<strong>screen ratio</strong> of 4 / 3 for our game. We will use tiles of 16x16 pixels, our screen
+size will be something in pixels like (4<em>16</em>x in width and 3<em>16</em>x in height like
+  640 x 480 for example).</p>
+<p>We can change the default <strong>camera mode</strong> to 2D, but you will be able to change anytime
+you want in the scene.</p>
+<p>For <strong>Sprite</strong> and <strong>Tile Map</strong> we change the default <strong>Pixels per Unit</strong> from 100 by default
+to 16, which will serve as 1 unit for 16 pixel in the camera screen. This way it
+will be easier later in our program to say by example to move our character to one
+ unit, which be understood directly as to move to 16 pixels. In fact it will help
+  us to have a syncronicity between our 16x16 tiled map and our Camera Screen.</p>
+<p><img src="img/settings.png" alt="settings.png"></p>
+<h3 id="loading-game-assets">Loading game assets</h3>
+<p>We can start to build our structure, we add the <strong>assets</strong> we will need, new scenes,
+sprites, tileset, tilemaps, sounds and scripts.</p>
+<p>We will proceed step by step as we build the game, however here the complete finale
+ asset structure than we can build now (empty assets) if we want.</p>
+<p><img src="img/assets.png" alt="assets.png"></p>
+<ul>
+<li>Game (Will be our Startup Scene)</li>
+<li>Sprites<ul>
+<li>Character (sprite of the player character)</li>
+<li>Next (transition sprite)</li>
+<li>Reset (information sprite)</li>
+</ul>
+</li>
+<li>Scripts<ul>
+<li>Main (Will contain our main game functions)</li>
+<li>Player (The player behavior)</li>
+<li>Level (The level behavior)</li>
+</ul>
+</li>
+<li>Levels<ul>
+<li>Tiles (Tile Set)</li>
+<li>LevelTemplate (Tile Map)</li>
+<li>Level1 (Tile Map)</li>
+<li>Level2 (Tile Map)</li>
+<li>Level3 (Tile Map)</li>
+</ul>
+</li>
+<li>Sounds<ul>
+<li>Push</li>
+<li>Blocked</li>
+<li>EndSound</li>
+<li>GameMusic</li>
+</ul>
+</li>
+<li>Victory //this folder contain the assets we will use to finish the game<ul>
+<li>Scene</li>
+<li>Screen (Sprite)</li>
+<li>EndMusic (Sound)</li>
+</ul>
+</li>
+</ul>
+<p>We start to create 3 sprites, Character, Next and Reset and we give to each the
+image file (png) with the same name. All should already be 16 pixels per unit,
+but we still need to set them individually.</p>
+<ul>
+<li>For the Reset sprite, the <strong>grid</strong> is the same size than the image 160 x 16.</li>
+<li>For the Next sprite, the grid is composed of two frame of 128 x 128.<ul>
+<li>We create an animation called next and we give the start frame 0 and the last frame 1.</li>
+<li>We also set the <strong>Frames / second</strong> to 2 instead of 10, that will slow down the animation.</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/next.png" alt="next.png"></p>
+<ul>
+<li>For the character sprite, we need to set the grid to 16x16, the same size than,
+like we will se later, the tiles of our game world.<ul>
+<li>We set the origin to the sprite to 0, 0 (down and left)</li>
+<li>We need to create 4 animations (that won&#39;t be much animated, because they all have one frame) :<ul>
+<li>down (frame 0, 0)</li>
+<li>up (frame 1, 1)</li>
+<li>right (frame 2, 2)</li>
+<li>left (frame 3, 3)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/character.png" alt="character.png"></p>
+<h3 id="tiles-and-level-mapping">Tiles and level mapping</h3>
+<p>We will now learn how to build levels that we will use for our game. Before to
+start mapping we need a tile set, which is the graphical tile that we will use to draw (map) our level.</p>
+<p>In the folder Levels, we create an asset <strong>Tile Set</strong> than we call Tiles.
+We then load the image file tiles.png and set the grid to 16x16.</p>
+<p>Note that it is important to have our last tile as an empty tile because will
+mapping we will use it for transparency between layer and also an eraser Tile.</p>
+<p>Each tile have it&#39;s own index and we will use them many time in our code. The first
+tile start to 0, and the last tile can also be called with the index -1.</p>
+<p>Still in the folder Levels, we create now a <strong>Tile Map</strong> that we call LevelTemplate and
+that will serve as the main model for all our level than we will duplicate (Ctrl+D) from this one.</p>
+<ul>
+<li>We first attach the tile set Tiles to it (by drag and drop or by writing the path name Levels/Tiles)</li>
+<li>We change the map size to 16 x 12 tiles (wich respect the screen ratio 4  x 3).</li>
+<li>We create 2 layers, World for layer 0, and Actors for layer 1.</li>
+</ul>
+<p><em>Note than the layer order is important as it is related to which come first in
+the camera view, 0 is the farthest of all layers and the other overlaps each other.</em></p>
+<p>By default, the layers are covered with -1, it is also why the empty and transparent
+ tile is important if we want to be able to draw our map on a blank canvas and have
+ more than one layer.</p>
+<p>Here the way we will draw the map, we have the tiles on the right side, we can
+select each one and brush or fill the map. Let&#39;s do some tests on our World layer
+with the two first tiles, the wall and floor.</p>
+<p>We have a simple map, it is generic for our LevelTemplate Tile Map.</p>
+<p><img src="img/template.png" alt="template.png"></p>
+<p>First let duplicate LevelTemplate and call our new Tile Map Level1, then we can
+draw what we want.</p>
+<p>We also add target tile in the World layer, (tile index 2).</p>
+<p>Here the layer World for our Level 1 we will use for our game.</p>
+<p><img src="img/level1world.png" alt="level1world.png"></p>
+<p>For each of our maps we also need boxes and the player start position. We put as
+ much boxes as there is target. The boxes and the player start position (index 3
+    and 4) have to be on the layer Actors.</p>
+<p>Here the layer Actor for our Level1 and both layers together.</p>
+<p><img src="img/level1actors.png" alt="level1actors.png"></p>
+<p><img src="img/level1.png" alt="level1.png"></p>
+<p>And here also the complete maps for our Level2 and Level3, the puzzles are simple
+and for now this choice will be useful to do test on the game mechanic as we program
+the logic, it will be easy later to remplace them by more challenging puzzles.</p>
+<p><img src="img/level2.png" alt="level2.png"></p>
+<p><img src="img/level3.png" alt="level3.png"></p>
+<h3 id="building-the-game-scene">Building the game Scene</h3>
+<p>We start by creating a new Actor called Level to which we attach a new component
+Tile Map Renderer.</p>
+<ul>
+<li>We attach to this actor our Tile Map LevelTemplate (drag and drop or path).</li>
+<li>We check the Level actor is in position 0, 0, 0.</li>
+</ul>
+<p>We then create a new Actor called Camera to which we attach a new component Camera
+and we switch the mode to Orthographic with an <strong>Orthographic Scale</strong> of 12.</p>
+<ul>
+<li>To have the camera fitting the center of the level, we need to have a position to (8, 6, 6).</li>
+</ul>
+<p>We add now a new actor called Player to which we attach a new component Sprite Renderer.</p>
+<ul>
+<li>We attach to this actor our Sprite Character (drag and drop or path).</li>
+<li>We check the Player actor is in position 0, 0, 2. (2 because we want it to appear
+in front of our level)</li>
+</ul>
+<p>We set our Game scene in the settings as the <strong>Startup Scene</strong>.</p>
+<p>We can launch the game to check if everything display correctly.</p>
+<p><img src="img/scene.png" alt="scene.png"></p>
+<p><img src="img/check.png" alt="check.png"></p>
+<p>We add also, as childs of the Level actor, two new actors, Reset and Next, to
+which we attache new Component Sprite Renderer with the sprites of the same name.</p>
+<ul>
+<li>Reset actor position (8, 0.5, 4)</li>
+<li>Next actor position (8, 6, 4)</li>
+</ul>
+<p>For the Next actor, we set the default animation to next.</p>
+<p>We also switch off both of them the visible parameter, because we won&#39;t use them
+in the beginning of our development.</p>
+<p>All right, we now have our complete game structure in place. We can now start programming.</p>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>5. Source Reference — Super Pong — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Introduction & Plan</a></li><li><a href="ch2.html" >2. Preparing Superpowers</a></li><li><a href="ch3.html" >3. Game Logic</a></li><li><a href="ch4.html" >4. Polishing the Game</a></li><li><a href="ch5.html" class="active">5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pong</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-1-super-pong">SUPERPOWERS TUTORIAL #1 SUPER PONG</h1>
+<h2 id="chapter-5-complete-game-source-reference"><em>Chapter 5 : Complete Game Source Reference</em></h2>
+<h3 id="final-considerations-about-the-learning-process-of-making-video-games">Final considerations about the learning process of making video games</h3>
+<p>When you finish this tutorial, you maybe think that you still don&#39;t know how to make a Pong game,
+than you just copied what the tutorial said. Well, you are not really right and you are not really wrong.
+ If you understood the steps a bit, then take a deep breath, believe in yourself and
+ start to remake it from scratch without looking the tutorial. Remaking it again using your own memory
+ will help you to deeper the steps in your memory and have a clearer understanding of what you are doing.</p>
+<p>Following the tutorial with little understanding is the first step of the learning process
+and as your adventure continues and your exploration go deeper, you need now to face alone a blank project
+and start the Pong game again. If you are stuck, you can peek at the tutorial for clues and continue by yourself.
+It is good to use the tutorial like documentation or a reference because what is important is that you can
+understand each step and go through them by yourself as you understand the whole process more.
+All the other games from the next tutorial and building games in the future is just about adding complexity
+and features, slowly crafting worlds that player can explore and have fun with.</p>
+<p>Even if you have built Pong and understood the steps without looking too much at the tutorial, you maybe don&#39;t know what to do next.
+If you want to go to the next step of your adventure in game development, you can start to build a new game
+on your own, read code of others or follow another tutorial and follow it until you understand it. And continue
+this way until you feel comfortable enough with Superpowers and programming with TypeScript.</p>
+<p>The purpose of this series is to propose more complex tutorials as we advance to help us to learn how to climb this big mountain
+until we feel strong enough to build by ourselves this fantastic, challenging and emotionally rich video games.</p>
+<p>See you soon if you decide you want to continue the adventure of game development with Superpowers.</p>
+<h3 id="complete-game-source-reference-">Complete Game Source Reference :</h3>
+<p><strong>Assets files of this game :</strong></p>
+<ul>
+<li>background.png</li>
+<li>pad1.png</li>
+<li>pad2.png</li>
+<li>ball.png</li>
+<li>tac.mp3</li>
+<li>toc.mp3</li>
+<li>tada.mp3</li>
+<li>menu/title.png</li>
+<li>menu/starton.png</li>
+<li>menu/startoff.png</li>
+<li>scripts/ball.ts</li>
+<li>scripts/paddles.ts</li>
+</ul>
+<p><strong>Project Assets Structure :</strong></p>
+<p>Menu (Startup Scene)</p>
+<ul>
+<li>MenuSprites<ul>
+<li>title</li>
+<li>starton</li>
+<li>startoff</li>
+</ul>
+</li>
+<li>MenuScripts<ul>
+<li>button
+Game</li>
+</ul>
+</li>
+<li>GameSprites<ul>
+<li>background</li>
+<li>pad1</li>
+<li>pad2</li>
+<li>ball</li>
+</ul>
+</li>
+<li>GameScripts<ul>
+<li>ball</li>
+<li>paddles</li>
+</ul>
+</li>
+<li>GameSounds<ul>
+<li>tac</li>
+<li>toc</li>
+<li>tada
+Font</li>
+</ul>
+</li>
+</ul>
+<p><strong>Scripts Sources :</strong></p>
+<ul>
+<li>ball.ts</li>
+</ul>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">const</span> BALLSPEED : <span class="hljs-built_in">number</span> = <span class="hljs-number">0.05</span> ;
+
+<span class="hljs-keyword">class</span> BallBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Connect the actor body to a constant</span>
+  ball = <span class="hljs-keyword">this</span>.actor.arcadeBody2D;
+  <span class="hljs-comment">// An Array with score[0] for player 1 and score[1] for player 2</span>
+  score = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+  <span class="hljs-comment">// speed variable</span>
+  speed : <span class="hljs-built_in">number</span> = BALLSPEED;
+  <span class="hljs-comment">// set positive or negative direction variables of x and y</span>
+  dx : <span class="hljs-built_in">number</span> = <span class="hljs-number">1</span>; dy : <span class="hljs-built_in">number</span> = <span class="hljs-number">1</span>;
+
+  update() {
+    <span class="hljs-comment">// get the ball position of x and y</span>
+    <span class="hljs-keyword">let</span> x : <span class="hljs-built_in">number</span>  = <span class="hljs-keyword">this</span>.actor.getX(); <span class="hljs-keyword">let</span> y : <span class="hljs-built_in">number</span>  = <span class="hljs-keyword">this</span>.actor.getY();
+
+    <span class="hljs-comment">// change direction of y if ball reach up and down sides</span>
+    <span class="hljs-keyword">if</span>(y &gt; <span class="hljs-number">2.85</span> || y &lt; <span class="hljs-number">-2.85</span>){
+      Sup.Audio.playSound(<span class="hljs-string">"GameSounds/toc"</span>);
+      <span class="hljs-keyword">this</span>.dy = <span class="hljs-keyword">this</span>.dy * <span class="hljs-number">-1</span>;
+    }
+
+    <span class="hljs-comment">// We check if there is collision between the ball and the two paddles</span>
+    <span class="hljs-keyword">if</span>(Sup.ArcadePhysics2D.collides(<span class="hljs-keyword">this</span>.ball, Sup.ArcadePhysics2D.getAllBodies())){
+       Sup.Audio.playSound(<span class="hljs-string">"GameSounds/tac"</span>);
+      <span class="hljs-comment">/* If there is collision we check if the ball touch
+      a left or right side (we change the x direction) or
+      the up and down side of the paddles (y direction),
+      the speed of the ball take an acceleration. */</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.ball.getTouches().right || <span class="hljs-keyword">this</span>.ball.getTouches().left){
+        <span class="hljs-keyword">this</span>.dx = <span class="hljs-keyword">this</span>.dx * <span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">this</span>.speed += <span class="hljs-number">0.01</span>
+        }
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">this</span>.dy = <span class="hljs-keyword">this</span>.dy * <span class="hljs-number">-1</span>;
+        }
+      }
+
+    <span class="hljs-comment">/* We check if the ball pass the paddle and go beyond
+    (sides left and right of the game table) if yes, we move
+    the ball to the center and change the direction of x axis,
+    the speed take the default speed. */</span>
+    <span class="hljs-keyword">if</span>(x &gt; <span class="hljs-number">4</span> || x &lt; <span class="hljs-number">-4</span>){
+       <span class="hljs-keyword">this</span>.ball.warpPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+       <span class="hljs-keyword">this</span>.dx = <span class="hljs-keyword">this</span>.dx * <span class="hljs-number">-1</span>;
+       <span class="hljs-keyword">this</span>.speed = BALLSPEED;
+       Sup.Audio.playSound(<span class="hljs-string">"GameSounds/tada"</span>);
+       }
+
+    <span class="hljs-comment">//We change the score depending on which side the ball go on x axis</span>
+    <span class="hljs-keyword">if</span>(x &gt; <span class="hljs-number">4</span>){
+      ++<span class="hljs-keyword">this</span>.score[<span class="hljs-number">0</span>];
+      Sup.getActor(<span class="hljs-string">"Player1"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(<span class="hljs-keyword">this</span>.score[<span class="hljs-number">0</span>]);
+    }
+
+    <span class="hljs-keyword">if</span>(x &lt; <span class="hljs-number">-4</span>){
+      ++<span class="hljs-keyword">this</span>.score[<span class="hljs-number">1</span>];
+      Sup.getActor(<span class="hljs-string">"Player2"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(<span class="hljs-keyword">this</span>.score[<span class="hljs-number">1</span>]);
+    }
+
+    <span class="hljs-comment">// set ball movement velocity speed*direction for x and y axis (the ball stay in movement at any time)</span>
+    <span class="hljs-keyword">this</span>.ball.setVelocity(<span class="hljs-keyword">this</span>.speed*<span class="hljs-keyword">this</span>.dx, <span class="hljs-keyword">this</span>.speed*<span class="hljs-keyword">this</span>.dy);
+
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.score[<span class="hljs-number">0</span>] == <span class="hljs-number">10</span> || <span class="hljs-keyword">this</span>.score[<span class="hljs-number">1</span>] == <span class="hljs-number">10</span>){
+      Sup.loadScene(<span class="hljs-string">"Menu"</span>);
+    }
+  }
+}
+Sup.registerBehavior(BallBehavior);
+</code></pre>
+<ul>
+<li>paddles.ts</li>
+</ul>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">class</span> Paddle1Behavior extends Sup.Behavior {
+  <span class="hljs-comment">// connect the paddle body to a variable which will be used many times in the script</span>
+  pad = <span class="hljs-keyword">this</span>.actor.arcadeBody2D;
+
+  <span class="hljs-comment">// set the speed of the paddle</span>
+  speed : <span class="hljs-built_in">number</span> = <span class="hljs-number">0.1</span>;
+
+  update() {
+    <span class="hljs-comment">// get Y position of paddle in a variable</span>
+    <span class="hljs-keyword">let</span> y : <span class="hljs-built_in">number</span> = <span class="hljs-keyword">this</span>.actor.getY();
+
+    <span class="hljs-comment">// if the key is pressed and y &lt; to max, the velocity of the body is set in motion with speed</span>
+    <span class="hljs-keyword">if</span>(Sup.Input.isKeyDown(<span class="hljs-string">"W"</span>) &amp;&amp; y &lt; <span class="hljs-number">2.35</span>){
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(<span class="hljs-keyword">this</span>.speed);
+    }
+    <span class="hljs-comment">// if the key is pressedand y &gt; to min, the velocity of the body is set in motion with negative speed</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Sup.Input.isKeyDown(<span class="hljs-string">"S"</span>) &amp;&amp; y &gt; <span class="hljs-number">-2.35</span>){
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(-<span class="hljs-keyword">this</span>.speed);
+    }
+    <span class="hljs-comment">// in other situations the velocity of the body is set to 0</span>
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(<span class="hljs-number">0</span>);
+    }
+  }
+}
+
+<span class="hljs-keyword">class</span> Paddle2Behavior extends Sup.Behavior {
+  <span class="hljs-comment">// connect the paddle body to a variable which will be used many times in the script</span>
+  pad = <span class="hljs-keyword">this</span>.actor.arcadeBody2D;
+
+  <span class="hljs-comment">// set the speed of the paddle</span>
+  speed : <span class="hljs-built_in">number</span> = <span class="hljs-number">0.1</span>;
+
+  update() {
+    <span class="hljs-comment">// get Y position of paddle in a variable</span>
+    <span class="hljs-keyword">let</span> y : <span class="hljs-built_in">number</span> = <span class="hljs-keyword">this</span>.actor.getY();
+
+    <span class="hljs-comment">// if the key is pressed and y &lt; to max, the velocity of the body is set in motion with speed</span>
+    <span class="hljs-keyword">if</span>(Sup.Input.isKeyDown(<span class="hljs-string">"UP"</span>) &amp;&amp; y &lt; <span class="hljs-number">2.35</span>){
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(<span class="hljs-keyword">this</span>.speed);
+    }
+    <span class="hljs-comment">// if the key is pressedand y &gt; to min, the velocity of the body is set in motion with negative speed</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Sup.Input.isKeyDown(<span class="hljs-string">"DOWN"</span>) &amp;&amp; y &gt; <span class="hljs-number">-2.35</span>){
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(-<span class="hljs-keyword">this</span>.speed);
+    }
+    <span class="hljs-comment">// in other situations the velocity of the body is set to 0</span>
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.pad.setVelocityY(<span class="hljs-number">0</span>);
+    }
+  }
+}
+
+Sup.registerBehavior(Paddle1Behavior);
+Sup.registerBehavior(Paddle2Behavior);
+</code></pre>
+<ul>
+<li>button.ts</li>
+</ul>
+<pre><code class="lang-TypeScript"><span class="hljs-comment">// We initialize a variable ray which is of type Math.Ray</span>
+<span class="hljs-keyword">var</span> ray : Sup.Math.Ray;
+
+<span class="hljs-keyword">class</span> ButtonBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// flag to tell when the mouse hover the button</span>
+  isHover : <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+
+  awake() {
+    ray = <span class="hljs-keyword">new</span> Sup.Math.Ray(<span class="hljs-keyword">this</span>.actor.getPosition(), <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>));
+  }
+
+  <span class="hljs-comment">/* We define different possible actions of the mouse,
+  click action load the game scene, hovering and unhovering
+  make the button to change the sprite.*/</span>
+
+  mouse(action) {
+    <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"click"</span>){
+      Sup.loadScene(<span class="hljs-string">"Game"</span>);
+      Sup.Audio.playSound(<span class="hljs-string">"GameSounds/toc"</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"hover"</span>){
+      Sup.getActor(<span class="hljs-string">"Button"</span>).spriteRenderer.setSprite(<span class="hljs-string">"MenuSprites/starton"</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(action == <span class="hljs-string">"unhover"</span>){
+      Sup.getActor(<span class="hljs-string">"Button"</span>).spriteRenderer.setSprite(<span class="hljs-string">"MenuSprites/startoff"</span>);
+    }
+  }
+
+  update() {
+    <span class="hljs-comment">// Refresh position of the mouse in the camera</span>
+    ray.setFromCamera(Sup.getActor(<span class="hljs-string">"Camera"</span>).camera, Sup.Input.getMousePosition());
+
+    <span class="hljs-comment">/* Condition to check if yes or no, the mouse hover
+    the button, and if yes, check if the mouse click.
+    We call the mouse function with the action related. */</span>
+
+    <span class="hljs-keyword">if</span>(ray.intersectActor(<span class="hljs-keyword">this</span>.actor, <span class="hljs-literal">false</span>).length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">this</span>.isHover){
+        <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"hover"</span>);
+        <span class="hljs-keyword">this</span>.isHover = <span class="hljs-literal">true</span>;
+      }
+      <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)){
+        <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"click"</span>)
+      }
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.isHover){
+      <span class="hljs-keyword">this</span>.isHover = <span class="hljs-literal">false</span>;
+      <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"unhover"</span>)
+    }
+
+  }
+}
+Sup.registerBehavior(ButtonBehavior);
+</code></pre>
+
+    </div>
+  </main>
+</body>
+</html>

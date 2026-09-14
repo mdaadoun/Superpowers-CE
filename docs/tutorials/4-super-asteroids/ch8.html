@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>8. Collision & Life — Super Asteroids & Super Spacewar — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Building Structure</a></li><li><a href="ch3.html" >3. Loading Assets</a></li><li><a href="ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="ch5.html" >5. Program Structure</a></li><li><a href="ch6.html" >6. Alien & Asteroids</a></li><li><a href="ch7.html" >7. Ship & Missiles</a></li><li><a href="ch8.html" class="active">8. Collision & Life</a></li><li><a href="ch9.html" >9. Menu & Game Over</a></li><li><a href="ch10.html" >10. Polishing the Game</a></li><li><a href="ch11.html" >11. Modding the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Asteroids & Super Spacewar</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-4">SUPERPOWERS TUTORIAL #4</h1>
+<h2 id="super-asteroids-and-super-spacewar-chapter-8">SUPER ASTEROIDS and SUPER SPACEWAR, Chapter 8</h2>
+<h3 id="writing-collision-life-and-score-systems-"><strong>Writing Collision, Life and Score systems.</strong></h3>
+<p>To give a substance to all our actors and give the main gameplay to our game we need to set the collision system without which the actors would never interact to each other.</p>
+<h4 id="collision-system">Collision system</h4>
+<h5 id="the-game-checkcollisionmissile-function">The Game.checkCollisionMissile function</h5>
+<p>We add a new function that we will call each time we need to check a collision with a missile list, we put it in the Module Game of the Global script.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Game{
+[...] 
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkCollisionMissile</span>(<span class="hljs-params">actor: Sup.Actor, actorList: Sup.Actor[], amplitude: <span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">/* 
+    We get the distance between actor and all the actors of the actorList
+    If the distance if inferior to the amplitude box around the Actor, there is a collision
+    */</span>
+
+    <span class="hljs-comment">// Get the position 1 of the actor we check collision with actorList</span>
+    <span class="hljs-keyword">let</span> position1: Sup.Math.Vector2 = actor.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Loop through the actors of listToCheck and check if ....</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; actorList.length; i++){
+      <span class="hljs-comment">// Get the position 2 of the current actor of the loop inside actorList</span>
+      <span class="hljs-keyword">let</span> position2: Sup.Math.Vector2 = actorList[i].getLocalPosition().toVector2();
+      <span class="hljs-comment">// Get the distance between position 1 and position 2</span>
+      <span class="hljs-keyword">let</span> distance: <span class="hljs-built_in">number</span> = <span class="hljs-built_in">Math</span>.round(position1.distanceTo(position2)*<span class="hljs-number">100</span>)/<span class="hljs-number">100</span>;
+      <span class="hljs-comment">// If the distance is inferior to the amplitude (collision radius), then it is a collision</span>
+      <span class="hljs-keyword">if</span> (distance &lt; amplitude) {
+        <span class="hljs-comment">// The current actor of the actorList is destroyed</span>
+        actorList[i].destroy();
+        <span class="hljs-comment">// Return true to the behavior which check for collision</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      }
+    }
+    <span class="hljs-comment">// Return false to the behavior which check for collision</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+}
+[...]
+</code></pre>
+<h5 id="the-game-checkcollisionasteroid-function">The Game.checkCollisionAsteroid function</h5>
+<p>We add a new function that we will call each time we need to check a collision with an asteroid list (different amplitude for each asteroid)</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Game{
+[...]   
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkCollisionAsteroids</span>(<span class="hljs-params">ship: Sup.Actor, shipAmplitude: <span class="hljs-built_in">number</span></span>) </span>{
+    <span class="hljs-comment">/*
+      Get the distance between the ship and the asteroids, compare the distance with the biggest amplitude
+    */</span>
+    <span class="hljs-comment">// Initialize a variable asteroid which will take all the asteroids of the list as value</span>
+    <span class="hljs-keyword">let</span> asteroid: Sup.Actor;
+    <span class="hljs-comment">// Get the current position of the ship</span>
+    <span class="hljs-keyword">let</span> shipPosition: Sup.Math.Vector2 = ship.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Loop through all the asteroids in game</span>
+    <span class="hljs-keyword">for</span>(asteroid of Asteroids.list){
+      <span class="hljs-comment">// Get the amplitude of the current asteroid</span>
+      <span class="hljs-keyword">let</span> asteroidAmplitude: <span class="hljs-built_in">number</span> = asteroid.getBehavior(AsteroidBehavior).amplitude;
+      <span class="hljs-comment">// Get the position of the current asteroid</span>
+      <span class="hljs-keyword">let</span> asteroidPosition: Sup.Math.Vector2 = asteroid.getLocalPosition().toVector2();
+      <span class="hljs-comment">// Convert to distance between ship and current asteroid positions</span>
+      <span class="hljs-keyword">let</span> distance: <span class="hljs-built_in">number</span> = <span class="hljs-built_in">Math</span>.round(shipPosition.distanceTo(asteroidPosition)*<span class="hljs-number">100</span>)/<span class="hljs-number">100</span>;
+      <span class="hljs-comment">// Check if distance is less than the biggest amplitude </span>
+      <span class="hljs-keyword">if</span> (distance &lt; shipAmplitude || distance &lt; asteroidAmplitude) {
+        <span class="hljs-comment">// Destroy the current asteroid</span>
+        asteroid.getBehavior(AsteroidBehavior).die();
+        <span class="hljs-comment">// Return true, the ship is destroyed too</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+}
+[...]
+</code></pre>
+<h5 id="the-game-checkcollisionship-function">The Game.checkCollisionShip function</h5>
+<p>We add a new function that we will call each time we need to check a collision with an other ship (alien or other player)</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Game{
+[...]   
+  <span class="hljs-comment">// Check collision between actor1 and actor2</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkCollisionShip</span>(<span class="hljs-params">actor1: Sup.Actor, actor1Amplitude: <span class="hljs-built_in">number</span></span>) </span>{
+    <span class="hljs-comment">// Initialize variable for the actors</span>
+    <span class="hljs-keyword">let</span> actor2: Sup.Actor;
+    <span class="hljs-keyword">let</span> actor1Position: Sup.Math.Vector2;
+    <span class="hljs-keyword">let</span> actor2Position: Sup.Math.Vector2;
+    <span class="hljs-keyword">let</span> actor2Amplitude: <span class="hljs-built_in">number</span>;
+    <span class="hljs-keyword">let</span> actor2Alive: <span class="hljs-built_in">boolean</span>;
+    <span class="hljs-comment">// If the actor1 is the Ship1, then we check the Ship2 as actor2</span>
+    <span class="hljs-keyword">if</span> (actor1.getName() === <span class="hljs-string">"Ship1"</span>){
+      actor2 = Sup.getActor(<span class="hljs-string">"Ship2"</span>);
+    }
+    <span class="hljs-comment">// Else, if the actor1 is Ship2 or Alien Ship, we check the Ship1 as actor2</span>
+    <span class="hljs-keyword">else</span> {
+      actor2 = Sup.getActor(<span class="hljs-string">"Ship1"</span>);
+    }
+    <span class="hljs-comment">// Get the positions of both actors</span>
+    actor2Position = actor2.getLocalPosition().toVector2();
+    actor1Position = actor1.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Get amplitud of actor 2</span>
+    actor2Amplitude = Ships.amplitude;
+    <span class="hljs-comment">// Get the life status of the actor 2</span>
+    actor2Alive = actor2.getBehavior(ShipBehavior).alive;
+    <span class="hljs-comment">// Get the distance between the two actors</span>
+    <span class="hljs-keyword">let</span> distance: <span class="hljs-built_in">number</span> = <span class="hljs-built_in">Math</span>.round(actor1Position.distanceTo(actor2Position)*<span class="hljs-number">100</span>)/<span class="hljs-number">100</span>;
+    <span class="hljs-comment">// To avoid to collide when ship is blinking with invulnerability, return false the collisionChecking if actor 2 not alive</span>
+    <span class="hljs-keyword">if</span>(!actor2Alive){
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-comment">// Check if distance if less than the biggest amplitude (or collision radius)</span>
+    <span class="hljs-keyword">if</span> (distance &lt; actor1Amplitude || distance &lt; actor2Amplitude) {
+        <span class="hljs-comment">// Destroy the current asteroid</span>
+        actor2.getBehavior(ShipBehavior).die();
+        <span class="hljs-comment">// Return true, both actor are destroyed</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      }
+    <span class="hljs-comment">// If condition not met, return false</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  }
+}
+[...]
+</code></pre>
+<h5 id="collision-alien-ship-with-player-missile">Collision alien ship with player missile</h5>
+<p>Inside the update loop of the <strong>Alien</strong> script, we call a Game.checkCollisionMissile with the ship missiles of the player.</p>
+<pre><code class="lang-ts">[...]  
+  update() {
+  [...]
+    <span class="hljs-comment">// If there is player ship1 missiles, call a collision checking for this actor with the list of the player Ship missiles</span>
+    <span class="hljs-keyword">if</span>(Ships.missiles[<span class="hljs-number">0</span>].length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// If the collision checking return true</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">0</span>], <span class="hljs-keyword">this</span>.amplitude)) {
+        <span class="hljs-comment">// Decrease Alien lifes by one</span>
+        Alien.lifes--
+        <span class="hljs-comment">// Flag true to check and update the life HUD in Game Script</span>
+        Game.checkLifeHUD = <span class="hljs-literal">true</span>;
+      }
+    }
+  }
+[...]
+</code></pre>
+<h5 id="collision-asteroid-with-player-missile">Collision asteroid with player missile</h5>
+<p>Inside the update loop of the <strong>Asteroid</strong> script, we call a Game.checkCollisionMissile with the ship missiles of the player. If the collision is true the asteroid is destroyed and two new asteroids spawn.</p>
+<pre><code class="lang-ts">[...]
+  update() {
+  [...]
+    <span class="hljs-comment">// If there is player ship1 missiles, call a collision checking for this actor with the list of the player Ship missiles</span>
+    <span class="hljs-keyword">if</span>(Ships.missiles[<span class="hljs-number">0</span>].length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// If the collision checking return true</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">0</span>], <span class="hljs-keyword">this</span>.amplitude)) {
+        <span class="hljs-comment">// Destroy this asteroid</span>
+        <span class="hljs-keyword">this</span>.die();
+        <span class="hljs-comment">// If the asteroid is not small</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.sizeClass !== <span class="hljs-string">"small"</span>){
+          <span class="hljs-comment">// Spawn two new asteroid of the class below</span>
+          <span class="hljs-keyword">this</span>.spawnChildren();
+        }
+      }
+    }
+  }
+[...]
+</code></pre>
+<h5 id="collision-player-ship-with-asteroids">Collision player ship with asteroids</h5>
+<p>Inside the <strong>Ship</strong> script, if the game is Super Asteroids we now check for collision betwen the ship and the alien missiles and all the asteroids in the update loop.</p>
+<p>If the game is Super Spacewar we check collision with the missile of other ship or a collision with the other ship.</p>
+<pre><code class="lang-ts">[...]
+  update() {
+  [...]
+    <span class="hljs-comment">// If game is Super Spacewar, check collision with other missiles and other ship</span>
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">0</span>) { 
+      <span class="hljs-comment">// Check collision between the player ship and the asteroids</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionAsteroids(<span class="hljs-keyword">this</span>.actor, <span class="hljs-keyword">this</span>.amplitude)){
+        <span class="hljs-keyword">this</span>.die();
+      }
+    }
+[...]
+</code></pre>
+<h5 id="collision-player-ship-with-alien-missile">Collision player ship with alien missile</h5>
+<p>Still in the <strong>Ship</strong> script, in the same block that check collision in the case the game is Asteroids (index 0).</p>
+<pre><code class="lang-ts">[...]
+  update() {
+  [...]
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">0</span>) {
+    [...]
+      <span class="hljs-comment">// Check collision between the player ship and the alien missiles</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Alien.missiles, <span class="hljs-keyword">this</span>.amplitude)){
+        <span class="hljs-keyword">this</span>.die();
+      }
+    }
+[...]
+</code></pre>
+<h5 id="collision-player-ship-with-alien-ship">Collision player ship with alien ship</h5>
+<p>In the <strong>Alien</strong> script, we add a call of the Game.checkCollisionShip function.</p>
+<pre><code class="lang-ts">[...]
+  update() {
+  [...]
+    <span class="hljs-comment">// Check collision between Alien ship and Player ship</span>
+    <span class="hljs-keyword">if</span> (Game.checkCollisionShip(<span class="hljs-keyword">this</span>.actor, <span class="hljs-keyword">this</span>.amplitude)){
+      <span class="hljs-comment">// Destroy the alien ship by setting its lifes to 0</span>
+      Alien.lifes = <span class="hljs-number">0</span>;
+    }
+    }
+[...]
+</code></pre>
+<h5 id="collision-player-ship-with-other-player-missiles">Collision player ship with other player missiles</h5>
+<p>In the <strong>Ship</strong> script we add an other block of checking in the case the game is Spacewar (index 1)</p>
+<pre><code class="lang-ts">[...]    
+    <span class="hljs-comment">// If game is Super Spacewar, check collision with other missiles and other ship</span>
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">1</span>) {
+      <span class="hljs-comment">// If the ship is 1 check collision with ship 2 missile</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.index === <span class="hljs-number">0</span>){
+        <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">1</span>], <span class="hljs-keyword">this</span>.amplitude)){
+          <span class="hljs-comment">// if there is collision, add point to the ship 2 and destroy ship 1</span>
+          Game.addPoints(<span class="hljs-literal">false</span>, Game.points.ship);
+          <span class="hljs-keyword">this</span>.die();
+        }
+      }
+      <span class="hljs-comment">// Else the ship is 2 check collision with ship 1 missile</span>
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">0</span>], <span class="hljs-keyword">this</span>.amplitude)){
+          <span class="hljs-comment">// if there is collision, add point to the ship 1 and destroy ship 2</span>
+          Game.addPoints(<span class="hljs-literal">true</span>, Game.points.ship);
+          <span class="hljs-keyword">this</span>.die();
+        }
+      }
+    }
+[...]
+</code></pre>
+<p><em>Note : To do test, we need to comment the Game.addPoints function.</em></p>
+<h5 id="collision-player-ship-with-other-player-ship">Collision player ship with other player ship</h5>
+<pre><code class="lang-ts">[...]
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">1</span>) {
+        [...]
+      <span class="hljs-comment">// Check collision between this ship and the other ship</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionShip(<span class="hljs-keyword">this</span>.actor, <span class="hljs-keyword">this</span>.amplitude)) {
+            <span class="hljs-keyword">this</span>.die();
+      }
+    }
+[...]
+</code></pre>
+<p>The collision work now fine, we need now to update the Game HUD when something happen in the game.</p>
+<h4 id="score-system">Score system</h4>
+<h5 id="global-script-game-addpoints-function">Global script : Game.addPoints function</h5>
+<p>We can now create the function that addPoints to the player score, to make the difference between the score of ship 1 and ship 2, we simply use a boolean parameter, when
+it is true, we add points to ship 1 else, we add them to ship 2.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Game{
+  [...]
+  <span class="hljs-comment">// Add points to the ship score</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addPoints</span>(<span class="hljs-params">ship1: <span class="hljs-built_in">boolean</span>, points: <span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">// If ship1 is true, add points to ship1</span>
+    <span class="hljs-keyword">if</span>(ship1){
+      Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).score += points;
+    }
+    <span class="hljs-comment">// If ship1 is false, add points to ship2</span>
+    <span class="hljs-keyword">else</span> {
+      Sup.getActor(<span class="hljs-string">"Ship2"</span>).getBehavior(ShipBehavior).score += points;
+    }
+  }
+}
+[...]
+</code></pre>
+<p><em>Note : to make the function work in all our game, we need to uncomment every place we have a Game.addPoints function in ou game. In the Ship script, the asteroid script and the alien script.</em></p>
+<h5 id="global-script-game-updatehudscore">Global script : Game.updateHUDScore</h5>
+<p>Inside the <strong>Global</strong> script, we add a function updateHUDScore update in the Game module.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Game{
+  [...]
+  <span class="hljs-comment">// Update the score HUD with the score for ship 1 or optionally for ship2</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateHUDScore</span>(<span class="hljs-params">Score1:<span class="hljs-built_in">number</span>, Score2?:<span class="hljs-built_in">number</span></span>) </span>{
+    <span class="hljs-comment">// Change the score text displayed on HUD with the new score</span>
+    Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip1"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(Score1);
+    <span class="hljs-comment">// If there is a score 2, do the same for the HUD of ship 1 and ship 2</span>
+    <span class="hljs-keyword">if</span>(Score2){
+        Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip1"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(Score1);
+        Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip2"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(Score2);
+    }
+    <span class="hljs-comment">// Set flag to false</span>
+    Game.checkScoreHUD = <span class="hljs-literal">false</span>;
+  }
+}
+[...]
+</code></pre>
+<h5 id="game-script-checkhudscore">Game script : checkHUDScore</h5>
+<p>Now, in the Game script we simply check the flag checkHUDScore to see when to call the Game.updateHUDScore function.</p>
+<pre><code class="lang-ts">[...]
+  update() {  
+    <span class="hljs-comment">// Check if score need to be updated with the HUD</span>
+    <span class="hljs-keyword">if</span> (Game.checkScoreHUD) {
+      <span class="hljs-comment">// If the game is spacewar, we update the two ship scores</span>
+      <span class="hljs-keyword">if</span> (Game.nameIndex == <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">let</span> player1Score = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).score;
+        <span class="hljs-keyword">let</span> player2Score = Sup.getActor(<span class="hljs-string">"Ship2"</span>).getBehavior(ShipBehavior).score;
+        Game.updateHUDScore(player1Score, player2Score);
+      }
+      <span class="hljs-comment">// Else the game is asteroids, we update the ship 1 score</span>
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">let</span> playerScore = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).score;
+        Game.updateHUDScore(playerScore);
+      }
+    }
+  }
+[...]
+</code></pre>
+<h4 id="life-system">Life system</h4>
+<h4 id="global-script-game-updatehudlife">Global script : Game.updateHUDLife</h4>
+<p>Inside the <strong>Global</strong> script, we add a function updateHUDLife update in the Game module.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Game{
+  [...]  
+  <span class="hljs-comment">// Update the life HUD</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateHUDLife</span>(<span class="hljs-params">life1:<span class="hljs-built_in">number</span>, life2:<span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">/*
+    Explanation of life 
+    */</span>
+    <span class="hljs-comment">// If the game is Asteroids</span>
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Update the player Ship life</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Ships.startLife; i++) {
+        <span class="hljs-keyword">let</span> heart = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip1"</span>).getChild(<span class="hljs-string">"Life"</span>).getChild(i.toString());
+        heart.spriteRenderer.setAnimation(hearts[life1][i]);
+      }
+
+      <span class="hljs-comment">// Update the alien life</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Alien.startLife; i++) {
+        <span class="hljs-keyword">let</span> heart = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIAlien"</span>).getChild(i.toString());
+        heart.spriteRenderer.setAnimation(hearts[life2][i]);
+      }      
+    }
+
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">1</span>){
+      <span class="hljs-comment">// player1 life</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Ships.startLife; i++) {
+        <span class="hljs-keyword">let</span> heart = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip1"</span>).getChild(<span class="hljs-string">"Life"</span>).getChild(i.toString());
+        heart.spriteRenderer.setAnimation(hearts[life1][i]);
+      }
+
+      <span class="hljs-comment">// player2 life</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Ships.startLife; i++) {
+        <span class="hljs-keyword">let</span> heart = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip2"</span>).getChild(<span class="hljs-string">"Life"</span>).getChild(i.toString());
+        heart.spriteRenderer.setAnimation(hearts[life2][i]);
+      }
+    }
+    <span class="hljs-comment">// Set false to flag checkLifeHUD</span>
+    Game.checkLifeHUD = <span class="hljs-literal">false</span>;
+  }
+}
+[...]
+</code></pre>
+<h5 id="game-script-checkhudlife">Game script : checkHUDlife</h5>
+<p>Now, in the Game script we simply check the flag checkHUDLife to see when to call the Game.updateHUDLife function.</p>
+<pre><code class="lang-ts">[...]
+  update() {  
+    <span class="hljs-comment">// Check if lifes need to be updated with the HUD</span>
+    <span class="hljs-keyword">if</span> (Game.checkLifeHUD) {
+      <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">let</span> playerLife = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).lifes;
+        <span class="hljs-keyword">let</span> alienLife = Alien.lifes;
+        Game.updateHUDLife(playerLife, alienLife);
+      }
+      <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">let</span> player1Life = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).lifes;
+        <span class="hljs-keyword">let</span> player2Life = Sup.getActor(<span class="hljs-string">"Ship2"</span>).getBehavior(ShipBehavior).lifes;
+        Game.updateHUDLife(player1Life, player2Life);
+      }
+    }
+  }
+[...]
+</code></pre>
+<p>The HUD working fine, we need to work the menu screen inside our game mechanic to be also able to conclude the game when the ship have no more life or the timer is out with a game over screen.
+Let&#39;s finish our game with the next chapter. </p>
+<p><a href="ch7.html">&lt;-- back to chapter 7</a> -- <a href="ch9.html">go to chapter 9 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

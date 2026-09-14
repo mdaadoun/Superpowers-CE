@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>5. Program Structure — Super Asteroids & Super Spacewar — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Building Structure</a></li><li><a href="ch3.html" >3. Loading Assets</a></li><li><a href="ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="ch5.html" class="active">5. Program Structure</a></li><li><a href="ch6.html" >6. Alien & Asteroids</a></li><li><a href="ch7.html" >7. Ship & Missiles</a></li><li><a href="ch8.html" >8. Collision & Life</a></li><li><a href="ch9.html" >9. Menu & Game Over</a></li><li><a href="ch10.html" >10. Polishing the Game</a></li><li><a href="ch11.html" >11. Modding the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Asteroids & Super Spacewar</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-4">SUPERPOWERS TUTORIAL #4</h1>
+<h2 id="super-asteroids-and-super-spacewar-chapter-5">SUPER ASTEROIDS and SUPER SPACEWAR, Chapter 5</h2>
+<h3 id="building-the-basic-program-structure"><strong>Building the basic program structure</strong></h3>
+<h4 id="global-datas">Global datas</h4>
+<p>We can now start programming our game, we first need to set differents datas to be accessible globally at any moment in our scripts. 
+Often when we develop a game for the first time, the data are added, modified, removed or changed as we write the rest of our program, but for the tutorial
+we write the datas first and will explain them again when we met them in our code.</p>
+<p>We will create different namespace for each of our game object, alien, ship, asteroid.</p>
+<p>First we create in our <strong>Global</strong> script a main namespace for the <strong>Game</strong> and add differents datas that we export to be able to access them from our others scripts. </p>
+<pre><code class="lang-ts"><span class="hljs-comment">// Main game datas and functions</span>
+<span class="hljs-keyword">namespace</span> Game{
+
+  <span class="hljs-comment">// Game timer max value</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> timeMax: <span class="hljs-built_in">number</span> = <span class="hljs-number">7200</span>; <span class="hljs-comment">//7200 2 minutes</span>
+
+  <span class="hljs-comment">// The game index of the current played game, 0 for Asteroids, 1 for Spacewar</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> nameIndex: <span class="hljs-built_in">number</span>;
+
+  <span class="hljs-comment">// The screen limits in width and height + outside border</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> bounds : {
+    width:<span class="hljs-built_in">number</span>,
+    height:<span class="hljs-built_in">number</span>
+  }
+
+  <span class="hljs-comment">// set a border of 2 x 1.5 units (invisible border of 24 pixels)</span>
+  <span class="hljs-keyword">let</span> border: <span class="hljs-built_in">number</span> = <span class="hljs-number">3</span>;
+
+  <span class="hljs-comment">// Game points won when target shot</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> points {
+    asteroidBig = <span class="hljs-number">10</span>,
+    asteroidMedium = <span class="hljs-number">15</span>,
+    asteroidSmall = <span class="hljs-number">20</span>,
+    alien = <span class="hljs-number">50</span>,
+    ship = <span class="hljs-number">100</span> ,
+    death = <span class="hljs-number">-50</span>,
+     }
+
+  <span class="hljs-comment">// Life hearts positions</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> hearts = [
+    [<span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>]
+  ]
+
+  <span class="hljs-comment">// Flags to check HUD changes</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> checkLifeHUD: <span class="hljs-built_in">boolean</span>;
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> checkScoreHUD: <span class="hljs-built_in">boolean</span>;
+}
+</code></pre>
+<p>We now write a <strong>Menu</strong> namespace and add datas related:</p>
+<pre><code class="lang-ts"><span class="hljs-comment">// Menu datas</span>
+<span class="hljs-keyword">namespace</span> Menu{
+
+  <span class="hljs-comment">// Different menu screen index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> screens = {
+      main : <span class="hljs-string">"Main"</span>,
+      asteroids : <span class="hljs-string">"Asteroids"</span>,
+      spacewar : <span class="hljs-string">"Spacewar"</span>,
+      gameover : <span class="hljs-string">"GameOver"</span>,
+     }
+
+  <span class="hljs-comment">// Game names index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> names {
+        Asteroids = <span class="hljs-number">0</span>,
+        Spacewar = <span class="hljs-number">1</span>,
+       }
+}
+</code></pre>
+<p>We write the ship datas :</p>
+<pre><code class="lang-ts"><span class="hljs-comment">// Ship datas</span>
+<span class="hljs-keyword">namespace</span> Ships{
+  <span class="hljs-comment">// Default ship size</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> size: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.5</span>;
+  <span class="hljs-comment">// Default ship collision radius</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> amplitude: <span class="hljs-built_in">number</span> = <span class="hljs-number">1.5</span>;
+  <span class="hljs-comment">// Starting ship score</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startScore: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+  <span class="hljs-comment">// Starting ship life</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startLife: <span class="hljs-built_in">number</span> = <span class="hljs-number">3</span>;
+
+  <span class="hljs-comment">// Starting spawn positions</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> spawns: Sup.Math.Vector3[] = [
+    <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">14</span>), <span class="hljs-comment">// ship1 for asteroids game</span>
+    <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-number">-4</span>, <span class="hljs-number">-12</span>, <span class="hljs-number">2</span>), <span class="hljs-comment">// ship1 for spacewar game</span>
+    <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-number">4</span>, <span class="hljs-number">12</span>, <span class="hljs-number">4</span>) <span class="hljs-comment">// ship1 for spacewar game</span>
+  ] 
+
+  <span class="hljs-comment">// ship index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> index {
+    ship1 = <span class="hljs-number">0</span>,
+    ship2 = <span class="hljs-number">1</span>
+    };
+
+  <span class="hljs-comment">// Starting time before next shoot</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> shootingTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">30</span>;
+  <span class="hljs-comment">// Starting time before respawn</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> respawnTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">180</span>;
+  <span class="hljs-comment">// Starting time before vulnerability</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> invincibleTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">200</span>;
+
+  <span class="hljs-comment">// Linear speed</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> linearAcceleration: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.005</span>;
+  <span class="hljs-comment">// Linear slowing down</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> linearDamping: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.97</span>;
+
+  <span class="hljs-comment">// Rotation speed</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> angularAcceleration: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.02</span>;
+  <span class="hljs-comment">// Rotation slowing down</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> angularDamping: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.75</span>;
+
+  <span class="hljs-comment">// Commands for each ship by index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> commands = [
+    {left:<span class="hljs-string">"LEFT"</span>, right:<span class="hljs-string">"RIGHT"</span>, forward:<span class="hljs-string">"UP"</span>, shoot:<span class="hljs-string">"CONTROL"</span>, boost:<span class="hljs-string">"SHIFT"</span>}, <span class="hljs-comment">// commands[0]</span>
+    {left:<span class="hljs-string">"A"</span>, right:<span class="hljs-string">"D"</span>, forward:<span class="hljs-string">"W"</span>, shoot:<span class="hljs-string">"SPACE"</span>, boost:<span class="hljs-string">"C"</span>} <span class="hljs-comment">// commands[1]</span>
+  ];
+
+  <span class="hljs-comment">// Missiles list for each ship by index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> missiles: Sup.Actor[][];
+  <span class="hljs-comment">// Starting missile life before destruction (frames)</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> missileLife: <span class="hljs-built_in">number</span> = <span class="hljs-number">60</span>;
+  <span class="hljs-comment">// Missile speed (unit/frame)</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> missileSpeed: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.30</span>;
+}
+</code></pre>
+<p>We write the datas for the alien ship :</p>
+<pre><code class="lang-ts"><span class="hljs-comment">// Alien datas</span>
+<span class="hljs-keyword">namespace</span> Alien{
+  <span class="hljs-comment">// Flag for alien alive</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> alive: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">true</span>;
+
+  <span class="hljs-comment">// Starting alien life</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startLife: <span class="hljs-built_in">number</span> = <span class="hljs-number">5</span>;
+  <span class="hljs-comment">// Current alien life</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> lifes: <span class="hljs-built_in">number</span>;
+
+  <span class="hljs-comment">// Alien z position</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> zPosition: <span class="hljs-built_in">number</span> = <span class="hljs-number">12</span>;
+
+  <span class="hljs-comment">// Different alien sizes</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> sizes: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">1.7</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">1</span>];
+  <span class="hljs-comment">// Different collision amplitude related to size</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> amplitudes: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">2.5</span>, <span class="hljs-number">2.2</span>, <span class="hljs-number">2</span>];
+
+  <span class="hljs-comment">// Linear and rotation speed of alien ship</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> linearSpeed: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.05</span>;
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> rotationSpeed: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.01</span>;
+
+  <span class="hljs-comment">// Starting time before alien ship respawn</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> respawnTime: <span class="hljs-built_in">number</span> = <span class="hljs-number">300</span>;
+  <span class="hljs-comment">// Current time befer alien ship respawn</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> spawnTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+
+  <span class="hljs-comment">// Starting time before alien ship shoot again</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> shootTime: <span class="hljs-built_in">number</span> = <span class="hljs-number">200</span>;
+
+  <span class="hljs-comment">// Alien missile list</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> missiles: Sup.Actor[];
+  <span class="hljs-comment">// Alien missile speed (unit/frame)</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> missileSpeed: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.05</span>;
+}
+</code></pre>
+<p>We write the asteroids datas :</p>
+<pre><code class="lang-ts"><span class="hljs-comment">// Asteroids datas</span>
+<span class="hljs-keyword">namespace</span> Asteroids{
+  <span class="hljs-comment">// List of all current asteroids</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> list: Sup.Actor[];
+
+  <span class="hljs-comment">// Differents size of asteroids</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> sizes = {<span class="hljs-string">"big"</span>:<span class="hljs-number">1.5</span>, <span class="hljs-string">"medium"</span>:<span class="hljs-number">1</span>, <span class="hljs-string">"small"</span>:<span class="hljs-number">0.5</span>};
+  <span class="hljs-comment">// Different collision amplitude related to size</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> amplitudes = {<span class="hljs-string">"big"</span>:<span class="hljs-number">2.5</span>, <span class="hljs-string">"medium"</span>:<span class="hljs-number">2</span>, <span class="hljs-string">"small"</span>:<span class="hljs-number">1</span>}
+
+  <span class="hljs-comment">// Range for Z positions of asteroids</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> zPositions {min = <span class="hljs-number">-28</span>, max = <span class="hljs-number">10</span>};
+
+  <span class="hljs-comment">// Starting asteroids number</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startCount: <span class="hljs-built_in">number</span> = <span class="hljs-number">5</span>;
+  <span class="hljs-comment">// Current asteroids number</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> currentCount: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Maximum asteroids number</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> maxCount: <span class="hljs-built_in">number</span> = <span class="hljs-number">10</span>;
+
+  <span class="hljs-comment">// Range of linear and rotation speed of asteroids</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> linearSpeed {min = <span class="hljs-number">-0.05</span>, max = <span class="hljs-number">0.05</span>};
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> rotationSpeed {min = <span class="hljs-number">-0.01</span>, max = <span class="hljs-number">0.01</span>};
+
+  <span class="hljs-comment">// Starting time before asteroids spawning</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> respawnTime: <span class="hljs-built_in">number</span> = <span class="hljs-number">180</span>;
+  <span class="hljs-comment">// Current time before asteroids spawning</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> spawnTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>We now have all our datas ready to use in our program.</p>
+<h4 id="init-game-behavior">Init game behavior</h4>
+<p>The GameBehavior class in ou <strong>Game</strong> script will be used as the main process running when our game start after we launch it from the menu. There will be differents branch
+in this behavior depending which game is running. <em>By example, if the game is Game.nameIndex is 0 (Asteroids), then we can spawn the alien and the asteroids, else we don&#39;t.</em></p>
+<p>Let&#39;s start to write some process of the game. (we use the start method and not the awake method to init the behavior)</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> GameBehavior extends Sup.Behavior {
+  timer: <span class="hljs-built_in">number</span>;
+
+  start() {
+    <span class="hljs-comment">// When GameBehavior awake, if game is Asteroids then spawn asteroids and alien</span>
+    <span class="hljs-keyword">if</span>(Game.nameIndex === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Give to this game instance, the starting timer</span>
+      <span class="hljs-keyword">this</span>.timer = Game.timeMax;
+      <span class="hljs-comment">// And update the HUD timer</span>
+      Game.updateTimer(<span class="hljs-keyword">this</span>.timer);
+
+      <span class="hljs-comment">// Spawn an Alien ship</span>
+      Game.spawnAlien();
+
+      <span class="hljs-comment">// Spawn as much asteroids than we have set as a Starting number</span>
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Asteroids.startCount; i++){
+        <span class="hljs-comment">// Spawn an asteroid</span>
+        Game.spawnAsteroid();
+      }
+    }
+  }
+
+  update() {
+    <span class="hljs-comment">// If the game is Asteroids then spawn alien and asteroids</span>
+    <span class="hljs-keyword">if</span>(Game.nameIndex === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">//If alien destroyed, spawn a new alien after a certain time</span>
+      <span class="hljs-keyword">if</span>(!Alien.alive){
+        <span class="hljs-comment">// If spawnTimer not finished, decrease by one</span>
+        <span class="hljs-keyword">if</span>(Alien.spawnTimer &gt; <span class="hljs-number">0</span>){
+          Alien.spawnTimer--;
+        <span class="hljs-comment">// If spawnTimer finished, spawn an alien ship</span>
+        }
+        <span class="hljs-keyword">else</span> {
+          Game.spawnAlien();
+        }
+      }
+
+      <span class="hljs-comment">// Spawn a new asteroid after a certain time until the overall number reach maximum</span>
+      <span class="hljs-comment">// If asteroid current count is less than the max number</span>
+      <span class="hljs-keyword">if</span> (Asteroids.currentCount &lt; Asteroids.maxCount) {
+        <span class="hljs-comment">// If spawnTimer is not finished, decrease by one</span>
+        <span class="hljs-keyword">if</span> (Asteroids.spawnTimer &gt; <span class="hljs-number">0</span>) {
+          Asteroids.spawnTimer--;
+        }
+        <span class="hljs-comment">// If spawnTimer is finished, create a big asteroid</span>
+        <span class="hljs-keyword">else</span> {
+          Game.spawnAsteroid();
+          <span class="hljs-comment">// Reset timer for next asteroid</span>
+          Asteroids.spawnTimer = Asteroids.respawnTime; 
+        }
+      }
+
+      <span class="hljs-comment">// Timer and game over screen decrease to each frame</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.timer &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">this</span>.timer--
+        <span class="hljs-comment">// If 60 frames passed (which mean one second when converted), update</span>
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.timer % <span class="hljs-number">60</span> === <span class="hljs-number">0</span>) {
+          Game.updateTimer(<span class="hljs-keyword">this</span>.timer);
+        }
+      <span class="hljs-comment">// If timer at 0, then the game is finished.</span>
+      } 
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// The game is over, return ship1 score</span>
+        Game.gameOver(<span class="hljs-string">"ship1"</span>);
+      }
+    }
+  }
+}
+Sup.registerBehavior(GameBehavior);
+</code></pre>
+<p>We now have four new functions than we haven&#39;t wrote yet :</p>
+<ul>
+<li>Game.spawnAsteroid() which create an asteroid in the game</li>
+<li>Game.spawnAlien() which create an alien ship in the game</li>
+<li>Game.updateTimer() which update the game HUD timer</li>
+<li>Game.gameOver() which display the game over screen</li>
+</ul>
+<p>We return in the <strong>Global</strong> script to write them now.</p>
+<h4 id="global-first-functions">Global first functions</h4>
+<p>We also need to start an important function, the Game.start() that will be used to initialize a new game.</p>
+<p>In the Game namespace we add the five functions than we export globally.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Game{
+  [...]
+  <span class="hljs-comment">// Start the game</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">start</span>(<span class="hljs-params"></span>)</span>{
+
+  }
+
+  <span class="hljs-comment">// Create an alien in the Game scene              </span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">spawnAlien</span>(<span class="hljs-params"></span>)</span>{
+
+  }
+
+  <span class="hljs-comment">// Create an asteroid in the Game scene</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">spawnAsteroid</span>(<span class="hljs-params">size: <span class="hljs-built_in">string</span></span>)</span>{
+
+  }
+
+  <span class="hljs-comment">// Update HUD timer in the Game scene</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateTimer</span>(<span class="hljs-params">time: <span class="hljs-built_in">number</span></span>)</span>{
+
+  }
+
+  <span class="hljs-comment">// Close game scene and return menu game over screen</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">gameOver</span>(<span class="hljs-params">winner?: <span class="hljs-built_in">string</span></span>)</span>{
+
+  }
+}
+</code></pre>
+<h5 id="game-start">Game.start</h5>
+<p>For now, we just need to set with this function the bounds of our game screen.</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">namespace</span> Game{
+  [...]  
+  <span class="hljs-comment">// Start the game</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">start</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// get the Camera actor the the game Scene</span>
+    <span class="hljs-keyword">let</span> screen = Sup.getActor(<span class="hljs-string">"Camera"</span>).camera;
+    <span class="hljs-comment">// We get the game screen bounds and add the invisible border</span>
+    bounds = {
+      width: screen.getOrthographicScale() + border,
+      height: screen.getOrthographicScale() + border
+    }
+  }
+  [...]
+}
+[...]
+</code></pre>
+<p>Because this function will change many time and will be called from the menu, we still need to launch our game and do tests before that.
+We then call the function at the begining of the awake method of our Game script.</p>
+<pre><code class="lang-ts">  [...]
+  awake() {
+    Game.start() <span class="hljs-comment">// Temporary Function Call</span>
+[...]
+</code></pre>
+<h5 id="game-spawnalien">Game.spawnAlien</h5>
+<pre><code class="lang-ts">  <span class="hljs-comment">// Create an alien in the Game scene              </span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">spawnAlien</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Load the alien prefab and get the Alien actor (index 0) as a new alien variable</span>
+    <span class="hljs-keyword">let</span> alien = Sup.appendScene(<span class="hljs-string">"Alien/Prefab"</span>)[<span class="hljs-number">0</span>];
+
+    <span class="hljs-comment">// Choose a random position somewhere at the vertical edges of the game screen</span>
+    <span class="hljs-comment">// Create the three axis positions x, y, z</span>
+    <span class="hljs-keyword">let</span> x: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, y: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, z: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+
+     <span class="hljs-comment">// Choose randomly a position on one of the vertical edges</span>
+    x = Sup.Math.Random.sample([-bounds.width / <span class="hljs-number">2</span>, bounds.width / <span class="hljs-number">2</span>]);
+    <span class="hljs-comment">// Get the height without the invisible border</span>
+    <span class="hljs-keyword">let</span> height = bounds.height - border
+    <span class="hljs-comment">// Choose randomly a position on y axis</span>
+    y = Sup.Math.Random.integer(-height / <span class="hljs-number">2</span> , height / <span class="hljs-number">2</span>);
+    <span class="hljs-comment">// Get alien default Z position</span>
+    z = Alien.zPosition;
+
+    <span class="hljs-comment">// Set the randomly chosen position to the Alien actor</span>
+    alien.setLocalPosition(x, y, z);
+  }
+</code></pre>
+<h5 id="game-spawnasteroid">Game.spawnAsteroid</h5>
+<pre><code class="lang-ts">  <span class="hljs-comment">// Create an asteroid in the Game scene</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">spawnAsteroid</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Load the asteroid prefab and get the Asteroid actor (index 0) as a new asteroid variable</span>
+    <span class="hljs-keyword">let</span> asteroid = Sup.appendScene(<span class="hljs-string">"Asteroid/Prefab"</span>)[<span class="hljs-number">0</span>];
+
+    <span class="hljs-comment">// Choose a random position somewhere at the edges of the game screen</span>
+    <span class="hljs-comment">// Create the three axis positions x, y, z</span>
+    <span class="hljs-keyword">let</span> x: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, y: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, z: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// Choose randomly if the asteroids come from the horizontal or vertical edges</span>
+    <span class="hljs-keyword">if</span>(Sup.Math.Random.sample([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>]) === <span class="hljs-number">0</span>){
+      x = Sup.Math.Random.sample([-bounds.width / <span class="hljs-number">2</span>, bounds.width / <span class="hljs-number">2</span>]);
+      y = Sup.Math.Random.integer(-bounds.height / <span class="hljs-number">2</span>, bounds.height / <span class="hljs-number">2</span>);
+    }
+    <span class="hljs-keyword">else</span> {
+      x = Sup.Math.Random.integer(-bounds.height / <span class="hljs-number">2</span>, bounds.height / <span class="hljs-number">2</span>);
+      y = Sup.Math.Random.sample([-bounds.width / <span class="hljs-number">2</span>, bounds.width / <span class="hljs-number">2</span>]);
+    }
+    <span class="hljs-comment">// Choose randomly the z position on the scene in the range of Asteroids.zPoistions</span>
+    z = Sup.Math.Random.integer(Asteroids.zPositions.min, Asteroids.zPositions.max);
+
+    <span class="hljs-comment">// Set the randomly chosen position to the Asteroid actor</span>
+    asteroid.setLocalPosition(x, y, z);
+
+    <span class="hljs-comment">// Report the asteroid size</span>
+    asteroid.getBehavior(AsteroidBehavior).sizeClass = <span class="hljs-string">"big"</span>;
+  }
+</code></pre>
+<p>To make it work without bug we need to init a variable in the Asteroid script, inside the class AsteroidBehavior :</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> AsteroidBehavior extends Sup.Behavior {
+  sizeClass: <span class="hljs-built_in">string</span>;
+[...]
+</code></pre>
+<h5 id="game-updatetimer">Game.updateTimer</h5>
+<p>The updateTimer function use a certain amount of time in frames and convert it to second and minutes. We kept the default setting of Sueprpowers, 60 frames per seconds.</p>
+<pre><code class="lang-ts">  <span class="hljs-comment">// Update HUD timer in the Game scene</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateTimer</span>(<span class="hljs-params">time: <span class="hljs-built_in">number</span></span>)</span>{
+    Sup.log(<span class="hljs-string">"one second (60 frames) of"</span>, time, <span class="hljs-string">"frame left."</span>); <span class="hljs-comment">// Debug log</span>
+    <span class="hljs-comment">// We convert frames in minutes and seconds</span>
+    <span class="hljs-keyword">let</span> minutes = <span class="hljs-built_in">Math</span>.floor((time / <span class="hljs-number">60</span>) / <span class="hljs-number">60</span>);
+    <span class="hljs-keyword">let</span> seconds = <span class="hljs-built_in">Math</span>.floor((time / <span class="hljs-number">60</span>) % <span class="hljs-number">60</span>);
+    <span class="hljs-comment">// We get The Timer actor from the Game scene than we store in a timer variable</span>
+    <span class="hljs-keyword">let</span> timer = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"Timer"</span>);
+    <span class="hljs-comment">// Update the text Renderer with the new time converted automatically as a string</span>
+    <span class="hljs-comment">// For the last 10 seconds we need to add a 0 to keep 2 numbers in the timer</span>
+    <span class="hljs-keyword">if</span> (seconds &lt; <span class="hljs-number">10</span>) {
+      timer.textRenderer.setText(minutes + <span class="hljs-string">":0"</span> + seconds);
+    }
+    <span class="hljs-keyword">else</span> {
+      timer.textRenderer.setText(minutes + <span class="hljs-string">":"</span> + seconds);
+    }
+  }
+</code></pre>
+<p><em>Note : To try to launch the game and see the behavior of the timer and the HUD, we need to set the game nameIndex to 0.</em></p>
+<pre><code class="lang-ts">  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> nameIndex: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;  <span class="hljs-comment">// Temporary allocation</span>
+</code></pre>
+<h5 id="game-gameover">Game.gameOver</h5>
+<p>We will comme back to this function when we will work on the menu, for now we can just log a string that will loop in the console to say the timer is out.</p>
+<p>Note : the parameter with ? mean that it is an optional parameter.</p>
+<pre><code class="lang-ts">  <span class="hljs-comment">// Close game scene and return menu game over screen</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">gameOver</span>(<span class="hljs-params">winner?: <span class="hljs-built_in">string</span></span>)</span>{
+    Sup.log(<span class="hljs-string">"Game Over"</span>);
+  }
+</code></pre>
+<p>Ok, we now have a basic game structure, if we do test and launch the game we have a timer working and the asteroids and ship on the game, but apart for the timer and the displaying of alien ship
+and asteroids nothing happen yet, for animation, we need to write individual behavior of this objects. We do that in the next chapter.</p>
+<p><a href="ch4.html">&lt;-- back to chapter 4</a> -- <a href="ch6.html">go to chapter 6 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -9,6 +9,7 @@
     "setup": "npm run setup:core && npm run setup:app",
     "build:core": "cd core && npm run build",
     "build:app": "cd app && npm run build",
+    "build:docs": "node scripts/generate_docs.js && node scripts/generate_tutorials.js",
     "build": "npm run build:core && npm run build:app",
     "start": "cd app && npm run start",
     "start:server": "cd core && node server start",

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>5. Polishing the Game — Super OXO (Tic-Tac-Toe) — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Introduction & Plan</a></li><li><a href="ch2.html" >2. Building Structure</a></li><li><a href="ch3.html" >3. Player Actions</a></li><li><a href="ch4.html" >4. Computer Response AI</a></li><li><a href="ch5.html" class="active">5. Polishing the Game</a></li><li><a href="ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super OXO (Tic-Tac-Toe)</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-2-super-oxo">SUPERPOWERS TUTORIAL #2 SUPER OXO</h1>
+<h2 id="chapter-5-polishing-the-game"><em>Chapter 5, Polishing the game</em></h2>
+<h3 id="create-a-victory-screen">Create a victory screen</h3>
+<p>One first thing we would like to add in the game is the possibility to restart the
+game after we finish a first round. We can do that by simply allowing to reset to
+default the SQUARES board when the player do an action after the game is ended.</p>
+<p>We are going to mix this feature with the addition of an end screen which announce
+the victory or tie of the game. When the player click once more on this screen,
+the game then restart.</p>
+<p>We write first a new function <strong>displayScreen</strong> that will create and set our Screen Actor.</p>
+<pre><code class="lang-TypeScript">[...]
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayScreen</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Create a new Screen actor</span>
+    <span class="hljs-keyword">let</span> Screen = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Screen"</span>);
+    <span class="hljs-comment">// Create a new SpriteRenderer and attach it to the Screen Actor</span>
+    <span class="hljs-keyword">new</span> Sup.SpriteRenderer(Screen, <span class="hljs-string">"Sprites/Screens"</span>);
+    <span class="hljs-comment">// Set the frame of the sprite to the current turn, cross, circle or tie</span>
+    Screen.spriteRenderer.setAnimation(turn);
+    <span class="hljs-comment">// Set the frame position to the center (0, 0) and 4 on z axis to fit in the camera view</span>
+    Screen.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>);
+    <span class="hljs-comment">// stop the game turns</span>
+    turn = <span class="hljs-string">"end"</span>;
+  }
+[...]
+</code></pre>
+<p>We add the call of the victory screen by replacing the Sup.log and the repetitions
+of turn = &quot;end&quot; from the checkVictory conditions.</p>
+<pre><code class="lang-TypeScript">[...]
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkVictory</span>(<span class="hljs-params"></span>)</span>{
+    [...]
+      <span class="hljs-keyword">if</span>(countCross == <span class="hljs-number">3</span>){
+        displayScreen();
+      }
+      <span class="hljs-keyword">if</span>(countCircle == <span class="hljs-number">3</span>){
+        displayScreen();
+      }
+
+[...]
+   <span class="hljs-keyword">if</span>(countFreeSquares == <span class="hljs-number">0</span>){
+        turn = <span class="hljs-string">"tie"</span>; <span class="hljs-comment">// we give the value 'tie' to the turn variable for the function displayScreen()</span>
+        displayScreen();
+    }
+  }
+[...]
+</code></pre>
+<p>We have now the screens displaying, but if we want to restart and reset the game
+we now need to write a new behavior for the player.</p>
+<h3 id="restart-the-game">Restart the game</h3>
+<p>In the Player script we create the new class <strong>ScreenBehavior</strong> and we say simply than
+we want to survey in a loop if the player will use the space key from the keyboard.
+To do that, we use the update method of a class. Here our new class:</p>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">class</span> ScreenBehavior extends Sup.Behavior {
+
+  <span class="hljs-comment">/*
+  When space key pressed :
+  - Destroy the victory screen
+  - Start a new game
+  */</span>
+
+  update() {
+    <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(<span class="hljs-string">"SPACE"</span>)){
+      Sup.getActor(<span class="hljs-string">"Screen"</span>).destroy();
+      Game.startGame();
+      }
+    }
+ }
+Sup.registerBehavior(ScreenBehavior);
+</code></pre>
+<p>In the global script namespace we create a function <strong>startGame()</strong> that we export.
+It will be the function that will be called when the player use SPACE key while on a victory screen.</p>
+<pre><code class="lang-TypeScript">[...]
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startGame</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> square;
+
+    <span class="hljs-comment">// loop through all the square of the game and set them to default</span>
+    <span class="hljs-keyword">for</span>(square of SQUARES){
+      square[<span class="hljs-number">0</span>].spriteRenderer.setAnimation(<span class="hljs-string">"unHover"</span>);
+      square[<span class="hljs-number">1</span>] = <span class="hljs-string">"unHover"</span>;
+    }
+
+    turn = <span class="hljs-string">"cross"</span>; <span class="hljs-comment">// give back player control</span>
+  }
+[...]
+</code></pre>
+<p>Finally, nothing will change if we don&#39;t attach the ScreenBehavior class to our
+victory screen. We do that by adding with the Screen.addBehavior() method in the
+displayScreen function of the Global script.</p>
+<pre><code class="lang-TypeScript">[...]
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayScreen</span>(<span class="hljs-params"></span>)</span>{
+    […]
+    <span class="hljs-comment">// Attach the behavior ScreenBehavior the the screen Actor</span>
+    Screen.addBehavior(ScreenBehavior);
+  }
+[...]
+</code></pre>
+<p>We can now restart our game from the end screen and play as many times we wish to.</p>
+<h2 id="randomize-the-game-starting">Randomize the game starting</h2>
+<p>One feature we can add to give more variety to the game is to randomize the start
+of the game, if it is the player or the computer who can choose the first square.
+We already had to use the random method in our game, we can use it again</p>
+<p>We create a new function <strong>randomStart()</strong> in Game namespace of global script, it will
+decide if yes or no the computer start the game by playing randomly one square.</p>
+<pre><code class="lang-TypeScript">[…]
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">randomStart</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">//Call a random number between 0 and 1 to see if we start with computer</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">2</span>)){
+      <span class="hljs-comment">// Take a random index between the 9 squares and play this square</span>
+      <span class="hljs-keyword">let</span> randomIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">9</span>);
+      playSquare(SQUARES[randomIndex]);
+    }
+    <span class="hljs-comment">// then give back control to player</span>
+    turn = <span class="hljs-string">"cross"</span>;
+  }
+[...]
+</code></pre>
+<p>And we call now this function from our startGame function to replace the turn = &#39;cross&#39;,
+this will allow to randomize a new game each time we call the gameStart function.</p>
+<pre><code class="lang-TypeScript">[…]
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startGame</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> square;
+
+    <span class="hljs-comment">// loop through all the square of the game and set them to default</span>
+    <span class="hljs-keyword">for</span>(square of SQUARES){
+      square[<span class="hljs-number">0</span>].spriteRenderer.setAnimation(<span class="hljs-string">"unHover"</span>);
+      square[<span class="hljs-number">1</span>] = <span class="hljs-string">"unHover"</span>;
+    }
+
+    randomStart() ;
+  }
+[...]
+</code></pre>
+<p>We can also replace in the awake method of playerBehavior the turn = &#39;cross&#39; by
+the gameStart function, like this, the randomize will work from the moment we
+launch the game for the first time.</p>
+<pre><code class="lang-TypeScript"><span class="hljs-keyword">class</span> PlayerBehavior extends Sup.Behavior {
+  awake() {
+    <span class="hljs-comment">// Call the function setSquares which build the SQUARES Array</span>
+    Game.setSquares();
+    <span class="hljs-comment">// Call the function startGame to randomize the new game</span>
+    Game.startGame();
+  }
+[...]
+</code></pre>
+<h3 id="slowing-down-the-game">Slowing down the game</h3>
+<p>The game go really fast, the computer play directly after the player and at the end,
+the victory screen appear without the possibility to see the final position of the
+game squares. We want to slow down all this. To give time for the player to see
+what is happening on the board and why the game is going to end soon.</p>
+<p>We need to add a speed to the game. To achieve that we will use a javascript method
+that have been exported to Superpowers API : Sup.setTimeout()</p>
+<p>We will change the code to different place, to slow down the gameTurn, we can change
+the simple call this.gameTurn() from our update method from the playerBehavior class
+in the Player script :</p>
+<pre><code class="lang-TypeScript">[…]
+<span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>) &amp;&amp; array[<span class="hljs-number">1</span>] == <span class="hljs-string">"isHover"</span>){
+          <span class="hljs-comment">// Check if it is the player turn</span>
+          <span class="hljs-keyword">if</span>(turn == <span class="hljs-string">"cross"</span>){
+            <span class="hljs-comment">// if true, set the square new situation to cross</span>
+            array[<span class="hljs-number">1</span>] = <span class="hljs-string">"cross"</span>;
+            <span class="hljs-comment">// and call the local mouse method with the action click and the related square actor</span>
+            <span class="hljs-keyword">this</span>.mouse(<span class="hljs-string">"click"</span>, array[<span class="hljs-number">0</span>]);
+            <span class="hljs-comment">// call a game turn</span>
+            turn = <span class="hljs-string">"break"</span>; <span class="hljs-comment">// take control away from player</span>
+            Sup.setTimeout(<span class="hljs-number">600</span>, <span class="hljs-keyword">this</span>.gameTurn);
+          }
+        }
+[...]
+</code></pre>
+<p><em>Note : We change the turn variable before the timeout break because the player
+would then be able to click on the other squares before the computer got the chance to play.</em></p>
+<p>Like we changed the turn variable before, we need to give the cross value back to
+the turn variable after the break but before the checkVictory function in the
+ameTurn Method from the playerBehavior class.</p>
+<pre><code class="lang-TypeScript">[...]
+gameTurn(){
+    turn = <span class="hljs-string">"cross"</span>;
+    <span class="hljs-comment">// check if player won</span>
+    Game.checkVictory();
+[…]
+</code></pre>
+<p>That is slowing down our game a little bit before each computer turn.</p>
+<p>For the last move, to have time before the end screen appear, we need to play a
+trick and simply change the screen position from behind the background to front
+after the timer is out. We need to add a little function inside our function to
+be able to call with the setTimeout method. We change our displayScreen function
+from the global script like this :</p>
+<pre><code class="lang-TypeScript">[…]
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayScreen</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Create a new Screen actor</span>
+    <span class="hljs-keyword">let</span> Screen = <span class="hljs-keyword">new</span> Sup.Actor(<span class="hljs-string">"Screen"</span>);
+    <span class="hljs-comment">// Create a new SpriteRenderer and attach it to the Screen Actor</span>
+    <span class="hljs-keyword">new</span> Sup.SpriteRenderer(Screen, <span class="hljs-string">"Sprites/Screens"</span>);
+    <span class="hljs-comment">// Set the frame of the sprite to the current turn, cross, circle or tie</span>
+    Screen.spriteRenderer.setAnimation(turn);
+    <span class="hljs-comment">// Attach the behavior ScreenBehavior the the screen Actor</span>
+    Screen.addBehavior(ScreenBehavior);
+
+    <span class="hljs-comment">// Set the frame position to the center (0, 0) and -2 on z axis to be behind the board backgroung</span>
+    Screen.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-2</span>);
+    turn = <span class="hljs-string">"end"</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayFrame</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-comment">// Set the frame position to the center (0, 0) and 4 on z axis to be in front of the board backgroung</span>
+      Screen.setPosition(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>);
+    }
+    <span class="hljs-comment">// load the displayFrame function after 2000 millisecondes</span>
+    Sup.setTimeout(<span class="hljs-number">2000</span>, displayFrame);
+  }
+[…]
+</code></pre>
+<p>Yes ! this time our game is ready for release. :)</p>
+
+    </div>
+  </main>
+</body>
+</html>

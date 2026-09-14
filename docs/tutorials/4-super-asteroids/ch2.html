@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>2. Building Structure — Super Asteroids & Super Spacewar — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" class="active">2. Building Structure</a></li><li><a href="ch3.html" >3. Loading Assets</a></li><li><a href="ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="ch5.html" >5. Program Structure</a></li><li><a href="ch6.html" >6. Alien & Asteroids</a></li><li><a href="ch7.html" >7. Ship & Missiles</a></li><li><a href="ch8.html" >8. Collision & Life</a></li><li><a href="ch9.html" >9. Menu & Game Over</a></li><li><a href="ch10.html" >10. Polishing the Game</a></li><li><a href="ch11.html" >11. Modding the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Asteroids & Super Spacewar</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-4">SUPERPOWERS TUTORIAL #4</h1>
+<h2 id="super-asteroids-and-super-spacewar-chapter-2">SUPER ASTEROIDS and SUPER SPACEWAR, Chapter 2</h2>
+<h3 id="building-the-game-structure"><strong>Building the game structure</strong></h3>
+<p>As our game become bigger and more complex, it is very important to keep logical structure 
+in all our game assets. If our scripts, sprites and others resources are well structured 
+it will be easier for us to find them and use them as long we are building the game.</p>
+<p>Everything in games are objects that we connect together in a common program. In our program
+we want to be able to know what object is what with a quick glimpse. It is important to have a well
+structured hierarchy and a consistent naming methodology. There is no an universal rule in the way we structure
+game assets, for the tutorial we use one among many but as you build more games, you will follow your own 
+conventions with which you feel the more comfortable.</p>
+<p>For our game, we have a menu, a background, a player ship, an alien ship, many asteroids (copy of the same unique asteroid),
+Sounds. We can also consider that our Main game is an object. Here, by creating differents folders, 
+our basic structure with all the objects we will use :</p>
+<p><img src="img/2/structure0folders.png" alt="img/2/structure0folders.png"></p>
+<p>We will now see the structure of each object and loads all assets related to it.</p>
+<h4 id="game-structure">Game structure</h4>
+<p>First, our game will have a main script that contain the global datas and functions that we will use from
+others scripts. (We can remove it&#39;s default content, it won&#39;t be an actor behavior)</p>
+<p>Our game will also have a game management script that will concern the Game Behavior which is the main process 
+of our game when it is running.</p>
+<p>We can also create now the main game Scene.</p>
+<ul>
+<li>Global (script)</li>
+<li>Game (folder)<ul>
+<li>Scene (scene)</li>
+<li>Game (script)</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/2/structure1game.png" alt="img/2/structure1game.png"></p>
+<h4 id="menu-structure">Menu Structure</h4>
+<p>To switch between our games inside the game, we will use the Menu. </p>
+<p>We need to create different assets :</p>
+<p>The Menu/Scene which will be our Startup Scene, the Menu script which will contain the behavior logic of 
+the menu and we will have differents screen Sprites in this scene.</p>
+<ul>
+<li>The <strong>Main</strong> screen which first appear and propose the choice of games.</li>
+<li>The <strong>Asteroids</strong> screen for the Super Asteroids game.</li>
+<li>The <strong>Spacewar</strong> screen for the Super Spacewar game.</li>
+<li>And the <strong>GameOver</strong> screen which appear when we finish or leave a game.</li>
+</ul>
+<p>Also, we need a <strong>Button</strong> sprite for our menu buttons.</p>
+<ul>
+<li>Menu (folder)<ul>
+<li>Scene (scene)</li>
+<li>Menu (script)</li>
+<li>Screens (folder)<ul>
+<li>Main (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Asteroids (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Spacewar (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>GameOver (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Button (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/2/structure2menu.png" alt="img/2/structure2menu.png"></p>
+<p><em>Note : Ultimately, the Menu/Scene will be set as the Startup Scene from the game settings, but because 
+we develop our game first (and the menu as a polishing work) we can set the Game/Scene as the Startup Scene. 
+When you do tests, you often need to start the game to see the results and to do so, jump directly where this result will appear.</em></p>
+<h4 id="background-structure">Background Structure</h4>
+<p>The background object contain the script with the background behavior and the sprite of this background.</p>
+<ul>
+<li>Background (folder)<ul>
+<li>Background (script)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/2/structure3background.png" alt="img/2/structure3background.png"></p>
+<h4 id="ship-structure">Ship Structure</h4>
+<p>The ship object is the ship that control the player, for the Spacewar game, there is two different Ship which are mostly the same but with different textures.
+We need to build a common structure for this two ships but make two branch for what differ for both.</p>
+<p>First the most important which both ships are sharing is the behavior, we create a Ship script. The we create two differents folder for ship 1 and ship 2 (In programming we often 
+use number starting to 0, it is why you will see ship 1 have the index 0 and ship 2 have the index of 1).</p>
+<p>They have in common, the same missile behavior, we create a new script inside a Missile object (child object of the ship structure).</p>
+<p>Also, they share the same sprite when moving, a sprite for the engine fire.</p>
+<p>Now, what separate them :</p>
+<p>We create for each a Model, which will contain the 3d model textured. We create a prefab scene which will set the ship inside a scene that we can use later. 
+We need differents sprites for each ship, the life icon, the missile sprite and the ship explosion. We also need the prefab of the missile, which set the missile inside a scene.</p>
+<ul>
+<li>Ship (folder)<ul>
+<li>Ship (script)</li>
+<li>Missile (folder)<ul>
+<li>Missile (script)</li>
+</ul>
+</li>
+<li>Boost (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>0 (folder)<ul>
+<li>Model (3D model)</li>
+<li>Prefab (scene)</li>
+<li>Life (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Missile (folder)<ul>
+<li>Prefab (scene)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Explosion (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1 (folder)<ul>
+<li>Model (3D model)</li>
+<li>Prefab (scene)</li>
+<li>Life (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Missile (folder)<ul>
+<li>Prefab (scene)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Explosion (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/2/structure4ship.png" alt="img/2/structure4ship.png"></p>
+<h4 id="alien-structure">Alien Structure</h4>
+<p>For the alien ship we need to create an Alien behavior script, a 3D model and a prefab scene. 
+The alien have, like the ship, differents sprite for its missile, life and explosion.</p>
+<p>The missile object of alien object have also a script behavior and a prefab scene which set an individual missile 
+and serve as a template than we use each time we need a missile to appear in the game.</p>
+<ul>
+<li>Alien (folder)<ul>
+<li>Alien (script)</li>
+<li>Model (3D model)</li>
+<li>Prefab (scene)</li>
+<li>Missile (folder)<ul>
+<li>Missile (script)</li>
+<li>Prefab (scene)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Life (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Explosion (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/2/structure5alien.png" alt="img/2/structure5alien.png"></p>
+<h4 id="asteroid-structure">Asteroid Structure</h4>
+<p>The asteroid object has a behavior script, a prefab and a 3D model, it also has a sprite when exploding.</p>
+<ul>
+<li>Asteroid (folder)<ul>
+<li>Asteroid (script)</li>
+<li>Model (3D model)</li>
+<li>Prefab (scene)</li>
+<li>Explosion (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/2/structure6asteroid.png" alt="img/2/structure6asteroid.png"></p>
+<h4 id="sound-structure">Sound Structure</h4>
+<p>The sounds contains sound assets :</p>
+<ul>
+<li>Sounds<ul>
+<li>music</li>
+<li>shipShot</li>
+<li>alienShot</li>
+<li>explosion</li>
+<li>shotContact</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/2/structure7soundfont.png" alt="img/2/structure7soundfont.png"></p>
+<h4 id="font">Font</h4>
+<p>Finaly, in the root of our structure we can add the Font asset that we will use for all our text and the user interface.
+<em>(see screen with sounds)</em></p>
+<h4 id="complete-structure-">Complete structure :</h4>
+<p>See the <a href="ch12.html">final chapter</a> for the complete reference source to see the complete game structure combined.</p>
+<p><a href="ch1.html">&lt;-- back to chapter 1</a> -- <a href="ch3.html">go to chapter 3 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

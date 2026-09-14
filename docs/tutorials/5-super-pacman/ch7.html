@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>7. Menu Behavior — Super Pacman — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="../4-super-asteroids/index.html" >Overview</a></li><li><a href="../4-super-asteroids/ch1.html" >1. Planning the Game</a></li><li><a href="../4-super-asteroids/ch2.html" >2. Building Structure</a></li><li><a href="../4-super-asteroids/ch3.html" >3. Loading Assets</a></li><li><a href="../4-super-asteroids/ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="../4-super-asteroids/ch5.html" >5. Program Structure</a></li><li><a href="../4-super-asteroids/ch6.html" >6. Alien & Asteroids</a></li><li><a href="../4-super-asteroids/ch7.html" >7. Ship & Missiles</a></li><li><a href="../4-super-asteroids/ch8.html" >8. Collision & Life</a></li><li><a href="../4-super-asteroids/ch9.html" >9. Menu & Game Over</a></li><li><a href="../4-super-asteroids/ch10.html" >10. Polishing the Game</a></li><li><a href="../4-super-asteroids/ch11.html" >11. Modding the Game</a></li><li><a href="../4-super-asteroids/ch12.html" >12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch0.html" >Devlog</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Project Structure</a></li><li><a href="ch3.html" >3. Setting Assets</a></li><li><a href="ch4.html" >4. Designing Levels</a></li><li><a href="ch5.html" >5. Composing Scenes</a></li><li><a href="ch6.html" >6. Global Game Behavior</a></li><li><a href="ch7.html" class="active">7. Menu Behavior</a></li><li><a href="ch8.html" >8. Level & Start</a></li><li><a href="ch9.html" >9. Pacman Behavior</a></li><li><a href="ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="ch11.html" >11. Polishing the Game</a></li><li><a href="ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Pacman</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-game-development-series-5">Superpowers Game Development Series #5</h1>
+<h2 id="super-pacman"><strong>SUPER PACMAN</strong></h2>
+<h3 id="chapter-7-scripting-menu-behavior"><strong>Chapter 7 : Scripting menu behavior</strong></h3>
+<h5 id="menu-behavior">Menu behavior</h5>
+<h6 id="initializing">Initializing</h6>
+<p>The menu awake first when we start the menu scene (which is the startup scene).</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> MenuBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Create a ray caster used to check collision between the mouse and objects of the screen</span>
+  <span class="hljs-keyword">private</span> ray = <span class="hljs-keyword">new</span> Sup.Math.Ray;
+  <span class="hljs-comment">// The current screen displayed</span>
+  <span class="hljs-keyword">private</span> screen:<span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Init The button actor</span>
+  <span class="hljs-keyword">private</span> button:Sup.Actor;
+  <span class="hljs-comment">// Init The level buttons actors in a list</span>
+  <span class="hljs-keyword">private</span> levelsList:Sup.Actor[];
+
+  awake() {
+    <span class="hljs-comment">// Set the current screen with the start screen</span>
+    <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.start);
+    <span class="hljs-comment">// Set the button actor to local button variable</span>
+    <span class="hljs-keyword">this</span>.button = Sup.getActor(<span class="hljs-string">"Button"</span>);
+    <span class="hljs-comment">// Set the level button actors to an empty list</span>
+    <span class="hljs-keyword">this</span>.levelsList = [];
+    <span class="hljs-comment">// Call the function that add all levels buttons actors to the list</span>
+    <span class="hljs-keyword">this</span>.getLevelsList();
+    <span class="hljs-comment">// Set the opacity of the levels buttons to default</span>
+    <span class="hljs-keyword">this</span>.setLevelOpacityDefault();
+  }
+[...]
+</code></pre>
+<h6 id="update-the-screen-method">Update the screen method</h6>
+<p>This method display the current screen.</p>
+<pre><code class="lang-ts">[...]
+  updateScreen(screenName:<span class="hljs-built_in">string</span>){
+    <span class="hljs-comment">// Set the screenName parameter as the current screen</span>
+    <span class="hljs-keyword">this</span>.screen = screenName;
+    <span class="hljs-comment">// Get the Screens actor in a variable</span>
+    <span class="hljs-keyword">let</span> menuScreens = Sup.getActor(<span class="hljs-string">"Screens"</span>);
+    <span class="hljs-comment">// Loop through all the menu Screen</span>
+    <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">let</span> screen <span class="hljs-keyword">in</span> Global.menuScreens){
+      <span class="hljs-comment">// Check if the screen from loop is the same than the current screen</span>
+      <span class="hljs-keyword">if</span> (Global.menuScreens[screen] === <span class="hljs-keyword">this</span>.screen){
+        <span class="hljs-comment">// if yes, set the screen visibility to true</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Global.menuScreens[screen]).setVisible(<span class="hljs-literal">true</span>);
+      }
+      <span class="hljs-keyword">else</span>{
+        <span class="hljs-comment">// else, set the screen visibility to false</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Global.menuScreens[screen]).setVisible(<span class="hljs-literal">false</span>);
+      }
+    }
+  }
+[...]
+</code></pre>
+<h6 id="level-buttons-methods">Level buttons methods</h6>
+<p>Differents methods are used for the levels buttons behavior.</p>
+<ul>
+<li>getLevelsList() will add the the levelsList all the level button actors</li>
+<li>setLevelOpacityDefault() will set down the sprite opacity of all the level buttons</li>
+<li>setLevelOpacityBright() will set up the sprite opacity of the level button currently hovered by the mouse</li>
+</ul>
+<pre><code class="lang-ts">[...]
+  getLevelsList(){
+    <span class="hljs-comment">// Loop through all the levels name</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> level <span class="hljs-keyword">in</span> Level.levels){
+      <span class="hljs-comment">// Get the actor of the level from the loop and add it to the levelsList </span>
+      <span class="hljs-keyword">this</span>.levelsList.push(Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(<span class="hljs-string">"Levels"</span>).getChild(Level.levels[level]));
+    }
+  }
+
+  setLevelOpacityDefault(){
+    <span class="hljs-comment">// Loop through all the levels actors from the list</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> level of <span class="hljs-keyword">this</span>.levelsList){
+      <span class="hljs-comment">// Set the opacity of the sprite to half</span>
+      level.spriteRenderer.setOpacity(<span class="hljs-number">0.5</span>);
+    }
+  }
+
+  setLevelOpacityBright(actor:Sup.Actor){
+    <span class="hljs-comment">// Loop through all the levels actors from the list</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> level of <span class="hljs-keyword">this</span>.levelsList){
+      <span class="hljs-comment">// if the actor name is the same than the level name from the loop</span>
+      <span class="hljs-keyword">if</span>(actor.getName() === level.getName()){
+        <span class="hljs-comment">// Set the opacity of this level button to full</span>
+        level.spriteRenderer.setOpacity(<span class="hljs-number">1</span>);
+      }
+      <span class="hljs-keyword">else</span>{
+        <span class="hljs-comment">// Else, set the opacity of this level button to half</span>
+        level.spriteRenderer.setOpacity(<span class="hljs-number">0.5</span>);
+      }
+    }
+  }
+[...]
+</code></pre>
+<h6 id="end-screen-method">End screen method</h6>
+<p>This method set the end screen related to the result of won (victory or game over)</p>
+<pre><code class="lang-ts">[...]
+  setEndscreen(){
+    <span class="hljs-comment">// Update the screen display with the end screen</span>
+    <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.end);
+    <span class="hljs-comment">// Get the actor of the end screen</span>
+    <span class="hljs-keyword">let</span> endScreen: Sup.Actor = Sup.getActor(<span class="hljs-string">'Screens'</span>).getChild(<span class="hljs-string">"End"</span>);
+    <span class="hljs-comment">// If the game won flag is true</span>
+    <span class="hljs-keyword">if</span>(Global.won){
+      <span class="hljs-comment">// Set the animation victory of the sprite (without looping the animation)</span>
+      endScreen.spriteRenderer.setAnimation(<span class="hljs-string">"victory"</span>, <span class="hljs-literal">false</span>);
+    }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-comment">// Set the animation game over of the sprite (without looping the animation)</span>
+      endScreen.spriteRenderer.setAnimation(<span class="hljs-string">"gameover"</span>, <span class="hljs-literal">false</span>);
+    }
+
+    <span class="hljs-comment">// Set the statistic datas to update the text display in the end screen</span>
+    endScreen.getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(<span class="hljs-string">"Score:"</span>+Global.score);
+    endScreen.getChild(<span class="hljs-string">"Time"</span>).textRenderer.setText(<span class="hljs-string">"Time:"</span>+Global.time);
+    endScreen.getChild(<span class="hljs-string">"Ghosts"</span>).textRenderer.setText(<span class="hljs-string">"Ghosts eaten:"</span>+Global.ghostsEaten);
+    endScreen.getChild(<span class="hljs-string">"Coins"</span>).textRenderer.setText(<span class="hljs-string">"Coins eaten:"</span>+Global.coinsEatens);
+    endScreen.getChild(<span class="hljs-string">"Fruits"</span>).textRenderer.setText(<span class="hljs-string">"Fruits eaten:"</span>+Global.fruitsEaten);
+    endScreen.getChild(<span class="hljs-string">"Lifes"</span>).textRenderer.setText(<span class="hljs-string">"Lifes left:"</span>+Global.pacmanLifes);
+  }
+[...]
+</code></pre>
+<h6 id="update-loop">Update loop</h6>
+<pre><code class="lang-ts">[...]
+  update() {
+    <span class="hljs-comment">// Update the position of the raycaster of the mouse inside the camera zone</span>
+    <span class="hljs-keyword">this</span>.ray.setFromCamera(Sup.getActor(<span class="hljs-string">"Camera"</span>).camera, Sup.Input.getMousePosition());
+    <span class="hljs-comment">// Give data related to the collision between the mouse and the button to a variable</span>
+    <span class="hljs-keyword">let</span> hitButton = <span class="hljs-keyword">this</span>.ray.intersectActor(Sup.getActor(<span class="hljs-string">"Button"</span>));
+
+    <span class="hljs-comment">// if the hitButton variable got datas, it is hovered</span>
+    <span class="hljs-keyword">if</span>(hitButton.length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// If the current screen is the start screen</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.screen === Global.menuScreens.start){
+        <span class="hljs-comment">// Change the animation of the button to hoverPlay</span>
+        <span class="hljs-keyword">this</span>.button.spriteRenderer.setAnimation(<span class="hljs-string">"hoverPlay"</span>, <span class="hljs-literal">false</span>);
+        <span class="hljs-comment">// Change the animation of the start screen</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(<span class="hljs-string">"Start"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"hover"</span>, <span class="hljs-literal">false</span>);
+      }
+      <span class="hljs-comment">// If the current screen is the level selection or the end screen</span>
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// Change the animation of the button to hoverReturn</span>
+        <span class="hljs-keyword">this</span>.button.spriteRenderer.setAnimation(<span class="hljs-string">"hoverReturn"</span>, <span class="hljs-literal">false</span>);
+      }
+      <span class="hljs-comment">// If the button is pressed while hovering it</span>
+      <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)){
+        <span class="hljs-comment">// call the updateScreen() function with a parameter depending of the current screen</span>
+        <span class="hljs-keyword">switch</span>(<span class="hljs-keyword">this</span>.screen){
+          <span class="hljs-keyword">case</span> <span class="hljs-string">"Start"</span>:
+            <span class="hljs-comment">// If the current screen was start screen, go to levels screen</span>
+            <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.levels);
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-keyword">case</span> <span class="hljs-string">"Levels"</span>:
+            <span class="hljs-comment">// If the current screen was levels screen, go to start screen</span>
+            <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.start);
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-keyword">case</span> <span class="hljs-string">"End"</span>:
+            <span class="hljs-comment">// If the current screen was end screen, go to start screen</span>
+            <span class="hljs-keyword">this</span>.updateScreen(Global.menuScreens.start);
+            <span class="hljs-keyword">break</span>;
+        }
+      }
+    }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-comment">// If the button is not hovered, reset animation to unhoverPlay is the current screen is Start</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.screen === <span class="hljs-string">"Start"</span>){
+        <span class="hljs-keyword">this</span>.button.spriteRenderer.setAnimation(<span class="hljs-string">"unhoverPlay"</span>);
+        <span class="hljs-comment">// Change the animation of the start screen</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(<span class="hljs-string">"Start"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"unhover"</span>, <span class="hljs-literal">false</span>);
+      }
+      <span class="hljs-comment">// Else reset animation to unhoverReturn for the others screens</span>
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">this</span>.button.spriteRenderer.setAnimation(<span class="hljs-string">"unhoverReturn"</span>);
+      }
+    }
+
+    <span class="hljs-comment">// If the current screen is levels screen</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.screen === <span class="hljs-string">"Levels"</span>){
+    <span class="hljs-comment">// Give data related to the collision between the mouse and all the levels buttons to a variable</span>
+      <span class="hljs-keyword">let</span> hitLevel = <span class="hljs-keyword">this</span>.ray.intersectActors(<span class="hljs-keyword">this</span>.levelsList);
+      <span class="hljs-keyword">if</span> (hitLevel.length &gt; <span class="hljs-number">0</span>){
+        <span class="hljs-comment">// if there is hitLevel data, a button level is hovered, call funtion to set a light opacity</span>
+        <span class="hljs-keyword">this</span>.setLevelOpacityBright(hitLevel[<span class="hljs-number">0</span>].actor);
+        <span class="hljs-comment">// if the current button is clicked</span>
+        <span class="hljs-keyword">if</span>(Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)){
+          <span class="hljs-comment">// If the level clicked is the level 6 (which is a tutorial link than we will change later)</span>
+          <span class="hljs-keyword">if</span> (hitLevel[<span class="hljs-number">0</span>].actor.getName() === <span class="hljs-string">"Level6"</span>){
+            <span class="hljs-comment">// Open a new window with the url</span>
+            <span class="hljs-built_in">window</span>.open(<span class="hljs-string">"http://mseyne.github.io/"</span>);
+          }
+          <span class="hljs-comment">// Else, for all others levels</span>
+          <span class="hljs-keyword">else</span>{
+            <span class="hljs-comment">// Set the current level to the level which have been clicked</span>
+            Global.currentLevel =  hitLevel[<span class="hljs-number">0</span>].actor.getName();
+            <span class="hljs-comment">// Start a new game</span>
+            Global.startNewGame();
+          }
+        }
+      }
+      <span class="hljs-comment">// if no one is hovered set opacity false to all levels buttons</span>
+      <span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">this</span>.setLevelOpacityDefault();
+      }
+    }
+  }
+}
+Sup.registerBehavior(MenuBehavior);
+</code></pre>
+<p>To make all this work without error, we can add in the Global script the Level namespace with this datas, we will complete this module in the next chapter.</p>
+<pre><code class="lang-ts">[...]
+<span class="hljs-keyword">namespace</span> Level {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> levels = {
+               <span class="hljs-number">1</span>:<span class="hljs-string">"Level1"</span>,
+               <span class="hljs-number">2</span>:<span class="hljs-string">"Level2"</span>,
+               <span class="hljs-number">3</span>:<span class="hljs-string">"Level3"</span>,
+               <span class="hljs-number">4</span>:<span class="hljs-string">"Level4"</span>,
+               <span class="hljs-number">5</span>:<span class="hljs-string">"Level5"</span>,
+               <span class="hljs-number">6</span>:<span class="hljs-string">"Level6"</span>
+              }
+
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span>(<span class="hljs-params"></span>)</span>{}
+
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> endStats = [<span class="hljs-string">"Score"</span>, <span class="hljs-string">"Time"</span>, <span class="hljs-string">"Ghosts"</span>, <span class="hljs-string">"Coins"</span>, <span class="hljs-string">"Fruits"</span>, <span class="hljs-string">"Lifes"</span>];
+}
+</code></pre>
+<p>We can download the superpowers project <strong>v7</strong> from this chapter <a href="https://github.com/mseyne/super-pacman-project">here</a>.</p>
+<p><a href="ch6.html">&lt;-- go to chapter 6</a> -- <a href="ch8.html">go to chapter 8 --&gt;</a></p>
+
+    </div>
+  </main>
+</body>
+</html>

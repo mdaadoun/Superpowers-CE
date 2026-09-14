@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>12. Source Reference — Super Asteroids & Super Spacewar — Superpowers CE Tutorials</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/highlight.css">
+  <style>
+    .tutorials-nav .group-title {
+      font-weight: 700;
+      color: #333;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .tutorials-nav ol {
+      margin-bottom: 0.6em;
+      padding-left: 1.2em;
+    }
+    .tutorials-top-bar {
+      margin-bottom: 1.5em;
+      padding: 0.6em 1em;
+      background: #f0f4f8;
+      border-radius: 4px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tutorials-top-bar a {
+      font-weight: bold;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div style="padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #ccc; font-size: 1.1em;">
+        <a href="../index.html" style="color: inherit; text-decoration: none;">&larr; All Demo Tutorials</a>
+      </div>
+      <ol class="tutorials-nav"><li class="tutorial-group"><div class="group-title">1. Super Pong</div><ol><li><a href="../1-super-pong/index.html" >Overview</a></li><li><a href="../1-super-pong/ch1.html" >1. Introduction & Plan</a></li><li><a href="../1-super-pong/ch2.html" >2. Preparing Superpowers</a></li><li><a href="../1-super-pong/ch3.html" >3. Game Logic</a></li><li><a href="../1-super-pong/ch4.html" >4. Polishing the Game</a></li><li><a href="../1-super-pong/ch5.html" >5. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">2. Super OXO</div><ol><li><a href="../2-super-oxo/index.html" >Overview</a></li><li><a href="../2-super-oxo/ch1.html" >1. Introduction & Plan</a></li><li><a href="../2-super-oxo/ch2.html" >2. Building Structure</a></li><li><a href="../2-super-oxo/ch3.html" >3. Player Actions</a></li><li><a href="../2-super-oxo/ch4.html" >4. Computer Response AI</a></li><li><a href="../2-super-oxo/ch5.html" >5. Polishing the Game</a></li><li><a href="../2-super-oxo/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">3. Super Sokoban</div><ol><li><a href="../3-super-sokoban/index.html" >Overview</a></li><li><a href="../3-super-sokoban/ch1.html" >1. Plan the Game</a></li><li><a href="../3-super-sokoban/ch2.html" >2. Shaping Structure</a></li><li><a href="../3-super-sokoban/ch3.html" >3. World & Player Logic</a></li><li><a href="../3-super-sokoban/ch4.html" >4. Level Scripting</a></li><li><a href="../3-super-sokoban/ch5.html" >5. Polishing the Game</a></li><li><a href="../3-super-sokoban/ch6.html" >6. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">4. Super Asteroids & Spacewar</div><ol><li><a href="index.html" >Overview</a></li><li><a href="ch1.html" >1. Planning the Game</a></li><li><a href="ch2.html" >2. Building Structure</a></li><li><a href="ch3.html" >3. Loading Assets</a></li><li><a href="ch4.html" >4. Game Scene & Prefabs</a></li><li><a href="ch5.html" >5. Program Structure</a></li><li><a href="ch6.html" >6. Alien & Asteroids</a></li><li><a href="ch7.html" >7. Ship & Missiles</a></li><li><a href="ch8.html" >8. Collision & Life</a></li><li><a href="ch9.html" >9. Menu & Game Over</a></li><li><a href="ch10.html" >10. Polishing the Game</a></li><li><a href="ch11.html" >11. Modding the Game</a></li><li><a href="ch12.html" class="active">12. Source Reference</a></li></ol></li><li class="tutorial-group"><div class="group-title">5. Super Pacman</div><ol><li><a href="../5-super-pacman/index.html" >Overview</a></li><li><a href="../5-super-pacman/ch0.html" >Devlog</a></li><li><a href="../5-super-pacman/ch1.html" >1. Planning the Game</a></li><li><a href="../5-super-pacman/ch2.html" >2. Project Structure</a></li><li><a href="../5-super-pacman/ch3.html" >3. Setting Assets</a></li><li><a href="../5-super-pacman/ch4.html" >4. Designing Levels</a></li><li><a href="../5-super-pacman/ch5.html" >5. Composing Scenes</a></li><li><a href="../5-super-pacman/ch6.html" >6. Global Game Behavior</a></li><li><a href="../5-super-pacman/ch7.html" >7. Menu Behavior</a></li><li><a href="../5-super-pacman/ch8.html" >8. Level & Start</a></li><li><a href="../5-super-pacman/ch9.html" >9. Pacman Behavior</a></li><li><a href="../5-super-pacman/ch10.html" >10. Ghost & Fruit AI</a></li><li><a href="../5-super-pacman/ch11.html" >11. Polishing the Game</a></li><li><a href="../5-super-pacman/ch12.html" >12. Source Reference</a></li></ol></li></ol>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <a href="../../index.html">
+        <img src="../../images/icon.png">
+        <span>Superpowers CE &mdash; Game Tutorials Handbook</span>
+      </a>
+    </header>
+    <div class="page">
+      <div class="tutorials-top-bar">
+        <span>Game: <strong>Super Asteroids & Super Spacewar</strong></span>
+        <span><a href="../index.html">&larr; Return to Demos Hub</a></span>
+      </div>
+      <h1 id="superpowers-tutorial-4">SUPERPOWERS TUTORIAL #4</h1>
+<h2 id="super-asteroids-and-super-spacewar-chapter-12">SUPER ASTEROIDS and SUPER SPACEWAR, Chapter 12</h2>
+<h3 id="complete-game-source-reference"><strong>Complete Game Source Reference</strong></h3>
+<h4 id="game-structure">Game structure</h4>
+<ul>
+<li>Global (script)</li>
+<li>Game (folder)<ul>
+<li>Scene (scene)</li>
+<li>Game (script)</li>
+</ul>
+</li>
+<li>Menu (folder)<ul>
+<li>Scene (scene)</li>
+<li>Menu (script)</li>
+<li>Screens (folder)<ul>
+<li>Main (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Asteroids (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Spacewar (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>GameOver (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Button (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Background (folder)<ul>
+<li>Background (script)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Ship (folder)<ul>
+<li>Ship (script)</li>
+<li>Missile (folder)<ul>
+<li>Missile (script)</li>
+</ul>
+</li>
+<li>Boost (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>0 (folder)<ul>
+<li>Model (3D model)</li>
+<li>Prefab (scene)</li>
+<li>Life (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Missile (folder)<ul>
+<li>Prefab (scene)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Explosion (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1 (folder)<ul>
+<li>Model (3D model)</li>
+<li>Prefab (scene)</li>
+<li>Life (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Missile (folder)<ul>
+<li>Prefab (scene)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Explosion (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Alien (folder)<ul>
+<li>Alien (script)</li>
+<li>Model (3D model)</li>
+<li>Prefab (scene)</li>
+<li>Missile (folder)<ul>
+<li>Missile (script)</li>
+<li>Prefab (scene)</li>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Life (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+<li>Explosion (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Asteroid (folder)<ul>
+<li>Asteroid (script)</li>
+<li>Model (3D model)</li>
+<li>Prefab (scene)</li>
+<li>Explosion (folder)<ul>
+<li>Sprite (sprite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sounds<ul>
+<li>music</li>
+<li>shipShot</li>
+<li>alienShot</li>
+<li>explosion</li>
+<li>shotContact</li>
+</ul>
+</li>
+<li>Font</li>
+</ul>
+<h4 id="source-assets">Source assets</h4>
+<p>You can see the repository of this assets <a href="https://github.com/mseyne/superpowers-sources/tree/master/4SuperAsteroids">here</a>.</p>
+<ul>
+<li>alien<ul>
+<li>alien.blend</li>
+<li>alien.obj</li>
+<li>alienExplosion.png</li>
+<li>alienLife.png</li>
+<li>alienMissile.png</li>
+<li>alienTexture.png</li>
+</ul>
+</li>
+<li>asteroid<ul>
+<li>asteroid.blend</li>
+<li>asteroid.obj</li>
+<li>asteroidExplosion.png</li>
+<li>asteroidTexture.png</li>
+</ul>
+</li>
+<li>castle<ul>
+<li>// will be updated</li>
+</ul>
+</li>
+<li>menu<ul>
+<li>asteroids.png</li>
+<li>button.png</li>
+<li>gameover.png</li>
+<li>main.png</li>
+<li>spacewar.png</li>
+</ul>
+</li>
+<li>scripts<ul>
+<li>Alien.ts</li>
+<li>Asteroids.ts</li>
+<li>Background.ts</li>
+<li>Game.ts</li>
+<li>Global.ts</li>
+<li>Menu.ts</li>
+<li>Missile.ts (Alien)</li>
+<li>Missile.ts (Ship)</li>
+<li>Ship.ts</li>
+</ul>
+</li>
+<li>ships<ul>
+<li>boost.png</li>
+<li>ship.blend</li>
+<li>ship.obj</li>
+<li>ship1explosion.png</li>
+<li>ship1life.png</li>
+<li>ship1missile.png</li>
+<li>ship1texture.png</li>
+<li>ship2explosion.png</li>
+<li>ship2life.png</li>
+<li>ship2missile.png</li>
+<li>ship2texture.png</li>
+</ul>
+</li>
+<li>sounds<ul>
+<li>alienShot.mp3</li>
+<li>explosion.mp3</li>
+<li>music.mp3</li>
+<li>shipShot.mp3</li>
+<li>shotContact.mp3</li>
+</ul>
+</li>
+<li>background.png</li>
+<li>font.png</li>
+</ul>
+<h4 id="source-code">Source code</h4>
+<h5 id="global-ts">Global.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-comment">// SUPER ASTEROIDS and SUPER SPACEWAR</span>
+<span class="hljs-comment">// Tutorial #4 Game Development with Superpowers</span>
+
+<span class="hljs-comment">// Main game datas and functions</span>
+<span class="hljs-keyword">namespace</span> Game{
+
+  <span class="hljs-comment">// Game timer max value</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> timeMax: <span class="hljs-built_in">number</span> = <span class="hljs-number">7200</span>; <span class="hljs-comment">//7200 2 minutes</span>
+
+  <span class="hljs-comment">// The game index of the current played game, 0 for Asteroids, 1 for Spacewar</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> nameIndex: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>; <span class="hljs-comment">// Temporary allocation</span>
+
+  <span class="hljs-comment">// The screen limits in width and height + outside border</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> bounds : {
+    width:<span class="hljs-built_in">number</span>,
+    height:<span class="hljs-built_in">number</span>
+  }
+
+  <span class="hljs-comment">// set an invisible border of 2 x 1.5 units (24 pixels wide) around the screen</span>
+  <span class="hljs-keyword">let</span> border: <span class="hljs-built_in">number</span> = <span class="hljs-number">3</span>;
+
+  <span class="hljs-comment">// Game points won when target shot</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> points {
+    asteroidBig = <span class="hljs-number">10</span>,
+    asteroidMedium = <span class="hljs-number">15</span>,
+    asteroidSmall = <span class="hljs-number">20</span>,
+    alien = <span class="hljs-number">50</span>,
+    ship = <span class="hljs-number">100</span> ,
+    death = <span class="hljs-number">-50</span>,
+     }
+
+  <span class="hljs-comment">// Life hearts positions</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> hearts = [
+    [<span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"empty"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"empty"</span>],
+    [<span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>, <span class="hljs-string">"full"</span>]
+  ]
+
+  <span class="hljs-comment">// Flags to check HUD changes</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> checkLifeHUD: <span class="hljs-built_in">boolean</span>;
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> checkScoreHUD: <span class="hljs-built_in">boolean</span>;
+
+  <span class="hljs-comment">// Start the game</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">start</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Load Game Scene</span>
+    Sup.loadScene(<span class="hljs-string">"Game/Scene"</span>);
+
+    <span class="hljs-comment">// Set new asteroids list</span>
+    Asteroids.list = [];
+    <span class="hljs-comment">// Set asteroids number to 0</span>
+    Asteroids.currentCount = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// Set new Ships.missiles list</span>
+    Ships.missiles = [[], []];
+    <span class="hljs-comment">// Set new Alien.missiles list</span>
+    Alien.missiles = [];
+
+
+    <span class="hljs-comment">// get the Camera actor the the game Scene</span>
+    <span class="hljs-keyword">let</span> screen = Sup.getActor(<span class="hljs-string">"Camera"</span>).camera;
+    <span class="hljs-comment">// We get the game screen bounds and add the invisible border</span>
+    bounds = {
+      width: screen.getOrthographicScale() + border,
+      height: screen.getOrthographicScale() + border
+    }
+
+    <span class="hljs-comment">// If the game is Asteroids, load the Ship 1 only</span>
+    <span class="hljs-keyword">if</span> (nameIndex === <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// Set ship 1 in game</span>
+      setShip(Ships.index.ship1);
+      <span class="hljs-comment">// Set visible false the HUD display for ship 2</span>
+      Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip2"</span>).setVisible(<span class="hljs-literal">false</span>);
+      <span class="hljs-comment">// Set visible true the HUD display for alien</span>
+      Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIAlien"</span>).setVisible(<span class="hljs-literal">true</span>);
+      <span class="hljs-comment">// Set Timer HUD visible false</span>
+      Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"Timer"</span>).setVisible(<span class="hljs-literal">true</span>);
+    }
+    <span class="hljs-comment">// If the game is Spacewar, load two ships</span>
+    <span class="hljs-keyword">if</span> (nameIndex === <span class="hljs-number">1</span>) {
+      <span class="hljs-comment">// Set ship 1 in game</span>
+      setShip(Ships.index.ship1);
+      <span class="hljs-comment">// Set ship 2 in game</span>
+      setShip(Ships.index.ship2);
+      <span class="hljs-comment">// Set visible true the HUD display for ship 2</span>
+      Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip2"</span>).setVisible(<span class="hljs-literal">true</span>);
+      <span class="hljs-comment">// Set visible false the HUD display for alien</span>
+      Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIAlien"</span>).setVisible(<span class="hljs-literal">false</span>);
+      <span class="hljs-comment">// Set Timer HUD visible false</span>
+      Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"Timer"</span>).setVisible(<span class="hljs-literal">false</span>);
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setShip</span>(<span class="hljs-params">shipIndex:<span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">// Initialize a new variable of type Sup.Actor</span>
+    <span class="hljs-keyword">let</span> Ship: Sup.Actor;
+    <span class="hljs-comment">// Add the ship 1 or 2 to game scene depending the index</span>
+    <span class="hljs-keyword">if</span> (shipIndex === <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// Create Ship and set the ship variable with the Ship1 actor</span>
+      Ship = Sup.appendScene(<span class="hljs-string">"Ship/0/Prefab"</span>)[<span class="hljs-number">0</span>];
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Create Ship and set the ship variable with the Ship2 actor</span>
+      Ship = Sup.appendScene(<span class="hljs-string">"Ship/1/Prefab"</span>)[<span class="hljs-number">0</span>];
+    }
+    <span class="hljs-comment">// Set behavior variables</span>
+    Ship.getBehavior(ShipBehavior).index = shipIndex;
+    <span class="hljs-comment">// Set spawn position of the ship accordingly to the game an ship index</span>
+    <span class="hljs-comment">// If game is Asteroids, set position to center</span>
+    <span class="hljs-keyword">if</span> (nameIndex === <span class="hljs-number">0</span>) {
+      Ship.setLocalPosition(Ships.spawns[<span class="hljs-number">0</span>]);
+    }
+    <span class="hljs-comment">// If game is Spacewar and Ship is 1, set position to corner down left</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (shipIndex === <span class="hljs-number">0</span>) {
+      Ship.setLocalPosition(Ships.spawns[<span class="hljs-number">1</span>]);
+    }
+    <span class="hljs-comment">// Else it is Ship 2, set position to corner up right</span>
+    <span class="hljs-keyword">else</span> {
+      Ship.setLocalPosition(Ships.spawns[<span class="hljs-number">2</span>]);
+    }
+  }
+
+  <span class="hljs-comment">// Create an alien in the Game scene              </span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">spawnAlien</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Load the alien prefab and get the Alien actor (index 0) as a new alien variable</span>
+    <span class="hljs-keyword">let</span> alien = Sup.appendScene(<span class="hljs-string">"Alien/Prefab"</span>)[<span class="hljs-number">0</span>];
+
+    <span class="hljs-comment">// Choose a random position somewhere at the vertical edges of the game screen</span>
+    <span class="hljs-comment">// Create the three axis positions x, y, z</span>
+    <span class="hljs-keyword">let</span> x: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, y: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, z: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// Choose randomly a position on one of the vertical edges</span>
+    x = Sup.Math.Random.sample([-bounds.width / <span class="hljs-number">2</span>, bounds.width / <span class="hljs-number">2</span>]);
+    <span class="hljs-comment">// Get the height without the invisible border</span>
+    <span class="hljs-keyword">let</span> height = bounds.height - border
+    <span class="hljs-comment">// Choose randomly a position on y axis</span>
+    y = Sup.Math.Random.integer(-height / <span class="hljs-number">2</span> , height / <span class="hljs-number">2</span>);
+    <span class="hljs-comment">// Get alien default Z position</span>
+    z = Alien.zPosition;
+
+    <span class="hljs-comment">// Set the randomly chosen position to the Alien actor</span>
+    alien.setLocalPosition(x, y, z);
+  }
+
+  <span class="hljs-comment">// Create an asteroid in the Game scene</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">spawnAsteroid</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// Load the asteroid prefab and get the Asteroid actor (index 0) as a new asteroid variable</span>
+    <span class="hljs-keyword">let</span> asteroid = Sup.appendScene(<span class="hljs-string">"Asteroid/Prefab"</span>)[<span class="hljs-number">0</span>];
+
+    <span class="hljs-comment">// Choose a random position somewhere at the edges of the game screen</span>
+    <span class="hljs-comment">// Create the three axis positions x, y, z</span>
+    <span class="hljs-keyword">let</span> x: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, y: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>, z: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">// Choose randomly if the asteroids come from the horizontal or vertical edges</span>
+    <span class="hljs-keyword">if</span>(Sup.Math.Random.sample([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>]) === <span class="hljs-number">0</span>){
+      x = Sup.Math.Random.sample([-bounds.width / <span class="hljs-number">2</span>, bounds.width / <span class="hljs-number">2</span>]);
+      y = Sup.Math.Random.integer(-bounds.height / <span class="hljs-number">2</span>, bounds.height / <span class="hljs-number">2</span>);
+    }
+    <span class="hljs-keyword">else</span> {
+      x = Sup.Math.Random.integer(-bounds.height / <span class="hljs-number">2</span>, bounds.height / <span class="hljs-number">2</span>);
+      y = Sup.Math.Random.sample([-bounds.width / <span class="hljs-number">2</span>, bounds.width / <span class="hljs-number">2</span>]);
+    }
+    <span class="hljs-comment">// Choose randomly the z position on the scene in the range of Asteroids.zPoistions</span>
+    z = Sup.Math.Random.integer(Asteroids.zPositions.min, Asteroids.zPositions.max);
+
+    <span class="hljs-comment">// Set the randomly chosen position to the Asteroid actor</span>
+    asteroid.setLocalPosition(x, y, z);
+
+    <span class="hljs-comment">// Report the asteroid size</span>
+    asteroid.getBehavior(AsteroidBehavior).sizeClass = <span class="hljs-string">"big"</span>;
+  }
+
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkCollisionMissile</span>(<span class="hljs-params">actor: Sup.Actor, actorList: Sup.Actor[], amplitude: <span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">/* 
+    We get the distance between actor and all the actors of the actorList
+    If the distance if inferior to the amplitude box around the Actor, there is a collision
+    */</span>
+
+    <span class="hljs-comment">// Get the position 1 of the actor we check collision with actorList</span>
+    <span class="hljs-keyword">let</span> position1: Sup.Math.Vector2 = actor.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Loop through the actors of listToCheck and check if ....</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; actorList.length; i++){
+      <span class="hljs-comment">// Get the position 2 of the current actor of the loop inside actorList</span>
+      <span class="hljs-keyword">let</span> position2: Sup.Math.Vector2 = actorList[i].getLocalPosition().toVector2();
+      <span class="hljs-comment">// Get the distance between position 1 and position 2</span>
+      <span class="hljs-keyword">let</span> distance: <span class="hljs-built_in">number</span> = <span class="hljs-built_in">Math</span>.round(position1.distanceTo(position2)*<span class="hljs-number">100</span>)/<span class="hljs-number">100</span>;
+      <span class="hljs-comment">// If the distance is inferior to the amplitude (collision radius), then it is a collision</span>
+      <span class="hljs-keyword">if</span> (distance &lt; amplitude) {
+        <span class="hljs-comment">// The current actor of the actorList is destroyed</span>
+        actorList[i].destroy();
+        <span class="hljs-comment">// Return true to the behavior which check for collision</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      }
+    }
+    <span class="hljs-comment">// Return false to the behavior which check for collision</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkCollisionAsteroids</span>(<span class="hljs-params">ship: Sup.Actor, shipAmplitude: <span class="hljs-built_in">number</span></span>) </span>{
+    <span class="hljs-comment">/*
+      Get the distance between the ship and the asteroids, compare the distance with the biggest amplitude
+    */</span>
+    <span class="hljs-comment">// Initialize a variable asteroid which will take all the asteroids of the list as value</span>
+    <span class="hljs-keyword">let</span> asteroid: Sup.Actor;
+    <span class="hljs-comment">// Get the current position of the ship</span>
+    <span class="hljs-keyword">let</span> shipPosition: Sup.Math.Vector2 = ship.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Loop through all the asteroids in game</span>
+    <span class="hljs-keyword">for</span>(asteroid of Asteroids.list){
+      <span class="hljs-comment">// Get the amplitude of the current asteroid</span>
+      <span class="hljs-keyword">let</span> asteroidAmplitude: <span class="hljs-built_in">number</span> = asteroid.getBehavior(AsteroidBehavior).amplitude;
+      <span class="hljs-comment">// Get the position of the current asteroid</span>
+      <span class="hljs-keyword">let</span> asteroidPosition: Sup.Math.Vector2 = asteroid.getLocalPosition().toVector2();
+      <span class="hljs-comment">// Convert to distance between ship and current asteroid positions</span>
+      <span class="hljs-keyword">let</span> distance: <span class="hljs-built_in">number</span> = <span class="hljs-built_in">Math</span>.round(shipPosition.distanceTo(asteroidPosition)*<span class="hljs-number">100</span>)/<span class="hljs-number">100</span>;
+      <span class="hljs-comment">// Check if distance is less than the biggest amplitude </span>
+      <span class="hljs-keyword">if</span> (distance &lt; shipAmplitude || distance &lt; asteroidAmplitude) {
+        <span class="hljs-comment">// Destroy the current asteroid</span>
+        asteroid.getBehavior(AsteroidBehavior).die();
+        <span class="hljs-comment">// Return true, the ship is destroyed too</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-comment">// Check collision between actor1 and actor2</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkCollisionShip</span>(<span class="hljs-params">actor1: Sup.Actor, actor1Amplitude: <span class="hljs-built_in">number</span></span>) </span>{
+    <span class="hljs-comment">// Initialize variable for the actors</span>
+    <span class="hljs-keyword">let</span> actor2: Sup.Actor;
+    <span class="hljs-keyword">let</span> actor1Position: Sup.Math.Vector2;
+    <span class="hljs-keyword">let</span> actor2Position: Sup.Math.Vector2;
+    <span class="hljs-keyword">let</span> actor2Amplitude: <span class="hljs-built_in">number</span>;
+    <span class="hljs-keyword">let</span> actor2Alive: <span class="hljs-built_in">boolean</span>;
+    <span class="hljs-comment">// If the actor1 is the Ship1, then we check the Ship2 as actor2</span>
+    <span class="hljs-keyword">if</span> (actor1.getName() === <span class="hljs-string">"Ship1"</span>){
+      actor2 = Sup.getActor(<span class="hljs-string">"Ship2"</span>);
+    }
+    <span class="hljs-comment">// Else, if the actor1 is Ship2 or Alien Ship, we check the Ship1 as actor2</span>
+    <span class="hljs-keyword">else</span> {
+      actor2 = Sup.getActor(<span class="hljs-string">"Ship1"</span>);
+    }
+    <span class="hljs-comment">// Get the positions of both actors</span>
+    actor2Position = actor2.getLocalPosition().toVector2();
+    actor1Position = actor1.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Get amplitud of actor 2</span>
+    actor2Amplitude = Ships.amplitude;
+    <span class="hljs-comment">// Get the life status of the actor 2</span>
+    actor2Alive = actor2.getBehavior(ShipBehavior).alive;
+    <span class="hljs-comment">// Get the distance between the two actors</span>
+    <span class="hljs-keyword">let</span> distance: <span class="hljs-built_in">number</span> = <span class="hljs-built_in">Math</span>.round(actor1Position.distanceTo(actor2Position)*<span class="hljs-number">100</span>)/<span class="hljs-number">100</span>;
+    <span class="hljs-comment">// To avoid to collide when ship is blinking with invulnerability, return false the collisionChecking if actor 2 not alive</span>
+    <span class="hljs-keyword">if</span>(!actor2Alive){
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-comment">// Check if distance if less than the biggest amplitude (or collision radius)</span>
+    <span class="hljs-keyword">if</span> (distance &lt; actor1Amplitude || distance &lt; actor2Amplitude) {
+        <span class="hljs-comment">// Destroy the current asteroid</span>
+        actor2.getBehavior(ShipBehavior).die();
+        <span class="hljs-comment">// Return true, both actor are destroyed</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      }
+    <span class="hljs-comment">// If condition not met, return false</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  }
+
+  <span class="hljs-comment">// Update HUD timer in the Game scene</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateTimer</span>(<span class="hljs-params">time: <span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">// Sup.log("one second (60 frames) of", time, "frame left."); // Debug log</span>
+    <span class="hljs-comment">// We convert frames in minutes and seconds</span>
+    <span class="hljs-keyword">let</span> minutes = <span class="hljs-built_in">Math</span>.floor((time / <span class="hljs-number">60</span>) / <span class="hljs-number">60</span>);
+    <span class="hljs-keyword">let</span> seconds = <span class="hljs-built_in">Math</span>.floor((time / <span class="hljs-number">60</span>) % <span class="hljs-number">60</span>);
+    <span class="hljs-comment">// We get The Timer actor from the Game scene and we update the text Renderer with the new time</span>
+    <span class="hljs-keyword">let</span> timer = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"Timer"</span>);
+    <span class="hljs-comment">// For the last 10 seconds we need to add a 0 to keep 2 numbers in the timer</span>
+    <span class="hljs-keyword">if</span> (seconds &lt; <span class="hljs-number">10</span>) {
+      timer.textRenderer.setText(minutes + <span class="hljs-string">":0"</span> + seconds);
+    }
+    <span class="hljs-keyword">else</span> {
+      timer.textRenderer.setText(minutes + <span class="hljs-string">":"</span> + seconds);
+    }
+  }
+
+  <span class="hljs-comment">// Add points to the ship score</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addPoints</span>(<span class="hljs-params">ship1: <span class="hljs-built_in">boolean</span>, points: <span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">// If ship1 is true, add points to ship1</span>
+    <span class="hljs-keyword">if</span>(ship1){
+      Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).score += points;
+    }
+    <span class="hljs-comment">// If ship1 is false, add points to ship2</span>
+    <span class="hljs-keyword">else</span> {
+      Sup.getActor(<span class="hljs-string">"Ship2"</span>).getBehavior(ShipBehavior).score += points;
+    }
+  }
+
+  <span class="hljs-comment">// Update the score HUD with the score for ship 1 or optionally for ship2</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateHUDScore</span>(<span class="hljs-params">score1:<span class="hljs-built_in">number</span>, score2?:<span class="hljs-built_in">number</span></span>) </span>{
+    <span class="hljs-comment">// Change the score text displayed on HUD with the new score</span>
+    Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip1"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(score1);
+    <span class="hljs-comment">// If there is a score 2, do the same for the HUD of ship 1 and ship 2</span>
+    <span class="hljs-keyword">if</span>(score2){
+        Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip1"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(score1);
+        Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip2"</span>).getChild(<span class="hljs-string">"Score"</span>).textRenderer.setText(score2);
+    }
+    <span class="hljs-comment">// Set flag to false</span>
+    Game.checkScoreHUD = <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-comment">// Update the life HUD</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateHUDLife</span>(<span class="hljs-params">life1:<span class="hljs-built_in">number</span>, life2:<span class="hljs-built_in">number</span></span>)</span>{
+    <span class="hljs-comment">/*
+    Explanation of life 
+    */</span>
+    <span class="hljs-comment">// If the game is Asteroids</span>
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Update the player Ship life</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Ships.startLife; i++) {
+        <span class="hljs-keyword">let</span> heart = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip1"</span>).getChild(<span class="hljs-string">"Life"</span>).getChild(i.toString());
+        heart.spriteRenderer.setAnimation(hearts[life1][i]);
+      }
+
+      <span class="hljs-comment">// Update the alien life</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Alien.startLife; i++) {
+        <span class="hljs-keyword">let</span> heart = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIAlien"</span>).getChild(i.toString());
+        heart.spriteRenderer.setAnimation(hearts[life2][i]);
+      }      
+    }
+
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">1</span>){
+      <span class="hljs-comment">// player1 life</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Ships.startLife; i++) {
+        <span class="hljs-keyword">let</span> heart = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip1"</span>).getChild(<span class="hljs-string">"Life"</span>).getChild(i.toString());
+        heart.spriteRenderer.setAnimation(hearts[life1][i]);
+      }
+
+      <span class="hljs-comment">// player2 life</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Ships.startLife; i++) {
+        <span class="hljs-keyword">let</span> heart = Sup.getActor(<span class="hljs-string">"HUD"</span>).getChild(<span class="hljs-string">"UIShip2"</span>).getChild(<span class="hljs-string">"Life"</span>).getChild(i.toString());
+        heart.spriteRenderer.setAnimation(hearts[life2][i]);
+      }
+    }
+    <span class="hljs-comment">// Set false to flag checkLifeHUD</span>
+    Game.checkLifeHUD = <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-comment">// Load the gameOver screen and display score</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">gameOver</span>(<span class="hljs-params">winner: <span class="hljs-built_in">string</span></span>)</span>{
+    <span class="hljs-comment">// Initialize variables</span>
+    <span class="hljs-keyword">let</span> score1: <span class="hljs-built_in">number</span>;
+    <span class="hljs-keyword">let</span> score2: <span class="hljs-built_in">number</span>;
+    <span class="hljs-comment">// Store the ship1 score before to leave the scene</span>
+    score1 = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).score;
+    <span class="hljs-comment">// If the game is spacewar, stock also the Ship2 score</span>
+    <span class="hljs-keyword">if</span> (nameIndex === <span class="hljs-number">1</span>) {
+      score2 = Sup.getActor(<span class="hljs-string">"Ship2"</span>).getBehavior(ShipBehavior).score;
+    }
+    <span class="hljs-comment">// Close game scene and load menu scene</span>
+    Sup.loadScene(<span class="hljs-string">"Menu/Scene"</span>);
+    <span class="hljs-comment">// Set game over Screen</span>
+    Sup.getActor(<span class="hljs-string">"Menu"</span>).getBehavior(MenuBehavior).setScreen(Menu.screens.gameover);
+    <span class="hljs-comment">// Get in a variable gameOverScreen the gameover screen actor</span>
+    <span class="hljs-keyword">let</span> gameOverScreen = Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Menu.screens.gameover.toString());
+    <span class="hljs-comment">// Set the Sprite from the actor to display the winner frame</span>
+    gameOverScreen.spriteRenderer.setAnimation(winner);
+    <span class="hljs-comment">// Display Score</span>
+    <span class="hljs-comment">// Set title visible false</span>
+    Sup.getActor(<span class="hljs-string">"Title"</span>).setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Get the Score actor in a variable</span>
+    <span class="hljs-keyword">let</span> score: Sup.Actor = Sup.getActor(<span class="hljs-string">"Score"</span>);
+    <span class="hljs-comment">// Set the Score actor visible</span>
+    score.setVisible(<span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// Set the score text to the current score of ship1</span>
+    score.getChild(<span class="hljs-string">"Ship1"</span>).textRenderer.setText(<span class="hljs-string">"Ship1:"</span>+score1);
+    <span class="hljs-comment">// If the game is spacewar</span>
+    <span class="hljs-keyword">if</span> (nameIndex === <span class="hljs-number">1</span>) {
+      <span class="hljs-comment">// Set visible true the score of Ship2</span>
+      score.getChild(<span class="hljs-string">"Ship2"</span>).setVisible(<span class="hljs-literal">true</span>);
+      <span class="hljs-comment">// Set the score text to the current score of ship2</span>
+      score.getChild(<span class="hljs-string">"Ship2"</span>).textRenderer.setText(<span class="hljs-string">"Ship2:"</span>+score2);
+
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Set visible false the ship2 score</span>
+      score.getChild(<span class="hljs-string">"Ship2"</span>).setVisible(<span class="hljs-literal">false</span>);
+    }
+  }
+}
+
+<span class="hljs-comment">// Menu datas</span>
+<span class="hljs-keyword">namespace</span> Menu{
+
+  <span class="hljs-comment">// Different menu screen index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> screens = {
+      main : <span class="hljs-string">"Main"</span>,
+      asteroids : <span class="hljs-string">"Asteroids"</span>,
+      spacewar : <span class="hljs-string">"Spacewar"</span>,
+      gameover : <span class="hljs-string">"GameOver"</span>,
+     }
+
+  <span class="hljs-comment">// Game names index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> names {
+        Asteroids = <span class="hljs-number">0</span>,
+        Spacewar = <span class="hljs-number">1</span>,
+       }
+}
+
+<span class="hljs-comment">// Ship datas</span>
+<span class="hljs-keyword">namespace</span> Ships{
+  <span class="hljs-comment">// Default ship size</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> size: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.5</span>;
+  <span class="hljs-comment">// Default ship collision radius</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> amplitude: <span class="hljs-built_in">number</span> = <span class="hljs-number">1.5</span>;
+  <span class="hljs-comment">// Starting ship score</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startScore: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+  <span class="hljs-comment">// Starting ship life</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startLife: <span class="hljs-built_in">number</span> = <span class="hljs-number">3</span>;
+
+  <span class="hljs-comment">// Starting spawn positions</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> spawns: Sup.Math.Vector3[] = [
+    <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">14</span>), <span class="hljs-comment">// ship1 for asteroids game</span>
+    <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-number">-4</span>, <span class="hljs-number">-12</span>, <span class="hljs-number">2</span>), <span class="hljs-comment">// ship1 for spacewar game</span>
+    <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-number">4</span>, <span class="hljs-number">12</span>, <span class="hljs-number">4</span>) <span class="hljs-comment">// ship1 for spacewar game</span>
+  ] 
+
+  <span class="hljs-comment">// ship index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> index {
+    ship1 = <span class="hljs-number">0</span>,
+    ship2 = <span class="hljs-number">1</span>
+    };
+
+  <span class="hljs-comment">// Starting time before next shoot</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> shootingTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">30</span>;
+  <span class="hljs-comment">// Starting time before respawn</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> respawnTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">180</span>;
+  <span class="hljs-comment">// Starting time before vulnerability</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> invincibleTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">200</span>;
+
+  <span class="hljs-comment">// Linear speed</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> linearAcceleration: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.005</span>;
+  <span class="hljs-comment">// Linear slowing down</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> linearDamping: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.97</span>;
+
+  <span class="hljs-comment">// Rotation speed</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> angularAcceleration: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.02</span>;
+  <span class="hljs-comment">// Rotation slowing down</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> angularDamping: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.75</span>;
+
+  <span class="hljs-comment">// Commands for each ship by index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> commands = [
+    {left:<span class="hljs-string">"LEFT"</span>, right:<span class="hljs-string">"RIGHT"</span>, forward:<span class="hljs-string">"UP"</span>, shoot:<span class="hljs-string">"CONTROL"</span>, boost:<span class="hljs-string">"SHIFT"</span>}, <span class="hljs-comment">// commands[0]</span>
+    {left:<span class="hljs-string">"A"</span>, right:<span class="hljs-string">"D"</span>, forward:<span class="hljs-string">"W"</span>, shoot:<span class="hljs-string">"SPACE"</span>, boost:<span class="hljs-string">"C"</span>} <span class="hljs-comment">// commands[1]</span>
+  ];
+
+  <span class="hljs-comment">// Missiles list for each ship by index</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> missiles: Sup.Actor[][];
+  <span class="hljs-comment">// Starting missile life before destruction (frames)</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> missileLife: <span class="hljs-built_in">number</span> = <span class="hljs-number">60</span>;
+  <span class="hljs-comment">// Missile speed (unit/frame)</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> missileSpeed: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.30</span>;
+}
+
+
+<span class="hljs-comment">// Alien datas</span>
+<span class="hljs-keyword">namespace</span> Alien{
+  <span class="hljs-comment">// Flag for alien alive</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> alive: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">true</span>;
+
+  <span class="hljs-comment">// Starting alien life</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startLife: <span class="hljs-built_in">number</span> = <span class="hljs-number">5</span>;
+  <span class="hljs-comment">// Current alien life</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> lifes: <span class="hljs-built_in">number</span>;
+
+  <span class="hljs-comment">// Alien z position</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> zPosition: <span class="hljs-built_in">number</span> = <span class="hljs-number">12</span>;
+
+  <span class="hljs-comment">// Different alien sizes</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> sizes: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">1.7</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">1</span>];
+  <span class="hljs-comment">// Different collision amplitude related to size</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> amplitudes: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">2.5</span>, <span class="hljs-number">2.2</span>, <span class="hljs-number">2</span>];
+
+  <span class="hljs-comment">// Linear and rotation speed of alien ship</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> linearSpeed: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.05</span>;
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> rotationSpeed: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.01</span>;
+
+  <span class="hljs-comment">// Starting time before alien ship respawn</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> respawnTime: <span class="hljs-built_in">number</span> = <span class="hljs-number">300</span>;
+  <span class="hljs-comment">// Current time befer alien ship respawn</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> spawnTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+
+  <span class="hljs-comment">// Starting time before alien ship shoot again</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> shootTime: <span class="hljs-built_in">number</span> = <span class="hljs-number">200</span>;
+
+  <span class="hljs-comment">// Alien missile list</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> missiles: Sup.Actor[];
+  <span class="hljs-comment">// Alien missile speed (unit/frame)</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> missileSpeed: <span class="hljs-built_in">number</span> = <span class="hljs-number">0.05</span>;
+}
+
+<span class="hljs-comment">// Asteroids datas</span>
+<span class="hljs-keyword">namespace</span> Asteroids{
+  <span class="hljs-comment">// List of all current asteroids</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> list: Sup.Actor[];
+
+  <span class="hljs-comment">// Differents size of asteroids</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> sizes = {<span class="hljs-string">"big"</span>:<span class="hljs-number">1.5</span>, <span class="hljs-string">"medium"</span>:<span class="hljs-number">1</span>, <span class="hljs-string">"small"</span>:<span class="hljs-number">0.5</span>};
+  <span class="hljs-comment">// Different collision amplitude related to size</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> amplitudes = {<span class="hljs-string">"big"</span>:<span class="hljs-number">2.5</span>, <span class="hljs-string">"medium"</span>:<span class="hljs-number">2</span>, <span class="hljs-string">"small"</span>:<span class="hljs-number">1</span>}
+
+  <span class="hljs-comment">// Range for Z positions of asteroids</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> zPositions {min = <span class="hljs-number">-28</span>, max = <span class="hljs-number">10</span>};
+
+  <span class="hljs-comment">// Starting asteroids number</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startCount: <span class="hljs-built_in">number</span> = <span class="hljs-number">5</span>;
+  <span class="hljs-comment">// Current asteroids number</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> currentCount: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Maximum asteroids number</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> maxCount: <span class="hljs-built_in">number</span> = <span class="hljs-number">10</span>;
+
+  <span class="hljs-comment">// Range of linear and rotation speed of asteroids</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> linearSpeed {min = <span class="hljs-number">-0.05</span>, max = <span class="hljs-number">0.05</span>};
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> rotationSpeed {min = <span class="hljs-number">-0.01</span>, max = <span class="hljs-number">0.01</span>};
+
+  <span class="hljs-comment">// Starting time before asteroids spawning</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> respawnTime: <span class="hljs-built_in">number</span> = <span class="hljs-number">180</span>;
+  <span class="hljs-comment">// Current time before asteroids spawning</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> spawnTimer: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h5 id="game-ts">Game.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> GameBehavior extends Sup.Behavior {
+  timer: <span class="hljs-built_in">number</span>;
+
+  start() {    
+    <span class="hljs-comment">// When GameBehavior awake, if game is Asteroids then spawn asteroids and alien</span>
+    <span class="hljs-keyword">if</span>(Game.nameIndex === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// Give to this game instance, the starting timer</span>
+      <span class="hljs-keyword">this</span>.timer = Game.timeMax;
+      <span class="hljs-comment">// And update the HUD timer</span>
+      Game.updateTimer(<span class="hljs-keyword">this</span>.timer);
+
+      <span class="hljs-comment">// Spawn an Alien ship</span>
+      Game.spawnAlien();
+
+      <span class="hljs-comment">// Spawn as much asteroids than we have set as a Starting number</span>
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; Asteroids.startCount; i++){
+        <span class="hljs-comment">// Spawn an asteroid</span>
+        Game.spawnAsteroid();
+      }
+    }
+  }
+
+  update() {
+    <span class="hljs-comment">// If the game is Asteroids then spawn alien and asteroids</span>
+    <span class="hljs-keyword">if</span>(Game.nameIndex === <span class="hljs-number">0</span>){
+      <span class="hljs-comment">//If alien destroyed, spawn a new alien after a certain time</span>
+      <span class="hljs-keyword">if</span>(!Alien.alive){
+        <span class="hljs-comment">// If spawnTimer not finished, decrease by one</span>
+        <span class="hljs-keyword">if</span>(Alien.spawnTimer &gt; <span class="hljs-number">0</span>){
+          Alien.spawnTimer--;
+        <span class="hljs-comment">// If spawnTimer finished, spawn an alien ship</span>
+        }
+        <span class="hljs-keyword">else</span> {
+          Game.spawnAlien();
+        }
+      }
+
+      <span class="hljs-comment">// Spawn a new asteroid after a certain time until the overall number reach maximum</span>
+      <span class="hljs-comment">// If asteroid current count is less than the max number</span>
+      <span class="hljs-keyword">if</span> (Asteroids.currentCount &lt; Asteroids.maxCount) {
+        <span class="hljs-comment">// If spawnTimer is not finished, decrease by one</span>
+        <span class="hljs-keyword">if</span> (Asteroids.spawnTimer &gt; <span class="hljs-number">0</span>) {
+          Asteroids.spawnTimer--;
+        }
+        <span class="hljs-comment">// If spawnTimer is finished, create a big asteroid</span>
+        <span class="hljs-keyword">else</span> {
+          Game.spawnAsteroid();
+          <span class="hljs-comment">// Reset timer for next asteroid</span>
+          Asteroids.spawnTimer = Asteroids.respawnTime; 
+        }
+      }
+
+      <span class="hljs-comment">// Timer and game over screen decrease to each frame</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.timer &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">this</span>.timer--
+        <span class="hljs-comment">// If 60 frames passed (which mean one second when converted), update</span>
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.timer % <span class="hljs-number">60</span> === <span class="hljs-number">0</span>) {
+          Game.updateTimer(<span class="hljs-keyword">this</span>.timer);
+        }
+      <span class="hljs-comment">// If timer at 0, then the game is finished.</span>
+      }
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// The game is over, return ship1 score</span>
+        Game.gameOver(<span class="hljs-string">"ship1"</span>);
+      }
+    }
+
+    <span class="hljs-comment">// Check if score need to be updated with the HUD</span>
+    <span class="hljs-keyword">if</span> (Game.checkScoreHUD) {
+      <span class="hljs-comment">// If the game is spacewar, we update the two ship scores</span>
+      <span class="hljs-keyword">if</span> (Game.nameIndex == <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">let</span> player1Score = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).score;
+        <span class="hljs-keyword">let</span> player2Score = Sup.getActor(<span class="hljs-string">"Ship2"</span>).getBehavior(ShipBehavior).score;
+        Game.updateHUDScore(player1Score, player2Score);
+      }
+      <span class="hljs-comment">// Else the game is asteroids, we update the ship 1 score</span>
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">let</span> playerScore = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).score;
+        Game.updateHUDScore(playerScore);
+      }
+    }
+
+    <span class="hljs-comment">// Check if lifes need to be updated with the HUD</span>
+    <span class="hljs-keyword">if</span> (Game.checkLifeHUD) {
+      <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">let</span> playerLife = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).lifes;
+        <span class="hljs-keyword">let</span> alienLife = Alien.lifes;
+        Game.updateHUDLife(playerLife, alienLife);
+      }
+      <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">let</span> player1Life = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getBehavior(ShipBehavior).lifes;
+        <span class="hljs-keyword">let</span> player2Life = Sup.getActor(<span class="hljs-string">"Ship2"</span>).getBehavior(ShipBehavior).lifes;
+        Game.updateHUDLife(player1Life, player2Life);
+      }
+    }
+
+    <span class="hljs-comment">// Restart game when key (R) is pressed, call Game.start function which reload the game scene</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.wasKeyJustPressed(<span class="hljs-string">"R"</span>)) {
+      Game.start();
+    }
+
+    <span class="hljs-comment">// Leave Game when key (ESCAPE) is pressed, load the menu scene</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.wasKeyJustPressed(<span class="hljs-string">"ESCAPE"</span>)) {
+      Sup.loadScene(<span class="hljs-string">"Menu/Scene"</span>);
+    }
+  }
+}
+Sup.registerBehavior(GameBehavior);
+</code></pre>
+<h5 id="alien-ts">Alien.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> AlienBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Ship size of this Actor</span>
+  size: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Ship amplitude of this Actor</span>
+  amplitude: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Ship position</span>
+  position: Sup.Math.Vector2;
+  <span class="hljs-comment">// Ship linear movement</span>
+  velocity : Sup.Math.Vector2;
+  <span class="hljs-comment">// Timer before shooting</span>
+  shootCooldown: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Timer before death</span>
+  deathTimer: <span class="hljs-built_in">number</span>;
+
+  awake() {
+    <span class="hljs-comment">// Set Alien.alive flag to true</span>
+    Alien.alive = <span class="hljs-literal">true</span>;
+    <span class="hljs-comment">// Get a random index for alien ship size and amplitude</span>
+    <span class="hljs-keyword">let</span> randomShip: <span class="hljs-built_in">number</span> = Sup.Math.Random.integer(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>);
+    <span class="hljs-comment">// Get the default size related to the random index</span>
+    <span class="hljs-keyword">this</span>.size = Alien.sizes[randomShip];
+    <span class="hljs-comment">// Get the default collision amplitude related to the random index</span>
+    <span class="hljs-keyword">this</span>.amplitude = Alien.amplitudes[randomShip];
+    <span class="hljs-comment">// Set the size to the actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalScale(<span class="hljs-keyword">this</span>.size);
+    <span class="hljs-comment">// Set the value of Alien.startLife to the current Alien.lifes</span>
+    Alien.lifes = Alien.startLife;
+    <span class="hljs-comment">// Set the shootCooldown timer to the Alien.shootTime value</span>
+    <span class="hljs-keyword">this</span>.shootCooldown = Alien.shootTime;
+    <span class="hljs-comment">// Set the Game.checkLifeHUD value to true </span>
+    Game.checkLifeHUD = <span class="hljs-literal">true</span>;
+  }
+
+  start() {
+    <span class="hljs-comment">// Set position to the current actor position</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.actor.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Set x axis linear movement toward the opposite edge of spawn</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x === Game.bounds.width / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.velocity = <span class="hljs-keyword">new</span> Sup.Math.Vector2(-Alien.linearSpeed, <span class="hljs-number">0</span>);
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">this</span>.velocity = <span class="hljs-keyword">new</span> Sup.Math.Vector2(Alien.linearSpeed, <span class="hljs-number">0</span>);
+    }
+  }
+
+  shoot() {
+    <span class="hljs-comment">// Create a new alien missile and set the Missile actor to a variable</span>
+    <span class="hljs-keyword">let</span> missile = Sup.appendScene(<span class="hljs-string">"Alien/Missile/Prefab"</span>)[<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// Set the alien ship position to the missile actor position</span>
+    missile.setLocalPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Reset value of Timer to default value</span>
+    <span class="hljs-keyword">this</span>.shootCooldown = Alien.shootTime;
+  }
+
+  update() {
+    <span class="hljs-comment">// Death timer</span>
+    <span class="hljs-comment">// Decrease death timer before destruction</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.deathTimer &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.deathTimer--;
+      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.deathTimer === <span class="hljs-number">0</span>){
+        <span class="hljs-keyword">this</span>.actor.destroy();
+      }
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// Death setting</span>
+    <span class="hljs-comment">// Set death if alien don't have lifes anymore</span>
+    <span class="hljs-keyword">if</span>(Alien.lifes === <span class="hljs-number">0</span>){
+      Sup.Audio.playSound(<span class="hljs-string">'Sounds/explosion'</span>);
+      <span class="hljs-comment">// Reset angles to default for the explosion sprite</span>
+      <span class="hljs-keyword">this</span>.actor.setEulerAngles(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+      <span class="hljs-comment">// Set visible off the alien ship model</span>
+      <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Model"</span>).setVisible(<span class="hljs-literal">false</span>);
+      <span class="hljs-comment">// Set the sprite animation explode to play once without looping</span>
+      <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">'Destruction'</span>).spriteRenderer.setAnimation(<span class="hljs-string">"explode"</span>, <span class="hljs-literal">false</span>);
+      <span class="hljs-comment">// Give 30 frames before actor destruction (half a second)</span>
+      <span class="hljs-keyword">this</span>.deathTimer = <span class="hljs-number">30</span>;
+      <span class="hljs-comment">// Add point to the player for alien death</span>
+      Game.addPoints(<span class="hljs-literal">true</span>, Game.points.alien);
+      <span class="hljs-comment">// Flag the game to check and update the HUD score</span>
+      Game.checkScoreHUD = <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-comment">// Keep moving</span>
+    <span class="hljs-comment">// Add the linear movement to the position variable</span>
+    <span class="hljs-keyword">this</span>.position.add(<span class="hljs-keyword">this</span>.velocity);
+    <span class="hljs-comment">// Set the new position to the alien actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalPosition(<span class="hljs-keyword">this</span>.position);
+
+    <span class="hljs-comment">// Keep rotating</span>
+    <span class="hljs-comment">// Rotate actor using rotateLocalEulerY with the default Alien.rotationSpeed value</span>
+    <span class="hljs-keyword">this</span>.actor.rotateLocalEulerY(Alien.rotationSpeed);
+
+    <span class="hljs-comment">// Keep shooting</span>
+    <span class="hljs-comment">// If the timer is not finished, decrease value of one</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.shootCooldown &gt; <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">this</span>.shootCooldown--;
+    }
+    <span class="hljs-comment">// If the timer is finished, shoot missile</span>
+    <span class="hljs-keyword">else</span> {
+      Sup.Audio.playSound(<span class="hljs-string">'Sounds/alienShot'</span>);
+      <span class="hljs-keyword">this</span>.shoot();
+    }
+
+    <span class="hljs-comment">// Stay on the screen</span>
+    <span class="hljs-comment">// If position is superior to the max of the x bound then switch position</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &gt; Game.bounds.width / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.x = -Game.bounds.width / <span class="hljs-number">2</span>;
+    }
+    <span class="hljs-comment">// If position is inferior to the min of the x bound then switch position</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &lt; -Game.bounds.width / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.x = Game.bounds.width / <span class="hljs-number">2</span>;
+    }
+
+    <span class="hljs-comment">// If there is player ship1 missiles, call a collision checking for this actor with the list of the player Ship missiles</span>
+    <span class="hljs-keyword">if</span>(Ships.missiles[<span class="hljs-number">0</span>].length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// If the collision checking return true</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">0</span>], <span class="hljs-keyword">this</span>.amplitude)) {
+        Sup.Audio.playSound(<span class="hljs-string">'Sounds/shotContact'</span>);
+        <span class="hljs-comment">// Decrease Alien lifes by one</span>
+        Alien.lifes--
+        <span class="hljs-comment">// Flag true to check and update the life HUD in Game Script</span>
+        Game.checkLifeHUD = <span class="hljs-literal">true</span>;
+      }
+    }
+    <span class="hljs-comment">// Check collision between Alien ship and Player ship</span>
+    <span class="hljs-keyword">if</span> (Game.checkCollisionShip(<span class="hljs-keyword">this</span>.actor, <span class="hljs-keyword">this</span>.amplitude)){
+      <span class="hljs-comment">// Destroy the alien ship by setting its lifes to 0</span>
+      Alien.lifes = <span class="hljs-number">0</span>;
+    }
+  }
+
+  onDestroy() {
+    <span class="hljs-comment">// Set Alien.alive flag to false</span>
+    Alien.alive = <span class="hljs-literal">false</span>;
+    <span class="hljs-comment">// Give to Alien.spawnTimer the value of Alien.respawnTime</span>
+    Alien.spawnTimer = Alien.respawnTime;
+  }
+}
+Sup.registerBehavior(AlienBehavior);
+</code></pre>
+<h5 id="missile-ts-alien-">Missile.ts (Alien)</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> AlienMissileBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Current position</span>
+  position: Sup.Math.Vector2;
+  <span class="hljs-comment">// Current velocity</span>
+  velocity: Sup.Math.Vector2;
+  <span class="hljs-comment">// Target position</span>
+  target: Sup.Math.Vector2;
+  <span class="hljs-comment">// Missile trajectory angle</span>
+  angle: <span class="hljs-built_in">number</span>;
+
+  start() {
+    <span class="hljs-comment">// Set current position from the actor position</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.actor.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Get player ship position to define as target for this missile</span>
+    <span class="hljs-keyword">this</span>.target = Sup.getActor(<span class="hljs-string">"Ship1"</span>).getLocalPosition().toVector2();
+    <span class="hljs-comment">// Get angle trajectory between this actor position and the target position</span>
+    <span class="hljs-keyword">this</span>.angle = <span class="hljs-keyword">this</span>.position.angleTo(<span class="hljs-keyword">this</span>.target);
+    <span class="hljs-comment">// Create velocity with the Alien.missileSpeed value</span>
+    <span class="hljs-keyword">this</span>.velocity = <span class="hljs-keyword">new</span> Sup.Math.Vector2(Alien.missileSpeed, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// Convert velocity with the angle trajectory</span>
+    <span class="hljs-keyword">this</span>.velocity.rotate(<span class="hljs-keyword">this</span>.angle);
+    <span class="hljs-comment">// Add the current actor the Alien.missiles list</span>
+    Alien.missiles.push(<span class="hljs-keyword">this</span>.actor);
+  }
+
+  update() {
+    <span class="hljs-comment">// While the missile has no reached the target position, keep moving</span>
+    <span class="hljs-comment">// Add current velocity to current position</span>
+    <span class="hljs-keyword">this</span>.position.add(<span class="hljs-keyword">this</span>.velocity);
+    <span class="hljs-comment">// Update current position to missile actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Get the distance between current position and target position</span>
+    <span class="hljs-keyword">let</span> distance = <span class="hljs-keyword">this</span>.target.distanceTo(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// When the distance to target is nearly reached, the missile explode</span>
+    <span class="hljs-keyword">if</span> (distance &lt; <span class="hljs-number">0.5</span>) {
+      <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"explode"</span>, <span class="hljs-literal">false</span>);
+      <span class="hljs-comment">// When the distance is close to 0, the missile actor is destroyed</span>
+      <span class="hljs-keyword">if</span> (distance &lt; <span class="hljs-number">0.1</span>) {
+        <span class="hljs-keyword">this</span>.actor.destroy();
+      }
+    }
+  }
+
+  onDestroy() {
+    <span class="hljs-comment">// Remove this actor from the Alien.missiles list</span>
+    Alien.missiles.splice(Alien.missiles.indexOf(<span class="hljs-keyword">this</span>.actor), <span class="hljs-number">1</span>);
+  }
+}
+Sup.registerBehavior(AlienMissileBehavior);
+
+##### Asteroid.ts
+
+<span class="hljs-keyword">class</span> AsteroidBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// The size of the asteroid</span>
+  size: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// The amplitude of this asteroid Actor</span>
+  amplitude: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// The class of size this asteroid belong</span>
+  sizeClass: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// The position of the asteroid</span>
+  position: Sup.Math.Vector3;
+  <span class="hljs-comment">// The movement of the asteroid</span>
+  velocity: Sup.Math.Vector3;
+  <span class="hljs-comment">// The movement of the asteroid on x axis</span>
+  linearSpeedX: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// The movement of the asteroid on y axis</span>
+  linearSpeedY: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// The rotation speed of the asteroid</span>
+  rotationSpeed: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Timer before destruction</span>
+  deathTimer: <span class="hljs-built_in">number</span>;
+
+   awake() {
+    <span class="hljs-comment">// Increase asteroids count by one</span>
+    Asteroids.currentCount++;
+    <span class="hljs-comment">// Add this actor to the Asteroids list</span>
+    Asteroids.list.push(<span class="hljs-keyword">this</span>.actor);
+  }
+
+  start() {
+    <span class="hljs-comment">// Get the position of the actor set randomly when spawned</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.actor.getLocalPosition();
+    <span class="hljs-comment">// Get random value for linear speed on axis X and axis Y</span>
+    <span class="hljs-keyword">this</span>.linearSpeedX = Sup.Math.Random.float(Asteroids.linearSpeed.min, Asteroids.linearSpeed.max);
+    <span class="hljs-keyword">this</span>.linearSpeedY = Sup.Math.Random.float(Asteroids.linearSpeed.min, Asteroids.linearSpeed.max);
+    <span class="hljs-comment">// Set asteroid velocity with the linearSpeed values</span>
+    <span class="hljs-keyword">this</span>.velocity = <span class="hljs-keyword">new</span> Sup.Math.Vector3(<span class="hljs-keyword">this</span>.linearSpeedX, <span class="hljs-keyword">this</span>.linearSpeedY, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// Get random value for linear speed on axis X and axis Y</span>
+    <span class="hljs-keyword">this</span>.rotationSpeed = Sup.Math.Random.float(Asteroids.rotationSpeed.min, Asteroids.rotationSpeed.max);
+    <span class="hljs-comment">// Set the asteroid size related to the classSize of the asteroid</span>
+    <span class="hljs-keyword">this</span>.size = Asteroids.sizes[<span class="hljs-keyword">this</span>.sizeClass];
+    <span class="hljs-comment">// Set the asteroid collision amplitude related to the classSize of the asteroid</span>
+    <span class="hljs-keyword">this</span>.amplitude = Asteroids.amplitudes[<span class="hljs-keyword">this</span>.sizeClass];
+    <span class="hljs-comment">// Set the size to the actor model</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Model"</span>).setLocalScale(<span class="hljs-keyword">this</span>.size);
+    <span class="hljs-comment">// Set the size to the destruction sprite</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Destruction"</span>).setLocalScale(<span class="hljs-keyword">this</span>.size * <span class="hljs-number">2</span>);
+  }
+
+  die() {
+    Sup.Audio.playSound(<span class="hljs-string">'Sounds/explosion'</span>);
+    <span class="hljs-comment">// Reset angles to default for the explosion sprite</span>
+    <span class="hljs-keyword">this</span>.actor.setEulerAngles(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+    <span class="hljs-comment">// Set visible off the asteroid model</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Model"</span>).setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Set the sprite animation explode to play once without looping</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">'Destruction'</span>).spriteRenderer.setAnimation(<span class="hljs-string">"explode"</span>, <span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Give 30 frames before actor destruction (half a second)</span>
+    <span class="hljs-keyword">this</span>.deathTimer = <span class="hljs-number">30</span>;
+    <span class="hljs-comment">// We give the points to ship1 related to the classSize of this asteroid</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.sizeClass === <span class="hljs-string">"big"</span>) {
+        Game.addPoints(<span class="hljs-literal">true</span>, Game.points.asteroidBig);
+      }
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.sizeClass === <span class="hljs-string">"medium"</span>) {
+        Game.addPoints(<span class="hljs-literal">true</span>, Game.points.asteroidMedium);
+      }
+      <span class="hljs-keyword">else</span> {
+        Game.addPoints(<span class="hljs-literal">true</span>, Game.points.asteroidSmall);
+      }
+    <span class="hljs-comment">// Flag the game to check and update the HUD score</span>
+    Game.checkScoreHUD = <span class="hljs-literal">true</span>;
+  }
+
+  spawnChildren() {
+    <span class="hljs-comment">// Create two now asteroid and set the Actor asteroid to each variable</span>
+    <span class="hljs-keyword">let</span> asteroid1 = Sup.appendScene(<span class="hljs-string">"Asteroid/Prefab"</span>)[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">let</span> asteroid2 = Sup.appendScene(<span class="hljs-string">"Asteroid/Prefab"</span>)[<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// Set the position of the new asteroids to the same position than the asteroid parent (this one)</span>
+    asteroid1.setPosition(<span class="hljs-keyword">this</span>.position);
+    asteroid2.setPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// If the sizeClass was big, then both asteroid are medium</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.sizeClass === <span class="hljs-string">"big"</span>) {
+      asteroid1.getBehavior(AsteroidBehavior).sizeClass = <span class="hljs-string">"medium"</span>;
+      asteroid2.getBehavior(AsteroidBehavior).sizeClass = <span class="hljs-string">"medium"</span>;
+
+    }
+    <span class="hljs-comment">// If the sizeClass was medium, then both asteroid are small</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.sizeClass === <span class="hljs-string">"medium"</span>) {
+      asteroid1.getBehavior(AsteroidBehavior).sizeClass = <span class="hljs-string">"small"</span>;
+      asteroid2.getBehavior(AsteroidBehavior).sizeClass = <span class="hljs-string">"small"</span>;
+    }
+  }
+
+  update() {
+    <span class="hljs-comment">// Death timer</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.deathTimer &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.deathTimer--;
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.deathTimer === <span class="hljs-number">0</span>){
+          <span class="hljs-keyword">this</span>.actor.destroy();
+        }
+      <span class="hljs-keyword">return</span>;
+      }
+
+    <span class="hljs-comment">// Keep moving</span>
+    <span class="hljs-keyword">this</span>.position.add(<span class="hljs-keyword">this</span>.velocity);
+    <span class="hljs-keyword">this</span>.actor.setLocalPosition(<span class="hljs-keyword">this</span>.position);
+
+    <span class="hljs-comment">// Keep rotating</span>
+    <span class="hljs-keyword">this</span>.actor.rotateEulerAngles(<span class="hljs-keyword">this</span>.rotationSpeed, <span class="hljs-keyword">this</span>.rotationSpeed, <span class="hljs-keyword">this</span>.rotationSpeed);
+
+    <span class="hljs-comment">// Stay on the screen</span>
+    <span class="hljs-comment">// Check position of asteroid on x axis</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &gt; Game.bounds.width / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.x = -Game.bounds.width / <span class="hljs-number">2</span>
+    }
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &lt; -Game.bounds.width / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.x = Game.bounds.width / <span class="hljs-number">2</span>
+    }
+    <span class="hljs-comment">// Check position of asteroid on y axis</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.y &gt; Game.bounds.height / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.y = -Game.bounds.height / <span class="hljs-number">2</span>
+    } 
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.y &lt; -Game.bounds.height / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.y = Game.bounds.height / <span class="hljs-number">2</span>
+    }
+
+    <span class="hljs-comment">// If there is player ship1 missiles, call a collision checking for this actor with the list of the player Ship missiles</span>
+    <span class="hljs-keyword">if</span>(Ships.missiles[<span class="hljs-number">0</span>].length &gt; <span class="hljs-number">0</span>){
+      <span class="hljs-comment">// If the collision checking return true</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">0</span>], <span class="hljs-keyword">this</span>.amplitude)) {
+        <span class="hljs-comment">// Destroy this asteroid</span>
+        <span class="hljs-keyword">this</span>.die();
+        <span class="hljs-comment">// If the asteroid is not small</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.sizeClass !== <span class="hljs-string">"small"</span>){
+          <span class="hljs-comment">// Spawn two new asteroid of the class below</span>
+          <span class="hljs-keyword">this</span>.spawnChildren();
+        }
+      }
+    }
+  }
+
+  onDestroy() {
+    <span class="hljs-comment">// Decrease asteroids count by one</span>
+    Asteroids.currentCount--;
+    <span class="hljs-comment">// Remove this actor from the Asteroids list</span>
+    Asteroids.list.splice(Asteroids.list.indexOf(<span class="hljs-keyword">this</span>.actor), <span class="hljs-number">1</span>);
+  }
+}
+Sup.registerBehavior(AsteroidBehavior);
+</code></pre>
+<h5 id="ship-ts">Ship.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> ShipBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Ship index, 0 is ship 1, 1 is ship 2</span>
+  index: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Ship radius collision</span>
+  amplitude: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Ship current life</span>
+  lifes: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Ship current status</span>
+  alive: <span class="hljs-built_in">boolean</span>;
+  <span class="hljs-comment">// Ship current score</span>
+  score: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Spawn position</span>
+  spawnPosition: Sup.Math.Vector2;
+  <span class="hljs-comment">// Current position</span>
+  position: Sup.Math.Vector2;
+  <span class="hljs-comment">// Current movement speed</span>
+  linearVelocity = <span class="hljs-keyword">new</span> Sup.Math.Vector2();
+  <span class="hljs-comment">// Current rotation speed</span>
+  angularVelocity: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Angle position</span>
+  angle: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Timer before shooting</span>
+  shootCooldown: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Timer before respawn</span>
+  spawnCooldown: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Timer before vulnerability</span>
+  invincibilityCooldown: <span class="hljs-built_in">number</span>;
+
+  awake() {
+    <span class="hljs-comment">// Starting life to 3</span>
+    <span class="hljs-keyword">this</span>.lifes = Ships.startLife;
+    <span class="hljs-comment">// Set true to alive status</span>
+    <span class="hljs-keyword">this</span>.alive = <span class="hljs-literal">true</span>;
+    <span class="hljs-comment">// Starting score to 0</span>
+    <span class="hljs-keyword">this</span>.score = Ships.startScore;
+    <span class="hljs-comment">// Starting speed movement on x and y axis to 0</span>
+    <span class="hljs-keyword">this</span>.linearVelocity.set(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// Starting speed rotation to 0</span>
+    <span class="hljs-keyword">this</span>.angularVelocity = <span class="hljs-number">0</span>;
+  }
+
+  start() {
+    <span class="hljs-comment">// Set the ship default size to half size</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalScale(Ships.size);
+    <span class="hljs-comment">// Set the ship default amplitude related to size</span>
+    <span class="hljs-keyword">this</span>.amplitude = Ships.amplitude;
+    <span class="hljs-comment">// Get the starting position to become the spawnPosition of this behavior</span>
+    <span class="hljs-keyword">this</span>.spawnPosition = <span class="hljs-keyword">this</span>.actor.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Get the starting position to become the current position of this behavior</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.actor.getLocalPosition().toVector2();
+    <span class="hljs-comment">// Get the starting angle to become the current angle of this behavior</span>
+    <span class="hljs-keyword">this</span>.angle = <span class="hljs-keyword">this</span>.actor.getLocalEulerZ();
+  }
+
+  die() {
+    Sup.Audio.playSound(<span class="hljs-string">'Sounds/explosion'</span>);
+    <span class="hljs-comment">// Decrease life of one</span>
+    <span class="hljs-keyword">this</span>.lifes--;
+    <span class="hljs-comment">// Set false to alive status</span>
+    <span class="hljs-keyword">this</span>.alive = <span class="hljs-literal">false</span>;
+    <span class="hljs-comment">// Flag to check and update the life HUD</span>
+    Game.checkLifeHUD = <span class="hljs-literal">true</span>;
+    <span class="hljs-comment">// If life is 0, then the game is over</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.lifes === <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// If this is the Asteroids game, death of ship mean victory for Alien</span>
+      <span class="hljs-keyword">if</span>(Game.nameIndex === <span class="hljs-number">0</span>) {
+        Sup.setTimeout(<span class="hljs-number">1000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ Game.gameOver(<span class="hljs-string">"alien"</span>) });
+      }
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// If this is Spacewar game and death of ship 1 mean victory for ship 2</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.index === <span class="hljs-number">0</span>){
+          Sup.setTimeout(<span class="hljs-number">1000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ Game.gameOver(<span class="hljs-string">"ship2"</span>) });
+        }
+        <span class="hljs-comment">// Else, this is ship 2 and it is a victory for ship 1</span>
+        <span class="hljs-keyword">else</span> {
+          Sup.setTimeout(<span class="hljs-number">1000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ Game.gameOver(<span class="hljs-string">"ship1"</span>) });
+        }
+      }
+    }
+    <span class="hljs-comment">// Check which ship index to see which lose points</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.index === <span class="hljs-number">0</span>) {
+      Game.addPoints(<span class="hljs-literal">true</span>, Game.points.death);
+    }
+    <span class="hljs-keyword">else</span> {
+      Game.addPoints(<span class="hljs-literal">false</span>, Game.points.death); 
+    }
+    <span class="hljs-comment">// Flag to check and update the score HUD</span>
+    Game.checkScoreHUD = <span class="hljs-literal">true</span>;
+    <span class="hljs-comment">// Set timer before respawn</span>
+    <span class="hljs-keyword">this</span>.spawnCooldown = Ships.respawnTimer;    
+    <span class="hljs-comment">// Set ship model visibility to false</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">'Model'</span>).setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Set ship boosts visibility to false</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">'Boost'</span>).setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Set sprite animation explosition to play once</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">'Destruction'</span>).spriteRenderer.setAnimation(<span class="hljs-string">"explode"</span>, <span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Reset speed movement on x and y axis to 0</span>
+    <span class="hljs-keyword">this</span>.linearVelocity.set(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// Reset angular movement to 0</span>
+    <span class="hljs-keyword">this</span>.angularVelocity = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// Reset angle to default for ship 1 or ship 2</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.index === <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">this</span>.angle = <span class="hljs-number">1.6</span>;
+    }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.angle = <span class="hljs-number">-1.6</span>;
+    }
+  }
+
+  spawn() {
+    <span class="hljs-comment">// The ship respawn to spawn position</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.spawnPosition.clone();
+    <span class="hljs-comment">// Set the new current position to the Ship actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Set the new angle to the Ship actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalEulerZ(<span class="hljs-keyword">this</span>.angle);
+    <span class="hljs-comment">// The ship model visibility to true</span>
+    <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">'Model'</span>).setVisible(<span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// Set timer for invincibility</span>
+    <span class="hljs-keyword">this</span>.invincibilityCooldown = Ships.invincibleTimer;
+  }
+
+  shoot() {
+    <span class="hljs-comment">// Initialize a new missile</span>
+    <span class="hljs-keyword">let</span> missile: Sup.Actor;
+    <span class="hljs-comment">// If the ship is ship 1 then create a Ship 1 missile and set the variable missile to the Missile actor</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.index === <span class="hljs-number">0</span>) {
+      missile = Sup.appendScene(<span class="hljs-string">"Ship/0/Missile/Prefab"</span>)[<span class="hljs-number">0</span>];
+    } 
+    <span class="hljs-comment">// Else do the same but for the missile of ship 2</span>
+    <span class="hljs-keyword">else</span> {
+      missile = Sup.appendScene(<span class="hljs-string">"Ship/1/Missile/Prefab"</span>)[<span class="hljs-number">0</span>];
+    }
+    <span class="hljs-comment">// Set position of the actor to the current position of the ship</span>
+    missile.setLocalPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Set local variables of the missile behavior</span>
+    <span class="hljs-comment">// Report the position of the ship to the variable position of the behavior</span>
+    missile.getBehavior(ShipMissileBehavior).position = <span class="hljs-keyword">this</span>.position.clone();
+    <span class="hljs-comment">// Report the angle of the ship to the angle direction of the missile</span>
+    missile.getBehavior(ShipMissileBehavior).angle = <span class="hljs-keyword">this</span>.angle;
+    <span class="hljs-comment">// Set the shipIndex related to this missile</span>
+    missile.getBehavior(ShipMissileBehavior).shipIndex = <span class="hljs-keyword">this</span>.index;
+    <span class="hljs-comment">// Set Shooting timer to be able to shoot again</span>
+    <span class="hljs-keyword">this</span>.shootCooldown = Ships.shootingTimer;
+  }
+
+  boost(intensity: <span class="hljs-built_in">string</span>) {
+    <span class="hljs-comment">// Create a new variable boost that get the Boost actor child of Ship actor</span>
+    <span class="hljs-keyword">let</span> boost:Sup.Actor = <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Boost"</span>);
+    <span class="hljs-comment">// Set the boost actor visible true</span>
+    boost.setVisible(<span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// Set animation to both sprite with the intensity normal or fast</span>
+    boost.getChild(<span class="hljs-string">"0"</span>).spriteRenderer.setAnimation(intensity);
+    boost.getChild(<span class="hljs-string">"1"</span>).spriteRenderer.setAnimation(intensity);
+  }
+
+  rotateBoost(direction: <span class="hljs-built_in">string</span>) {
+    <span class="hljs-comment">// Create a new variable boost that get the Boost actor child of Ship actor</span>
+    <span class="hljs-keyword">let</span> boost:Sup.Actor = <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Boost"</span>);
+    <span class="hljs-comment">// Set the boost actor visible true</span>
+    boost.setVisible(<span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// If rotate on the left direction</span>
+    <span class="hljs-keyword">if</span>(direction === <span class="hljs-string">"left"</span>){
+      <span class="hljs-comment">// Switch animation for right boost stronger</span>
+      boost.getChild(<span class="hljs-string">"0"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"fast"</span>);
+      boost.getChild(<span class="hljs-string">"1"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"normal"</span>);
+    }
+    <span class="hljs-comment">// If rotate on the right direction</span>
+    <span class="hljs-keyword">if</span>(direction === <span class="hljs-string">"right"</span>){
+      <span class="hljs-comment">// Switch animation for left boost stronger</span>
+      boost.getChild(<span class="hljs-string">"1"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"fast"</span>);
+      boost.getChild(<span class="hljs-string">"0"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"normal"</span>);
+    }
+  }
+
+  update() {
+    <span class="hljs-comment">// Keep respawning</span>
+    <span class="hljs-comment">// If the spawnCooldown timer is more than 0</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.spawnCooldown &gt; <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// Decrease by one the timer</span>
+      <span class="hljs-keyword">this</span>.spawnCooldown--
+      <span class="hljs-comment">// If the spawnCooldown is 0</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.spawnCooldown === <span class="hljs-number">0</span>) {
+        <span class="hljs-comment">// Call the spawn method</span>
+        <span class="hljs-keyword">this</span>.spawn();
+      }
+      <span class="hljs-comment">//restart update loop to skip the following code</span>
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// Keep shooting</span>
+    <span class="hljs-comment">// If the shootCooldown timer is more than 0</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.shootCooldown &gt; <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// Decrease by one the timer</span>
+      <span class="hljs-keyword">this</span>.shootCooldown--;
+    }
+    <span class="hljs-comment">// If the timer is 0 (!0 = true)</span>
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.shootCooldown) {
+      <span class="hljs-comment">// If the shoot key is pressed</span>
+      <span class="hljs-keyword">if</span>(Sup.Input.wasKeyJustPressed(Ships.commands[<span class="hljs-keyword">this</span>.index].shoot)){
+        Sup.Audio.playSound(<span class="hljs-string">'Sounds/shipShot'</span>);
+        <span class="hljs-comment">// Call the shoot method</span>
+        <span class="hljs-keyword">this</span>.shoot();
+      }
+    }
+
+    <span class="hljs-comment">// Keep moving</span>
+    <span class="hljs-comment">// If forward key is pressed down</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(Ships.commands[<span class="hljs-keyword">this</span>.index].forward)){
+      <span class="hljs-comment">// Set the impulse with the linearAcceleration</span>
+      <span class="hljs-keyword">let</span> impulse = <span class="hljs-keyword">new</span> Sup.Math.Vector2(Ships.linearAcceleration, <span class="hljs-number">0</span>);
+      <span class="hljs-comment">// Convert the impulse to the current angle</span>
+      impulse.rotate(<span class="hljs-keyword">this</span>.angle);
+      <span class="hljs-comment">// Add the impulse to the linearVelocity</span>
+      <span class="hljs-keyword">this</span>.linearVelocity.add(impulse);
+        <span class="hljs-comment">// Call the boost method with a normal intensity</span>
+        <span class="hljs-keyword">this</span>.boost(<span class="hljs-string">"normal"</span>);
+        <span class="hljs-comment">// If the boost key is pressed down</span>
+        <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(Ships.commands[<span class="hljs-keyword">this</span>.index].boost)) {
+          <span class="hljs-comment">// Add a second time the impulse to the linearVelocity</span>
+          <span class="hljs-keyword">this</span>.linearVelocity.add(impulse);
+        <span class="hljs-comment">// Call the boost method with a fast intensity</span>
+          <span class="hljs-keyword">this</span>.boost(<span class="hljs-string">"fast"</span>);
+        }
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Set visible false booster if not going forward</span>
+      <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Boost"</span>).setVisible(<span class="hljs-literal">false</span>);
+    }
+
+    <span class="hljs-comment">// Keep rotating</span>
+    <span class="hljs-comment">// If left key is pressed down</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(Ships.commands[<span class="hljs-keyword">this</span>.index].left)){
+      <span class="hljs-comment">// The angularVelocity get the angularAcceleration</span>
+      <span class="hljs-keyword">this</span>.angularVelocity += Ships.angularAcceleration;
+      <span class="hljs-comment">// Boost sprite for left side</span>
+      <span class="hljs-keyword">this</span>.rotateBoost(<span class="hljs-string">"left"</span>);
+    }
+
+    <span class="hljs-comment">// If right key is pressed down</span>
+    <span class="hljs-keyword">if</span> (Sup.Input.isKeyDown(Ships.commands[<span class="hljs-keyword">this</span>.index].right)){
+      <span class="hljs-comment">// The angularVelocity get the opposite angularAcceleration</span>
+      <span class="hljs-keyword">this</span>.angularVelocity -= Ships.angularAcceleration;
+      <span class="hljs-comment">// Boost sprite for left side</span>
+      <span class="hljs-keyword">this</span>.rotateBoost(<span class="hljs-string">"right"</span>);
+    }
+
+    <span class="hljs-comment">// Set boost to default if key left, right and forward are NOT pressed</span>
+    <span class="hljs-keyword">if</span> (!Sup.Input.isKeyDown(Ships.commands[<span class="hljs-keyword">this</span>.index].left) &amp;&amp; 
+        !Sup.Input.isKeyDown(Ships.commands[<span class="hljs-keyword">this</span>.index].right) &amp;&amp; 
+        !Sup.Input.isKeyDown(Ships.commands[<span class="hljs-keyword">this</span>.index].forward)){
+          <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Boost"</span>).setVisible(<span class="hljs-literal">false</span>);
+          <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Boost"</span>).getChild(<span class="hljs-string">"0"</span>).setVisible(<span class="hljs-literal">true</span>);
+          <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Boost"</span>).getChild(<span class="hljs-string">"1"</span>).setVisible(<span class="hljs-literal">true</span>);
+        }
+
+    <span class="hljs-comment">// Keep slowing down</span>
+    <span class="hljs-comment">// The linearVelocity multiply the linearDamping</span>
+    <span class="hljs-keyword">this</span>.linearVelocity.multiplyScalar(Ships.linearDamping);
+    <span class="hljs-comment">// The angularVelocity multiply the angularDamping</span>
+    <span class="hljs-keyword">this</span>.angularVelocity *= Ships.angularDamping;
+
+    <span class="hljs-comment">// Stay on the game screen</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &gt; Game.bounds.width / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.x = -Game.bounds.width / <span class="hljs-number">2</span>;
+    }
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.x &lt; -Game.bounds.width / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.x = Game.bounds.width / <span class="hljs-number">2</span>;
+    }
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.y &gt; Game.bounds.height / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.y = -Game.bounds.height / <span class="hljs-number">2</span>;
+    }
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position.y &lt; -Game.bounds.height / <span class="hljs-number">2</span>) {
+      <span class="hljs-keyword">this</span>.position.y = Game.bounds.height / <span class="hljs-number">2</span>;
+    }
+
+    <span class="hljs-comment">// Update position and angle</span>
+    <span class="hljs-comment">// Add the linearVelocity to the current position</span>
+    <span class="hljs-keyword">this</span>.position.add(<span class="hljs-keyword">this</span>.linearVelocity);
+    <span class="hljs-comment">// Set the new current position to the Ship actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalPosition(<span class="hljs-keyword">this</span>.position);
+    <span class="hljs-comment">// Add the angularVelocity to the current angle</span>
+    <span class="hljs-keyword">this</span>.angle += <span class="hljs-keyword">this</span>.angularVelocity;
+    <span class="hljs-comment">// Set the new angle to the Ship actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalEulerZ(<span class="hljs-keyword">this</span>.angle);
+
+    <span class="hljs-comment">// Blinking</span>
+    <span class="hljs-comment">// If the invincibilityCooldown Timer is more than 0</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.invincibilityCooldown &gt; <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// Decrease by one the timer</span>
+      <span class="hljs-keyword">this</span>.invincibilityCooldown--;
+      <span class="hljs-comment">// Set actor visible become true every half second, false the other half and stay visible at the end</span>
+      <span class="hljs-keyword">this</span>.actor.setVisible(<span class="hljs-keyword">this</span>.invincibilityCooldown % <span class="hljs-number">60</span> &lt; <span class="hljs-number">30</span>);
+      <span class="hljs-comment">// When invincibilityCooldown reach 1, get back vulnerability</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.invincibilityCooldown === <span class="hljs-number">1</span>) {
+        <span class="hljs-comment">// Set true to alive status</span>
+        <span class="hljs-keyword">this</span>.alive = <span class="hljs-literal">true</span>;  
+      }
+      <span class="hljs-comment">// Restart update loop to skip the collision blocks code</span>
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// If game is Super Asteroids, chek for collision with asteroids, alien missiles and alien ship</span>
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// Check collision between the player ship and the alien missiles</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Alien.missiles, <span class="hljs-keyword">this</span>.amplitude)){
+        <span class="hljs-keyword">this</span>.die();
+      }
+      <span class="hljs-comment">// Check collision between the player ship and the asteroids</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionAsteroids(<span class="hljs-keyword">this</span>.actor, <span class="hljs-keyword">this</span>.amplitude)){
+        <span class="hljs-keyword">this</span>.die();
+      }
+    }
+
+    <span class="hljs-comment">// If game is Super Spacewar, check collision with other missiles and other ship</span>
+    <span class="hljs-keyword">if</span> (Game.nameIndex === <span class="hljs-number">1</span>) {
+      <span class="hljs-comment">// If the ship is 1 check collision with ship 2 missile</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.index === <span class="hljs-number">0</span>){
+        <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">1</span>], <span class="hljs-keyword">this</span>.amplitude)){
+          <span class="hljs-comment">// if there is collision, add point to the ship 2 and destroy ship 1</span>
+          Game.addPoints(<span class="hljs-literal">false</span>, Game.points.ship);
+          <span class="hljs-keyword">this</span>.die();
+        }
+      }
+      <span class="hljs-comment">// Else the ship is 2 check collision with ship 1 missile</span>
+      <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span> (Game.checkCollisionMissile(<span class="hljs-keyword">this</span>.actor, Ships.missiles[<span class="hljs-number">0</span>], <span class="hljs-keyword">this</span>.amplitude)){
+          <span class="hljs-comment">// if there is collision, add point to the ship 1 and destroy ship 2</span>
+          Game.addPoints(<span class="hljs-literal">true</span>, Game.points.ship);
+          <span class="hljs-keyword">this</span>.die();
+        }
+      }
+      <span class="hljs-comment">// Check collision between this ship and the other ship</span>
+      <span class="hljs-keyword">if</span> (Game.checkCollisionShip(<span class="hljs-keyword">this</span>.actor, <span class="hljs-keyword">this</span>.amplitude)) {
+            <span class="hljs-keyword">this</span>.die();
+      }
+    }
+  }
+}
+Sup.registerBehavior(ShipBehavior);
+</code></pre>
+<h5 id="missile-ts-ship-">Missile.ts (Ship)</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> ShipMissileBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// shipIndex owner of this missile actor</span>
+  shipIndex: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Current position</span>
+  position: Sup.Math.Vector2;
+  <span class="hljs-comment">// Current movement velocity</span>
+  velocity: Sup.Math.Vector2;
+  <span class="hljs-comment">// Missile trajectory angle</span>
+  angle: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// Timer before death</span>
+  lifeTime: <span class="hljs-built_in">number</span>;
+
+  start() {
+    <span class="hljs-comment">// Set the timer lifeTime to the default value Ships.missileLife</span>
+    <span class="hljs-keyword">this</span>.lifeTime = Ships.missileLife;
+    <span class="hljs-comment">// Create a new vector with the default Ships.missileSpeed as value for the velocity</span>
+    <span class="hljs-keyword">this</span>.velocity = <span class="hljs-keyword">new</span> Sup.Math.Vector2(Ships.missileSpeed, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// Convert the velocity with the trajectory angle</span>
+    <span class="hljs-keyword">this</span>.velocity.rotate(<span class="hljs-keyword">this</span>.angle);
+    <span class="hljs-comment">// Add the current missile actor to the global Ships.missiles[shipIndex] list (0 for ship1 and 1 for ship2)</span>
+    Ships.missiles[<span class="hljs-keyword">this</span>.shipIndex].push(<span class="hljs-keyword">this</span>.actor);
+  }
+
+  update() {
+    <span class="hljs-comment">// Keep moving</span>
+    <span class="hljs-keyword">this</span>.position.add(<span class="hljs-keyword">this</span>.velocity);
+    <span class="hljs-keyword">this</span>.actor.setLocalPosition(<span class="hljs-keyword">this</span>.position);
+
+    <span class="hljs-comment">// If the timer is superior to 0, decrease by one</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.lifeTime &gt; <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">this</span>.lifeTime--;
+      <span class="hljs-comment">// If the timer reach 10 frame before death, play the destruction animation once</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.lifeTime === <span class="hljs-number">10</span>) {
+        <span class="hljs-keyword">this</span>.actor.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setAnimation(<span class="hljs-string">"explode"</span>, <span class="hljs-literal">false</span>);
+      }
+    } 
+    <span class="hljs-comment">// Once the lifeTime timer reach 0, destroy the Actor</span>
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">this</span>.actor.destroy();
+    }
+  }
+
+  onDestroy() {
+    <span class="hljs-comment">// Remove the current actor from the Global list from the shipIndex owner</span>
+    Ships.missiles[<span class="hljs-keyword">this</span>.shipIndex].splice(Ships.missiles[<span class="hljs-keyword">this</span>.shipIndex].indexOf(<span class="hljs-keyword">this</span>.actor), <span class="hljs-number">1</span>);
+  }
+}
+Sup.registerBehavior(ShipMissileBehavior);
+</code></pre>
+<h5 id="menu-ts">Menu.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> MenuBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// The current menu screen</span>
+  screen: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// Ray casting</span>
+  ray = <span class="hljs-keyword">new</span> Sup.Math.Ray();
+  <span class="hljs-comment">// First button</span>
+  button0: Sup.Actor;
+  <span class="hljs-comment">// Second button</span>
+  button1: Sup.Actor;
+
+  awake() {
+    <span class="hljs-comment">// Set the menu with the Main screen</span>
+    <span class="hljs-keyword">this</span>.setScreen(Menu.screens.main);
+    <span class="hljs-comment">// Update the buttons</span>
+    <span class="hljs-keyword">this</span>.updateButtonsText();
+  }
+
+  setScreen(screenName: <span class="hljs-built_in">string</span>){
+    <span class="hljs-comment">// Set the current screen to the screen string Name</span>
+    <span class="hljs-keyword">this</span>.screen = screenName;
+    <span class="hljs-comment">// Loop through all the screen of the scene and set visible the current screen</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> screen <span class="hljs-keyword">in</span> Menu.screens){
+      <span class="hljs-comment">// If the screen of the loop is the same as the current screen</span>
+      <span class="hljs-keyword">if</span> (Menu.screens[screen] == <span class="hljs-keyword">this</span>.screen){
+        <span class="hljs-comment">// Set visible true the screen</span>
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Menu.screens[screen]).setVisible(<span class="hljs-literal">true</span>);
+      }
+      <span class="hljs-comment">// Else, hide the screen, set visible false</span>
+      <span class="hljs-keyword">else</span> {
+        Sup.getActor(<span class="hljs-string">"Screens"</span>).getChild(Menu.screens[screen]).setVisible(<span class="hljs-literal">false</span>);
+      }
+    }
+    <span class="hljs-comment">// call the function updateTitle</span>
+    <span class="hljs-keyword">this</span>.updateTitle();
+  }
+
+  updateTitle(){
+    <span class="hljs-comment">// Set title visible true</span>
+    Sup.getActor(<span class="hljs-string">"Title"</span>).setVisible(<span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// Set score visible false</span>
+    Sup.getActor(<span class="hljs-string">"Score"</span>).setVisible(<span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// Change the title depending if the game is asteroids or spacewar</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.screen === Menu.screens.asteroids|| <span class="hljs-keyword">this</span>.screen === Menu.screens.spacewar){
+      Sup.getActor(<span class="hljs-string">"Title"</span>).getChild(<span class="hljs-string">"Text2"</span>).textRenderer.setText(<span class="hljs-keyword">this</span>.screen);
+    }
+    <span class="hljs-comment">// Else, it change the title with an empty string</span>
+    <span class="hljs-keyword">else</span>{
+      Sup.getActor(<span class="hljs-string">"Title"</span>).getChild(<span class="hljs-string">"Text2"</span>).textRenderer.setText(<span class="hljs-string">""</span>);
+    }
+  }
+
+  updateButtonsText() {
+    <span class="hljs-comment">// Get the two buttons actors in one variable each</span>
+    <span class="hljs-keyword">this</span>.button0 = Sup.getActor(<span class="hljs-string">"Buttons"</span>).getChild(<span class="hljs-string">"Button1"</span>);
+    <span class="hljs-keyword">this</span>.button1 = Sup.getActor(<span class="hljs-string">"Buttons"</span>).getChild(<span class="hljs-string">"Button2"</span>);
+    <span class="hljs-comment">// If it is the Main screen</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.screen === Menu.screens.main){
+      <span class="hljs-comment">// Set the button to display the game name</span>
+      <span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Text"</span>).textRenderer.setText(<span class="hljs-string">"asteroids"</span>);
+      <span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Text"</span>).textRenderer.setText(<span class="hljs-string">"spacewar"</span>);
+    }
+    <span class="hljs-comment">// For the other screens</span>
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// Set the button to display start and return</span>
+      <span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Text"</span>).textRenderer.setText(<span class="hljs-string">"start"</span>);
+      <span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Text"</span>).textRenderer.setText(<span class="hljs-string">"return"</span>);
+    }
+  }
+
+  update() {
+    <span class="hljs-comment">// Update the position of the raycaster of the mouse</span>
+    <span class="hljs-keyword">this</span>.ray.setFromCamera(Sup.getActor(<span class="hljs-string">"Camera"</span>).camera, Sup.Input.getMousePosition());
+    <span class="hljs-comment">// Return an object if the raycaster intersect the actor buttons</span>
+    <span class="hljs-keyword">let</span> hitB1 = <span class="hljs-keyword">this</span>.ray.intersectActor(<span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Sprite"</span>));
+    <span class="hljs-keyword">let</span> hitB2 = <span class="hljs-keyword">this</span>.ray.intersectActor(<span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Sprite"</span>));
+
+    <span class="hljs-comment">// If the button 1 is hovered</span>
+    <span class="hljs-keyword">if</span>(hitB1[<span class="hljs-number">0</span>]){
+      <span class="hljs-comment">// Change the opacity of the button to full bright</span>
+      <span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setOpacity(<span class="hljs-number">1</span>);
+      <span class="hljs-comment">// If the left mouse button is pressed</span>
+      <span class="hljs-keyword">if</span> (Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)) {
+        Sup.Audio.playSound(<span class="hljs-string">"Sounds/shipShot"</span>);
+        <span class="hljs-comment">// Differents case possible depending the current screen</span>
+        <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">this</span>.screen){
+          <span class="hljs-comment">// If the current screen is the Main screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.main:
+            <span class="hljs-comment">// Set the new screen to Asteroids screen</span>
+            <span class="hljs-keyword">this</span>.setScreen(Menu.screens.asteroids);
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-comment">// If the current screen is the Asteroid screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.asteroids:
+            <span class="hljs-comment">// Set the nameIndex to 0</span>
+            Game.nameIndex = Menu.names.Asteroids;
+            <span class="hljs-comment">// Start the game</span>
+            Game.start();
+            <span class="hljs-keyword">return</span>;
+          <span class="hljs-comment">// If the current screen is the Spacewar screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.spacewar:
+            <span class="hljs-comment">// Set the nameIndex to 1</span>
+            Game.nameIndex = Menu.names.Spacewar;
+            <span class="hljs-comment">// Start the game</span>
+            Game.start();
+            <span class="hljs-keyword">return</span>;
+          <span class="hljs-comment">// If the current screen is the Game Over screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.gameover:
+            <span class="hljs-comment">// Restart the game</span>
+            Game.start();
+            <span class="hljs-keyword">return</span>;
+        }
+      }
+    }
+    <span class="hljs-comment">// If the button is not hovered, set opacity half bright</span>
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.button0.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setOpacity(<span class="hljs-number">0.5</span>); 
+    }
+
+    <span class="hljs-comment">// If the button 2 is hovered</span>
+    <span class="hljs-keyword">if</span>(hitB2[<span class="hljs-number">0</span>]){
+      <span class="hljs-comment">// Change the opacity of the button to full bright</span>
+      <span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setOpacity(<span class="hljs-number">1</span>);
+      <span class="hljs-comment">// If the left mouse button is pressed</span>
+      <span class="hljs-keyword">if</span> (Sup.Input.wasMouseButtonJustPressed(<span class="hljs-number">0</span>)) {
+        Sup.Audio.playSound(<span class="hljs-string">"Sounds/shipShot"</span>);
+        <span class="hljs-comment">// Loop through different case</span>
+        <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">this</span>.screen){
+          <span class="hljs-comment">// If the current screen is the Main screen</span>
+          <span class="hljs-keyword">case</span> Menu.screens.main:
+            <span class="hljs-comment">// Set the screen of the Spacewar game screen</span>
+            <span class="hljs-keyword">this</span>.setScreen(Menu.screens.spacewar);
+            <span class="hljs-keyword">break</span>;
+            <span class="hljs-comment">// Else, in other case, return to main screen</span>
+          <span class="hljs-keyword">default</span>:
+            <span class="hljs-keyword">this</span>.setScreen(Menu.screens.main);
+        }
+      }
+    }
+    <span class="hljs-comment">// If the button is not hovered, set opacity half bright</span>
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.button1.getChild(<span class="hljs-string">"Sprite"</span>).spriteRenderer.setOpacity(<span class="hljs-number">0.5</span>);
+    }
+    <span class="hljs-comment">// Update the buttons</span>
+    <span class="hljs-keyword">this</span>.updateButtonsText();
+  }
+}
+Sup.registerBehavior(MenuBehavior);
+
+</code></pre>
+<h5 id="background-ts">Background.ts</h5>
+<pre><code class="lang-ts"><span class="hljs-keyword">class</span> BackgroundBehavior extends Sup.Behavior {
+  <span class="hljs-comment">// Initialize position and speed variables</span>
+  position: <span class="hljs-built_in">number</span>;
+  speed : <span class="hljs-built_in">number</span>;
+
+  awake() {
+    <span class="hljs-comment">// Get the position on Y axis of the actor</span>
+    <span class="hljs-keyword">this</span>.position = <span class="hljs-keyword">this</span>.actor.getLocalY();
+    <span class="hljs-comment">// Set the speed of background scrolling</span>
+    <span class="hljs-keyword">this</span>.speed = <span class="hljs-number">0.01</span>;
+  }
+
+  update() {
+    <span class="hljs-comment">// Add the speed movement to the current position</span>
+    <span class="hljs-keyword">this</span>.position += <span class="hljs-keyword">this</span>.speed;
+    <span class="hljs-comment">// Set the current position to the actor</span>
+    <span class="hljs-keyword">this</span>.actor.setLocalY(<span class="hljs-keyword">this</span>.position);
+
+    <span class="hljs-comment">// If the sprite moved all its height (480/16 = 60 units)</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.position &gt; <span class="hljs-number">60</span>) {
+      <span class="hljs-comment">// Then return down to start again</span>
+      <span class="hljs-keyword">this</span>.position = <span class="hljs-number">-60</span>;
+    }
+  }
+}
+Sup.registerBehavior(BackgroundBehavior);
+
+</code></pre>
+<p><a href="ch11.html">&lt;-- back to chapter 11</a></p>
+
+    </div>
+  </main>
+</body>
+</html>
