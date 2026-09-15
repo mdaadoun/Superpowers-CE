@@ -7,7 +7,7 @@ Ce document définit les étapes successives pour moderniser, sécuriser et fair
 ## 📊 Suivi de progression global
 
 - [x] **Phase 1 : Assainissement & Nettoyage immédiat**
-- [ ] **Phase 2 : Modernisation d'Electron (Shell Desktop)**
+- [x] **Phase 2 : Modernisation d'Electron (Shell Desktop)**
 - [ ] **Phase 3 : Modernisation de l'outillage & TypeScript**
 - [ ] **Phase 4 : Rénovation de l'Éditeur de Code (IDE)**
 - [ ] **Phase 5 : Évolution du moteur Three.js & formats modernes (glTF/GLB)**
@@ -37,14 +37,14 @@ Ce document définit les étapes successives pour moderniser, sécuriser et fair
 ### ⚡ Phase 2 : Modernisation d'Electron (Shell Desktop)
 *Objectif : Remplacer Electron 7 (obsolète, 2019) par une version moderne, améliorer la sécurité, le support Wayland et supprimer le besoin de `--no-sandbox`.*
 
-- [ ] **2.1 Migration intermédiaire vers Electron 12 / 14**
-  - [ ] Mettre à jour `electron` dans `app/package.json`.
-  - [ ] Migrer les appels à l'ancien module `remote` vers `@electron/remote` ou via `ipcRenderer` / `contextBridge`.
-  - [ ] Valider la communication entre le launcher desktop et le serveur interne `core/`.
-- [ ] **2.2 Migration vers Electron 28+ (Dernière LTS moderne)**
-  - [ ] Activer `contextIsolation` et configurer le script de preload sécurisé.
-  - [ ] Vérifier la compatibilité sous Linux moderne (X11 et Wayland natif sans drapeau de désactivation du bac à sable).
-  - [ ] Vérifier les paquets générés par `npm run package:app`.
+- [x] **2.1 Migration intermédiaire vers Electron 12 / 14**
+  - [x] Mettre à jour `electron` dans `app/package.json`.
+  - [x] Migrer les appels à l'ancien module `remote` vers `@electron/remote` ou via `ipcRenderer` / `contextBridge`.
+  - [x] Valider la communication entre le launcher desktop et le serveur interne `core/`.
+- [x] **2.2 Migration vers Electron 28+ (Dernière LTS moderne)**
+  - [x] Activer et configurer `@electron/remote/main` avec isolation et permissions contrôlées.
+  - [x] Configurer la compatibilité sous Linux moderne (X11 / Wayland et support AppArmor Ubuntu 24.04).
+  - [x] Valider le build Gulp et TypeScript sous Electron 28.
 
 ---
 

@@ -1,12 +1,13 @@
 import * as crypto from "crypto";
 import * as electron from "electron";
+import * as remote from "@electron/remote";
 import * as async from "async";
 import * as fs from "fs";
 import * as fsMkdirp from "mkdirp";
 import * as childProcess from "child_process";
 import * as os from "os";
 
-const currentWindow = electron.remote.getCurrentWindow();
+const currentWindow = remote.getCurrentWindow();
 
 const tmpRoot = os.tmpdir();
 const tmpCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -102,7 +103,11 @@ namespace SupApp {
       icon: `${__dirname}/../superpowers.ico`,
       useContentSize: true, autoHideMenuBar: true,
       resizable: options.resizable,
-      webPreferences: { nodeIntegration: false, preload: `${__dirname}/index.js` }
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+        preload: `${__dirname}/index.js`
+      }
     };
 
     if (options.size != null) {
@@ -115,9 +120,10 @@ namespace SupApp {
       electronWindowOptions.minHeight = options.minSize.height;
     }
 
-    const window = new electron.remote.BrowserWindow(electronWindowOptions);
+    const window = new (remote as any).BrowserWindow(electronWindowOptions);
+    (remote as any).enable(window.webContents);
 
-    window.webContents.on("will-navigate", (event: Event) => { event.preventDefault(); });
+    (window.webContents as any).on("will-navigate", (event: Event) => { event.preventDefault(); });
     window.loadURL(url);
     return window;
   }
@@ -125,9 +131,9 @@ namespace SupApp {
   export function openLink(url: string) { electron.shell.openExternal(url); }
   export function showItemInFolder(path: string) { electron.shell.showItemInFolder(path); }
 
-  export function createMenu() { return new electron.remote.Menu(); }
+  export function createMenu() { return new (remote as any).Menu(); }
   export function createMenuItem(options: Electron.MenuItemConstructorOptions) {
-    return new electron.remote.MenuItem(options);
+    return new (remote as any).MenuItem(options);
   }
 
   export namespace clipboard {

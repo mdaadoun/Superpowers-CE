@@ -122,6 +122,7 @@ function makeServerPane(serverEntry: ServerEntry) {
     }
 
     const webviewElt = document.createElement("webview");
+    webviewElt.setAttribute("webpreferences", "contextIsolation=no, nodeIntegration=yes");
     webviewElt.preload = `${__dirname}/../../SupApp/index.js`;
 
     function clearEventListeners() {

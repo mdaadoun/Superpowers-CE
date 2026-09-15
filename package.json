@@ -1,6 +1,6 @@
 {
   "name": "superpowers-ce",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Superpowers Community Edition (CE) - 2D/3D Three.js Game Engine & IDE",
   "private": true,
   "scripts": {

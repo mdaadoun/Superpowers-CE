@@ -51,7 +51,7 @@ function onSettingsLoaded(err: Error) {
 
     new dialogs.ConfirmDialog(label, options, (shouldProceed) => {
       if (!shouldProceed) {
-        electron.remote.app.quit();
+        electron.ipcRenderer.send("ready-to-quit");
         return;
       }
 

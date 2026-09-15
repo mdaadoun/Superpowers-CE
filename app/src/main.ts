@@ -5,6 +5,9 @@ import getPaths from "./getPaths";
 import getLanguageCode from "./getLanguageCode";
 import * as SupAppIPC from "./ipc";
 import * as url from "url";
+import * as remoteMain from "@electron/remote/main";
+
+remoteMain.initialize();
 
 let corePath: string;
 let userDataPath: string;
@@ -47,6 +50,9 @@ electron.ipcMain.on("ready-to-quit", (event: Electron.IpcMainEvent) => {
 });
 
 electron.ipcMain.on("show-main-window", () => { restoreMainWindow(); });
+electron.ipcMain.on("toggle-devtools", (event: Electron.IpcMainEvent) => {
+  event.sender.toggleDevTools();
+});
 
 function onAppReady() {
   menu.setup(electron.app);
@@ -122,7 +128,18 @@ function setupMainWindow() {
     minWidth: 800, minHeight: 480,
     useContentSize: true, autoHideMenuBar: true,
     show: false,
-    webPreferences: { nodeIntegration: true, webviewTag: true }
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      webviewTag: true
+    }
+  });
+
+  remoteMain.enable(mainWindow.webContents);
+
+  // Enable remote module on webviews and child windows (such as buildWindow and server webviews)
+  electron.app.on("web-contents-created", (createEvent, contents) => {
+    remoteMain.enable(contents);
   });
 
   mainWindow.loadURL(`file://${__dirname}/renderer/${i18n.getLocalizedFilename("index.html")}`);
@@ -132,7 +149,7 @@ function setupMainWindow() {
     mainWindow.show();
   });
 
-  mainWindow.webContents.on("will-navigate", (event: Event, newURL: string) => {
+  (mainWindow.webContents as any).on("will-navigate", (event: Event, newURL: string) => {
     event.preventDefault();
     electron.shell.openExternal(newURL);
   });
